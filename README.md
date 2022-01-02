@@ -5,9 +5,7 @@ Scripts (including some of the inputs/outputs) are placed in the following folde
 
 ### 1 Processing the datasets
 
-Copy and rename fastq file, get the reads number and nt base name for each metagenome, copy files, run bbmap mapping to get "covstat" file for a subset of metagenomes.
-
-
+Copy fastq file, calculate fastq statistics, and get all metagenome assemblies cov state (or depth) files
 
 ### 2  
 
