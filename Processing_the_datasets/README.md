@@ -2,32 +2,29 @@
 
 **1** **Copy and rename the fastq file according to the metagenome IMG ID**
 
-The "Reads2IMG_ID_map.txt" contains the IMG ID, project description, and reads folder name in IMG download deposit. Use this map to rename fastq files
+The "Reads2IMG_ID_map.txt" contains the IMG ID, project description, and reads folder name in IMG download deposit. Use this map to rename fastq files.
 
 [script] 01.copy_n_rename_fastq.pl
 
 [input] Reads2IMG_ID_map.txt
 
-**2 Make DIAMOND database**
+**2 Get reads number and nucleotide base number for each fastq (interleaved)**
 
-`diamond makedb --in SRS1735492.faa --db viral_proteins --threads 10`
+Use "reformat.sh" firstly get all the information of each interleaved fastq file, then parse it to get reads number and nucleotide base number for each fastq.
 
-**Perform all-vs-all BLASTP**
-`diamond blastp --query SRS1735492.faa --db viral_proteins --out blastp.tsv --outfmt 6 --evalue 1e-5 --max-target-seqs 10000 --query-cover 50 --subject-cover 50`
+[script] 02.get_reads_num_n_base_num.pl
 
-**Compute AAI from BLAST results**
-`python amino_acid_identity.py --in_faa SRS1735492.faa --in_blast blastp.tsv --out_tsv aai.tsv`
+**3 Move IMG tar.gz and Binning Data tar.gz files**
 
-Amino acid identity is computed based on the average BLAST percent identity between all genes shared between each pair of genomes (E-value <1e-5)
+For each IMG ID there is a IMG tar.gz file ("33***.tar.gz") contains all the assemblies and relevant annotation files inside. And for some of metagenomes, metagenome binning has been done by IMG annotation pipeline, and a "Binning_Data.tar.gz" was provided containing all the bins.
 
-**Filter edges and prepare MCL input**
-`python filter_aai.py --in_aai aai.tsv --min_percent_shared 20 --min_num_shared 16 --min_aai 40 --out_tsv genus_edges.tsv`
-`python filter_aai.py --in_aai aai.tsv --min_percent_shared 10 --min_num_shared 8 --min_aai 20 --out_tsv family_edges.tsv`
+[script] 03.copy_tar.gz_files_n_dzip.pl  -  for IMG tar.gz
 
-Here we're keeping edges between genomes with >=20% AAI and genomes with either 8 shared genes or at least 20% of shared genes (relative to both genomes)
+[script] 03.copy_tar.gz_files_n_dzip.02.pl - for Binning Data tar.gz
 
-**Perform MCL-based clustering**
-`mcl genus_edges.tsv -te 8 -I 2.0 --abc -o genus_clusters.txt`
-`mcl family_edges.tsv -te 8 -I 1.2 --abc -o family_clusters.txt`
+**4 Run bbmap to get covstat files for some of the metagenomes**
 
-In the output each row indictes the members belonging to each cluster (including singletons)
+For some of metagenomes, in the folder ("33***.tar.gz") there is not a "$img_id.a\.depth\.txt" file containing the depth information of all assemblies. We run bbmap to calculate "$img_id.covstat" for these metagenomes.
+
+[script] 04.run_bbmap_mapping.pl
+
