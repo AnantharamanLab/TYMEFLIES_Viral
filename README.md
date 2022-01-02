@@ -3,11 +3,11 @@ The repository store scripts for the project of "TYMEFLIES_Viral" - Study of the
 
 Scripts (including some of the inputs/outputs) are placed in the following folders:
 
-1) Processing the datasets
+### 1 Processing the datasets
 
 Copy and rename fastq file, get the reads number and nt base name for each metagenome, copy files, run bbmap mapping to get "covstat" file for a subset of metagenomes.
 
 
 
-2)
+### 2  
 
