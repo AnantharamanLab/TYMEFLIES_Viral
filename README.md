@@ -9,5 +9,10 @@ Scripts (including some of the inputs/outputs) are placed in the following folde
 
 3 [Reconstruct vMAGs](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Reconstruct_vMAGs): Recontruct vMAGs using vRhyme, get the best set of phage bins using stringent criteria, run CheckV to get phage vMAG quality, and summarize AMGs for all metagenomes
 
-4 Cluster vMAGs: 
+4 [Cluster vMAGs](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Cluster_vMAGs): Cluster vMAGs by dRep into vOTUs
 
+
+
+
+
+Additional 1 [Database processing](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_processing): Process IMG V/R v3, 
