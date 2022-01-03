@@ -2,7 +2,7 @@
 
 **1 IMG V/R v3**
 
-IMG_VR_2020-10-12_5.1 - IMG/VR v3 
+IMG_VR_2020-10-12_5.1 - IMG/VR v3  (for [Cluster vMAGs](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Cluster_vMAGs))
 
 The link: https://genome.jgi.doe.gov/portal/IMG_VR/IMG_VR.home.html
 
