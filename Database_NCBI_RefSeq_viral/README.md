@@ -2,7 +2,7 @@
 
 1) NCBI RefSeq viral: Downloaded from https://ftp.ncbi.nlm.nih.gov/refseq/release/viral/
 
-The last modified date of this database is: 2021-11-04 (for Taxonomical Classification)
+The last modified date of this database is: 2021-11-04 (for [Taxonomical Classification](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Taxonomic_classification))
 
 2) ICTV_Master_Species_List_2020.v1.txt is the 2021/5/10 release version (MSL #36)
 
