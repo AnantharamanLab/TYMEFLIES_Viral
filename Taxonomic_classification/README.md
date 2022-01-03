@@ -1,5 +1,7 @@
 # Taxonomic classification
 
+(The method was based on *Nucleic Acids Res*. 2021 Jan 8;49(D1):D764-D775. doi: 10.1093/nar/gkaa946. Link: https://academic.oup.com/nar/article/49/D1/D764/5952208)
+
 **1 Run diamond to NCBI RefSeq to determine phage genome classification**
 
 Use all phage faa files to compare against NCBI Viral RefSeq proteins with diamond.
