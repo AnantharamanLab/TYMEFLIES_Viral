@@ -1,4 +1,4 @@
-#  **Identifying_phages_and_find_active_prophages** 
+#  **Identify phages and find active prophages** 
 
 **1 Run VIBRANT to get viral (phage) scaffolds from metagenomes**
 

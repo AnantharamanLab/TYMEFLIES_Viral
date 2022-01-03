@@ -1,4 +1,4 @@
-# Processing the datasets
+# Process the datasets
 
 **1** **Copy and rename the fastq file according to the metagenome IMG ID**
 
