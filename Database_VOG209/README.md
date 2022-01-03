@@ -1,13 +1,14 @@
 # VOG209
 
-VOG209 HMMs
-Release date    Dec 07, 2021
-Release number  vog209
-Data source     NCBI Refseq release 209
+Release date: Dec 07, 2021
+
+Release number: VOG209
+
+Data source: NCBI Refseq release 209
 
 Number of HMMs in this release: 28406 (only the marker HMMs will be used)
 
-(for [Taxonomical Classification](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Taxonomic_classification))
+(for [Taxonomical classification](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Taxonomic_classification))
 
 587 marker genes table ("VOG_marker_table.txt")
 This table is derived from Supplementary Table S2 https://academic.oup.com/nar/article/49/D1/D764/5952208
