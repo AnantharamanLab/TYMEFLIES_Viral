@@ -46,5 +46,26 @@ Make vOTU representative list; pick the high quality and long phage genome from 
 
 
 
+2 NCBI RefSeq viral
+
+1) NCBI RefSeq viral: Downloaded from https://ftp.ncbi.nlm.nih.gov/refseq/release/viral/
+
+The last modified date of this database is: 2021-11-04 (for Taxonomical Classification)
+
+2) ICTV_Master_Species_List_2020.v1.txt is the 2021/5/10 release version (MSL #36)
+
+
+
+
+
+The "viral.protein.ictv_8_rank_tax.txt" is the tax map for RefSeq viral proteins (not all proteins have a corresponding tax tag)
+in which the tax is in the style of ICTV (8 ranks in total)
+
+
+
+
+
+
+
 
 
