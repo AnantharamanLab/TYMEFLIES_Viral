@@ -1,5 +1,5 @@
 # TYMEFLIES_Viral
-The repository stores scripts for the project of "TYMEFLIES_Viral" - Study of the viral population based on 20-year time series metagenome data from Lake Mendota, Madison, Wisconsin, United States  (metagenomes are obtained from lake water from pelagic integrated epilimnion zone)
+The repository stores scripts for the project of "TYMEFLIES_Viral" - Study of the viral population based on 20-year time series metagenome data from Lake Mendota, Madison, Wisconsin, United States  (metagenomes are obtained from lake water from pelagic integrated epilimnion zone).
 
 Scripts (including some of the inputs/outputs) are placed in the following folders:
 
@@ -15,11 +15,11 @@ Scripts (including some of the inputs/outputs) are placed in the following folde
 
 
 
+Database processing scripts are placed in the following folders:
 
+Database 1 [Database IMGVR ](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_IMGVR): IMG_VR_2020-10-12_5.1 - IMG/VR v3 (for [Cluster vMAGs](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Cluster_vMAGs)) 
 
-Additional 1 [Database IMGVR ](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_IMGVR): IMG_VR_2020-10-12_5.1 - IMG/VR v3 (for [Cluster vMAGs](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Cluster_vMAGs)) 
+Database 2 [Database NCBI RefSeq viral](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_NCBI_RefSeq_viral):  NCBI RefSeq viral (2021-11-04 release) (for [Taxonomical classification](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Taxonomic_classification)) 
 
-Additional 2 [Database NCBI RefSeq viral](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_NCBI_RefSeq_viral):  NCBI RefSeq viral (2021-11-04 release) (for [Taxonomical classification](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Taxonomic_classification)) 
-
-Additional 3 [ Database VOG209](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_IMGVR):   VOG209 HMMs Release date Dec 07, 2021 (for [Taxonomical classification](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Taxonomic_classification)) 
+Database 3 [ Database VOG209](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_IMGVR):   VOG209 HMMs Release date Dec 07, 2021 (for [Taxonomical classification](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Taxonomic_classification)) 
 
