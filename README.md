@@ -21,5 +21,5 @@ Database processing scripts are placed in the following folders:
 
 2 [Database NCBI RefSeq viral](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_NCBI_RefSeq_viral):  NCBI RefSeq viral (2021-11-04 release) (for [Taxonomical classification](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Taxonomic_classification)) 
 
-3 [ Database VOG209](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_IMGVR):   VOG209 HMMs Release date Dec 07, 2021 (for [Taxonomical classification](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Taxonomic_classification)) 
+3 [ Database VOG209](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_VOG209):   VOG209 HMMs Release date Dec 07, 2021 (for [Taxonomical classification](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Taxonomic_classification)) 
 
