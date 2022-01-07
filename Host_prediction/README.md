@@ -1,1 +1,25 @@
+# Host prediction
+
+(The method was based on *Nucleic Acids Res*. 2021 Jan 8;49(D1):D764-D775. doi: 10.1093/nar/gkaa946. Link: https://academic.oup.com/nar/article/49/D1/D764/5952208).
+
+It contains two approaches to find hosts: 
+
+1) search sequence similarity to a microbial genome 
+
+2) match to CRISPR spacers
+
+
+
+**1 Filter MAGs **
+
+MAGs from TYMEFLIES and GEM databases are used as the reference to find virus-host association for the approach #1.  MAG contigs which were mainly viral (i.e. hit to a viral sequence at ≥90% identity over ≥ 50% of the host contig) were excluded as these can be incorrectly binned. Run blastn to find these potential viral contigs from all MAGs.
+
+The queries are: TYMEFLIES and GEM MAGs (split into 20000-seqs fsa file individually for a better parallel running)
+
+The blastn database (viral sequences) include: 
+
+1) [IMG VR v3 all phages](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_IMGVR) 2) [NCBI RefSeq all viruses](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_NCBI_RefSeq_viral)
+3) TYMEFLIES all phages 4) Lake Mendota time series (2008-2012) all phages 
+
+[script] 18.host_prediction.run_blastn_to_filter_MAGs.step1.pl
 
