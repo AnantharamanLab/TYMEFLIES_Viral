@@ -17,9 +17,13 @@ Scripts (including some of the inputs/outputs) are placed in the following folde
 
 Database processing scripts are placed in the following folders:
 
-1 [Database IMGVR ](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_IMGVR): IMG_VR_2020-10-12_5.1 - IMG/VR v3 (for [Cluster vMAGs](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Cluster_vMAGs)) 
+1 [Database IMGVR ](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_IMGVR): IMG_VR_2020-10-12_5.1 - IMG/VR v3 (for [Cluster vMAGs](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Cluster_vMAGs) and [Host prediction](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Host_prediction)) 
 
-2 [Database NCBI RefSeq viral](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_NCBI_RefSeq_viral):  NCBI RefSeq viral (2021-11-04 release) (for [Taxonomical classification](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Taxonomic_classification)) 
+2 [Database NCBI RefSeq viral](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_NCBI_RefSeq_viral):  NCBI RefSeq viral (2021-11-04 release) (for [Taxonomical classification](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Taxonomic_classification) and [Host prediction](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Host_prediction)) 
 
 3 [ Database VOG209](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_VOG209):   VOG209 HMMs Release date Dec 07, 2021 (for [Taxonomical classification](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Taxonomic_classification)) 
+
+4 [ Database TYMEFLIES MAGs](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_TYMEFLIES_MAGs): MAGs in IMG platform (for [Host prediction](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Host_prediction)) 
+
+5 [ Database GEM](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_GEM): MAGs from GEM (A genomic catalog of Earth’s microbiomes) (for [Host prediction](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Host_prediction)) 
 

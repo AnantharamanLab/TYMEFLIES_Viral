@@ -14,3 +14,8 @@ Get the consensus taxonomic affiliation based on the best hits of individual pro
 
 **2 Run hmmsearch to VOG marker HMM to determine phage genome classification**
 
+Use all phage faa files to compare against VOG 587 marker HMM with hmmsearch
+
+Get the consensus taxonomic affiliation based on individual markers detected by a simple plurality rule, If there are multiple conflicting markers detected .
+
+[script] 16.taxonomic_classification.run_hmmsearch_to_VOG_marker.pl

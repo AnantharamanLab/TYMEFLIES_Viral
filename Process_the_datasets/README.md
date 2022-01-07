@@ -16,7 +16,7 @@ Use "reformat.sh" firstly get all the information of each interleaved fastq file
 
 **3 Move IMG tar.gz and Binning Data tar.gz files**
 
-For each IMG ID there is a IMG tar.gz file ("33***.tar.gz") contains all the assemblies and relevant annotation files inside. And for some of metagenomes, metagenome binning has been done by IMG annotation pipeline, and a "Binning_Data.tar.gz" was provided containing all the bins.
+For each IMG ID there is a IMG tar.gz file ("33***.tar.gz") contains all the assemblies and relevant annotation files inside. And for some of metagenomes (416 out of 465 metagenomes), metagenome binning has been done by IMG annotation pipeline, and a "Binning_Data.tar.gz" was provided containing all the bins.
 
 [script] 03.copy_tar.gz_files_n_dzip.pl  -  for IMG tar.gz
 
