@@ -23,3 +23,23 @@ The blastn database (viral sequences) include:
 
 [script] 18.host_prediction.run_blastn_to_filter_MAGs.step1.pl
 
+
+
+
+
+**2 Find CRISPR spacers from TYMEFLIES and GEM MAGs**
+
+Two bioinformatics tools were used to identify CRISPRs from MAGs: 1) MinCED (https://github.com/ctSkennerton/minced) 2) PILER-CR (https://www.drive5.com/pilercr/) by using default settings. 
+
+[script] 20.host_prediction.find_crispr_from_MAGs.pl
+
+**3 Find MAG CRISPR spacer to phage matches by blastn**
+
+Use blastn to search hits of spacer matches from all phage genome scaffolds. Two categories of spacer matches were summarized:
+
+1) have 0 or 1 mismatch over the entire spacer length (‘CRISPR (near)identical’) 
+2) have ≥ 80% identity over the entire spacer length (‘CRISPR multiple partial’)
+
+This is according to the methods in https://academic.oup.com/nar/article/49/D1/D764/5952208
+
+[script] 21.host_prediction.run_blastn_to_find_matches.pl
