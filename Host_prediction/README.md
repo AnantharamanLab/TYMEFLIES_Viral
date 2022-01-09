@@ -43,3 +43,9 @@ Use blastn to search hits of spacer matches from all phage genome scaffolds. Two
 This is according to the methods in https://academic.oup.com/nar/article/49/D1/D764/5952208
 
 [script] 21.host_prediction.run_blastn_to_find_matches.pl
+
+**4 Find host for prophage**
+
+Prophage scaffold were derived from its host. Find host from TYMEFLIES MAGs that contains the scaffold where the prophage was located.
+
+[script] 22.host_prediction.find_prophage_host.pl
