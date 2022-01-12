@@ -21,7 +21,7 @@ The blastn database (viral sequences) include:
 1) [IMG VR v3 all phages](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_IMGVR) 2) [NCBI RefSeq all viruses](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_NCBI_RefSeq_viral)
 3) TYMEFLIES all phages 4) Lake Mendota time series (2008-2012) all phages 
 
-[script] 18.host_prediction.run_blastn_to_filter_MAGs.step1.pl
+[script] 06.Host_prediction.step1.run_blastn_to_filter_MAGs.pl
 
 
 
@@ -31,7 +31,7 @@ The blastn database (viral sequences) include:
 
 Two bioinformatics tools were used to identify CRISPRs from MAGs: 1) MinCED (https://github.com/ctSkennerton/minced) 2) PILER-CR (https://www.drive5.com/pilercr/) by using default settings. 
 
-[script] 20.host_prediction.find_crispr_from_MAGs.pl
+[script] 06.Host_prediction.step3.find_crispr_from_MAGs.pl
 
 **3 Find MAG CRISPR spacer to phage matches by blastn**
 
@@ -42,10 +42,10 @@ Use blastn to search hits of spacer matches from all phage genome scaffolds. Two
 
 This is according to the methods in https://academic.oup.com/nar/article/49/D1/D764/5952208
 
-[script] 21.host_prediction.run_blastn_to_find_matches.pl
+[script] 06.Host_prediction.step4.run_blastn_to_find_matches.pl
 
 **4 Find host for prophage**
 
 Prophage scaffold were derived from its host. Find host from TYMEFLIES MAGs that contains the scaffold where the prophage was located.
 
-[script] 22.host_prediction.find_prophage_host.pl
+[script] 06.Host_prediction.step6.find_prophage_host.pl

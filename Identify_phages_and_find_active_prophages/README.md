@@ -4,7 +4,7 @@
 
 Use default settings, the minimum input scaffold length is 1000 bp. VIBRANT link: https://github.com/AnantharamanLab/VIBRANT
 
-[script] 05.run_VIBRANT.pl
+[script] 02.Identify_phages_and_find_active_prophages.step1.run_VIBRANT.pl
 
 **2 Parse VIBRANT result folder to do modifications**
 
@@ -27,13 +27,13 @@ Cutoff for three or more prophages:
 
 Use default settings. PropagAtE link: https://github.com/AnantharamanLab/PropagAtE
 
-[script] 06.run_PropagAtE.pl
+[script] 02.Identify_phages_and_find_active_prophages.step2.run_PropagAtE.pl
 
 **4 Run CheckV to get quality summary of all identified phage scaffolds**
 
 Use default settings. CheckV link: https://bitbucket.org/berkeleylab/CheckV
 
-[script] 07.run_checkV.pl
+[script] 02.Identify_phages_and_find_active_prophages.step3.run_checkV.pl
 
 **5 Summarize VIBRANT result**
 
@@ -55,7 +55,7 @@ Prophage num
 
 Complete phage num
 
-[script] 08.summarize_VIBRANT_result.v2.pl
+[script] 02.Identify_phages_and_find_active_prophages.step3.summarize_VIBRANT_result.v2.pl
 
 
 

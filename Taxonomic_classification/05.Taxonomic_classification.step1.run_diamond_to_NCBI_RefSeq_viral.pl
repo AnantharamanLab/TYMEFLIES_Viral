@@ -6,13 +6,18 @@ use warnings;
 # AIM: Use all phage faa files to compare against NCBI Viral RefSeq proteins with diamond
 
 # Step 1. Make tmp file to run diamond in batch
-my %Faa = (); # $faa_full_path (full path to the faa file) => $faa
+#my %Faa = (); # $faa_full_path (full path to the faa file) => $faa
+my %IMG_ID = (); # $img_id => 1
 open IN, "find /storage1/data11/TYMEFLIES_phage/33*/vRhyme_best_bins_fasta_parsed -name '*.faa' |";
 while (<IN>){
 	chomp;
 	my $faa_full_path = $_;
 	my ($faa) = $faa_full_path =~ /vRhyme_best_bins_fasta_parsed\/(.+?)\.faa/; # Store the name of faa like: 3300020480__vRhyme_unbinned31
-	$Faa{$faa_full_path} = $faa;
+	#$Faa{$faa_full_path} = $faa;
+	
+	my ($img_id) = $faa =~ /^(.+?)\_\_/;
+	$IMG_ID{$img_id} = 1;
+
 }
 close IN;
 
@@ -21,21 +26,25 @@ my $diamond_db = "/slowdata/databases/NCBI_RefSeq_viral/viral.protein.w_tax.dmnd
 `mkdir Taxonomic_classification`;
 `mkdir Taxonomic_classification/tmp`;
 
+# Concatenate all phage genomes from one metagenome into one file
+foreach my $img_id (sort keys %IMG_ID){
+	`find /storage1/data11/TYMEFLIES_phage/$img_id/vRhyme_best_bins_fasta_parsed -name '*.faa' -exec cat {} + > Taxonomic_classification/tmp/$img_id.phage_genome.faa`;
+}
+
 open OUT, ">tmp.run_diamond_to_NCBI_RefSeq_viral.sh";
-foreach my $faa (sort keys %Faa){
-	my $faa_name = $Faa{$faa};
-	print OUT "diamond blastp -q $faa --db $diamond_db --evalue 0.00001 --query-cover 50 --subject-cover 50 -k 10000 -o Taxonomic_classification/tmp/$faa_name.diamond_out.txt -f 6\n";
+foreach my $img_id (sort keys %IMG_ID){
+	print OUT "diamond blastp -q Taxonomic_classification/tmp/$img_id.phage_genome.faa -p 1 --db $diamond_db --evalue 0.00001 --query-cover 50 --subject-cover 50 -k 10000 -o Taxonomic_classification/tmp/$img_id.diamond_out.txt -f 6\n";
 }
 close OUT;
 
 # Step 3. Run diamond in batch
-`cat tmp.run_diamond_to_NCBI_RefSeq_viral.sh | parallel -j 20`;
+`cat tmp.run_diamond_to_NCBI_RefSeq_viral.sh | parallel -j 10`;
 
 `rm tmp.run_diamond_to_NCBI_RefSeq_viral.sh`;
 
 # Step 4. Summarize the result
 ## Step 4.1 Store all faa sequence to faa file map
-my %Faa_seq2faa = (); # $faa_seq => $faa
+my %Faa_seq2faa = (); # $faa_seq => $faa (here, $faa_seq is the head line of each sequence, $faa is the vMAG name)
 my %Faa_seq_collection = (); # $faa => all the collection of $faa_seq (separated by "\t")
 my %Faa2seq_num = (); # Store the number of sequences in each faa; $faa => $faa_seq_num
 open IN, "find /storage1/data11/TYMEFLIES_phage/33*/vRhyme_best_bins_fasta_parsed -name '*.faa' |";
@@ -85,19 +94,35 @@ open IN, "find Taxonomic_classification/tmp -name '*.diamond_out.txt' |";
 while (<IN>){
 	chomp;
 	my $diamond_out_file = $_;
-	my ($faa) = $diamond_out_file =~ /Taxonomic_classification\/tmp\/(.+?)\.diamond/; # Here $faa is actually the phage bin name
+	my ($img_id) = $diamond_out_file =~ /Taxonomic_classification\/tmp\/(.+?)\.diamond/; # Here $faa is actually the phage bin name
 	if (-s $diamond_out_file){ # If the $diamond_out_file is not empty
-		my %Pro2best_hit = _find_best_hits("$diamond_out_file");
-		my $pro_num_w_best_hit = scalar (keys %Pro2best_hit);   # The number of proteins within the $faa have best hits
-		my $faa_seq_num = $Faa2seq_num{$faa}; # The total protein number from this $faa
-		if ($pro_num_w_best_hit / $faa_seq_num >= 0.3){ # To see if >= 30% of the proteins for a faa have a hit to Viral RefSeq
-			my @Best_hits = ();
-			foreach my $pro (sort keys %Pro2best_hit){
-				my $best_hit = $Pro2best_hit{$pro};
-				push @Best_hits, $best_hit;
+		my %IMG_Pro2best_hit = _find_best_hits("$diamond_out_file"); # This is the result for a whole metagenome (for each $img_id)
+		my %Faa_involved = (); # $faa => 1; Store the $faa that have sequences inside have the best hit
+		foreach my $pro (sort keys %IMG_Pro2best_hit){
+			my $faa = $Faa_seq2faa{$pro};
+			$Faa_involved{$faa} = 1;
+		}
+		# Split the best hit result into each bin ($faa)
+		foreach my $faa (sort keys %Faa_involved){
+			my %Pro2best_hit = (); # Store all the proteins that have best hits in this $faa
+			
+			foreach my $pro (sort keys %IMG_Pro2best_hit){
+				if ($Faa_seq2faa{$pro} eq $faa){
+					$Pro2best_hit{$pro} = $IMG_Pro2best_hit{$pro};
+				}
 			}
-			my $best_hits = join("\t",@Best_hits);
-			$Faa2best_hits{$faa} = $best_hits; 
+			
+			my $pro_num_w_best_hit = scalar (keys %Pro2best_hit);   # The number of proteins within the $faa have best hits
+			my $faa_seq_num = $Faa2seq_num{$faa}; # The total protein number from this $faa
+			if ($pro_num_w_best_hit / $faa_seq_num >= 0.3){ # To see if >= 30% of the proteins for a faa have a hit to Viral RefSeq
+				my @Best_hits = ();
+				foreach my $pro (sort keys %Pro2best_hit){
+					my $best_hit = $Pro2best_hit{$pro};
+					push @Best_hits, $best_hit;
+				}
+				my $best_hits = join("\t",@Best_hits);
+				$Faa2best_hits{$faa} = $best_hits; 
+			}
 		}
 	}
 }
@@ -139,7 +164,7 @@ foreach my $key (sort keys %Faa2consensus_tax){
 }
 close OUT;
 
-`rm -r Taxonomic_classification/tmp`;
+#`rm -r Taxonomic_classification/tmp`;
 
 
 

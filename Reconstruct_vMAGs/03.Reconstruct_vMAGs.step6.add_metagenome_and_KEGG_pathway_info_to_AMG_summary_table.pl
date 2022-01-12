@@ -12,7 +12,7 @@ my %Meta_info = (); # $img_id => $date_and_season (for example, "2000-03-15	| 75
 open IN, "TYMEFLIES_metagenome_info.txt";
 while (<IN>){
 	chomp;
-	if (!/^#/){
+	if (!/^IMG/){
 		my @tmp = split (/\t/);
 		my $img_id = $tmp[0];
 		my $date_and_season = "$tmp[8] \| $tmp[9] \| $tmp[10]";
@@ -41,7 +41,7 @@ close IN;
 
 # Store AMG summary table
 my %AMG_summary = (); # $pro => [0] $amg_ko [1] $amg_ko_name [2] $pfam [3] $pfam_name
-open IN, "AMG_summary.txt";
+open IN, "AMG_analysis/AMG_summary.txt";
 while (<IN>){
 	chomp;
 	if (/^protein/){
@@ -105,7 +105,7 @@ foreach my $pro (sort keys %AMG_summary){
 }
 
 # Write down new AMG_summary.txt
-open OUT, ">AMG_summary_new.txt";
+open OUT, ">AMG_analysis/AMG_summary_new.txt";
 print OUT "Protein\tMetagenome date and season ('date | date in the year | season')\tAMG KO\tAMG KO name\tPfam\tPfam name\tMetabolisms (mutiple metabolisms separated by '|')\tPathways (mutiple pathways separated by '|')\n";
 foreach my $pro (sort keys %AMG_summary){
 	my $date_and_season = $AMG_summary{$pro}[4];
@@ -120,11 +120,11 @@ foreach my $pro (sort keys %AMG_summary){
 close OUT;
 
 # Sort the result by date
-`cat AMG_summary_new.txt | sort -k 2 -n > tmp`;
-`mv tmp AMG_summary_new.txt`;
+`cat AMG_analysis/AMG_summary_new.txt | sort -k 2 -n > tmp`;
+`mv tmp AMG_analysis/AMG_summary_new.txt`;
 
 # Replace the old summary file
-`rm AMG_summary.txt`;
-`mv AMG_summary_new.txt AMG_summary.txt`;
+`rm AMG_analysis/AMG_summary.txt`;
+`mv AMG_analysis/AMG_summary_new.txt AMG_analysis/AMG_summary.txt`;
 
 

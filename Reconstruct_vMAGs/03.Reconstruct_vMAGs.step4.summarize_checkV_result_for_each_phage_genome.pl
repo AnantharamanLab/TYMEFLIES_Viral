@@ -7,7 +7,7 @@ use warnings;
 
 # Store all metagenomes
 my %IMGID = (); # $img_id => 1
-open IN, "ls -l | sed -r s'/ +/\t/g' | grep ^d | cut -f 9 | grep '33' |";
+open IN, "ls -l | sed -r s'/ +/\t/g' | grep ^d | cut -f 9 | grep '^33' |";
 while (<IN>){
 	chomp;
 	my $img_id = $_;

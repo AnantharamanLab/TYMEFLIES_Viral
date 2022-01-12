@@ -6,7 +6,7 @@ use warnings;
 # Aim: Using dRep to cluster phage genomes in this study and vOTU representatives
 
 # Copy and rename all phages genomes in this study
-
+=pod
 `mkdir dRep_working_dir`;
 `mkdir dRep_working_dir/phage_genomes`;
 
@@ -43,8 +43,74 @@ close OUT;
 `rm tmp.copy_and_rename_vOTU_representatives_phage_genomes.sh`;
 
 
+# Make phage_genomes_list.txt (contains both vOTU representatives and phage genomes from this study)
+`find /storage1/data11/TYMEFLIES_phage/dRep_working_dir/phage_genomes -name "*.fasta" > /storage1/data11/TYMEFLIES_phage/dRep_working_dir/phage_genomes_list.txt`;
+=cut
+# Make individual phage genome lists for individual years
+# Store all metagenomes info
+my %Meta_info = (); # $img_id => $year (for example, "2000")
+my %Years = (); # $year => 1
+open IN, "TYMEFLIES_metagenome_info.txt";
+while (<IN>){
+	chomp;
+	if (!/^IMG/){
+		my @tmp = split (/\t/);
+		my $img_id = $tmp[0];
+		my $date = $tmp[8];
+		my ($year) = $date =~ /^(\d\d\d\d)\-/;
+		$Years{$year} = 1;
+		$Meta_info{$img_id} = $year;
+	}
+}
+close IN;
+
+# Make each year's genome list
+my %IMGID2Gn_adr = (); # Store all genome adr; $img_id => $gn_adr collection (separated by "\t")
+open IN, "/storage1/data11/TYMEFLIES_phage/dRep_working_dir/phage_genomes_list.txt";
+while (<IN>){
+	chomp;
+	my $gn_adr = $_;
+	if ($gn_adr =~ /vRhyme/){
+		my ($img_id) = $gn_adr =~ /phage_genomes\/(\d+?)__vRhyme/;
+		if (!exists $IMGID2Gn_adr{$img_id}){
+			$IMGID2Gn_adr{$img_id} = $gn_adr;
+		}else{
+			$IMGID2Gn_adr{$img_id} .= "\t".$gn_adr;
+		}
+	}
+}
+close IN;
+
+foreach my $year (sort keys %Years){
+	my %Gn_adrs_for_this_year = (); # $gn_list => 1
+	foreach my $img_id (sort keys %IMGID2Gn_adr){
+		if ($Meta_info{$img_id} eq $year){
+			my $gn_adrs = $IMGID2Gn_adr{$img_id};
+			my @Gn_adrs = split (/\t/,$gn_adrs);
+			foreach my $gn_adr (@Gn_adrs){
+				$Gn_adrs_for_this_year{$gn_adr} = 1;
+			}
+		}
+	}
+	
+	open OUT, ">/storage1/data11/TYMEFLIES_phage/dRep_working_dir/phage_genomes_list.$year.txt";
+	foreach my $gn_adr (sort keys %Gn_adrs_for_this_year){
+		print OUT "$gn_adr\n";
+	}
+	close OUT;
+}
+
 # Run dRep 
-`dRep dereplicate dRep_working_dir/Output_directory -p 50 -g /storage1/data11/TYMEFLIES_phage/dRep_working_dir/phage_genomes_list.txt -l 2000 --ignoreGenomeQuality -pa 0.8 -sa 0.95 -nc 0.85 --multiround_primary_clustering --run_tertiary_clustering -comW 0 -conW 0 -strW 0 -N50W 0 -sizeW 1 -centW 0`;
+open OUT, ">tmp.run_dRep.sh";
+foreach my $year (sort keys %Years){
+	print OUT "dRep dereplicate dRep_working_dir/Output_directory.$year -p 15 -g /storage1/data11/TYMEFLIES_phage/dRep_working_dir/phage_genomes_list.$year.txt -l 2000 --ignoreGenomeQuality -pa 0.8 -sa 0.95 -nc 0.85 --multiround_primary_clustering --run_tertiary_clustering -comW 0 -conW 0 -strW 0 -N50W 0 -sizeW 1 -centW 0\n";
+}
+close OUT;
+
+`cat tmp.run_dRep.sh | parallel -j 2`;
+
+`rm tmp.run_dRep.sh`;
+
 
 ##########################################################################
 # Details of options (from website https://drep.readthedocs.io/en/latest/module_descriptions.html#dereplicate):

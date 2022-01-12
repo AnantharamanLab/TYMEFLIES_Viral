@@ -2,15 +2,17 @@
 
 **1 Cluster vMAGs**
 
-Using dRep to cluster phage genomes in this study and vOTU representatives.
+Using dRep to cluster phage genomes in this study 
 
-We used the vOTU representatives from 935362 vOTUs from IMG_VR_2020-10-12_5.1 - IMG/VR v3.
+This script conducts phage genome clustering by two steps:
 
-The methods to process the dataset of IMG_VR_2020-10-12_5.1 and get vOTU representatives were placed in folder "".
+1) Cluster phage genomes in each year (20 years in total)
 
-Phage genomes and vOTU representatives were placed together as the input genomes for "dRep dereplicate".
+2) Pick vOTU representatives from each year and re-cluster by dRep to get final vOTUs
+
+Phage genomes were placed together as the input genomes for "dRep dereplicate".
 
 For "dRep dereplicate" settings for clustering phage genomes, please see the annotation information within the script.
 
-[script] 14.run_dRep_to_make_vOTUs.pl
+[script] 04.Cluster_vMAGs.step1.run_dRep_to_make_vOTUs.pl
 

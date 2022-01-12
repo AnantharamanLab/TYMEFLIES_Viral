@@ -9,7 +9,7 @@ use warnings;
 
 # Store all metagenomes
 my %IMGID = (); # $img_id => 1
-open IN, "ls -l | sed -r s'/ +/\t/g' | grep ^d | cut -f 9 | grep '33' |";
+open IN, "ls -l | sed -r s'/ +/\t/g' | grep ^d | cut -f 9 | grep '^33' |";
 while (<IN>){
 	chomp;
 	my $img_id = $_;
@@ -85,7 +85,8 @@ foreach my $img_id (sort keys %IMGID){
 }
 
 # Store the my %AMG_summary = (); # $pro_full => [0] $amg_ko, [1] $amg_ko_name, [2] $pfam, [3] $pfam_name
-open OUT, ">AMG_summary.txt";
+`mkdir AMG_analysis`;
+open OUT, ">AMG_analysis/AMG_summary.txt";
 print OUT "protein\tAMG KO\tAMG KO name\tPfam\tPfam name\n";
 foreach my $pro_full (sort keys %AMG_summary){
 	print OUT "$pro_full\t$AMG_summary{$pro_full}[0]\t$AMG_summary{$pro_full}[1]\t$AMG_summary{$pro_full}[2]\t$AMG_summary{$pro_full}[3]\n";
