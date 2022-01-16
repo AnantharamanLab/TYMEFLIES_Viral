@@ -8,7 +8,7 @@ Use all phage faa files to compare against NCBI Viral RefSeq proteins with diamo
 
 To see whether >= 30% of the proteins for a faa (phage genome) have a hit to Viral RefSeq, only count phage genomes that are above this cutoff.
 
-Get the consensus taxonomic affiliation based on the best hits of individual proteins (>= 50 majority rule) for a phage genome.
+Get the consensus taxonomic affiliation based on the best hits of individual proteins (>= 50% majority rule) for a phage genome.
 
 [script] 05.Taxonomic_classification.step1.run_diamond_to_NCBI_RefSeq_viral.pl
 
