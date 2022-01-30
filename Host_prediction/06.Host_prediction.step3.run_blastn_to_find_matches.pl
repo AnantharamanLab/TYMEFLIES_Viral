@@ -92,7 +92,7 @@ close OUT;
 
 # Step 3. Run blastn to find spacer and phage association
 `find /storage1/data11/TYMEFLIES_phage/33*/vRhyme_best_bins_fasta_parsed -name '*.fasta' -exec cat {} + > /storage1/data11/TYMEFLIES_phage/Host_prediction/All_phage_genomes.fasta`;
-=cut
+
 `mkdir Host_prediction/All_phage_genomes_split_fsa`;
 `perl /storage1/data11/TYMEFLIES_phage/split_multifasta.pl --in Host_prediction/All_phage_genomes.fasta --output_dir=Host_prediction/All_phage_genomes_split_fsa --seqs_per_file=10000`;
 
@@ -109,8 +109,8 @@ close OUT;
 
 `cat tmp.run_blastn_to_find_matches_in_parallel.sh | parallel -j 10`;
 `rm tmp.run_blastn_to_find_matches_in_parallel.sh`;
+=cut
 
-=pod
 # Step 4. Parse blastn results to store matches
 # There are two categories of matches: 
 # (1) have 0 or 1 mismatch over the entire spacer length (‘CRISPR (near)identical’) 
@@ -126,29 +126,34 @@ foreach my $key (sort keys %Hash){
 }
 
 ## Step 4.2 Parse blastn results
+=pod
+`cat Host_prediction/all_phage_genome.*.2all_spacer.blastn_out.txt > Host_prediction/all_phage_genome2all_spacer.blastn_out.txt`;
+`rm Host_prediction/all_phage_genome.*.2all_spacer.blastn_out.txt`;
+=cut
 my %CRISPR_near_identical_matches = (); # $match => 1; an example for a match: 2004178001.a:gws2_d1_0103_30__Spacer_0006|3300044846__vRhyme_449__Ga0453141_0000520
 my %CRISPR_partial_matches = (); # $match => 1;
-open IN, "Host_prediction/All_spacer2all_phage_genome.blastn_out.txt";
+open IN, "Host_prediction/all_phage_genome2all_spacer.blastn_out.txt";
 while (<IN>){
 	chomp;
 	my @tmp = split (/\t/);
-	my $spacer = $tmp[0];
-	my $phage_scf = $tmp[1];
+	my $phage_scf = $tmp[0];
+	my $spacer = $tmp[1];
+	
 	my $spacer_length = $Spacer2length{$spacer};
 	
 	my $identity = $tmp[2];
 	my $mismatches = $tmp[4];
 	my $gap_openings = $tmp[5];
 	
-	my $q_start = $tmp[6];
-	my $q_end = $tmp[7];
-	my $spacer_matched_length = abs($q_end - $q_start);
+	my $s_start = $tmp[8];
+	my $s_end = $tmp[9];
+	my $spacer_matched_length = abs($s_end - $s_start) + 1;
 	
 	if ($spacer_matched_length eq $spacer_length){
 		if ($mismatches <= 1 and $gap_openings == 0){
-			$CRISPR_near_identical_matches{"$spacer\|$phage_scf"} = 1;
-		}elsif ($identity >= 80){
-			$CRISPR_partial_matches{"$spacer\|$phage_scf"} = 1;
+			$CRISPR_near_identical_matches{"$phage_scf\|$spacer"} = 1;
+		}elsif ($identity >= 80 and !($mismatches <= 1 and $gap_openings == 0)){
+			$CRISPR_partial_matches{"$phage_scf\|$spacer"} = 1;
 		}
 	}
 }
@@ -158,6 +163,149 @@ my $num_CRISPR_near_identical_matches = scalar (keys (%CRISPR_near_identical_mat
 print "There are $num_CRISPR_near_identical_matches CRISPR (near)identical matches\n";
 my $num_CRISPR_partial_matches = scalar (keys (%CRISPR_partial_matches));
 print "There are $num_CRISPR_partial_matches CRISPR partial matches\n";
+
+# Step 5. Predict host taxonomy
+## Step 5.1 Store phage scf to gn hash
+my %Phage_scf2gn = (); # $scf => $gn
+my %Phage_gn2scf = (); # $gn => $scf collection separated by "\t"
+open IN, "Host_prediction/All_phage_genomes.fasta";
+while (<IN>){
+	chomp;
+	if (/^>/){
+		my $line = $_;
+		my ($scf) = $line =~ /^>(.+?)$/;
+		my ($gn) = $scf =~ /^(.+?\_\_.+?)\_\_.+?$/;
+		$Phage_scf2gn{$scf} = $gn;
+		if (!exists $Phage_gn2scf{$gn}){
+			$Phage_gn2scf{$gn} = $scf;
+		}else{
+			$Phage_gn2scf{$gn} .= "\t".$scf;
+		}
+	}
+}
+close IN;
+
+## Step 5.2 Store spacer to taxonomy hash
+my %MAG_scf2lineage = (); # $scf => $lineage
+open IN, "/storage1/data11/TYMEFLIES_phage/Binning_Data/TYMEFLIES_all_MAGs_stat.txt";
+while (<IN>){
+	chomp;
+	if (!/^IMG/){
+		my @tmp = split (/\t/);
+		my $lineage = $tmp[1];
+		my $scfs = $tmp[4];
+		my @Scfs = split (/\,/,$scfs);
+		foreach my $scf (@Scfs){
+			$MAG_scf2lineage{$scf} = $lineage;
+		}
+	}
+}
+close IN;
+
+open IN, "/slowdata/databases/GEM/GEM_all_MAGs_stat.txt";
+while (<IN>){
+	chomp;
+	if (!/^IMG/){	
+		my @tmp = split (/\t/);
+		my $lineage = $tmp[1];
+		my $scfs = $tmp[4];
+		my @Scfs = split (/\,/,$scfs);
+		if ($lineage ne 'NULL'){
+			foreach my $scf (@Scfs){
+				$MAG_scf2lineage{$scf} = $lineage;
+			}
+		}
+	}
+}
+close IN;
+
+my %Spacer2lineage = (); # $spacer => $lineage
+open IN, "/storage1/data11/TYMEFLIES_phage/Host_prediction/All_spacers.fasta";
+while (<IN>){
+	chomp;
+	if (/^>/){
+		my $line = $_;
+		my ($spacer) = $line =~ /^>(.+?)$/;
+		my ($scf) = $spacer =~ /^(.+?)\_\_Spacer/;
+		my $lineage = "NA";
+		if (exists $MAG_scf2lineage{$scf}){
+			$lineage = $MAG_scf2lineage{$scf};	
+		}
+		$Spacer2lineage{$spacer} = $lineage;
+	}
+}
+close IN;
+
+## Print %Spacer2lineage
+open OUT, ">Host_prediction/Spacer2lineage.txt";
+foreach my $spacer (sort keys %Spacer2lineage){
+	print OUT "$spacer\t$Spacer2lineage{$spacer}\n";
+}
+close OUT;
+
+## Step 5.3 Store phage gn to all lineages (corresponding to its scaffolds)
+my %Phage_gn2lineage = (); # $gn => [0] lineages (separated by "\t") based on CRISPR_near_identical_matches
+                                   #[1] lineages (separated by "\t") based on CRISPR_partial_matches
+
+foreach my $match (sort keys %CRISPR_near_identical_matches){
+	my ($phage_scf,$spacer) = $match =~ /^(.+?)\|(.+?)$/;
+	my $phage_gn = $Phage_scf2gn{$phage_scf};
+	my $lineage = $Spacer2lineage{$spacer};
+	if ($lineage ne 'NA'){ # Do not store "NA" lineage
+		if (!exists $Phage_gn2lineage{$phage_gn}[0]){
+			$Phage_gn2lineage{$phage_gn}[0] = $lineage;
+		}else{
+			$Phage_gn2lineage{$phage_gn}[0] .= "\t".$lineage;
+		}
+	}
+}	
+
+foreach my $match (sort keys %CRISPR_partial_matches){
+	my ($phage_scf,$spacer) = $match =~ /^(.+?)\|(.+?)$/;
+	my $phage_gn = $Phage_scf2gn{$phage_scf};
+	my $lineage = $Spacer2lineage{$spacer};
+	if ($lineage ne 'NA'){	# Do not store "NA" lineage
+		if (!exists $Phage_gn2lineage{$phage_gn}[1]){
+			$Phage_gn2lineage{$phage_gn}[1] = $lineage;
+		}else{
+			$Phage_gn2lineage{$phage_gn}[1] .= "\t".$lineage;
+		}
+	}
+}
+
+## Step 5.4 Store phage gn to final lineage based on 80% consensus on each rank
+my %Phage_gn2lineage_final = (); # $gn => $lineage_final
+foreach my $gn (sort keys %Phage_gn2lineage){
+	my $lineages_by_near_identical_matches = "";
+	if ($Phage_gn2lineage{$gn}[0]){
+		$lineages_by_near_identical_matches = $Phage_gn2lineage{$gn}[0];
+	}
+	my $lineages_by_partial_matches = "";
+	if ($Phage_gn2lineage{$gn}[1]){
+		$lineages_by_partial_matches = $Phage_gn2lineage{$gn}[1];
+	}
+	
+	if ($lineages_by_near_identical_matches){ # If near_identical_matches has hits
+		my @tmp = split (/\t/, $lineages_by_near_identical_matches);
+		my $consensus_lineage = _find_consensus_lineages_based_on_each_rank(@tmp);
+		$Phage_gn2lineage_final{$gn} = $consensus_lineage;
+	}elsif (! $lineages_by_near_identical_matches and $lineages_by_partial_matches){
+		my @tmp = split (/\t/, $lineages_by_partial_matches); 
+		if ((scalar @tmp) >= 2){ # Need to have at least two matches for "partial matches"
+			my $consensus_lineage = _find_consensus_lineages_based_on_each_rank(@tmp);
+			$Phage_gn2lineage_final{$gn} = $consensus_lineage;
+		}
+	}
+}
+
+# Step 5.5 Write down result
+open OUT, ">Host_prediction/Phage_gn2host_tax_by_CRISPR_matches.txt";
+foreach my $gn (sort keys %Phage_gn2lineage_final){
+	print OUT "$gn\t$Phage_gn2lineage_final{$gn}\n";
+}
+close OUT;
+
+
 
 # Subroutine
 
@@ -255,4 +403,100 @@ sub _store_seq{
 	}
 	close _IN;
 	return %Seq;
+}
+
+sub _find_consensus_lineages_based_on_each_rank{ # The default is 80% consensus
+	my @Lineages = @_; # Get the passed array
+	
+	my %Domain = (); # $domain => the times of this domain appears
+	my %Phylum = (); # $phylum => the times of this phylum appears
+	my %Class = (); # $class => the times of this class appears
+	my %Order = (); # $order => the times of this order appears
+	my %Family = (); # $family => the times of this family appears
+	my %Genus = (); # $genus => the times of this genus appears
+	my %Species = (); # $species => the times of this species appears
+	my $lineage_hit_num = scalar @Lineages;
+	
+	foreach my $lineage (@Lineages){
+		my ($domain,$phylum,$class,$order,$family,$genus,$species) = $lineage =~ /^(.+?)\;(.+?)\;(.+?)\;(.+?)\;(.+?)\;(.+?)\;(.+?)$/;
+		$Domain{$domain}++;
+		$Phylum{$phylum}++;
+		$Class{$class}++;
+		$Order{$order}++;
+		$Family{$family}++;
+		$Genus{$genus}++;
+		$Species{$species}++;
+	}
+	
+	my $lineage_final = "";
+	my @Lineage_final = ();
+	
+	foreach my $domain (sort keys %Domain){
+		if (($Domain{$domain} / $lineage_hit_num) >= 0.8){
+			$Lineage_final[0] = $domain;
+		}else{
+			$Lineage_final[0] = "Not consensual";
+		}
+	}
+		
+	foreach my $phylum (sort keys %Phylum){
+		if (($Phylum{$phylum} / $lineage_hit_num) >= 0.8){
+			$Lineage_final[1] = $phylum;
+		}else{
+			$Lineage_final[1] = "Not consensual";
+		}
+	}
+
+	foreach my $class (sort keys %Class){
+		if (($Class{$class} / $lineage_hit_num) >= 0.8){
+			$Lineage_final[2] = $class;
+		}else{
+			$Lineage_final[2] = "Not consensual";
+		}
+	}
+	
+	foreach my $order (sort keys %Order){
+		if (($Order{$order} / $lineage_hit_num) >= 0.8){
+			$Lineage_final[3] = $order;
+		}else{
+			$Lineage_final[3] = "Not consensual";
+		}
+	}	
+	
+	foreach my $family (sort keys %Family){
+		if (($Family{$family} / $lineage_hit_num) >= 0.8){
+			$Lineage_final[4] = $family;
+		}else{
+			$Lineage_final[4] = "Not consensual";
+		}
+	}	
+
+	foreach my $genus (sort keys %Genus){
+		if (($Genus{$genus} / $lineage_hit_num) >= 0.8){
+			$Lineage_final[5] = $genus;
+		}else{
+			$Lineage_final[5] = "Not consensual";
+		}
+	}	
+
+	foreach my $species (sort keys %Species){
+		if (($Species{$species} / $lineage_hit_num) >= 0.8){
+			$Lineage_final[6] = $species;
+		}else{
+			$Lineage_final[6] = "Not consensual";
+		}
+	}	
+	
+	my @Lineage_final_curated = (); # Curated final lineage
+	for(my $i=0; $i<=$#Lineage_final; $i++){
+		if ($Lineage_final[$i] ne "Not consensual" and $Lineage_final[$i] !~ /^\S\_\_$/){
+			push @Lineage_final_curated, $Lineage_final[$i];
+		}else{
+			last;
+		}
+	}
+	
+	my $lineage_final_curated = join("\;",@Lineage_final_curated);
+	
+	return $lineage_final_curated;
 }
