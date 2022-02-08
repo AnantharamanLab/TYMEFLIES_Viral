@@ -7,10 +7,12 @@ use warnings;
 
 # Step 1. Write down the tmp file for running hmmsearch in batch
 # Cat all phage genome faa files into one and split it into small files
+=pod
 `mkdir Taxonomic_classification/tmp`;
 
 `find /storage1/data11/TYMEFLIES_phage/33*/vRhyme_best_bins_fasta_parsed -name '*.faa' | xargs cat > Taxonomic_classification/tmp/All_phage_genome.faa`;
-
+=cut
+`mkdir Taxonomic_classification/tmp/All_phage_genome_protein_split_faa`;
 `perl /storage1/data11/TYMEFLIES_phage/split_multifasta.pl --in Taxonomic_classification/tmp/All_phage_genome.faa --output_dir=Taxonomic_classification/tmp/All_phage_genome_protein_split_faa --seqs_per_file=10000`;
 
 my %VOG_marker2tax = (); # $vog => $tax (only to the family level)
