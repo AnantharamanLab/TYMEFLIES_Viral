@@ -6,13 +6,15 @@ use warnings;
 # AIM: Use all phage faa files to compare against VOG 587 marker HMM with hmmsearch
 
 # Step 1. Write down the tmp file for running hmmsearch in batch
-# Cat all phage genome faa files into one
-`find /storage1/data11/TYMEFLIES_phage/33*/vRhyme_best_bins_fasta_parsed -name '*.faa' | xargs cat > All_phage_genome.faa`;
-
+# Cat all phage genome faa files into one and split it into small files
 `mkdir Taxonomic_classification/tmp`;
 
+`find /storage1/data11/TYMEFLIES_phage/33*/vRhyme_best_bins_fasta_parsed -name '*.faa' | xargs cat > Taxonomic_classification/tmp/All_phage_genome.faa`;
+
+`perl /storage1/data11/TYMEFLIES_phage/split_multifasta.pl --in Taxonomic_classification/tmp/All_phage_genome.faa --output_dir=Taxonomic_classification/tmp/All_phage_genome_protein_split_faa --seqs_per_file=10000`;
+
 my %VOG_marker2tax = (); # $vog => $tax (only to the family level)
-open IN, "/slowdata/databases/VOG209/VOG_marker_table.mdfed.txt";
+open IN, "/slowdata/databases/VOG97/VOG_marker_table.mdfed.txt";
 while (<IN>){
 	chomp;
 	if (!/^VOG\tFunction/){
@@ -23,17 +25,20 @@ while (<IN>){
 close IN;
 
 open OUT, ">tmp.run_hmmsearch_to_VOG_marker.sh";
-foreach my $vog (sort keys %VOG_marker2tax){
-	print OUT "hmmsearch -E 0.00001 --cpu 1 --tblout Taxonomic_classification/tmp/$vog.hmmsearch_result.txt /slowdata/databases/VOG209/$vog.hmm All_phage_genome.faa\n";
+open IN, "ls Taxonomic_classification/tmp/All_phage_genome_protein_split_faa/*.fsa |";
+while (<IN>){	
+	chomp;
+	my $fsa = $_;
+	my ($fsa_name) = $fsa =~ /^.+\/(.+?)\.fsa/;
+	print OUT "hmmsearch -E 0.00001 --cpu 1 --tblout Taxonomic_classification/tmp/$fsa_name.hmmsearch_result.txt /slowdata/databases/VOG97/VOGDB97.587_marker_mdfed.HMM $fsa\n";
 }
+close IN;
 close OUT;
 
 # Step 2. Run hmmsearch in batch
 `cat tmp.run_hmmsearch_to_VOG_marker.sh | parallel -j 10`;
 
 `rm tmp.run_hmmsearch_to_VOG_marker.sh`;
-
-`rm All_phage_genome.faa`; # Delete the concatenated phage genome file
 
 # Step 3. Filter hmmsearch result to get protein hits to VOG marker hash
 my %Pro2vog = ();
@@ -94,6 +99,6 @@ foreach my $key (sort keys %Phage_gn2consensus_tax){
 }
 close OUT;
 
-`rm -r Taxonomic_classification/tmp`;
+#`rm -r Taxonomic_classification/tmp`;
 
 

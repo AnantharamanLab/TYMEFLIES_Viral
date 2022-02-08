@@ -33,7 +33,7 @@ if ($input_faa !~ /\//){
 `mkdir Taxonomic_classification/tmp`;
 
 my %VOG_marker2tax = (); # $vog => $tax (only to the family level)
-open IN, "/slowdata/databases/VOG209/VOG_marker_table.mdfed.txt";
+open IN, "/slowdata/databases/VOG97/VOG_marker_table.mdfed.txt";
 while (<IN>){
 	chomp;
 	if (!/^VOG\tFunction/){
@@ -44,13 +44,11 @@ while (<IN>){
 close IN;
 
 open OUT, ">tmp.run_hmmsearch_to_VOG_marker.sh";
-foreach my $vog (sort keys %VOG_marker2tax){
-	print OUT "hmmsearch -E 0.00001 --cpu 1 --tblout Taxonomic_classification/tmp/$vog.hmmsearch_result.txt /slowdata/databases/VOG209/$vog.hmm $input_faa\n";
-}
+print OUT "hmmsearch -E 0.00001 --cpu 10 --tblout Taxonomic_classification/tmp/input_faa.hmmsearch_result.txt /slowdata/databases/VOG97/VOGDB97.587_marker_mdfed.HMM $input_faa\n";
 close OUT;
 
-# Step 2. Run hmmsearch in batch
-`cat tmp.run_hmmsearch_to_VOG_marker.sh | parallel -j 10`;
+# Step 2. Run hmmsearch
+`bash tmp.run_hmmsearch_to_VOG_marker.sh`;
 
 `rm tmp.run_hmmsearch_to_VOG_marker.sh`;
 
@@ -58,7 +56,7 @@ close OUT;
 
 # Step 3. Filter hmmsearch result to get protein hits to VOG marker hash
 my %Pro2vog = ();
-open IN, "cat Taxonomic_classification/tmp/*hmmsearch_result.txt |";
+open IN, "cat Taxonomic_classification/tmp/input_faa.hmmsearch_result.txt |";
 while (<IN>){
 	chomp;
 	if (!/^#/){
