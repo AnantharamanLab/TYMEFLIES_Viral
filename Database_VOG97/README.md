@@ -1,12 +1,12 @@
-# VOG209
+# VOG97
 
-Release date: Dec 07, 2021
+Release date: Apr 19, 2021
 
-Release number: VOG209
+Release number: VOG97
 
-Data source: NCBI Refseq release 209
+Data source: NCBI Refseq release 97
 
-Number of HMMs in this release: 28406 (only the marker HMMs will be used)
+Number of HMMs in this release: 25399 (only the marker HMMs will be used)
 
 (for [Taxonomical classification](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Taxonomic_classification))
 
@@ -35,7 +35,7 @@ Luteoviridae was abolished in 2020, so the last four VOG tax were renamed to Rib
 
 [script] 01.check_if_all_VOG_marker_hmm_present.pl
 
-Check if all VOG marker HMMs are present in release 209.
+Check if all VOG marker HMMs are present in release 97.
 
 [script] 02.check_if_all_VOG_marker_hmm_tax_ranks_present_in_ICTV.pl
 
