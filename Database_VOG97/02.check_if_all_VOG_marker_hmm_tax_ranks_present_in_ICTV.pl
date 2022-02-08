@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-# AIM: Check if all the 588 VOG marker HMMs exisit
+# AIM: Check if all the 587 VOG marker HMMs exisit
 
 # Step 1. To store all the VOG marker HMMs and tax
 my %VOG_marker = (); # $vog => $tax;

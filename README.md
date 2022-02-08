@@ -35,7 +35,7 @@ Database processing scripts are placed in the following folders:
 
 **2** [Database NCBI RefSeq viral](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_NCBI_RefSeq_viral):  NCBI RefSeq viral (2021-11-04 release) (for [Taxonomical classification](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Taxonomic_classification) and [Host prediction](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Host_prediction)) 
 
-**3** [Database VOG209](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_VOG209):   VOG209 HMMs Release date Dec 07, 2021 (for [Taxonomical classification](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Taxonomic_classification)) 
+**3** [Database VOG97](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_VOG97):   VOG97 HMMs Release date Apr 19, 2021 (for [Taxonomical classification](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Taxonomic_classification)) 
 
 **4** [Database TYMEFLIES MAGs](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_TYMEFLIES_MAGs): MAGs in IMG platform (for [Host prediction](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Host_prediction)) 
 
