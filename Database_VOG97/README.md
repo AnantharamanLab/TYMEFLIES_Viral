@@ -41,6 +41,6 @@ Check if all VOG marker HMMs are present in release 97.
 
 Check if all the VOG marker tax ranks are present in ICTV table, if not, we provide a modified table "VOG_marker_table.mdfed.txt" (7 places changed as indicated above).
 
-[script] 03.hmmpress_in_batch.pl
+[script] 03.get_HMM_subset_and_hmmpress.pl
 
-Run hmmpress for all HMMs in batch.
+Get a subset of HMM of 587 VOG marker and run hmmpress.
