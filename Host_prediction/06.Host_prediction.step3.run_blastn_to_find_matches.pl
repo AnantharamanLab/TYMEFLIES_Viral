@@ -152,7 +152,7 @@ while (<IN>){
 	if ($spacer_matched_length eq $spacer_length){
 		if ($mismatches <= 1 and $gap_openings == 0){
 			$CRISPR_near_identical_matches{"$phage_scf\|$spacer"} = 1;
-		}elsif ($identity >= 80 and !($mismatches <= 1 and $gap_openings == 0)){
+		}elsif ($identity >= 90 and !($mismatches <= 1 and $gap_openings == 0)){
 			$CRISPR_partial_matches{"$phage_scf\|$spacer"} = 1;
 		}
 	}

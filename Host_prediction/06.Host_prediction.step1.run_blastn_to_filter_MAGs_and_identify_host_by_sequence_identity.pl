@@ -162,11 +162,11 @@ while (<IN>){
 		my $host_covered_len = abs($qend - $qstart);
 		my $viral_covered_len = abs($tend - $tstart);		
 		my $host_covered_prec = $host_covered_len / $Contig2len{$contig};
-		if ($host_covered_prec >= 0.5 and $iden >= 90){ # Cutoff: viral sequence hit covered region ≥ 50% of the host contig
+		if ($host_covered_prec >= 0.5 and $iden >= 80){ # Cutoff: viral sequence hit covered region ≥ 50% of the host contig
 			my $mag = $Contig2MAG{$contig};
 			$Contig_viral_seq_in_MAGs{$contig} = $mag;
 		}
-		if ($host_covered_len >= 2000 and $viral_covered_len >= 2000 and $iden >= 90){ #  Host predictions were then based on matches of ≥90% nucleotide identity covering ≥2 kb of the virus and (putative) host sequences.
+		if ($host_covered_len >= 2000 and $viral_covered_len >= 2000 and $iden >= 95){ #  Host predictions were then based on matches of ≥95% nucleotide identity covering ≥2 kb of the virus and (putative) host sequences.
 			if (! exists $Viral_seq2contig{$viral_seq}){
 				$Viral_seq2contig{$viral_seq} = $contig;
 			}else{
@@ -206,11 +206,11 @@ while (<IN>){
 		my $host_covered_len = abs($qend - $qstart);
 		my $viral_covered_len = abs($tend - $tstart);		
 		my $host_covered_prec = $host_covered_len / $Contig2len{$contig};
-		if ($host_covered_prec >= 0.5 and $iden >= 90){ # Cutoff: viral sequence hit covered region ≥ 50% of the host contig
+		if ($host_covered_prec >= 0.5 and $iden >= 80){ # Cutoff: viral sequence hit covered region ≥ 50% of the host contig
 			my $mag = $Contig2MAG{$contig};
 			$Contig_viral_seq_in_MAGs{$contig} = $mag;
 		}
-		if ($host_covered_len >= 2000 and $viral_covered_len >= 2000 and $iden >= 90){ #  Host predictions were then based on matches of ≥90% nucleotide identity covering ≥2 kb of the virus and (putative) host sequences.
+		if ($host_covered_len >= 2000 and $viral_covered_len >= 2000 and $iden >= 95){ #  Host predictions were then based on matches of ≥95% nucleotide identity covering ≥2 kb of the virus and (putative) host sequences.
 			if (! exists $Viral_seq2contig{$viral_seq}){
 				$Viral_seq2contig{$viral_seq} = $contig;
 			}else{
