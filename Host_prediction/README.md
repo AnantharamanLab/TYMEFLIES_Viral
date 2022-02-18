@@ -12,6 +12,8 @@ It contains three approaches to find hosts:
 
 3) prophage scaffold search
 
+4) match to AMG (auxiliary metabolic gene)
+
 
 
 **1 Filter MAGs and find host by sequence similarity**
@@ -58,21 +60,47 @@ For approach #3, since prophage scaffold were derived from its host, find host f
 
 [script] 06.Host_prediction.step4.find_prophage_host.pl
 
-**5 Integrate all host prediction results**
+**5 Find host based on AMG**
+
+For approach #4, We find viral host based on the AMG identity match between AMGs and microbial counterpart genes
+
+[script] 06.Host_prediction.step5.find_host_based_on_AMG.pl
+
+**6 Integrate all host prediction results**
 
 Integrate all host prediction results and write down the final result. 
 
+
+
+\[Method for assigning host taxonomy derived from vOTU host taxonomy\]: 
+
+1) Get into each species cluster to see if any genomes have already got hits, then expand the host prediction to all the members within this species cluster. 
+
+2) Only use prophage and AMG host prediction method to get other vOTU member host prediction.
+
+
+
 The overlapped host taxonomies were solved based on the following priority: 
+
  1) prophage within a host genome (from result of step 4);
- 2) match to host genome(s) at the genus rank (from result of step 1);
- 3) match to host CRISPR spacer(s) at the genus rank (from result of step 3);
- 4) match to host genome(s) at any ranks above genus (from result of step 1);
- 5) match to host CRISPR spacer(s) at any ranks above genus (from result of step 3);
- 6) derived from vOTU host taxonomy (calculated from this step).
 
-This priority order was based on the description in the reference (*Nucleic Acids Res*. 2021 Jan 8;49(D1):D764-D775. doi: 10.1093/nar/gkaa946).
+ 2) AMG match to a host genome (from result of step 5); 
 
-[script] 06.Host_prediction.step5.integrate_all_results.pl
+ 3) match to host genome(s) at the genus rank (from result of step 1);
+
+ 4) match to host CRISPR spacer(s) at the genus rank (from result of step 3);
+
+ 5) match to host genome(s) at any ranks above genus (from result of step 1);
+
+ 6) match to host CRISPR spacer(s) at any ranks above genus (from result of step 3);
+
+ 7) derived from vOTU host taxonomy (calculated from this step).
+
+This priority order was mainly based on the description in the reference (*Nucleic Acids Res*. 2021 Jan 8;49(D1):D764-D775. doi: 10.1093/nar/gkaa946).
+
+
+
+[script] 06.Host_prediction.step6.integrate_all_results.pl
 
 
 
