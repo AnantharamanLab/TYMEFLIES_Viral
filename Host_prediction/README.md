@@ -84,7 +84,7 @@ The overlapped host taxonomies were solved based on the following priority:
 
  1) prophage within a host genome (from result of step 4);
 
- 2) AMG match to a host genome (from result of step 5); 
+ 2) AMG match to host genome (from result of step 5); 
 
  3) match to host genome(s) at the genus rank (from result of step 1);
 

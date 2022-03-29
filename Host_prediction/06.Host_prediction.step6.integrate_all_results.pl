@@ -77,7 +77,7 @@ close IN;
 
 # Step 3 Get host prediction based on other members' host prediction from each species
 # Get into each species cluster to see if any genomes have already got hits, then expand the host prediction to all the members within this species cluster
-# Only use prophage and AMG host prediction method to get other vOTU member host prediction
+# Only use prophage and AMG host prediction results to get other vOTU member host prediction
 my %Viral_gn2host_tax_by_species_cluster = (); # $viral_gn => $host_tax
 foreach my $gn_rep (sort keys %Species_cluster_map){
 	my @Gns = split (/\,/,$Species_cluster_map{$gn_rep});
@@ -107,7 +107,7 @@ foreach my $gn_rep (sort keys %Species_cluster_map){
 # Step 4 Integrate all results
 # The overlapped host taxonomies were solved based on the following priority: 
 # 1) prophage within a host genome; 
-# 2) AMG match to a host genome;
+# 2) AMG match to host genome;
 # 3) match to host genome(s) at the genus rank; 
 # 4) match to host CRISPR spacer(s) at the genus rank; 
 # 5) match to host genome(s) at any ranks above genus; 
