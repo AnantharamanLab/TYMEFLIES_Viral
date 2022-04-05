@@ -23,7 +23,7 @@ Scripts (including some of the inputs/outputs) are placed in the following folde
 
 **4** [Cluster phage genomes](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Cluster_phage_genomes): Cluster vMAGs into vOTUs at family-, genus-, and species-level
 
-(The original phage vOTU clustering methods were adopted from two previously published papers: 1) [Nat Microbiol. 2021 Jul;6(7):960-970.](https://pubmed.ncbi.nlm.nih.gov/34168315/) 2) [Nucleic Acids Res. 2021 Jan 8;49(D1):D764-D775.](https://pubmed.ncbi.nlm.nih.gov/33137183/) While, since the large number of viral genomes (~1.3M genomes) in this study, we firstly clustered genomes into family- and genus-level vOTUs using [MCL-based method](https://github.com/snayfach/MGV/tree/master/aai_cluster) (we also modified the original python script within to reduce the RAM demand for our case), then used dRep to get species-level vOTUs within each genus.)
+[The original phage vOTU clustering methods were adopted from two previously published papers: 1) [Nat Microbiol. 2021 Jul;6(7):960-970.](https://pubmed.ncbi.nlm.nih.gov/34168315/) 2) [Nucleic Acids Res. 2021 Jan 8;49(D1):D764-D775.](https://pubmed.ncbi.nlm.nih.gov/33137183/) While, since the large number of viral genomes (~1.3M genomes) in this study, we firstly clustered genomes into family- and genus-level vOTUs using [MCL-based method](https://github.com/snayfach/MGV/tree/master/aai_cluster) (we also modified the original python script within to reduce the RAM demand for our case), then used dRep to get species-level vOTUs within each genus.]
 
 
 
@@ -44,8 +44,6 @@ Scripts (including some of the inputs/outputs) are placed in the following folde
 
 
 <br>
-
-
 
 Database processing scripts are placed in the following folders:
 
