@@ -27,6 +27,8 @@ Scripts (including some of the inputs/outputs) are placed in the following folde
 
 (This part is mainly based on the method in [Nucleic Acids Res. 2021 Jan 8;49(D1):D764-D775.](https://pubmed.ncbi.nlm.nih.gov/33137183/))
 
+7 [Time series analysis](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Time_series_analysis): Conduct time series analysis for viral genomes
+
 
 
 Database processing scripts are placed in the following folders:
