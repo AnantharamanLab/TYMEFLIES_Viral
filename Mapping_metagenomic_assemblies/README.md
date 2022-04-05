@@ -4,11 +4,11 @@
 
 Map reads onto metagenomic assemblies (including both microbial and viral scaffolds, the original assemblies) for each metagenome
 
-(Note this step is computing-intensive)
+(Note that this step is computing-intensive)
 
 [script] 07.Mapping_metagenomic_assemblies.step1.run_bowtie2_mapping_for_each_metagenome.pl
 
-**2 Get MAG abundance pattern, both monthly pattern (aggregated across 20 years) and yearly pattern (for each year)**
+**2 Get MAG abundance pattern, both monthly pattern (aggregated across 20 years) and yearly pattern (for months in each year)**
 
 These four files will be generated in the resulted folder "MAG_abundance":
 
