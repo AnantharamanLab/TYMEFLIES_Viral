@@ -23,7 +23,7 @@ Scripts (including some of the inputs/outputs) are placed in the following folde
 
 (This part is mainly based on the method in [Nucleic Acids Res. 2021 Jan 8;49(D1):D764-D775.](https://pubmed.ncbi.nlm.nih.gov/33137183/))
 
-**6** [Host prediction](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Host_prediction): Predict host using three approaches: 1) search sequence similarity to a microbial genome; 2) match to CRISPR spacers; 3) prophage scaffold search
+**6** [Host prediction](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Host_prediction): Predict host using four approaches: 1) search sequence similarity to a microbial genome; 2) match to CRISPR spacers; 3) prophage scaffold search; 4) match to AMG (auxiliary metabolic gene)
 
 (This part is mainly based on the method in [Nucleic Acids Res. 2021 Jan 8;49(D1):D764-D775.](https://pubmed.ncbi.nlm.nih.gov/33137183/))
 
