@@ -7,7 +7,7 @@ Scripts (including some of the inputs/outputs) are placed in the following folde
 
 **1** [Process the datasets](https://github.com/AnantharamanLab/TYMEFLIES_Viral/blob/main/Processing_the_datasets): Copy fastq file, calculate fastq statistics, and get all metagenome assemblies cov state (or depth) files
 
-**2**  [Identify phages and find active prophages](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Identify_phages_and_find_active_prophages): Identify phages by VIBRANT, find active prophage by PropagAtE, and run CheckV to get phage scaffold quality
+**2** [Identify phages and find active prophages](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Identify_phages_and_find_active_prophages): Identify phages by VIBRANT, find active prophage by PropagAtE, and run CheckV to get phage scaffold quality
 
 (This part is mainly based on the usage of software [VIBRANT](https://github.com/AnantharamanLab/VIBRANT), [PropagAtE](https://github.com/AnantharamanLab/PropagAtE), and [CheckV](https://bitbucket.org/berkeleylab/CheckV))
 
@@ -27,9 +27,11 @@ Scripts (including some of the inputs/outputs) are placed in the following folde
 
 (This part is mainly based on the method in [Nucleic Acids Res. 2021 Jan 8;49(D1):D764-D775.](https://pubmed.ncbi.nlm.nih.gov/33137183/))
 
-**7** [Mapping metagenomic assemblies](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Mapping_metagenomic_assemblies): Map reads to metagenomic assemblies (the original scaffolds including both microbial and viral ones) to get MAG/virus abundance
+**7** [Rscript for visualization](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Rscript_for_visualization): Rscripts for a variety of visualization works
 
-**8** [Time series analysis](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Time_series_analysis): Conduct time series analysis for viral genomes
+**8** [Mapping metagenomic assemblies](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Mapping_metagenomic_assemblies): Map reads to metagenomic assemblies (the original scaffolds including both microbial and viral ones) to get MAG/virus abundance
+
+**9** [Time series analysis](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Time_series_analysis): Conduct time series analysis for viral genomes
 
 
 
