@@ -20,6 +20,14 @@ Get the consensus taxonomic affiliation based on individual markers detected by 
 
 [script] 05.Taxonomic_classification.step2.run_hmmsearch_to_VOG_marker.pl
 
+**3 Integrate all results and provide the final taxonomic classification result**
+
+Store the taxonomic classification results from the above two steps (NCBI RefSeq viral protein searching and VOG marker HMM searching). And then get taxonomy based on other members' taxonomy from each genus and expand the tax to all the members within this genus (Genus-level vOTU LCA assigning). Last, write down the final taxonomic classification result.
+
+[script] 05.Taxonomic_classification.step3.integrate_all_results.pl
+
+
+
 
 
 # Script for wide usage
