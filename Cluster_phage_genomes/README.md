@@ -1,10 +1,10 @@
 # Cluster phage genomes
 
-**1 Cluster phage genomes by shared protein an AAI**
+**1 Cluster viral genomes by shared protein an AAI**
 
-Firstly, perform all-vs-all DIAMOND BLASTP for all phage genome proteins. Then, calculate the shared proteins  and the average AAI of shared proteins between genome pairs.
+Firstly, perform all-vs-all DIAMOND BLASTP for all viral genome proteins. Then, calculate the shared proteins and the average AAI of shared proteins between genome pairs.
 
-This script is modified from "amino_acid_identity.py" (https://github.com/snayfach/MGV/tree/master/aai_cluster). It was custom to use low RAM.
+This script is modified from "amino_acid_identity.py" (https://github.com/snayfach/MGV/tree/master/aai_cluster). It was custom for low RAM.
 
 [script] 04.Cluster_phage_genomes.step1.cluster_phage_genomes_by_shared_protein_and_AAI.pl
 
@@ -41,3 +41,32 @@ The average percentage of genomes from each genus cluster fall into the same fam
 [script] 04.Cluster_phage_genomes.step4.compare_genus_cluster_and_family_cluster.pl
 
 **5 Get vOTU (species level) from each genus cluster**
+
+Use dRep to cluster viral genomes for individual genus clusters.
+
+The final species-level vOTUs contain:
+
+1) species-level vOTUs from each genus cluster
+
+2) singleton genus genome
+
+3) viral genome that is not included in any genera
+
+[script] 04.Cluster_phage_genomes.step5.get_vOTU_from_each_genus_cluster.pl
+
+**6 Make the input file for rarefaction curve for genus**
+
+We firstly picked a random sample from all 465 samples, and counted the number of genera that were found in this sample. Then, added samples gradually to all the 465 samples, made a table storing the sample number to genus number. We replicated this 49 times, and generated 49 resulting files.
+
+[script] 04.Cluster_phage_genomes.step6.make_rarefaction_curve_for_genus.pl
+
+**7 Make the input file for rarefaction curve for species**
+
+We firstly picked a random sample from all 465 samples, and counted the number of species that were found in this sample. Then, added samples gradually to all the 465 samples, made a table storing the sample number to species number. We replicated this 9 times, and generated 9 resulting files.
+
+Visualization of species rarefaction curve can be found in Step 12 of Rscript for visualization
+
+[script] 04.Cluster_phage_genomes.step7.make_rarefaction_curve_for_species.pl
+
+
+
