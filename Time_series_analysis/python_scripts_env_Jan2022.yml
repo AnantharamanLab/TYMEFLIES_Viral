@@ -1,0 +1,18 @@
+# conda env create -n pyscripts -f python_scripts_env_DATE.yml
+
+name: PyScripts Jan2022
+channels:
+  - conda-forge
+  - bioconda
+  - anaconda
+  - defaults
+dependencies:
+  - numpy
+  - numba
+  - pandas
+  - python
+  - samtools
+  - pysam
+  - cython
+  - biopython
+
