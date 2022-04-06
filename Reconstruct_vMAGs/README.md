@@ -202,7 +202,7 @@ Both KO abundance values were normalized by read number per metagenome, 100M rea
 
 **13 Visualize interested KO tax and host tax abundance**
 
-This script generates two plots:
+This script generates two bar plots:
 
 1) KO to viral family abundance for eight low diversity KOs
 
