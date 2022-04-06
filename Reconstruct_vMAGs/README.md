@@ -106,47 +106,191 @@ This will add more columns to "AMG_summary.txt":
 
 Use the results generated from Step 6 ("KO2month2abun.txt", "KO2year_month2abun.txt", and "KO2month_ko_details.txt") to draw AMG trend R plots (AMG KO abundance) for each month (aggregated across 20 years) and each year-month (for months in each year).
 
-It generates a figure for each KO, containing subpanels of: A) heatmap of number of metagenomes for each month, B) 20 facets of AMG trend plots for each year-month, C) AMG trend plot for each month (aggregated across 20 years).
+It generates a figure for each KO, containing subpanels of A) heatmap of the number of metagenomes for each month, B) 20 facets of AMG trend plots for each year-month, and C) AMG trend plot for each month (aggregated across 20 years).
 
 [script] 03.Reconstruct_vMAGs.step9.visualize_AMG_abundance.R
 
-**10 Investigate AMG variation in each species and genus (non-singleton)**
+**10 Investigate AMG variation in each species (non-singleton)**
 
 The resulted file "Species_level_vOTU_AMG_variation.txt" contains the following information:
 
-1) The number of non-singleton vOTU - excluding vOTUs with only one member
+1) The number of non-singleton vOTU - excluding vOTUs with only one member (singleton vOTUs)
 
 2) The number of non-singleton vOTU with any AMG KO hit(s)
 
-3) The number of non-singleton vOTU with high AMG frequency (> 75%) in its all genomes - frequency here means the percentage of genomes containing KO among all the genomes
+3) The number of non-singleton vOTU with high AMG frequency (> 75%) in its all genomes - frequency here means the percentage of genomes containing the KO among all the genomes
 
 The resulted file "Species_level_vOTU_AMG_variation_statistics.txt" contains the following information:
 
-1) The total number of vOTU and ko combinations (for vOTUs with any AMG KO hits(s))
+1) The total number of vOTU and KO combinations (for vOTUs with any AMG KO hits(s))
 
-2) The total number of vOTU and ko combinations (for vOTUs with any AMG KO hits(s)) of the 1st quartile size species-level vOTUs (The size range of 1st quartile size species-level vOTUs: 2-2)
+2) The total number of vOTU and KO combinations (for vOTUs with any AMG KO hits(s)) of the 1st quartile size species-level vOTUs (The size range of 1st quartile size species-level vOTUs: 2-2)
 
-3) The total number of vOTU and ko combinations (for vOTUs with any AMG KO hits(s)) of the 2nd quartile size species-level vOTUs (The size range of 2nd quartile size species-level vOTUs: 2-3)
+3) The total number of vOTU and KO combinations (for vOTUs with any AMG KO hits(s)) of the 2nd quartile size species-level vOTUs (The size range of 2nd quartile size species-level vOTUs: 2-3)
 
-4) The total number of vOTU and ko combinations (for vOTUs with any AMG KO hits(s)) of the 3rd quartile size species-level vOTUs (The size range of 3rd quartile size species-level vOTUs: 3-4)
+4) The total number of vOTU and KO combinations (for vOTUs with any AMG KO hits(s)) of the 3rd quartile size species-level vOTUs (The size range of 3rd quartile size species-level vOTUs: 3-4)
 
-5) The total number of vOTU and ko combinations (for vOTUs with any AMG KO hits(s)) of the 4th quartile size species-level vOTUs (The size range of 4th quartile size species-level vOTUs: 4-108)
+5) The total number of vOTU and KO combinations (for vOTUs with any AMG KO hits(s)) of the 4th quartile size species-level vOTUs (The size range of 4th quartile size species-level vOTUs: 4-108)
 
-The resulted file "Species_level_vOTU_AMG_variation_statistics.2.txt" [for KO distribution from the 1st quartile ko frequency (> 75%) and the 4th quartile in bin size] contains:
+The resulted file "Species_level_vOTU_AMG_variation_statistics.2.txt" [for KO distribution from the 1st quartile KO frequency (> 75%) and the 4th quartile in bin size] contains:
 
-1) The total number of KO for AMG KO frequency > 75% and vOTU from the 4th quartile in bin size
+1) The total number of KO from vOTU and KO combination collection of AMG KO frequency > 75% and vOTU from the 4th quartile in bin size
 
-2) The relative abundance of each KO (percentage of occurrence)
+2) The relative abundance of each KO (relative abundance here means the percentage of the count of each KO divided by the total count of all KOs)
 
-The resulted file "KO2ko_abun_n_mean_ko_freq.txt" [for KO distribution from the 1st quartile ko frequency (> 75%) and the 4th quartile in bin size] contains:
+The resulted file "KO2ko_abun_n_mean_ko_freq.txt" [for KO distribution from the 1st quartile KO frequency (> 75%) and the 4th quartile in bin size] contains:
 
-1) The relative abundance of each KO (percentage of occurrence)
+1) The relative abundance of each KO (relative abundance here means the percentage of the count of each KO divided by the total count of all KOs)
 
-2) The frequency of each KO (percentage of genomes containing this KO among all the genomes)
+2) The mean frequency of each KO (frequency here means the percentage of genomes containing this KO among all the genomes)
 
-abundance and frequency were placed in two columns.
+Abundance and frequency were placed in two columns.
 
-The resulted file "KO2dates_in_a_year.txt" [for KO distribution from the 1st quartile ko frequency (> 75%) and the 4th quartile in bin size] stores the presence/absence information of KO in a date of a year. 
+The resulted file "KO2dates_in_a_year.txt" [for KO distribution from the 1st quartile KO frequency (> 75%) and the 4th quartile in bin size] stores the presence/absence information of each KO on a date of a year. 
 
 [script] 03.Reconstruct_vMAGs.step10.investigate_AMG_variation_in_species.pl
+
+**11 Visualize AMG variation**
+
+This script generates five plots:
+
+1) General statistics of vOTU and KO combinations (bar plot)
+
+[input] Species_level_vOTU_AMG_variation_statistics.table_1.txt
+
+[output] Species_level_vOTU_AMG_variation_statistics.table_1.pdf
+
+2) KO to vOTU tax abundance [bar plot, only nine KOs with the highest abundance (relative abundance of KO from vOTU and KO combination collection of the 1st quartile KO frequency (> 75%) and the 4th quartile in bin size) were chosen here]
+
+[input] Species_level_vOTU_AMG_variation_statistics.table_2.txt
+
+[output] Species_level_vOTU_AMG_variation_statistics.table_2.pdf
+
+3) KO to vOTU host tax abundance [bar plot, only nine KOs with the highest abundance (relative abundance of KO from vOTU and KO combination collection of the 1st quartile KO frequency (> 75%) and the 4th quartile in bin size) were chosen here]
+
+[input] Species_level_vOTU_AMG_variation_statistics.table_3.txt
+
+[output] Species_level_vOTU_AMG_variation_statistics.table_3.pdf
+
+4) AMG KO fraction (a.k.a, relative abundance) to the mean AMG KO frequency across all vOTUs (scatter plot)
+
+[input] KO2ko_abun_n_mean_ko_freq.mdfed.txt
+
+[output] KO2ko_abun_n_mean_ko_freq.pdf
+
+5) Seasonal distribution of high occurrence KOs across metagenomes  
+
+[input] KO2dates_in_a_year.mdfed.txt
+
+[output] KO2dates_in_a_year.pdf
+
+Only the "HighOccurrenceKO" (occurrence >= 400) and AMG KO fraction >= 1.25% ones were depicted in the figure.
+
+The distribution of available metagenomes on the dates of a year was also depicted (the first row).
+
+[script] 03.Reconstruct_vMAGs.step11.visualize_AMG_variation.R
+
+All the inputs and outputs were also provided here.
+
+**12 Find interested KO tax and host tax abundance info**
+
+Find the KO to viral family abundance and KO to viral host family abundance.
+
+Both KO abundance values were normalized by read number per metagenome, 100M reads per metagenome.
+
+[script] 03.Reconstruct_vMAGs.step12.find_intereseted_KO_tax_n_host_tax_info.pl
+
+**13 Visualize interested KO tax and host tax abundance**
+
+This script generates two plots:
+
+1) KO to viral family abundance for eight low diversity KOs
+
+[input] KO2tax2abun_fraction.txt
+
+[output] KO2tax2abun_fraction.8_low_diversity_KOs.pdf
+
+2) KO to viral host family abundance for eight low diversity KOs
+
+[input] KO2host_tax2abun_fraction.txt
+
+[output] KO2host_tax2abun_fraction.8_low_diversity_KOs.pdf
+
+[script] 03.Reconstruct_vMAGs.step13.visualize_interrested_KO_tax_n_host_tax_abundance.R
+
+All the inputs and outputs were also provided here.
+
+**14  Get KO to tax and host tax alpha diversity pattern**
+
+The viral taxonomy for alpha diversity analysis was set to the family level. For each KO, we only randomly took 100 viral genomes with informative family-level taxonomy assigned.
+
+The viral host taxonomy for alpha diversity analysis was set to the family level. For each KO, we only randomly took 50 viral genomes with informative family-level taxonomy assigned.
+
+[script] 03.Reconstruct_vMAGs.step14.get_KO_to_tax_n_host_tax_alpha_diversity.pl
+
+**15 Visualize KO to tax and host tax alpha diversity pattern**
+
+This script generates four plots:
+
+1) Scatter plot of KO alpha diversity (based on family) to KO occurrence using Shannon Index
+
+[input] KO2family2viral_gn_num.txt and KO2occurrence_n_abundance.txt
+
+[output] KO.family.shannon2occurrence.pdf
+
+2) Scatter plot of KO alpha diversity (based on family) to KO occurrence using Simpson Index
+
+[input] KO2family2viral_gn_num.txt and KO2occurrence_n_abundance.txt
+
+[output] KO.family.simpson2occurrence.pdf
+
+3) Scatter plot of KO alpha diversity (based on host family) to KO occurrence using Shannon Index
+
+[input] KO2host_family2viral_gn_num.txt and KO2occurrence_n_abundance.txt
+
+[output] KO.host_family.shannon2occurrence.pdf
+
+4) Scatter plot of KO alpha diversity (based on host family) to KO occurrence using Simpson Index
+
+[input] KO2host_family2viral_gn_num.txt and KO2occurrence_n_abundance.txt
+
+[output] KO.host_family.simpson2occurrence.pdf
+
+[script] 03.Reconstruct_vMAGs.step15.plot_KO_tax_n_host_tax_alpha_diversity.R
+
+All the inputs and outputs were also provided here.
+
+**16 Visualize AMG KO and host association**
+
+This script depicts KO vs host abundance distribution across months, it generates four line charts:
+
+1) KO vs host abundance distribution (K00507 and K01627 vs Cyanobacteria-Nostocaceae)
+
+[input] Viral_host_association_table_1.txt
+
+[output] Viral_host_association_table_1.pdf
+
+2) KO vs host abundance distribution (K15895, K00798, and K01734 vs Bacteroidota-Flavobacteriaceae)
+
+[input] Viral_host_association_table_2.txt
+
+[output] Viral_host_association_table_2.pdf
+
+3) KO vs host abundance distribution (K01666 vs Bacteroidota-UBA961)
+
+[input] Viral_host_association_table_3.txt
+
+[output] Viral_host_association_table_3.pdf
+
+4) KO vs host abundance distribution (K02703 and K02706 vs Cyanobacteria-Cyanobiaceae)
+
+[input] Viral_host_association_table_4.txt
+
+[output] Viral_host_association_table_4.pdf
+
+[script] 03.Reconstruct_vMAGs.step16.visualize_AMG_KO_host_association.R
+
+All the inputs and outputs were also provided here.
+
+
 
