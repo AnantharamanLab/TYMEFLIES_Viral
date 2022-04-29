@@ -1,10 +1,10 @@
 # Host prediction
 
-The method was based on *Nucleic Acids Res*. 2021 Jan 8;49(D1):D764-D775. doi: 10.1093/nar/gkaa946. 
+The method was mainly based on *Nucleic Acids Res*. 2021 Jan 8;49(D1):D764-D775. doi: 10.1093/nar/gkaa946. 
 
 (Link: https://academic.oup.com/nar/article/49/D1/D764/5952208).
 
-It contains three approaches to find hosts: 
+It contains four approaches to find hosts: 
 
 1) search sequence similarity to a microbial genome 
 
