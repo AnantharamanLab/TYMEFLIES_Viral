@@ -99,7 +99,7 @@ for (i in 2:122){ # The total row number of table (total number AMG gene)
 # Note: Before running, clean all the files in Environment and Console
 # 20 years will be plotted in 20 facets in a single figure
 ## Read AMG gene cov ratio for each year each month 
-table <-read.table("MetaPop/AMG_gene_containing_viral_gn2year_month2cov_ratio.txt",sep = "\t",head=F, row.names = 1)
+table <-read.table("MetaPop/AMG_gene_containing_viral_gn2year_month2cov.txt",sep = "\t",head=F, row.names = 1)
 table.tbl <- as_tibble(table)
 
 ## Read KO details

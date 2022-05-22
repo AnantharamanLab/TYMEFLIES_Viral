@@ -4,9 +4,9 @@
 # 2022
 
 
-import sys
 import os
 import numpy as np
+np.seterr(all='raise')
 import argparse
 from fasta_parse import fasta_parse
 from numba import jit
@@ -74,15 +74,19 @@ def get_regions(regionfile, coords):
             line = line.strip('\n').split('\t')
             # genome: (region, start, end)
             genome = line[0]
+
             r = line[1]
-            start = int(line[2])-1
+            start = int(line[2])
             end = int(line[3])
 
-            # edit start/stop of "fragments" only
-            partial_name = genome.split('__')[-1]
-            fragment = coords.get(partial_name, 0)
-            start -= fragment
-            end -= fragment
+            if "_fragment_" in genome:
+                # edit start/stop of "fragments" only
+                partial_name = genome.split('__')[-1]
+                fragment = coords.get(partial_name, 0)
+                start -= fragment
+                end -= fragment
+            else:
+                start -= 1
 
             regions.setdefault(genome, []).append((r, start, end)) # now zero based
 
@@ -112,14 +116,9 @@ def get_avg(depth, regions, hold_scaff, samples):
 
     for entry in regions.get(hold_scaff, []):
         region, start, stop = entry
-
-        # avg_regions.append((region, np.mean(depth[start:stop], axis=1))) # regions only
-
         for i in range(samples):
-            # avg_regions.append((region, np.mean(depth[i][start:stop]))) # regions only
             avg_regions.setdefault(region, []).append(np.mean(depth[i][start:stop]))
             for n in range(start,stop):
-                # depth_partial[i][start:stop] = np.nan
                 depth_partial[i][n] = np.nan
 
     avg_scaffold_partial = np.nanmean(depth_partial, axis=1) # whole scaffold excluding regions

@@ -8,31 +8,37 @@ The occurrence info is based on the input file of "Species2occurrence_n_abundanc
 
 The information contains:1) Tax 2) Host tax 3) AMG KO within. This script also contains a filtering step: Only keep species that contain >= 10 genomes.
 
-[script] 08.Time_series_analysis.step1.get_information_of_high_occurrence_species.pl
+[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step1.get_information_of_high_occurrence_species.pl
 
-**2 Map all metagenomic reads to the collection of species representatives**
+**2 Get the AMG counterpart gene located scaffolds from all metagenomes**
 
-Map all metagenomic reads to the collection of the representative genomes from individual species. We only included representative genomes that carry at least one AMG.
+It should include microbial scaffolds that contain AMG counterpart genes in the mapping reference for the next step. We first run hmmsearch of all metagenome proteins to AMG KOs, and then grab the scaffolds from positive hmmsearch hits. We excluded all viral scaffolds in the final AMG counterpart gene located scaffolds.
 
-[script] 08.Time_series_analysis.step2.map_metagenomic_reads_to_the_collection_of_species_representatives.pl
+[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step2.get_AMG_counterpart_gene_located_scaffold.pl
 
-**3 Grep gene files (in prodigal format) for "All_phage_species_rep_gn_containing_AMG.fasta"**
+**3 Map all metagenomic reads to the collection of species representatives and AMG counterpart gene located scaffolds**
+
+Map all metagenomic reads to the collection of the representative genomes from individual species and AMG counterpart gene located scaffolds. We only included representative genomes that carry at least one AMG.
+
+[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step3.map_metagenomic_reads_to_the_collection_of_species_representatives_and_AMG_counterpart_gene_located_scfs.pl
+
+**4 Grep gene files (in prodigal format) for "All_phage_species_rep_gn_containing_AMG.fasta"**
 
 "All_phage_species_rep_gn_containing_AMG.fasta" is the fasta file contains species representative genomes (with at least one AMG) generated from the last step (Step 2). We parsed the ffn file (the prodigal-annotation result containing all genes) from each VIBRANT result folder to get the new gene headers and the corresponding sequences. 
 
-[script] 08.Time_series_analysis.step3.grep_gene_files_for_all_rep_gn_containing_AMG.pl
+[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step4.grep_gene_files_for_all_rep_gn_containing_AMG.pl
 
-**4 Run MetaPop**
+**5 Run MetaPop**
 
-1) "--id_min" set to 92 (3% lower than the exact species genome boundary as suggested)
+1) "--id_min" set to 95 (species genome boundary)
 2) Use genes provided by me (generated from Step 3)
 3) "--genome_detection_cutoff" set to 70 (Percent of bases that must be covered for a sequence to be considered detected for macrodiversity analyses - 70%)
 
 4) "--snp_scale" set to "both" (Including both SNPs detected for a genome in each sample alone, and SNPs for that genome across all samples.)
 
-[script] 08.Time_series_analysis.step4.run_metapop.pl
+[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step5.run_metapop.pl
 
-**5 Parse MetaPop result to get AMG coverage**
+**6 Parse MetaPop result to get AMG coverage**
 
 In this script, two AMG coordinate files need to be provided:
 
@@ -56,9 +62,9 @@ In the resulted file "*.AMG_cov.txt", five columns were included:
 
 5) avg region #1 (mean coverage of AMG)
 
-[script] 08.Time_series_analysis.step5.parse_metapop_result_to_get_AMG_coverage.pl and cov_by_region.py
+[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step6.parse_metapop_result_to_get_AMG_coverage.pl
 
-**6 Parse the AMG coverage**
+**7 Parse the AMG coverage**
 
 Processing the coverage result with the following criteria:
 
@@ -68,9 +74,9 @@ Processing the coverage result with the following criteria:
 
 We have processed both the viral genome coverages and AMG coverage ratios (AMG coverage / viral genome coverage).
 
-[script] 08.Time_series_analysis.step6.parse_AMG_coverage.pl
+[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step7.parse_AMG_coverage.pl
 
-**7 Get viral genome and AMG variation**
+**8 Get viral genome and AMG variation**
 
 Parse to get the viral genome coverage and AMG coverage ratio variation pattern across all metagenomes. Process the viral genome and assign it as "present" in a metagenome with both coverage >= 1.5 and breadth >= 70%.
 
@@ -90,15 +96,15 @@ The resulted file "AMG_gene_cov_ratio_variation_table.txt" contains the followin
 
 7) - 471) AMG coverage ratio in 475 metagenomes
 
-[script] 08.Time_series_analysis.step7.get_viral_gn_and_AMG_variation.pl
+[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step8.get_viral_gn_and_AMG_variation.pl
 
-**8 Get AMG coverage ratio distribution in each month and year-month**
+**9 Get AMG coverage ratio distribution in each month and year-month**
 
-Note that we only included AMGs with distribution >= 233 (0.5 * 465, that is half of the metagenome number). In this script, we calculated both AMG coverage ratio distribution in each month and year-month and AMG-containing viral genome coverage distribution in each month and year-month.
+Note that we only included AMGs with distribution >= 5. In this script, we calculated both AMG coverage ratio distribution in each month and year-month and AMG-containing viral genome coverage distribution in each month and year-month.
 
-[script] 08.Time_series_analysis.step8.get_AMG_cov_ratio_variation_in_month_and_year_month.pl
+[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step9.get_AMG_cov_ratio_variation_in_month_and_year_month.pl
 
-**9 Visualize AMG coverage ratio and corresponding viral genome coverage variations**
+**10 Visualize AMG coverage ratio and corresponding viral genome coverage variations**
 
 The script generates two figures:
 

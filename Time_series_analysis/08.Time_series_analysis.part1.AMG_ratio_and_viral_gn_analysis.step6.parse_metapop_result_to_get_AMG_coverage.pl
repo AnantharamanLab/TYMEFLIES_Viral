@@ -67,6 +67,6 @@ while (<IN>){
 close IN;
 close OUT;
 
-`cat tmp.batch_run_to_get_AMG_coverage.sh | parallel -j 20`;
+`cat tmp.batch_run_to_get_AMG_coverage.sh | parallel -j 30 --tmpdir tmp_dir`;
 
 `rm tmp.batch_run_to_get_AMG_coverage.sh`;

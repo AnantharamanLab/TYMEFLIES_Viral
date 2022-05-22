@@ -30,9 +30,9 @@ close IN;
 
 ## Step 2.2 store the ffn file (only store genes from Viruses_species_rep_gn)
 my %All_ffn_seq = (); # Store all the ffn sequences that belong to %Viruses_species_rep_gn
-`find /storage1/data11/TYMEFLIES_phage/*/vRhyme_best_bins_fasta_parsed -name '*.ffn' -exec cat {} + > TYMEFLIES_All_ffn_seq.ffn`;
+#`find /storage1/data11/TYMEFLIES_phage/*/vRhyme_best_bins_fasta_parsed -name '*.ffn' -exec cat {} + > TYMEFLIES_All_ffn_seq.ffn`;
 %All_ffn_seq = _store_seq("TYMEFLIES_All_ffn_seq.ffn");
-`rm TYMEFLIES_All_ffn_seq.ffn`;
+#`rm TYMEFLIES_All_ffn_seq.ffn`;
 foreach my $key (sort keys %All_ffn_seq){
 	my ($gn) = $key =~ /^>(.+?\_\_.+?)\_\_/;
 	if (!exists $Viruses_species_rep_gn{$gn}){

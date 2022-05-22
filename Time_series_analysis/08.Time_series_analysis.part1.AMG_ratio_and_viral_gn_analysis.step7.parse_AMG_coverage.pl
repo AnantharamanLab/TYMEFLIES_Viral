@@ -8,6 +8,7 @@ use List::Util qw(sum);
 # Processing the coverage result with the following criteria:
 # 1) screen bin with its any scaffold with < 0.01 coverage 
 # 2) normalize the coverage by read numbers 
+# 3) maybe set a cutoff to assign a bin is really present or just because of some random read hits to make it have a very low coverage (This was done in the next script)
 
 # Step 1 Store all AMG coverage results
 my %Scf2IMG2amg_gene2cov = (); # Store the coverage information of each AMG gene
