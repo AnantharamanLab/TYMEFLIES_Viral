@@ -45,7 +45,7 @@ while (<IN>){
 	}
 }
 close IN;
-
+=pod
 open OUT, ">All_phage_species_rep_gn_containing_AMG.fasta";
 foreach my $header (sort keys %All_viral_genome_seq){
 	my ($gn) = $header =~ /^>(.+?\_\_.+?)\_\_/;
@@ -54,7 +54,7 @@ foreach my $header (sort keys %All_viral_genome_seq){
 	}
 }
 close OUT;
-
+=cut
 # Step 2 Make batch bowtie 2 mapping command
 ## Step 2.1 store all IMG ID
 my %IMGID = (); # $img_id => 1
@@ -67,7 +67,8 @@ while (<IN>){
 close IN;
 
 ## Step 2.2 Make bowtie index
-#`bowtie2-build --large-index All_phage_species_rep_gn_containing_AMG.fasta All_phage_species_rep_gn_containing_AMG.bowtie2_idx --threads 10 --quiet`;
+#`cat AMG_counterpart_genes_and_flankings.fasta reference_fasta_for_metapop/All_phage_species_rep_gn_containing_AMG.fasta > All_phage_species_rep_gn_containing_AMG_n_AMG_counterpart_gene_and_flankings.fasta`;
+#`bowtie2-build --large-index All_phage_species_rep_gn_containing_AMG_n_AMG_counterpart_gene_and_flankings.fasta All_phage_species_rep_gn_containing_AMG_n_AMG_counterpart_gene_and_flankings.bowtie2_idx --threads 10 --quiet`;
 
 ## Step 2.3 Make run command
 open OUT, ">tmp.bowtie2_mapping.sh";
@@ -77,12 +78,12 @@ foreach my $img_id (sort keys %IMGID){
 		my $reads_2 = "/storage1/Reads/TYMEFLIES_reads/$img_id.filtered_2.fastq";  
 		my $threads = 1;
 	
-		print OUT "bowtie2 -x All_phage_species_rep_gn_containing_AMG.bowtie2_idx -1 $reads_1 -2 $reads_2 -S $img_id/$img_id.viral_species_rep.sam -p $threads --no-unal --quiet;";
+		print OUT "bowtie2 -x All_phage_species_rep_gn_containing_AMG_n_AMG_counterpart_gene_and_flankings.bowtie2_idx -1 $reads_1 -2 $reads_2 -S $img_id/$img_id.viral_species_rep.sam -p $threads --no-unal --quiet --mm;";
 		print OUT "samtools view -bS $img_id/$img_id.viral_species_rep.sam > $img_id/$img_id.viral_species_rep.bam -@ $threads 2> /dev/null;";
 		print OUT "samtools flagstat $img_id/$img_id.viral_species_rep.bam > $img_id/$img_id.viral_species_rep.stat 2> /dev/null;";
 		print OUT "python3 /slowdata/scripts/python_scripts/filter_coverage_file.py -b $img_id/$img_id.viral_species_rep.bam -o $img_id/$img_id.viral_species_rep.id90.bam -p 0.90 -t $threads;";
 		print OUT "samtools flagstat $img_id/$img_id.viral_species_rep.id90.bam > $img_id/$img_id.viral_species_rep.id90.stat 2> /dev/null;";
-		print OUT "coverm contig --methods metabat --bam-files $img_id/$img_id.viral_species_rep.id90.bam > $img_id/$img_id.viral_species_rep.id90.coverm_depth.txt 2> /dev/null;";
+		#print OUT "coverm contig --methods metabat --bam-files $img_id/$img_id.viral_species_rep.id90.bam > $img_id/$img_id.viral_species_rep.id90.coverm_depth.txt 2> /dev/null;";
 		print OUT "samtools index $img_id/$img_id.viral_species_rep.id90.bam 2> /dev/null;";
 		print OUT "rm $img_id/$img_id.viral_species_rep.sam $img_id/$img_id.viral_species_rep.sorted.bam $img_id/$img_id.viral_species_rep.bam\n";
 	}

@@ -28,9 +28,29 @@ while (<IN>){
 }
 close IN;
 
+### Change the old gene to new gene
+my %Old_gene2new_gene_map = (); # $gene_old => $gene_new
+open IN, "New_gene2old_gene_map.txt";
+while (<IN>){
+	chomp;
+	my @tmp = split (/\t/);
+	my $gene_new = $tmp[0]; my $gene_old = $tmp[1];
+	$Old_gene2new_gene_map{$gene_old} = $gene_new;
+}
+close IN;
+
+foreach my $pro (sort keys %AMG_summary){
+	if ($Old_gene2new_gene_map{$pro}){
+		my $ko = $AMG_summary{$pro};
+		my $gene_new = $Old_gene2new_gene_map{$pro};
+		delete $AMG_summary{$pro}; # Delete the old gene and its value
+		$AMG_summary{$gene_new} = $ko; # Add the new gene and its value
+	}
+}
+
 ## Step 1.2 Store and write down AMG coordinates 
 my %AMG_coordinates = (); # $amg => $scf, $amg, $start, $stop connected by "\t"
-open IN, "All_phage_species_rep_gn_containing_AMG.genes";
+open IN, "All_phage_species_rep_gn_containing_AMG.mdfed.genes"; # Note: Using mdfed gene files here 
 while (<IN>){
 	chomp;
 	if (/^>/){
@@ -51,8 +71,11 @@ foreach my $amg (sort keys %AMG_coordinates){
 }
 close OUT;
 
+=pod
+## Do not need prophage coordinates now, due to that prophage coordinates have been changed already - all start positions are changed to 1, and start protein IDs are changed to 1
 ## Step 1.3 Make prophage coordinates file
 `cat /storage1/data11/TYMEFLIES_phage/33*/VIBRANT_33*.a/VIBRANT_results_33*.a/VIBRANT_integrated_prophage_coordinates_33*.a.tsv > MetaPop/VIBRANT_prophage_coordinates.txt`;
+=cut
 
 # Step 2 Write down batch run command and run it
 `mkdir MetaPop/AMG_coverage_result`;
@@ -62,11 +85,15 @@ while (<IN>){
 	chomp;
 	my $depth_file = $_;
 	my ($basename) = $depth_file =~ /(33*.+?\.viral_species_rep\.id90)/;
-	print OUT "/slowdata/scripts/python_scripts/cov_by_region.py -i $depth_file -r MetaPop/All_phage_species_rep_gn_containing_AMG_coordinates.txt -c MetaPop/VIBRANT_prophage_coordinates.txt -f MetaPop/01.Genomes_and_Genes/all_genomes.fasta -o MetaPop/AMG_coverage_result/$basename.AMG_cov.txt --no_header\n";
+	print OUT "/storage1/data14/for_chao/cov_by_region.py -i $depth_file -r MetaPop/All_phage_species_rep_gn_containing_AMG_coordinates.txt -f MetaPop/01.Genomes_and_Genes/all_genomes.fasta -o MetaPop/AMG_coverage_result/$basename.AMG_cov.txt --no_header\n";
 }
 close IN;
 close OUT;
 
+`mkdir tmp_dir`;
+
 `cat tmp.batch_run_to_get_AMG_coverage.sh | parallel -j 30 --tmpdir tmp_dir`;
 
 `rm tmp.batch_run_to_get_AMG_coverage.sh`;
+
+`rm -r tmp_dir`;

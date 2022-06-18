@@ -3,8 +3,11 @@
 use strict;
 use warnings;
 
-# Aim: Get AMG counterpart gene located scaffolds from all metagenome scaffolds
-
+# Aim: Get AMG counterpart genes from all metagenomes
+# Note there are two requirements: 
+# 1) Only include hits from microbial scaffolds
+# 2) Also include flanking regions (150 bp on left and right)
+=pod
 # Step 1 Store all AMG info
 my %AMG_pro2ko = (); # $amg_pro => $ko
 my %KO2amg_pro = (); # $ko => $amg_pros (collection of $amg_pro, separated by "\,")
@@ -51,7 +54,7 @@ while (<IN>){
 	$IMGID{$img_id} = 1;
 }
 close IN;
-=pod
+
 ### Step 2.1.3 Run hmmsearch
 `mkdir tmp_folder_for_hmmsearch_for_AMG_counterpart_genes`;
 open OUT, ">tmp.run_hmmsearch_for_getting_AMG_counterpart_gene_located_scaffold.sh";
@@ -76,7 +79,7 @@ foreach my $img_id (sort keys %IMGID){
 `cat tmp.run_hmmsearch_for_getting_AMG_counterpart_gene_located_scaffold.sh | parallel -j 30`;
 
 `rm tmp.run_hmmsearch_for_getting_AMG_counterpart_gene_located_scaffold.sh`;
-=cut
+
 ## Step 2.2 Read and parse hmmsearch results
 my %IMG2all_pros = (); # $img_id => $all_pros (collection of $pro, separated by "\,"); all protein hits of AMG KOs
 open IN, "find /storage1/data11/TYMEFLIES_phage/tmp_folder_for_hmmsearch_for_AMG_counterpart_genes/ -name '*.hmmsearch_result.txt' | ";
@@ -123,7 +126,23 @@ while (<IN>){
 }
 close IN;
 
-## Step 2.3 Get AMG counterpart gene located scaffolds
+open OUT, ">IMG2all_pros.txt";
+foreach my $img_id (sort keys %IMG2all_pros){
+	print OUT "$img_id\t$IMG2all_pros{$img_id}\n";
+}
+close OUT;
+=cut
+
+my %IMG2all_pros = (); # $img_id => $all_pros (collection of $pro, separated by "\,"); all protein hits of AMG KOs
+open IN, "IMG2all_pros.txt";
+while (<IN>){
+	chomp;
+	my @tmp = split (/\t/);
+	$IMG2all_pros{$tmp[0]} = $tmp[1];
+}
+close IN;
+
+## Step 2.3 Get AMG counterpart gene and flanking regions
 my %Scaffolds_from_viruses = (); # $scaffold => 1
 open IN, "Host_prediction/All_phage_genomes_headers.txt";
 while (<IN>){
@@ -133,42 +152,96 @@ while (<IN>){
 }
 close IN;
 
-my %AMG_counterpart_gene_located_scaffolds = (); # $img_id => $scaffolds (collection of $scaffold, separated by "\,")
+my %Scaffold2length = (); # $scaffold => $length
+open IN, "ls */*seq_length.txt |";
+while (<IN>){
+	chomp;
+	my $file = $_;
+	open INN, $file;
+	while (<INN>){
+		chomp;
+		if (!/^sequence/){
+			my @tmp = split (/\t/);
+			my $scaffold = $tmp[0];
+			my $length = $tmp[1];
+			$Scaffold2length{$scaffold} = $length;
+		}
+	}
+	close INN;
+}
+close IN;
+
+my %Seq_for_AMG_counterpart_genes_and_flankings = (); # Store all the sequence 
+my %All_scaffold2gene_and_flanking_regions = (); # $scaffold => $regions; for all scaffolds
 foreach my $img_id (sort keys %IMG2all_pros){
-	# Store all scaffolds ID that contain AMG KO hits
-	my %Scaffolds_all = (); # $scaffold => 1
+	# Store all the scaffold sequences
+	my %Seq = _store_seq("$img_id/$img_id.a.fna");
+
+	# Get the scaffold to protein ID
 	my @Pros = split (/\,/, $IMG2all_pros{$img_id});
+	my %Scaffold2pros = (); # Store the proteins that are only from microbial scaffolds
 	foreach my $pro (@Pros){
 		my ($scaffold) = $pro =~ /^(Ga.+?\_.+?)\_/;
 		if (! exists $Scaffolds_from_viruses{$scaffold}){ # Not include those scaffolds from viral genomes
-			$Scaffolds_all{$scaffold} = 1;
+			if (! exists $Scaffold2pros{$scaffold}){
+				$Scaffold2pros{$scaffold} = $pro;
+			}else{
+				$Scaffold2pros{$scaffold} .= "\,".$pro;
+			}
+		}
+	}	
+	
+	# Get scaffold to gene and flanking regions for each scaffold and store the sequences
+	foreach my $scaffold (sort keys %Scaffold2pros){
+		my $length = $Scaffold2length{$scaffold};
+		
+		my @Regions = (); # Store the gene and flanking regions
+		my @Pros_from_this_scaffold = split (/\,/, $Scaffold2pros{$scaffold});
+		foreach my $pro (@Pros_from_this_scaffold){
+			my ($start, $end) = $pro =~ /^Ga.+?\_.+?\_(.+?)\_(.+?)$/;
+			if ($start >= 151){
+				$start = $start - 150;
+			}else{
+				$start = 1;
+			}
+			
+			if (($end + 150) <= $length){
+				$end = $end + 150;
+			}else{
+				$end = $length;
+			}
+			
+			push @Regions, "$start\_$end";
+		}
+		
+		my @Regions_merged = _merge_regions(@Regions);
+		$All_scaffold2gene_and_flanking_regions{$scaffold} = join("\,", @Regions_merged);
+		
+		# Store sequences
+		foreach my $key (@Regions_merged){
+			my ($start, $end) = $key =~ /^(.+?)\_(.+?)$/;
+			my $head = ">$scaffold\_$start\_$end";
+			my $seq = substr($Seq{">$scaffold"}, ($start - 1), ($end - $start + 1));
+			if (! $seq){
+				print "$head is empty!\n";
+			}else{
+				$Seq_for_AMG_counterpart_genes_and_flankings{$head} = $seq;
+			}
 		}
 	}
 	
-	my @Scaffolds_all = sort keys (%Scaffolds_all);
-	my $scaffolds = join("\,", @Scaffolds_all);
-	
-	$AMG_counterpart_gene_located_scaffolds{$img_id} = $scaffolds; 
+	print "$img_id has been processed!\n";
 }
 
-## Step 2.4 Write down AMG_counterpart_gene_located_scaffolds.fasta
-my %Seq_for_AMG_counterpart_gene_located_scaffolds = (); 
-foreach my $img_id (sort keys %AMG_counterpart_gene_located_scaffolds){
-	# Store all the scaffold sequences
-	my %Seq = _store_seq("$img_id/$img_id.a.fna");
-	
-	# Add AMG counterpart gene located scaffolds into the hash
-	my @Scaffolds = split (/\,/, $AMG_counterpart_gene_located_scaffolds{$img_id});
-	
-	foreach my $scaffold (@Scaffolds){
-		my $scaffold_w_array = ">".$scaffold;
-		$Seq_for_AMG_counterpart_gene_located_scaffolds{$scaffold_w_array} = $Seq{$scaffold_w_array};
-	}
+open OUT, ">AMG_counterpart_genes_and_flankings.fasta";
+foreach my $key (sort keys %Seq_for_AMG_counterpart_genes_and_flankings){
+	print OUT "$key\n$Seq_for_AMG_counterpart_genes_and_flankings{$key}\n";
 }
+close OUT;
 
-open OUT, ">AMG_counterpart_gene_located_scaffolds.fasta";
-foreach my $key (sort keys %Seq_for_AMG_counterpart_gene_located_scaffolds){
-	print OUT "$key\n$Seq_for_AMG_counterpart_gene_located_scaffolds{$key}\n";
+open OUT, ">All_scaffold2gene_and_flanking_regions.txt";
+foreach my $key (sort keys %All_scaffold2gene_and_flanking_regions){
+	print OUT "$key\t$All_scaffold2gene_and_flanking_regions{$key}\n";
 }
 close OUT;
 
@@ -196,4 +269,44 @@ sub _store_seq{
 	}
 	close _IN;
 	return %Seq;
+}
+
+sub _merge_regions{
+	my @List = @_;
+	my @Result = (); 
+	
+	my @Pair_data = (); # $start\_-1 or $end\_1
+	for(my $i=0; $i<=$#List; $i++){
+		my ($start, $end) = $List[$i] =~ /^(.+?)\_(.+?)$/;
+		my $ele_1 = $start."\_-1";
+		my $ele_2 = $end."\_1";
+		push @Pair_data, $ele_1;
+		push @Pair_data, $ele_2;
+	}	
+	
+	# Sort the pair data in ascending order according to the first part of the element
+	@Pair_data = sort { ($a =~ /^(\d+)_/)[0] <=> ($b =~ /^(\d+)_/)[0] } @Pair_data;
+	
+	my $indicator = 0;
+	my $mark_start = -1;
+	my $mark_end = -1;
+	my $start_flagged = 0;
+	
+	for(my $i=0; $i<=$#Pair_data; $i++){
+		$indicator += (split(/\_/, $Pair_data[$i]))[1]; 
+		
+		if ($indicator == -1 and $start_flagged == 0){ # The first entry point
+			$mark_start = (split(/\_/, $Pair_data[$i]))[0];
+			$start_flagged = 1;
+		}elsif($indicator == 0){
+			$mark_end = (split(/\_/, $Pair_data[$i]))[0];
+			$start_flagged = 0;
+		}
+		
+		if ($mark_end >= $mark_start){ # A pair has been found
+			push @Result, "$mark_start\_$mark_end";
+		}
+	}
+	
+	return @Result;
 }
