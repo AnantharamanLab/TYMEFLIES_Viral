@@ -44,6 +44,8 @@ A custom Python 3 script "filter_bam_by_reference.py" was used to filter bam. No
 
 4) "--snp_scale" set to "both" (Including both SNPs detected for a genome in each sample alone, and SNPs for that genome across all samples.)
 
+Note:  The custom gene file should be strictly in the same format/shape as a Prodigal-generated one. The gene ID should be re-ordered (naturally ordered) if you want to use a custom gene file. For instance, 11 is in front of 2 , 3, and 4, which needs to be re-ordered. Meanwhile, the gene ID should start from 1, and the start and stop points of each gene in a scaffold should start from the very beginning of the scaffold (but not the intermediate place of a scaffold). A custom perl script (Side23.change_genes_headers.pl) was provided to change the headers of the gene file.
+
 [script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step6.run_metapop.pl
 
 **7 Parse MetaPop result to get AMG coverage**
@@ -71,6 +73,8 @@ In the resulted file "*.AMG_cov.txt", five columns were included:
 5) avg region #1 (mean coverage of AMG)
 
 [script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step7.parse_metapop_result_to_get_AMG_coverage.pl
+
+
 
 **8 Parse the AMG coverage**
 
