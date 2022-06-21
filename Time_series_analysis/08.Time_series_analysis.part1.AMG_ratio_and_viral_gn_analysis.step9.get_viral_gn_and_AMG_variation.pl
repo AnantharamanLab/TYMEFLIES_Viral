@@ -203,6 +203,26 @@ while (<IN>){
 }
 close IN;
 
+### Change the old gene to new gene
+my %Old_gene2new_gene_map = (); # $gene_old => $gene_new
+open IN, "New_gene2old_gene_map.txt";
+while (<IN>){
+	chomp;
+	my @tmp = split (/\t/);
+	my $gene_new = $tmp[0]; my $gene_old = $tmp[1];
+	$Old_gene2new_gene_map{$gene_old} = $gene_new;
+}
+close IN;
+
+foreach my $pro (sort keys %AMG_summary){
+	if ($Old_gene2new_gene_map{$pro}){
+		my $ko = $AMG_summary{$pro};
+		my $gene_new = $Old_gene2new_gene_map{$pro};
+		delete $AMG_summary{$pro}; # Delete the old gene and its value
+		$AMG_summary{$gene_new} = $ko; # Add the new gene and its value
+	}
+}
+
 ### Store AMG_KO2KO_details.txt
 my %AMG_KO2KO_details = ();
 open IN, "AMG_KO2KO_details.txt";
