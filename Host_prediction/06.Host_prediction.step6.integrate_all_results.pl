@@ -107,9 +107,9 @@ foreach my $gn_rep (sort keys %Species_cluster_map){
 # Step 4 Integrate all results
 # The overlapped host taxonomies were solved based on the following priority: 
 # 1) prophage within a host genome; 
-# 2) AMG match to host genome;
-# 3) match to host genome(s) at the genus rank; 
-# 4) match to host CRISPR spacer(s) at the genus rank; 
+# 2) match to host genome(s) at the genus rank; 
+# 3) match to host CRISPR spacer(s) at the genus rank; 
+# 4) AMG match to host genome;
 # 5) match to host genome(s) at any ranks above genus; 
 # 6) match to host CRISPR spacer(s) at any ranks above genus; 
 # 7) derived from vOTU host taxonomy. 
@@ -122,9 +122,9 @@ foreach my $gn (sort keys %Viral_gn2host_tax_all_combined){
 	my @Array_host_tax = split (/\;/, $array_host_tax);
 	my @Methods = ();
 	$Methods[0] = "prophage within a host genome";
-	$Methods[1] = "AMG match to a host genome";
-	$Methods[2] = "match to host genome(s) at the genus rank";
-	$Methods[3] = "match to host CRISPR spacer(s) at the genus rank";
+	$Methods[1] = "match to host genome(s) at the genus rank";
+	$Methods[2] = "match to host CRISPR spacer(s) at the genus rank";
+	$Methods[3] = "AMG match to a host genome";
 	$Methods[4] = "match to host genome(s) at any ranks above genus";
 	$Methods[5] = "match to host CRISPR spacer(s) at any ranks above genus";
 	$Methods[6] = "derived from vOTU host taxonomy";
@@ -132,15 +132,11 @@ foreach my $gn (sort keys %Viral_gn2host_tax_all_combined){
 	if (exists $Prophage_gn2host{$gn}){
 		$Array_host_tax[0] = $Prophage_gn2host{$gn};
 	}
-	
-	if (exists $Phage_gn2host_tax_based_on_AMG{$gn}){
-		$Array_host_tax[1] = $Phage_gn2host_tax_based_on_AMG{$gn};
-	}
-	
+
 	if (exists $Phage_gn2host_tax_by_sequence_similarity{$gn}){
 		my $host_tax_tmp = $Phage_gn2host_tax_by_sequence_similarity{$gn};
 		if ($host_tax_tmp !~ /\;g\_\_\;/){ # matched at the genus rank
-			$Array_host_tax[2] = $host_tax_tmp;
+			$Array_host_tax[1] = $host_tax_tmp;
 		}else{
 			$Array_host_tax[4] = $host_tax_tmp;
 		}
@@ -149,11 +145,15 @@ foreach my $gn (sort keys %Viral_gn2host_tax_all_combined){
 	if (exists $Phage_gn2host_tax_by_CRISPR_matches{$gn}){
 		my $host_tax_tmp = $Phage_gn2host_tax_by_CRISPR_matches{$gn};
 		if ($host_tax_tmp !~ /\;g\_\_\;/){ # matched at the genus rank
-			$Array_host_tax[3] = $host_tax_tmp;
+			$Array_host_tax[2] = $host_tax_tmp;
 		}else{
 			$Array_host_tax[5] = $host_tax_tmp;
 		}
 	}	
+	
+	if (exists $Phage_gn2host_tax_based_on_AMG{$gn}){
+		$Array_host_tax[3] = $Phage_gn2host_tax_based_on_AMG{$gn};
+	}
 	
 	if (exists $Viral_gn2host_tax_by_species_cluster{$gn}){
 		$Array_host_tax[6] = $Viral_gn2host_tax_by_species_cluster{$gn};
