@@ -92,19 +92,18 @@ Parse to get the viral genome coverage and AMG coverage ratio variation pattern 
 
 The resulted file "AMG_gene_cov_ratio_variation_table.txt" contains the following columns:
 
-1) KO
+1. Col 1: KO
 
-2) KO detail
+2. Col 2: KO detail
 
-3) Viral genome
+3. Col 3: Viral genome
 
-4) Distribution of viral genome (present in how many metagenomes)
+4. Col 4: Distribution of viral genome (present in how many metagenomes)
 
-5) Coverage mean across all metagenomes
+5. Col 5: Coverage mean across all metagenomes
 
-6) Distribution of AMG (present in how many metagenomes)
-
-7) to 471) AMG coverage ratio in 475 metagenomes
+6. Col 6: Distribution of AMG (present in how many metagenomes)
+7. Col 7-471: AMG coverage ratio in 475 metagenomes
 
 [script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step9.get_viral_gn_and_AMG_variation.pl
 
