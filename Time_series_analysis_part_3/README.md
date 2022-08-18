@@ -112,9 +112,11 @@ The reference allele was the majority allele in the year of 2018.
 
 **11 Parse the viral species (species rep gn) SNP allele frequencies for each year**
 
-Get the linear regression patterns for each viral genome.
+Get the linear regression patterns and Spearman's rank correlation patterns for each viral genome.
 
 The script "calc_regression.py" was used to get the "reg_slope", "reg_yint", and "reg_rsquared" parameters.
+
+The script "calc_spearman_correlation.py" was used to get the "spearman_corr" and "spearman_pval" parameters.
 
 [script] 
 

@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-from typing import Tuple
+from itertools import repeat
+from typing import Iterator, List, Tuple
 import pandas as pd
 from scipy.stats import spearmanr
 import argparse
+import multiprocessing
 
 _HEADER = [
     "var1",
@@ -56,7 +58,6 @@ def main(file: str, output: str, min_number: int, remove_zeros: bool) -> None:
     with open(output, "w") as outfile:
         outfile.write(f"{HEADER}\n")
         data = read_data(file, remove_zeros)
-        print(data)
         ncols = data.shape[1]
         variables = "\t".join(data.index.to_list())
         if ncols < min_number:
@@ -66,16 +67,40 @@ def main(file: str, output: str, min_number: int, remove_zeros: bool) -> None:
             outfile.write(f"{variables}\t{pvalue:.4f}\t{corr:.4f}\n")
 
 
+def read_batch_file(file: str) -> Iterator[Tuple[str, str]]:
+    with open(file) as fp:
+        for line in fp:
+            infile, outfile = line.rstrip().split("\t")
+            yield infile, outfile
+
+
+def _parallel_helper(files: List[str], min_number: int, remove_zeros: bool) -> None:
+    file, output = files
+    main(file, output, min_number, remove_zeros)
+
+
+def main_parallel(file: str, min_number: int, remove_zeros: bool, jobs: int):
+    files = read_batch_file(file)
+    with multiprocessing.Pool(processes=jobs) as pool:
+        pool.starmap(
+            _parallel_helper, zip(files, repeat(min_number), repeat(remove_zeros))
+        )
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Calculate the spearman correlation between two rows of data"
     )
 
+    output_args = parser.add_mutually_exclusive_group(required=True)
+
+    input_help = (
+        "SINGLE FILE: tab-delimited file with two row of data where the first column is the variable name. 'NA' is a null value. Requires -o argument. "
+        "BATCH MODE: input file paths and output file paths for each individual file to be processed that are in the valid format listed above. These two paths are separated by a tab. Requires --batch-mode flag."
+    )
+
     parser.add_argument(
-        "-i",
-        "--input",
-        required=True,
-        help="input tab-delimited file that contains only two rows representing the variables, 'NA' as the only null values",
+        "-i", "--input", required=True, help=input_help,
     )
     parser.add_argument(
         "-n",
@@ -83,11 +108,16 @@ if __name__ == "__main__":
         default=5,
         help="minimum number of columns remaining to do processing (default: %(default)s)",
     )
-    parser.add_argument(
+    output_args.add_argument(
         "-o",
         "--output",
-        required=True,
         help="name of output tab-delimited file that will contain the two variable names, the pvalue, and the correlation coefficient",
+    )
+    output_args.add_argument(
+        "--batch-mode",
+        default=False,
+        action="store_true",
+        help="use if providing a batch tab-delimited file with the input files on the left and output paths on the right",
     )
     parser.add_argument(
         "--remove-zeros",
@@ -95,5 +125,15 @@ if __name__ == "__main__":
         action="store_true",
         help="use to remove columns that contain 0 (default: %(default)s)",
     )
+    parser.add_argument(
+        "-j",
+        "--jobs",
+        type=int,
+        default=20,
+        help="number of parallel jobs to run (default: %(default)s)",
+    )
     args = parser.parse_args()
-    main(args.input, args.output, args.num_limit, args.remove_zeros)
+    if args.batch_mode:
+        main_parallel(args.input, args.num_limit, args.remove_zeros, args.jobs)
+    else:
+        main(args.input, args.output, args.num_limit, args.remove_zeros)
