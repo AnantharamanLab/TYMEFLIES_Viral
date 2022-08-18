@@ -2,7 +2,7 @@
 
 (Get microdiversity analysis results using time-series metagenomes across 20 years)
 
-**1 Get the AMG-containing viral genome microdiversity (nt diversity) statistics **
+**1 Get the AMG-containing viral genome microdiversity (nt diversity) statistics**
 
 The distribution of viral genome should be >= 20 out of 465 metagenomes for calculating month and year_month distribution. 
 
@@ -10,7 +10,7 @@ One microdiversity parameter was obtained from this step: nt diversity.
 
 [script] 08.Time_series_analysis.part3.microdiversity_analysis.step1.get_viral_gn_microdiversity_statistics.pl
 
-**2 Get the AMG-containing viral genome SNP density statistics **
+**2 Get the AMG-containing viral genome SNP density statistics**
 
 The distribution of viral genome should be >= 20 out of 465 metagenomes for calculating month and year_month distribution. 
 
