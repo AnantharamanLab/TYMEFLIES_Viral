@@ -1,6 +1,6 @@
-# Time-series analysis
+# Time-series analysis - Part 1 AMG ratio and viral genome coverage analysis
 
-(Include AMG coverage ratio analysis and micro-/macrodiversity analysis for viruses using time-series metagenomes across 20 years)
+(Include AMG ratio and viral genome coverage analysis using time-series metagenomes across 20 years)
 
 **1 Get the information of high occurrence species (>= 40)**
 
@@ -74,8 +74,6 @@ In the resulted file "*.AMG_cov.txt", five columns were included:
 
 [script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step7.parse_metapop_result_to_get_AMG_coverage.pl
 
-
-
 **8 Parse the AMG coverage**
 
 Processing the coverage result with the following criteria:
@@ -128,4 +126,75 @@ It contains three subpanels of A) heatmap of the number of metagenomes for each 
 
 It contains three subpanels of A) heatmap of the number of metagenomes for each month, B) 20 facets of AMG-containing viral genome coverage plots for each year-month, and C) AMG-containing viral genome coverage plot for each month (aggregated across 20 years).
 
+[script] 
+
 08.Time_series_analysis.step11.visualize_AMG_and_corresponding_viral_gn_cov_ratio_varition.R
+
+**12.1 Сonduct correlation analysis for viral species and the corresponding host species**
+
+In this step, we first found viral species that had its host species identified at the species level. Then,  we parsed to get viral species coverage and host coverage within individual metagenomes. Finally, we conducted Spearman's correlation test to investigate the correlation.
+
+"calc_spearman_correlation.py" was used to perform Spearman's correlation test.
+
+[script] 
+
+08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step12.1.conduct_correlation_analysis_for_viral_species_and_host_species.pl
+
+calc_spearman_correlation.py
+
+**12.2 Сonduct correlation analysis for environmental parameters and viruses**
+
+We studied the correction between psbA-containing viral genome coverage, psbA AMG coverage, and host (Cyanobacteria) coverage with environmental parameters. 
+
+ [script] 
+
+08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step12.2.conduct_correlation_analysis_for_env_parameter_and_virus.pl
+
+**13 Map all metagenomic reads from each year to the collection of species representatives and AMG counterpart genes and flankings**
+
+Map all metagenomic reads from each year to the collection of the representative genomes from individual species and AMG counterpart genes and flankings. We only included representative genomes that carry at least one AMG.
+
+[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step13.map_metagenomic_reads_from_each_year_to_the_collection_of_species_representatives.pl
+
+**14 Filter bam files using only the collection of viral species representative genomes as the reference**
+
+All the "*.viral_species_rep.id90.bam" files from the Step 13 were placed into a new folder. Filter bam files by scaffold names of viral species representative genomes. 
+
+A custom Python 3 script "filter_bam_by_reference.py" was used to filter bam. Note that this script should be run under conda env "python_scripts_env_Jan2022.yml". Both the script and yml file were provided here.
+
+[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step14.filter_bam_files.for_each_year.pl
+
+**15 Run MetaPop for bam files from each year**
+
+The settings were the same as those listed in Step 6.
+
+[script] 
+
+08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step15.run_metapop.for_each_year.pl
+
+**16 Parse MetaPop result to get AMG coverage for each year**
+
+The running process was the same as that described in Step 7.
+
+[script] 
+
+08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step16.parse_metapop_result_to_get_AMG_coverage.for_each_year.pl
+
+**17 Parse the AMG coverage for each year**
+
+The running process was the same as that described in Step 8.
+
+[script] 
+
+08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step17.parse_AMG_coverage.for_each_year.pl
+
+**18 Get viral genome and AMG variation for each year**
+
+The running process was the same as that described in Step 9.
+
+[script] 
+
+08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step18.get_viral_gn_and_AMG_variation.for_each_year.pl
+
+
+

@@ -31,7 +31,7 @@ Scripts (including some of the inputs/outputs) are placed in the following folde
 
 **8** [Mapping metagenomic assemblies](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Mapping_metagenomic_assemblies): Map reads to metagenomic assemblies (the original scaffolds including both microbial and viral ones) to get MAG/virus abundance
 
-**9** [Time series analysis](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Time_series_analysis): Conduct time series analysis for viral genomes
+**9** [Time series analysis - Part 1](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Time_series_analysis_part_1): Conduct AMG ratio and viral genome coverage analysis
 
 
 
