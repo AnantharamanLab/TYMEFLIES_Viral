@@ -33,6 +33,10 @@ Scripts (including some of the inputs/outputs) are placed in the following folde
 
 **9** [Time series analysis - Part 1](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Time_series_analysis_part_1): Conduct AMG ratio and viral genome coverage analysis
 
+**10** [Time series analysis - Part 2](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Time_series_analysis_part_2): Get four important AMG-containing viral genome coverage statistics
+
+**11** [Time series analysis - Part 3](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Time_series_analysis_part_3): Get microdiversity analysis results
+
 
 
 <br>
