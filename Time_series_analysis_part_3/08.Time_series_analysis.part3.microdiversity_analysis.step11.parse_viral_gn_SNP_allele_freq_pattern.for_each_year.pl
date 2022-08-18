@@ -195,7 +195,7 @@ while (<IN>){
 }
 close IN;
 
-open OUT, ">MetaPop.for_each_year/MetaPop/Viral_gn2regression_parameters.for_four_AMGs.txt";
+open OUT, ">MetaPop.for_each_year/MetaPop/Viral_gn2regression_and_spearman_parameters.for_four_AMGs.txt";
 foreach my $viral_gn (sort keys %Viral_gn2regression_parameters){
 	if (exists $Viral_species_containing_four_AMGs{$viral_gn}){
 		print OUT "$viral_gn\t$Viral_gn2regression_parameters{$viral_gn}\t$Viral_gn2spearman_parameters{$viral_gn}\n";
