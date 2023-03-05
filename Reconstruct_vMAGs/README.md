@@ -52,9 +52,9 @@ Any one AMG that is placed in either ends of a scaffold or any n AMGs that are p
 
 In the original VIBRANT annotation result, we can parse the v-scores for individual AMG proteins. If any AMG has its any v-scores (KEGG, Pfam, and VOG v-scores) >= 1 (representing a viral-like nature), we will filter this AMG.
 
-(3) Filter AMGs with flanking genes of v-scores < 0.02
+(3) Filter AMGs with flanking genes of v-scores (only KEGG v-scores) < 0.25
 
-For AMGs (or multiple AMGs placed in tandem) surrounded by all their flanking gene with v-scores < 0.02, it  indicates that these AMGs are surrounded by non-viral (cellular) genes. These AMGs will be filtered due to that they are likely to be non-viral (cellular) in origin too.
+For AMGs (or multiple AMGs placed in tandem) surrounded by all their flanking gene with v-scores < 0.25, it  indicates that these AMGs are surrounded by non-viral (cellular) genes. These AMGs will be filtered due to that they are likely to be non-viral (cellular) in origin too.
 
 (4) Filter AMGs that have COG category as T or B
 
