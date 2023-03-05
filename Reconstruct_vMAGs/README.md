@@ -36,11 +36,51 @@ This script can be found in "https://github.com/AnantharamanLab/vRhyme/tree/mast
 
 [script] 13.Reconstruct_vMAGs.step4.summarize_checkV_result_for_each_phage_genome.pl
 
-**5 & 6 Summarize all AMGs from individual metagenomes** 
+**5 & 6 Summarize and filter all AMGs from individual metagenomes** 
 
 Step 5: Generate AMG table for all metagenomes. Use the AMG annotated by VIBRANT and change the protein according to the IMG ID and phage genome ID
 
-Step 6: Add metagenome info and KEGG pathway info to the AMG table. The following information has been added:
+Step 6: Filter AMG and add metagenome info and KEGG pathway info to the AMG table. 
+
+- Filtering step:
+
+(1) Filter tail AMGs
+
+Any one AMG that is placed in either ends of a scaffold or any n AMGs that are placed in either ends of a scaffold in tandem will be filtered
+
+(2) Filter AMGs that have any v-scores (KEGG and Pfam v-scores) >= 1
+
+In the original VIBRANT annotation result, we can parse the v-scores for individual AMG proteins. If any AMG has its any v-scores (KEGG, Pfam, and VOG v-scores) >= 1 (representing a viral-like nature), we will filter this AMG.
+
+(3) Filter AMGs with flanking genes of v-scores < 0.02
+
+For AMGs (or multiple AMGs placed in tandem) surrounded by all their flanking gene with v-scores < 0.02, it  indicates that these AMGs are surrounded by non-viral (cellular) genes. These AMGs will be filtered due to that they are likely to be non-viral (cellular) in origin too.
+
+(4) Filter AMGs that have COG category as T or B
+
+We used eggNOG-mapper v2  (in March 2023) to annotate all AMG proteins. We obtained the COG category information for all AMG proteins. If any AMG has its COG category assigned as T (Signal Transduction) or B (Chromatin Structure and dynamics), we  will filter this AMG.
+
+[Result]
+
+Total AMG number before filtering: 236,212
+
+Total AMG number after filtering: 149,289
+
+​          which means 63.2% retained
+
+Number of AMGs to be filtered in each step:
+
+*1* tail_AMG number is 46,438
+
+*2* AMGs_w_high_v_scores number is 50,272 (using both KEGG v-score and Pfam v-score)
+
+*3* AMGs_w_flanking_genes_of_low_v_score number is 96 (using KEGG v-score and considering two flanking genes at both sides)
+
+*4* AMGs_belong_to_not_correct_COG number is 652
+
+*Note that the above four collections of AMGs to be filtered have overlaps* 
+
+- The following information has been added:
 
 Metagenome date and season ('date | date in the year | season')
 
@@ -50,7 +90,7 @@ Pathways (mutiple pathways separated by '|')
 
 This script will use the file ["VIBRANT_KEGG_pathways_summary.tsv"](https://github.com/AnantharamanLab/VIBRANT/blob/master/files/VIBRANT_KEGG_pathways_summary.tsv) from VIBRANT.  
 
-[script] 03.Reconstruct_vMAGs.step5.generate_AMG_summary_table.pl and 03.Reconstruct_vMAGs.step6.add_metagenome_and_KEGG_pathway_info_to_AMG_summary_table.pl
+[script] 03.Reconstruct_vMAGs.step5.generate_AMG_summary_table.pl and 03.Reconstruct_vMAGs.step6.filter_AMG_and_add_metagenome_and_KEGG_info_to_AMG_summary_table.py
 
 **7 Summarize AMG frequencies and abundance monthly and calculate AMG abundance for each year-month (for example, "2000-01")**
 
