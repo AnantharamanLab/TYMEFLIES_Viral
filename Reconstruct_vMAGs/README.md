@@ -46,19 +46,19 @@ Step 6: Filter AMG and add metagenome info and KEGG pathway info to the AMG tabl
 
 (1) Filter tail AMGs
 
-Any one AMG that is placed in either ends of a scaffold or any n AMGs that are placed in either ends of a scaffold in tandem will be filtered
+Any AMG placed at either ends of a scaffold or any number of AMGs placed at either ends of a scaffold in tandem were filtered.   
 
 (2) Filter AMGs that have any v-scores (KEGG and Pfam v-scores) >= 1
 
-In the original VIBRANT annotation result, we can parse the v-scores for individual AMG proteins. If any AMG has its any v-scores (KEGG, Pfam, and VOG v-scores) >= 1 (representing a viral-like nature), we will filter this AMG.
+The KEGG v-scores and Pfam v-scores for individual AMGs were parsed out from the VIBRANT result. If any AMG had its any v-scores (KEGG or Pfam v-scores) ≥ 1 (representing a viral-like nature), this AMG was filtered.   
 
 (3) Filter AMGs with flanking genes of v-scores (only KEGG v-scores) < 0.25
 
-For AMGs (or multiple AMGs placed in tandem) surrounded by all their flanking gene with v-scores < 0.25, it  indicates that these AMGs are surrounded by non-viral (cellular) genes. These AMGs will be filtered due to that they are likely to be non-viral (cellular) in origin too.
+For any AMG (or multiple AMGs placed in tandem) surrounded by all their flanking genes with v-scores < 0.25 (only KEGG v-scores considered here), it indicated that these AMGs were surrounded by non-viral (cellular) genes. These AMGs were filtered due to that they were likely to be non-viral (cellular) in origin  
 
 (4) Filter AMGs that have COG category as T or B
 
-We used eggNOG-mapper v2  (in March 2023) to annotate all AMG proteins. We obtained the COG category information for all AMG proteins. If any AMG has its COG category assigned as T (Signal Transduction) or B (Chromatin Structure and dynamics), we  will filter this AMG.
+The eggNOG-mapper v2 (in March 2023) was used to annotate all AMG proteins to get COG category assignment. If any AMG had its COG category assigned as “T” (Signal Transduction) or “B” (Chromatin Structure and dynamics), this AMG was then filtered.
 
 [Result]
 
