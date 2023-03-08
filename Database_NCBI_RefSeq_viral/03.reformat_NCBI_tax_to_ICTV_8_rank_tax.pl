@@ -39,7 +39,7 @@ my %Subgenus = (); # $subgenus = 1;
 my %Species = (); # $species = 1;
 my %String2rank = (); # $string => $rank (realm, subrealm ... )
 
-open IN, "ICTV_Master_Species_List_2020.v1.txt";
+open IN, "ICTV_Master_Species_List_2021.v3.txt";
 while (<IN>){
 	chomp;
 	if (!/^Sort/){
@@ -93,8 +93,7 @@ close IN;
 my @Full_rank = qw/Realm Subrealm Kingdom Subkingdom Phylum Subphylum Class Subclass Order Suborder Family Subfamily Genus Subgenus Species/;
 
 my %NCBI_tax2ictv_8_rank_tax = (); # $ncbi_tax => $ictv_8_rank_tax
-my %NCBI_tax_novel_rank2ictv = (); # Store the novel $ncbi_tax to ictv tax
-                                   # $ncbi_tax_novel_rank => $ncbi_tax
+my %NCBI_tax_novel_rank = (); # Store the $novel_rank => $ncbi_tax
 
 # Step 3. Reformat the NCBI tax to 8-rank ICTV tax
 foreach my $ncbi_tax (sort keys %NCBI_tax){
@@ -126,17 +125,19 @@ foreach my $ncbi_tax (sort keys %NCBI_tax){
 				$family = $NCBI_tax[$i];
 			}elsif ($String2rank{$NCBI_tax[$i]} eq "Genus"){
 				$genus = $NCBI_tax[$i];
+			}elsif ($String2rank{$NCBI_tax[$i]} eq "Species"){
+				$species = $NCBI_tax[$i];
 			}
 		}else{
-			if ($NCBI_tax[$i] ne $species){ # Exclude the species names
-				my $ncbi_tax_novel_rank = $NCBI_tax[$i];
-				$NCBI_tax_novel_rank2ictv{$ncbi_tax_novel_rank} = $ncbi_tax;
-			}
+			my $novel_rank = $NCBI_tax[$i];
+			$NCBI_tax_novel_rank{$novel_rank} = $ncbi_tax;
 		}
 	}
 	
 	$ictv_8_rank_tax = "$realm;$kingdom;$phylum;$class;$order;$family;$genus;$species";
-	$NCBI_tax2ictv_8_rank_tax{$ncbi_tax} = $ictv_8_rank_tax;  # Note that here $ncbi_tax does not contain "Viruses;" in the front
+	if ($ictv_8_rank_tax ne ";;;;;;;"){
+		$NCBI_tax2ictv_8_rank_tax{$ncbi_tax} = $ictv_8_rank_tax;  # Note that here $ncbi_tax does not contain "Viruses;" in the front
+	}	
 }
 
 # Step 4. Write down result
@@ -150,14 +151,9 @@ foreach my $id (sort keys %ID2NCBI_tax){
 close OUT;
 
 # Step 5. Write down novel rank
-open OUT, ">NCBI_tax_novel_rank2ictv.txt";  # novel species names excluded
-foreach my $ncbi_tax_novel_rank (sort keys %NCBI_tax_novel_rank2ictv){
-	my $ncbi_tax = $NCBI_tax_novel_rank2ictv{$ncbi_tax_novel_rank};
-	print OUT "$ncbi_tax_novel_rank\t$ncbi_tax\n";
+open OUT, ">NCBI_tax_novel_rank.txt";  # Store any novel ranks that are not present in the ICTV table
+foreach my $novel_rank (sort keys %NCBI_tax_novel_rank){
+	my $ncbi_tax = $NCBI_tax_novel_rank{$novel_rank};
+	print OUT "$novel_rank\t$ncbi_tax\n";
 }
 close OUT;
-
-
-
-
-
