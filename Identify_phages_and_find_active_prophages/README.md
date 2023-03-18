@@ -27,7 +27,7 @@ Cutoff for three or more prophages:
 
 Use default settings. PropagAtE link: https://github.com/AnantharamanLab/PropagAtE
 
-[script] 02.Identify_phages_and_find_active_prophages.step2.run_PropagAtE.pl
+[script] 02.Identify_phages_and_find_active_prophages.step2.run_PropagAtE.py
 
 **4 Run CheckV to get quality summary of all identified phage scaffolds**
 
