@@ -32,7 +32,7 @@ Map all metagenomic reads to the collection of the representative genomes from i
 
 All the "*.viral_species_rep.id90.bam" files from the Step 4 were placed into a new folder. Filter bam files by scaffold names of viral species representative genomes. 
 
-A custom Python 3 script "filter_bam_by_reference.py" was used to filter bam. Note that this script should be run under conda env "python_scripts_env_Jan2022.yml". Both the script and yml file were provided here.
+A custom Python 3 script "filter_bam_by_reference.py" was used to filter bam. Note that this script should be run under conda env "python_scripts_env_Jan2022.yml" (requirement: pysam>=0.16). Both the script and yml file were provided here.
 
 [script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step5.filter_bam_files.pl
 
