@@ -24,7 +24,7 @@ The queries are: TYMEFLIES and GEM MAGs (split into 20000-seqs fsa file individu
 
 The blastn database (viral sequences) include: 
 
-1) [IMG VR v3 all phages](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_IMGVR) 2) [NCBI RefSeq all viruses](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_NCBI_RefSeq_viral)
+1) [IMG VR v4 all phages](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_IMGVR) 2) [NCBI RefSeq all viruses](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_NCBI_RefSeq_viral)
 3) TYMEFLIES all phages 4) Lake Mendota time series (2008-2012) all phages (another dataset not shown)
 
 After filtering viral contigs within MAG databases, virus-host predictions were then based on matches of ≥95% nucleotide identity covering ≥2 kb of both virus and (putative) host sequences. If there are multiple matches for a virus, 80% consensus at each taxonomic rank was used as the final host taxonomy.
@@ -33,7 +33,7 @@ After filtering viral contigs within MAG databases, virus-host predictions were 
 
 [Note] In this project (TYMEFLIES project), to make stringent host prediction, GEM database was excluded.
 
-**2 Find CRISPR spacers from TYMEFLIES and GEM MAGs**
+**2 Find CRISPR spacers from TYMEFLIES MAGs**
 
 Two bioinformatics tools were used to identify CRISPRs from MAGs: 1) MinCED (https://github.com/ctSkennerton/minced) 2) PILER-CR (https://www.drive5.com/pilercr/) by using default settings. 
 
@@ -52,7 +52,7 @@ This is according to the methods in https://academic.oup.com/nar/article/49/D1/D
 
 [script] 06.Host_prediction.step3.run_blastn_to_find_matches.pl
 
-[Note] In this project (TYMEFLIES project), to make stringent host prediction, GEM database was excluded.
+[Note] In this project (TYMEFLIES project), to make stringent host prediction, only TYMEFLIES MAGs were used for the matching to host CRISPR spacer(s) method.
 
 **4 Find host for prophage**
 
