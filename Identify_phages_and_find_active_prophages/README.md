@@ -55,7 +55,7 @@ Prophage num
 
 Complete phage num
 
-[script] 02.Identify_phages_and_find_active_prophages.step3.summarize_VIBRANT_result.v2.pl
+[script] 02.Identify_phages_and_find_active_prophages.step4.summarize_VIBRANT_result.v2.pl
 
 
 

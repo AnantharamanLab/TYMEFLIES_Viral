@@ -22,7 +22,7 @@ while (<IN>){
 close IN;
 
 # Step 2. Write down the tmp file for running diamond in batch
-my $diamond_db = "/slowdata/databases/NCBI_RefSeq_viral/viral.protein.w_tax.dmnd";
+my $diamond_db = "/storage1/databases/NCBI_RefSeq_viral/viral.protein.w_tax.dmnd";
 `mkdir Taxonomic_classification`;
 `mkdir Taxonomic_classification/tmp`;
 
@@ -78,7 +78,7 @@ close IN;
 ## Step 4.2 Store the best hit and best hit taxonomy of each faa seq
 ### Step 4.2.1 Store the NCBI_RefSeq_viral protein to tax hash (ICTV tax with 8 ranks)
 my %NCBI_RefSeq_viral_protein2tax = (); # $pro => $tax;
-open IN, "/slowdata/databases/NCBI_RefSeq_viral/viral.protein.ictv_8_rank_tax.txt";
+open IN, "/storage1/databases/NCBI_RefSeq_viral/viral.protein.ictv_8_rank_tax.txt";
 while (<IN>){
 	chomp;
 	my @tmp = split (/\t/);

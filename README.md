@@ -17,7 +17,7 @@ Scripts (including some of the inputs/outputs) are placed in the following folde
 
 **4** [Cluster phage genomes](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Cluster_phage_genomes): Cluster vMAGs into vOTUs at family-, genus-, and species-level
 
-[The original phage vOTU clustering methods were adopted from two previously published papers: 1) [Nat Microbiol. 2021 Jul;6(7):960-970.](https://pubmed.ncbi.nlm.nih.gov/34168315/) 2) [Nucleic Acids Res. 2021 Jan 8;49(D1):D764-D775.](https://pubmed.ncbi.nlm.nih.gov/33137183/) While, since the large number of viral genomes (~1.3M genomes) in this study, we firstly clustered genomes into family- and genus-level vOTUs using [MCL-based method](https://github.com/snayfach/MGV/tree/master/aai_cluster) (we also modified the original python script within to reduce the RAM demand for our case), then used dRep to get species-level vOTUs within each genus.]
+[The original phage vOTU clustering methods were adopted from two previously published papers: 1) [Nat Microbiol. 2021 Jul;6(7):960-970.](https://pubmed.ncbi.nlm.nih.gov/34168315/) 2) [Nucleic Acids Res. 2021 Jan 8;49(D1):D764-D775.](https://pubmed.ncbi.nlm.nih.gov/33137183/) While, since the large number of viral genomes (~1.3 million genomes) in this study, we firstly clustered genomes into family- and genus-level vOTUs using [MCL-based method](https://github.com/snayfach/MGV/tree/master/aai_cluster) (we also modified the original python script within to reduce the RAM demand for our case), then used dRep to get species-level vOTUs within each genus.]
 
 **5** [Taxonomic_classification](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Taxonomic_classification): Classify phage genomes using two methods: NCBI RefSeq viral protein searching and VOG HMM marker searching
 
@@ -45,7 +45,7 @@ Database processing scripts are placed in the following folders:
 
 **1** [Database IMGVR ](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_IMGVR): IMG/VR database v4.1 release Dec. 2022 (for [Cluster phage genomes](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Cluster_phage_genomes) and [Host prediction](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Host_prediction)) 
 
-**2** [Database NCBI RefSeq viral](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_NCBI_RefSeq_viral):  NCBI RefSeq viral (2021-11-04 release) (for [Taxonomical classification](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Taxonomic_classification) and [Host prediction](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Host_prediction)) 
+**2** [Database NCBI RefSeq viral](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_NCBI_RefSeq_viral):  NCBI RefSeq viral (2023-01-13 release) (for [Taxonomical classification](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Taxonomic_classification) and [Host prediction](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Host_prediction)) 
 
 **3** [Database VOG97](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_VOG97):   VOG97 HMMs Release date Apr 19, 2021 (for [Taxonomical classification](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Taxonomic_classification)) 
 

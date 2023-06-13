@@ -56,13 +56,13 @@ The final species-level vOTUs contain:
 
 **6 Make the input file for genus rarefaction curve**
 
-We firstly picked a random sample from all 465 samples, and counted the number of genera that were found in this sample. Then, added samples gradually to all the 465 samples, made a table storing the sample number to genus number. We replicated this 49 times, and generated 49 resulting files.
+We firstly picked a random sample from all 471 samples, and counted the number of genera that were found in this sample. Then, added samples gradually to all the 471 samples, made a table storing the sample number to genus number. We replicated this 49 times, and generated 49 resulting files.
 
 [script] 04.Cluster_phage_genomes.step6.make_rarefaction_curve_for_genus.pl
 
 **7 Make the input file for species rarefaction curve**
 
-We firstly picked a random sample from all 465 samples, and counted the number of species that were found in this sample. Then, added samples gradually to all the 465 samples, made a table storing the sample number to species number. We replicated this 9 times, and generated 9 resulting files.
+We firstly picked a random sample from all 471 samples, and counted the number of species that were found in this sample. Then, added samples gradually to all the 471 samples, made a table storing the sample number to species number. We replicated this 9 times, and generated 9 resulting files.
 
 Visualization of species rarefaction curve can be found in Step 12 of [Rscript for visualization](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Rscript_for_visualization).
 

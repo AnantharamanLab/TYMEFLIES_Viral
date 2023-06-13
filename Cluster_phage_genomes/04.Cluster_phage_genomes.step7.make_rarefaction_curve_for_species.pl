@@ -65,7 +65,7 @@ for(my $j=1; $j<=9; $j++){
 	}
 
 	# Write down results
-	my @Sample_num = (1..465);
+	my @Sample_num = (1..471);
 	open OUT, ">Cluster_phage_genomes/Sample_num2species_num_for_refraction_curve.$j.txt";
 	foreach my $i (@Sample_num){
 		print OUT "$i\t$Sample_num2species_num{$i}\n";

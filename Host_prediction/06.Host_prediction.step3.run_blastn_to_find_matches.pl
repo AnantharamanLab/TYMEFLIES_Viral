@@ -5,10 +5,10 @@ use warnings;
 
 # AIM: Find MAG crispr spacer to phage matches by blastn
 
-# Step 1. Get all the spacers from TYMEFLIES and GEM MAGs
 =pod
+# Step 1. Get all the spacers from TYMEFLIES MAGs
 ## Step 1.1 Store all MAG ID in the folder "Host_prediction/find_crispr_out"
-my %MAG_ID = (); # Store all the MAG ID; $mag_id => 1; for example: GEM_MAGs_3300013103_44
+my %MAG_ID = (); # Store all the MAG ID; $mag_id => 1; for example: TYMEFLIES_MAGs_ME2015-07-03_3300042555_group6_bin60 => 1
 open IN, "find /storage1/data11/TYMEFLIES_phage/Host_prediction/find_crispr_out -name '*.minced_out.crisprs' |";
 while (<IN>){
 	chomp;
@@ -107,14 +107,14 @@ while (<IN>){
 close IN;
 close OUT;
 
-`cat tmp.run_blastn_to_find_matches_in_parallel.sh | parallel -j 10`;
+`cat tmp.run_blastn_to_find_matches_in_parallel.sh | parallel -j 20`;
 `rm tmp.run_blastn_to_find_matches_in_parallel.sh`;
 =cut
 
 # Step 4. Parse blastn results to store matches
 # There are two categories of matches: 
 # (1) have 0 or 1 mismatch over the entire spacer length (‘CRISPR (near)identical’) 
-# (2) have ≥80% identity over the entire spacer length (‘CRISPR multiple partial’)
+# (2) have ≥ 90% identity over the entire spacer length (‘CRISPR multiple partial’)
 
 ## Step 4.1 Store the spacer length
 my %Spacer2length = (); # $spacer => $length; for example: 2004178001.a:gws2_d1_0103_30__Spacer_0001 => 32 
@@ -126,10 +126,10 @@ foreach my $key (sort keys %Hash){
 }
 
 ## Step 4.2 Parse blastn results
-=pod
+
 `cat Host_prediction/all_phage_genome.*.2all_spacer.blastn_out.txt > Host_prediction/all_phage_genome2all_spacer.blastn_out.txt`;
 `rm Host_prediction/all_phage_genome.*.2all_spacer.blastn_out.txt`;
-=cut
+
 my %CRISPR_near_identical_matches = (); # $match => 1; an example for a match: 2004178001.a:gws2_d1_0103_30__Spacer_0006|3300044846__vRhyme_449__Ga0453141_0000520
 my %CRISPR_partial_matches = (); # $match => 1;
 open IN, "Host_prediction/all_phage_genome2all_spacer.blastn_out.txt";
@@ -186,33 +186,29 @@ while (<IN>){
 close IN;
 
 ## Step 5.2 Store spacer to taxonomy hash
+my %TYMEFLIES_MAG2scfs = (); # $mag => $scf joined by ','
 my %MAG_scf2lineage = (); # $scf => $lineage
-open IN, "/storage1/data11/TYMEFLIES_phage/Binning_Data/TYMEFLIES_all_MAGs_stat.txt";
+open IN, "/storage1/data11/TYMEFLIES_phage/Robin_MAGs/Robin_MAG_stat.txt";
 while (<IN>){
 	chomp;
-	if (!/^IMG/){
+	if (!/^tymeflies/){
 		my @tmp = split (/\t/);
-		my $lineage = $tmp[1];
-		my $scfs = $tmp[4];
-		my @Scfs = split (/\,/,$scfs);
-		foreach my $scf (@Scfs){
-			$MAG_scf2lineage{$scf} = $lineage;
-		}
-	}
-}
-close IN;
-
-open IN, "/slowdata/databases/GEM/GEM_all_MAGs_stat.txt";
-while (<IN>){
-	chomp;
-	if (!/^IMG/){	
-		my @tmp = split (/\t/);
-		my $lineage = $tmp[1];
-		my $scfs = $tmp[4];
-		my @Scfs = split (/\,/,$scfs);
-		if ($lineage ne 'NULL'){
-			foreach my $scf (@Scfs){
-				$MAG_scf2lineage{$scf} = $lineage;
+		my $mag = $tmp[5];
+		my $num_in_cluster = $tmp[15];		
+		if ($num_in_cluster ne "NA"){
+			my ($img) = $mag =~ /_(33\d+?)_/;
+			my @Contigs = (); # Store all the contigs into an array
+			my $MAG_addr = "/storage1/data11/TYMEFLIES_phage/Robin_MAGs/".$img."/".$mag.".fasta";
+			my %MAG_seq = _store_seq("$MAG_addr");
+			foreach my $header (sort keys %MAG_seq){
+				my ($contig) = $header =~ /^>(.+?)$/;
+				push @Contigs, $contig;	
+			}			
+			my $lineage = join(";", @tmp[16..22]);
+			$TYMEFLIES_MAG2scfs{$mag} = join(',', @Contigs); # Store all scaffolds in each MAG
+			
+			foreach my $contig (@Contigs){ # Here $contig is the same with $scf
+				$MAG_scf2lineage{$contig} = $lineage;
 			}
 		}
 	}
@@ -236,6 +232,44 @@ while (<IN>){
 }
 close IN;
 
+=pod
+## Get rid of TYMEFLIES MAGs that are contaminated MAGs
+### Store the Non-cyanobacteria_MAGs_that_connect_with_cyanobacteria.txt (the contaminated MAGs list)
+my %Non_cyanobacteria_MAGs_that_connect_with_cyanobacteria = (); # $mag => 1
+open IN, "Check_non-cyanobacteria/Non-cyanobacteria_MAGs_that_connect_with_cyanobacteria.txt";
+while (<IN>){
+	chomp;
+	my $mag = $_;
+	$Non_cyanobacteria_MAGs_that_connect_with_cyanobacteria{$mag} = 1;
+}
+close IN;
+
+my %TYMEFLIES_MAG_scf = (); # $scf => 1
+open IN, "/storage1/data11/TYMEFLIES_phage/Binning_Data/TYMEFLIES_all_MAGs_stat.txt";
+while (<IN>){
+	chomp;
+	if (!/^IMG/){
+		my @tmp = split (/\t/);
+		my $mag = $tmp[0];
+		if (!exists $Non_cyanobacteria_MAGs_that_connect_with_cyanobacteria{$mag}){ # Get rid of those contaminated MAGs
+			my $scfs = $tmp[4];
+			my @Scfs = split (/\,/,$scfs);
+			foreach my $scf (@Scfs){
+				$TYMEFLIES_MAG_scf{$scf} = 1;
+			}
+		}
+	}
+}
+close IN;
+
+### Delete spacers that are not from TYMEFLIES MAGs
+foreach my $spacer (sort keys %Spacer2lineage){
+	my ($scf) = $spacer =~ /(^.+?)\_\_/;
+	if (!exists $TYMEFLIES_MAG_scf{$scf}){
+		delete $Spacer2lineage{$spacer}; 
+	}
+}
+=cut
 ## Print %Spacer2lineage
 open OUT, ">Host_prediction/Spacer2lineage.txt";
 foreach my $spacer (sort keys %Spacer2lineage){
@@ -250,8 +284,12 @@ my %Phage_gn2lineage = (); # $gn => [0] lineages (separated by "\t") based on CR
 foreach my $match (sort keys %CRISPR_near_identical_matches){
 	my ($phage_scf,$spacer) = $match =~ /^(.+?)\|(.+?)$/;
 	my $phage_gn = $Phage_scf2gn{$phage_scf};
-	my $lineage = $Spacer2lineage{$spacer};
-	if ($lineage ne 'NA'){ # Do not store "NA" lineage
+	my $lineage = "";
+	if (exists $Spacer2lineage{$spacer}){
+		$lineage = $Spacer2lineage{$spacer};
+	}
+	
+	if ($lineage and $lineage ne 'NA'){ # Do not store "NA" lineage
 		if (!exists $Phage_gn2lineage{$phage_gn}[0]){
 			$Phage_gn2lineage{$phage_gn}[0] = $lineage;
 		}else{
@@ -263,8 +301,12 @@ foreach my $match (sort keys %CRISPR_near_identical_matches){
 foreach my $match (sort keys %CRISPR_partial_matches){
 	my ($phage_scf,$spacer) = $match =~ /^(.+?)\|(.+?)$/;
 	my $phage_gn = $Phage_scf2gn{$phage_scf};
-	my $lineage = $Spacer2lineage{$spacer};
-	if ($lineage ne 'NA'){	# Do not store "NA" lineage
+	my $lineage = "";
+	if (exists $Spacer2lineage{$spacer}){
+		$lineage = $Spacer2lineage{$spacer};
+	}
+	
+	if ($lineage and $lineage ne 'NA'){	# Do not store "NA" lineage
 		if (!exists $Phage_gn2lineage{$phage_gn}[1]){
 			$Phage_gn2lineage{$phage_gn}[1] = $lineage;
 		}else{
@@ -288,12 +330,16 @@ foreach my $gn (sort keys %Phage_gn2lineage){
 	if ($lineages_by_near_identical_matches){ # If near_identical_matches has hits
 		my @tmp = split (/\t/, $lineages_by_near_identical_matches);
 		my $consensus_lineage = _find_consensus_lineages_based_on_each_rank(@tmp);
-		$Phage_gn2lineage_final{$gn} = $consensus_lineage;
+		if ($consensus_lineage){
+			$Phage_gn2lineage_final{$gn} = $consensus_lineage;
+		}
 	}elsif (! $lineages_by_near_identical_matches and $lineages_by_partial_matches){
 		my @tmp = split (/\t/, $lineages_by_partial_matches); 
 		if ((scalar @tmp) >= 2){ # Need to have at least two matches for "partial matches"
 			my $consensus_lineage = _find_consensus_lineages_based_on_each_rank(@tmp);
-			$Phage_gn2lineage_final{$gn} = $consensus_lineage;
+			if ($consensus_lineage){
+				$Phage_gn2lineage_final{$gn} = $consensus_lineage;
+			}
 		}
 	}
 }

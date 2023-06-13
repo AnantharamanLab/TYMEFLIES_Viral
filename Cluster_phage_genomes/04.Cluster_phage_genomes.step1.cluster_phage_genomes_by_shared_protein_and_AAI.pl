@@ -5,7 +5,7 @@ use warnings;
 use Time::HiRes qw(usleep nanosleep);
 
 # Aim: Cluster phage genomes by share protein and AAI
-=pod
+
 # Step 1 Make diamond db to all phage genome proteins
 ## Concatenate all phage genome proteins
 `mkdir Cluster_phage_genomes`;
@@ -33,7 +33,7 @@ close OUT;
 
 `cat tmp.run_all_vs_all_diamond_blastp.sh | parallel -j 15`;
 `rm tmp.run_all_vs_all_diamond_blastp.sh`;
-=cut
+
 # Step 3 Parse the result of all-vs-all diamond blastp
 ## Step 3.1 Store bin to bin size (protein number)
 my %Bin2bin_size = (); # $bin => $bin_size
@@ -72,9 +72,8 @@ while (<IN>){
 close IN;
 
 ## Step 3.3 Make bin vs bin hash for comparison
-#`cat Cluster_phage_genomes/All_phage_genome.*.diamond_blastp.tsv > Cluster_phage_genomes/All_phage_genome_diamond_blastp.tsv`;
-#`rm Cluster_phage_genomes/All_phage_genome.*.diamond_blastp.tsv`;
-=pod
+`cat Cluster_phage_genomes/All_phage_genome.*.diamond_blastp.tsv > Cluster_phage_genomes/All_phage_genome_diamond_blastp.tsv`;
+
 my %Bin_list = (); # $bin => $bin_order
 my $i = 1;
 foreach my $bin (sort keys %Bin2bin_size){
@@ -124,7 +123,7 @@ while (<IN>){
 	}
 }
 close IN;
-=cut
+
 ## Step 3.4 Calculate aai for each file
 `mkdir /fastdata/archive/Shared_protein_and_AAI_result`;
 open IN, "find Cluster_phage_genomes/Bin_vs_bin_comparison -name '*.diamond_blastp.tsv' |";

@@ -27,4 +27,3 @@ For each IMG ID there is a IMG tar.gz file ("33***.tar.gz") contains all the ass
 For some of metagenomes, in the folder ("33***.tar.gz") there is not a "$img_id.a\.depth\.txt" file containing the depth information of all assemblies. We run bbmap to calculate "$img_id.covstat" for these metagenomes.
 
 [script] 01.Process_the_datasets.step5.run_bbmap_mapping.pl
-

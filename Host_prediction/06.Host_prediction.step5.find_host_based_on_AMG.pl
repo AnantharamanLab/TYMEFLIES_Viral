@@ -25,7 +25,7 @@ while (<IN>){
 	}
 }
 close IN;
-
+=pod
 # Step 2 KO to microbial pro hash
 ## Step 2.1 Perform hmmsearch for all KO in %KO2amg_pro
 `mkdir Host_prediction/Find_host_based_on_AMG`;
@@ -44,7 +44,7 @@ while (<IN>){
 close IN;
 
 ### Step 2.1.2 Run hmmsearch
-my $all_seq = "/storage1/data11/TYMEFLIES_phage/Binning_Data/TYMEFLIES_MAGs_all_seq.faa";
+my $all_seq = "/storage1/data11/TYMEFLIES_phage/Robin_MAGs/TYMEFLIES_MAGs_all_seq.faa";
 open OUT, ">tmp.run_hmmsearch_for_host_prediction.sh";
 foreach my $ko (sort keys %KO2amg_pro){
 	if (exists $KO2cutoff_and_type{$ko}){
@@ -62,10 +62,10 @@ foreach my $ko (sort keys %KO2amg_pro){
 	}
 }
 
-`cat tmp.run_hmmsearch_for_host_prediction.sh | parallel -j 10`;
+`cat tmp.run_hmmsearch_for_host_prediction.sh | parallel -j 20`;
 
 `rm tmp.run_hmmsearch_for_host_prediction.sh`;
-
+=cut
 ### Step 2.1.3 Read hmmsearch result
 my %KO2microbial_pros = (); # $ko => $microbial_pros (collection of $microbial_pro, separated by "\,")
 open IN, "find Host_prediction/Find_host_based_on_AMG/ -name '*.hmmsearch_result.txt' | ";
@@ -111,9 +111,9 @@ while (<IN>){
 	close INN;
 }
 close IN;
-=pod
+
 # Step 3 Get each KO sequences (contain both viral and microbial proteins) and write down the KO sequences
-my %Microbial_protein_seq = _store_seq("/storage1/data11/TYMEFLIES_phage/Binning_Data/TYMEFLIES_MAGs_all_seq.faa");
+my %Microbial_protein_seq = _store_seq("/storage1/data11/TYMEFLIES_phage/Robin_MAGs/TYMEFLIES_MAGs_all_seq.faa");
 my %Viral_protein_seq = _store_seq("/storage1/data11/TYMEFLIES_phage/Cluster_phage_genomes/All_phage_genome.faa");
 
 foreach my $ko (sort keys %KO2amg_pro){
@@ -168,27 +168,38 @@ while (<IN>){
 	}
 }
 close IN;
-=cut
+
 # Step 5 Store microbial pro to tax hash
 ## Step 5.1 Store the information from TYMEFLIES_all_MAGs_stat.txt, incude tax and scaffolds
 my %TYMEFLIES_MAG_stat = (); # $mag => [0] GTDB tax [1] scaffolds
-open IN, "/storage1/data11/TYMEFLIES_phage/Binning_Data/TYMEFLIES_all_MAGs_stat.txt";
+open IN, "/storage1/data11/TYMEFLIES_phage/Robin_MAGs/Robin_MAG_stat.txt";
 while (<IN>){
 	chomp;
-	if (!/^IMG/){
+	if (!/^tymeflies/){
 		my @tmp = split (/\t/);
-		my $mag = $tmp[0];
-		my $gtdb_tax = $tmp[1];
-		my $scaffolds = $tmp[4];
-		$TYMEFLIES_MAG_stat{$mag}[0] = $gtdb_tax;
-		$TYMEFLIES_MAG_stat{$mag}[1] = $scaffolds;
+		my $mag = $tmp[5];
+		my $num_in_cluster = $tmp[15];		
+		if ($num_in_cluster ne "NA"){
+			my ($img) = $mag =~ /_(33\d+?)_/;
+			my @Contigs = (); # Store all the contigs into an array
+			my $MAG_addr = "/storage1/data11/TYMEFLIES_phage/Robin_MAGs/".$img."/".$mag.".fasta";
+			my %MAG_seq = _store_seq("$MAG_addr");
+			foreach my $header (sort keys %MAG_seq){
+				my ($contig) = $header =~ /^>(.+?)$/;
+				push @Contigs, $contig;	
+			}			
+			my $lineage = join(";", @tmp[16..22]);
+			my $scaffolds = join(',', @Contigs); # Store all scaffolds in each MAG
+			$TYMEFLIES_MAG_stat{$mag}[0] = $lineage;
+			$TYMEFLIES_MAG_stat{$mag}[1] = $scaffolds;
+		}
 	}
 }
 close IN;
 
 ## Step 5.2 Store microbial pro to tax hash
 my %Microbial_pro2tax = (); # $microbial_pro => $tax
-open IN, "find /storage1/data11/TYMEFLIES_phage/Binning_Data/ -name '*.faa'| grep -v 'all' |";
+open IN, "find /storage1/data11/TYMEFLIES_phage/Robin_MAGs/All_passed_MAGs/ -name '*.faa'| grep -v 'all' |";
 while (<IN>){
 	chomp;
 	my $file = $_;
@@ -198,7 +209,7 @@ while (<IN>){
 	while (<INN>){
 		chomp;
 		if (/^>/){
-			my ($microbial_pro) = $_ =~ /^>(.+?)$/;
+			my ($microbial_pro) = $_ =~ /^>(.+?)\s/; # Only get the microbial protein before the first whitespace
 			$Microbial_pro2tax{$microbial_pro} = $tax;
 		}
 	}
@@ -310,7 +321,6 @@ foreach my $viral_gn (sort keys %Viral_gn2viral_pro){
 	if ($host_tax){
 		$Viral_gn2host_tax{$viral_gn} = $host_tax;
 	}
-
 }
 
 # Step 8 Write down Viral_gn2host_tax hash

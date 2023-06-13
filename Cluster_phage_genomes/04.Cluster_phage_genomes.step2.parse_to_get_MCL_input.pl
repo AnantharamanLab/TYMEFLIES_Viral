@@ -4,6 +4,11 @@ use strict;
 use warnings;
 
 # Aim: Parse to get MCL input (filter edges)
+
+# First use sed to add header into the file
+#`sed -i '1iqname\tname\tqgenes\ttgenes\tsgenes\tqcov\ttcov\taai' Cluster_phage_genomes/Shared_protein_and_AAI.txt`;
+`sed -i '1s/qname\tname/qname\ttname/' Cluster_phage_genomes/Shared_protein_and_AAI.txt`;
+
 # Keep edges between genomes with >=40% AAI and genomes with either 16 shared genes or at least 20% of shared genes (relative to both genomes)
 `python filter_aai.py --in_aai Cluster_phage_genomes/Shared_protein_and_AAI.txt --min_percent_shared 20 --min_num_shared 16 --min_aai 40 --out_tsv Cluster_phage_genomes/Shared_protein_and_AAI.genus_edges.tsv`;
 

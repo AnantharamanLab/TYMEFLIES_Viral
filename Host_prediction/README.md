@@ -18,7 +18,7 @@ It contains four approaches to find hosts:
 
 **1 Filter MAGs and find host by sequence similarity**
 
-MAGs from TYMEFLIES and GEM databases are used as the reference to find virus-host association for the approach #1.  MAG contigs which were mainly viral (i.e. hit to a viral sequence at ≥80% identity over ≥ 50% of the host contig) were excluded as these can be incorrectly binned. Run blastn to find these potential viral contigs from all MAGs.
+MAGs from TYMEFLIES and GEM databases are used as the reference to find virus-host association for the approach #1.  MAG contigs which were mainly viral (i.e. hit to a viral sequence at ≥80% identity over ≥ 50% of the host contig) were excluded as these can be incorrectly binned. Run blastn to find these potential viral contigs from all MAGs (At this place, all MAGs include both TYMEFLIES and GEM MAGs).
 
 The queries are: TYMEFLIES and GEM MAGs (split into 20000-seqs fsa file individually for parallel running)
 

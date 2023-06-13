@@ -6,10 +6,31 @@ use warnings;
 # AIM: Run blastn to filter viral sequences from MAGs (both TYMEFLIES and GEM MAGs)
 =pod
 # Step 1. concatenate all nt sequences from both databases and split them into 20000 seq-containing fsa files
-my $work_dir_TYMEFLIES_MAGs = "/storage1/data11/TYMEFLIES_phage/Binning_Data";
-`find $work_dir_TYMEFLIES_MAGs/33* -name '*.fna' -exec cat {} + > $work_dir_TYMEFLIES_MAGs/TYMEFLIES_MAGs_all_seq.fna`;
-my $work_dir_GEM_MAGs = "/slowdata/databases/GEM";
-`find  $work_dir_GEM_MAGs/fna -name '*.fna' -exec cat {} + > $work_dir_GEM_MAGs/GEM_MAGs_all_seq.fna`;
+my $work_dir_TYMEFLIES_MAGs = "/storage1/data11/TYMEFLIES_phage/Robin_MAGs";
+`mkdir $work_dir_TYMEFLIES_MAGs/tmp_fasta_files`;
+## Only concatenate TYMEFLIES MAGs with >= 50% completeness and < 10% contamination
+my %TYMEFLIES_MAGs_all_seq = (); # Store all TYMEFLIES MAGs with >= 50% completeness and < 10% contamination
+open IN, "/storage1/data11/TYMEFLIES_phage/Robin_MAGs/Robin_MAG_stat.txt";
+while (<IN>){
+	chomp;
+	if (!/^tymeflies/){
+		my @tmp = split (/\t/);
+		my $bin_full_name = $tmp[5];
+		my $num_in_cluster = $tmp[15];
+		if ($num_in_cluster ne "NA"){
+			my ($img) = $bin_full_name =~ /_(33\d+?)_/;
+			my $MAG_addr = $work_dir_TYMEFLIES_MAGs."/".$img."/".$bin_full_name.".fasta";
+			`cp $MAG_addr $work_dir_TYMEFLIES_MAGs/tmp_fasta_files`;
+		}
+	}
+}
+close IN;
+
+`find  $work_dir_TYMEFLIES_MAGs/tmp_fasta_files -name '*.fasta' -exec cat {} + > $work_dir_TYMEFLIES_MAGs/TYMEFLIES_MAGs_all_seq.fna`;
+`rm -rf $work_dir_TYMEFLIES_MAGs/tmp_fasta_files`;
+
+my $work_dir_GEM_MAGs = "/storage1/databases/GEM";
+`find  $work_dir_GEM_MAGs/genomes -name '*.fasta' -exec cat {} + > $work_dir_GEM_MAGs/GEM_MAGs_all_seq.fna`;
 
 `mkdir $work_dir_TYMEFLIES_MAGs/split_fsa`;
 `perl /storage1/data11/TYMEFLIES_phage/split_multifasta.pl --in $work_dir_TYMEFLIES_MAGs/TYMEFLIES_MAGs_all_seq.fna --output_dir=$work_dir_TYMEFLIES_MAGs/split_fsa --seqs_per_file=20000`;
@@ -21,30 +42,31 @@ my $work_dir_GEM_MAGs = "/slowdata/databases/GEM";
 
 
 # Step 2. Make viral sequence databases (blastn database)
-# Viral sequence databases include: 1) IMG VR v3 all phages 2) NCBI RefSeq all viruses
+# Viral sequence databases include: 1) IMG VR v4 all phages 2) NCBI RefSeq all viruses
 #                                   3) TYMEFLIES all phages 4) Lake Mendota time series (2008-2012) all phages 
 
 `mkdir All_viral_seq_db`;
 
-#/slowdata/databases/IMGVR-NCBI_phages/IMGVR_all_nucleotides.fna  -> 2377994 sequences
-#/slowdata/databases/NCBI_RefSeq_viral/viral.genomic.fna -> 14724 sequences
-`find /storage1/data11/TYMEFLIES_phage/33*/vRhyme_best_bins_fasta_parsed/ -name '*.fasta' -exec cat {} + > All_viral_seq_db/TYMEFLIES_all_phages.fasta`; # 1804721 sequences
-`find /storage1/data11/LakeMendota_2008_to_2012/33*/vRhyme_best_bins_fasta_parsed/ -name '*.fasta' -exec cat {} + > All_viral_seq_db/Lake_Mendota_2008_to_2012_all_phages.fasta`; # 34071 sequences
+#/storage1/databases/IMGVR-NCBI_phages/IMGVR_V4/IMGVR_all_nucleotides.fna  -> 15,722,824 sequences
+#/storage1/databases/NCBI_RefSeq_viral/viral.genomic.2023-03-13.fna -> 15,288 sequences
+`find /storage1/data11/TYMEFLIES_phage/33*/vRhyme_best_bins_fasta_parsed/ -name '*.fasta' -exec cat {} + > All_viral_seq_db/TYMEFLIES_all_phages.fasta`;  # 1,820,639 sequences
+`find /storage1/data11/LakeMendota_2008_to_2012/33*/vRhyme_best_bins_fasta_parsed/ -name '*.fasta' -exec cat {} + > All_viral_seq_db/Lake_Mendota_2008_to_2012_all_phages.fasta`; # 34,071 sequences
 
-`cat /slowdata/databases/IMGVR-NCBI_phages/IMGVR_all_nucleotides.fna /slowdata/databases/NCBI_RefSeq_viral/viral.genomic.fna All_viral_seq_db/TYMEFLIES_all_phages.fasta All_viral_seq_db/Lake_Mendota_2008_to_2012_all_phages.fasta > All_viral_seq_db/All_viral_seq.fasta`;
-# 4231510 sequences in All_viral_seq_db/All_viral_seq.fasta
+`cat /storage1/databases/IMGVR-NCBI_phages/IMGVR_V4/IMGVR_all_nucleotides.fna /storage1/databases/NCBI_RefSeq_viral/viral.genomic.2023-03-13.fna All_viral_seq_db/TYMEFLIES_all_phages.fasta All_viral_seq_db/Lake_Mendota_2008_to_2012_all_phages.fasta > All_viral_seq_db/All_viral_seq.fasta`;
+# 17,592,822 sequences in All_viral_seq_db/All_viral_seq.fasta
 
-`rm All_viral_seq_db/TYMEFLIES_all_phages.fasta All_viral_seq_db/Lake_Mendota_2008_to_2012_all_phages.fasta`;
+`rm All_viral_seq_db/Lake_Mendota_2008_to_2012_all_phages.fasta`;
 
 `makeblastdb -in All_viral_seq_db/All_viral_seq.fasta -title All_viral_seq -dbtype nucl -out All_viral_seq_db/All_viral_seq_blastdb`;
 
 # Step 3. Run blastn 
 # Step 3.1 Write down blastn command for TYMEFLIES MAGs and GEM MAGs
 `mkdir Host_prediction`;
+`mv All_viral_seq_db/TYMEFLIES_all_phages.fasta Host_prediction/All_phage_genomes.fasta`;
 `mkdir Host_prediction/filter_MAGs_out`;
 
 open OUT, ">tmp.filter_MAGs_blastn_1.sh";
-open IN, "ls /storage1/data11/TYMEFLIES_phage/Binning_Data/split_fsa/*.fsa |";
+open IN, "ls /storage1/data11/TYMEFLIES_phage/Robin_MAGs/split_fsa/*.fsa |";
 while (<IN>){
 	chomp;
 	my $fsa_file = $_;
@@ -57,9 +79,8 @@ while (<IN>){
 close IN;
 close OUT;
 
-
 open OUT, ">tmp.filter_MAGs_blastn_2.sh";
-open IN, "ls /slowdata/databases/GEM/split_fsa/*.fsa |";
+open IN, "ls /storage1/databases/GEM/split_fsa/*.fsa |";
 while (<IN>){
 	chomp;
 	my $fsa_file = $_;
@@ -72,42 +93,49 @@ while (<IN>){
 close IN;
 close OUT;
 
-# Step 3.2 Run the command with 5 cpus
+# Step 3.2 Run the command with 20 cpus
 
-`cat tmp.filter_MAGs_blastn_1.sh | parallel -j 25`;
-`cat tmp.filter_MAGs_blastn_2.sh | parallel -j 25`;
+`cat tmp.filter_MAGs_blastn_1.sh | parallel -j 20`;
+`cat tmp.filter_MAGs_blastn_2.sh | parallel -j 20`;
 
 `rm tmp.filter_MAGs_blastn_1.sh`;
 `rm tmp.filter_MAGs_blastn_2.sh`;
 =cut
+my $work_dir_TYMEFLIES_MAGs = "/storage1/data11/TYMEFLIES_phage/Robin_MAGs";
 # Step 4. Parse result to get viral genome to final host prediction
 ## Step 4.1 Store all contig to MAG info and MAG to tax info
 my %TYMEFLIES_contig2MAG = (); # $contig => $mag
 my %TYMEFLIES_MAG2contigs = (); # $mag => $contig collection separated by "\,"
 my %MAG2tax = (); # $mag => $tax
-open IN, "/storage1/data11/TYMEFLIES_phage/Binning_Data/TYMEFLIES_all_MAGs_stat.txt";
+open IN, "/storage1/data11/TYMEFLIES_phage/Robin_MAGs/Robin_MAG_stat.txt";
 while (<IN>){
 	chomp;
-	if (!/^IMG/){
+	if (!/^tymeflies/){
 		my @tmp = split (/\t/);
-		my $mag = $tmp[0];
-		my $contigs = $tmp[4];
-		my $tax = $tmp[1];
-		$TYMEFLIES_MAG2contigs{$mag} = $contigs;
-		
-		my @Contigs = split (/\,/, $contigs);
-		foreach my $contig (@Contigs){
-			$TYMEFLIES_contig2MAG{$contig} = $mag;
+		my $mag = $tmp[5];
+		my $num_in_cluster = $tmp[15];		
+		if ($num_in_cluster ne "NA"){
+			my ($img) = $mag =~ /_(33\d+?)_/;
+			my @Contigs = (); # Store all the contigs into an array
+			my $MAG_addr = $work_dir_TYMEFLIES_MAGs."/".$img."/".$mag.".fasta";
+			my %MAG_seq = _store_seq("$MAG_addr");
+			foreach my $header (sort keys %MAG_seq){
+				my ($contig) = $header =~ /^>(.+?)$/;
+				push @Contigs, $contig;
+				$TYMEFLIES_contig2MAG{$contig} = $mag;
+			}
+			
+			$TYMEFLIES_MAG2contigs{$mag} = join(",", @Contigs);
+			my $tax = join(";", @tmp[16..22]);
+			$MAG2tax{$mag} = $tax;
 		}
-		
-		$MAG2tax{$mag} = $tax;
 	}
 }
 close IN;
 
 my %GEM_contig2MAG = (); # $contig => $mag
 my %GEM_MAG2contigs = (); # $mag => $contig collection separated by "\,"
-open IN, "/slowdata/databases/GEM/GEM_all_MAGs_stat.txt";
+open IN, "/storage1/databases/GEM/GEM_all_MAGs_stat.txt";
 while (<IN>){
 	chomp;
 	if (!/^IMG/){
@@ -134,7 +162,7 @@ my %MAG2contigs = (%TYMEFLIES_MAG2contigs, %GEM_MAG2contigs);
 #           and store the match result of viral sequence to contig   
 my %Contig_viral_seq_in_MAGs = (); # $contig => $mag (the MAG that contains the contig)
 my %Viral_seq2contig = (); # $viral_seq => $contig collection separated by "\,"
-open IN, "ls /storage1/data11/TYMEFLIES_phage/Binning_Data/split_fsa/*.fsa |";
+open IN, "ls /storage1/data11/TYMEFLIES_phage/Robin_MAGs/split_fsa/*.fsa |";
 while (<IN>){
 	chomp;
 	my $fsa_file = $_;
@@ -166,7 +194,7 @@ while (<IN>){
 			my $mag = $Contig2MAG{$contig};
 			$Contig_viral_seq_in_MAGs{$contig} = $mag;
 		}
-		if ($host_covered_len >= 2000 and $viral_covered_len >= 2000 and $iden >= 95){ #  Host predictions were then based on matches of ≥95% nucleotide identity covering ≥2 kb of the virus and (putative) host sequences.
+		if ($host_covered_len >= 2000 and $viral_covered_len >= 2000 and $iden >= 95){ #  Host predictions were then based on matches of ≥90% nucleotide identity covering ≥2 kb of the virus and (putative) host sequences.
 			if (! exists $Viral_seq2contig{$viral_seq}){
 				$Viral_seq2contig{$viral_seq} = $contig;
 			}else{
@@ -178,7 +206,7 @@ while (<IN>){
 }
 close IN;
 
-open IN, "ls /slowdata/databases/GEM/split_fsa/*.fsa |";
+open IN, "ls /storage1/databases/GEM/split_fsa/*.fsa |";
 while (<IN>){
 	chomp;
 	my $fsa_file = $_;
@@ -210,7 +238,7 @@ while (<IN>){
 			my $mag = $Contig2MAG{$contig};
 			$Contig_viral_seq_in_MAGs{$contig} = $mag;
 		}
-		if ($host_covered_len >= 2000 and $viral_covered_len >= 2000 and $iden >= 95){ #  Host predictions were then based on matches of ≥95% nucleotide identity covering ≥2 kb of the virus and (putative) host sequences.
+		if ($host_covered_len >= 2000 and $viral_covered_len >= 2000 and $iden >= 95){ #  Host predictions were then based on matches of ≥90% nucleotide identity covering ≥2 kb of the virus and (putative) host sequences.
 			if (! exists $Viral_seq2contig{$viral_seq}){
 				$Viral_seq2contig{$viral_seq} = $contig;
 			}else{
@@ -224,7 +252,6 @@ close IN;
 
 ## Step 4.3 Store the match result of viral sequence to host genome tax  
 my %Viral_seq2host_tax = (); # $viral_seq => $host_tax collection separated by "\t"
-
 foreach my $viral_seq (sort keys %Viral_seq2contig){
 	my @Contigs = split (/\,/, $Viral_seq2contig{$viral_seq});
 	my @Host_tax = (); # Host tax collection
@@ -232,8 +259,10 @@ foreach my $viral_seq (sort keys %Viral_seq2contig){
 	foreach my $contig (@Contigs){
 		if (! exists $Contig_viral_seq_in_MAGs{$contig}){
 			my $mag = $Contig2MAG{$contig};
-			my $tax = $MAG2tax{$mag};
-			push @Host_tax, $tax;
+			if (exists $TYMEFLIES_MAG2contigs{$mag}){ # Only use the genome from TYMEFLIES
+				my $tax = $MAG2tax{$mag};
+				push @Host_tax, $tax;
+			}
 		}
 	}
 	
@@ -289,7 +318,9 @@ my %Viral_gn2final_host_tax = (); # $viral_gn => $final_host_tax (based on 80% c
 foreach my $viral_gn (sort keys %Viral_gn2host_tax){
 	my @Host_tax = split (/\t/, $Viral_gn2host_tax{$viral_gn});
 	my $final_host_tax = _find_consensus_lineages_based_on_each_rank(@Host_tax);
-	$Viral_gn2final_host_tax{$viral_gn} = $final_host_tax;
+	if ($final_host_tax){
+		$Viral_gn2final_host_tax{$viral_gn} = $final_host_tax;
+	}
 }
 
 # Step 4.6 Write down result

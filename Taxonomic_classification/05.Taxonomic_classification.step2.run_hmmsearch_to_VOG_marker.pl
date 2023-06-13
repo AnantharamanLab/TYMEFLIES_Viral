@@ -7,16 +7,16 @@ use warnings;
 
 # Step 1. Write down the tmp file for running hmmsearch in batch
 # Cat all phage genome faa files into one and split it into small files
-=pod
-`mkdir Taxonomic_classification/tmp`;
 
-`find /storage1/data11/TYMEFLIES_phage/33*/vRhyme_best_bins_fasta_parsed -name '*.faa' | xargs cat > Taxonomic_classification/tmp/All_phage_genome.faa`;
-=cut
-`mkdir Taxonomic_classification/tmp/All_phage_genome_protein_split_faa`;
-`perl /storage1/data11/TYMEFLIES_phage/split_multifasta.pl --in Taxonomic_classification/tmp/All_phage_genome.faa --output_dir=Taxonomic_classification/tmp/All_phage_genome_protein_split_faa --seqs_per_file=10000`;
+`mkdir Taxonomic_classification/tmp2`;
+
+`find /storage1/data11/TYMEFLIES_phage/33*/vRhyme_best_bins_fasta_parsed -name '*.faa' | xargs cat > Taxonomic_classification/tmp2/All_phage_genome.faa`;
+
+`mkdir Taxonomic_classification/tmp2/All_phage_genome_protein_split_faa`;
+`perl /storage1/data11/TYMEFLIES_phage/split_multifasta.pl --in Taxonomic_classification/tmp2/All_phage_genome.faa --output_dir=Taxonomic_classification/tmp2/All_phage_genome_protein_split_faa --seqs_per_file=10000`;
 
 my %VOG_marker2tax = (); # $vog => $tax (only to the family level)
-open IN, "/slowdata/databases/VOG97/VOG_marker_table.mdfed.txt";
+open IN, "/storage1/databases/VOG97/VOG_marker_table.mdfed.txt";
 while (<IN>){
 	chomp;
 	if (!/^VOG\tFunction/){
@@ -27,24 +27,24 @@ while (<IN>){
 close IN;
 
 open OUT, ">tmp.run_hmmsearch_to_VOG_marker.sh";
-open IN, "ls Taxonomic_classification/tmp/All_phage_genome_protein_split_faa/*.fsa |";
+open IN, "ls Taxonomic_classification/tmp2/All_phage_genome_protein_split_faa/*.fsa |";
 while (<IN>){	
 	chomp;
 	my $fsa = $_;
 	my ($fsa_name) = $fsa =~ /^.+\/(.+?)\.fsa/;
-	print OUT "hmmsearch -E 0.00001 --cpu 1 --tblout Taxonomic_classification/tmp/$fsa_name.hmmsearch_result.txt /slowdata/databases/VOG97/VOGDB97.587_marker_mdfed.HMM $fsa\n";
+	print OUT "hmmsearch -E 0.00001 --cpu 1 --tblout Taxonomic_classification/tmp2/$fsa_name.hmmsearch_result.txt /storage1/databases/VOG97/VOGDB97.587_marker_mdfed.HMM $fsa\n";
 }
 close IN;
 close OUT;
 
 # Step 2. Run hmmsearch in batch
-`cat tmp.run_hmmsearch_to_VOG_marker.sh | parallel -j 10`;
+`cat tmp.run_hmmsearch_to_VOG_marker.sh | parallel -j 20`;
 
 `rm tmp.run_hmmsearch_to_VOG_marker.sh`;
 
 # Step 3. Filter hmmsearch result to get protein hits to VOG marker hash
 my %Pro2vog = ();
-open IN, "cat Taxonomic_classification/tmp/*hmmsearch_result.txt |";
+open IN, "cat Taxonomic_classification/tmp2/*hmmsearch_result.txt |";
 while (<IN>){
 	chomp;
 	if (!/^#/){
@@ -101,6 +101,6 @@ foreach my $key (sort keys %Phage_gn2consensus_tax){
 }
 close OUT;
 
-#`rm -r Taxonomic_classification/tmp`;
+#`rm -r Taxonomic_classification/tmp2`;
 
 

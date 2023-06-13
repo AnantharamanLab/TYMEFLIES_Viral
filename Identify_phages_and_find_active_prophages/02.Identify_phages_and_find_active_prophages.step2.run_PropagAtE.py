@@ -27,6 +27,13 @@ with open('TYMEFLIES_metagenome_info.txt', 'r') as lines:
             tmp = line.split('\t')
             IMGID.add(tmp[0])
 
+IMGID = set()
+IMGID.add("3300049597")
+IMGID.add("3300049596")
+IMGID.add("3300048593")
+IMGID.add("3300049595")
+IMGID.add("3300049594")
+IMGID.add("3300049629")
 
 # Step 2 Run Propagate for individual metagenomes
 propagate_cmd = []

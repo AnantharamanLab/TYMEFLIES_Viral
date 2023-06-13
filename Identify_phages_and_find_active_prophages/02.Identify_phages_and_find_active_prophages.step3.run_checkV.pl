@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 # this script should be run within conda env "CheckV_v0.8.1"
-# before using, do this command to indicate database: export CHECKVDB=/slowdata/databases/checkv-db-v0.6
+# before using, do this command to indicate database: export CHECKVDB=/storage1/databases/checkv-db-v0.6
 
 my %IMGID = (); # $img_id => 1
 open IN, "ls -l | sed -r s'/ +/\t/g' | grep ^d | cut -f 9 | grep '33' |";
@@ -23,6 +23,6 @@ foreach my $img_id (sort keys %IMGID){
 }
 close OUT;
 
-`cat tmp.run_checkV.sh | parallel -j 15`;
+`cat tmp.run_checkV.sh | parallel -j 20`;
 
 `rm tmp.run_checkV.sh`;

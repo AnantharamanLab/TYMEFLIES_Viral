@@ -34,10 +34,12 @@ foreach my $cluster (sort keys %Genus_cluster2gn){
 		$Genus_cluster_singleton{$cluster} = 1;
 	}
 }
-
+=pod
 # Step 3 Make phage genome lists for each genus cluster (excluding singletons)
 my $dRep_dir = "/storage1/data11/TYMEFLIES_phage/dRep_working_dir";
+`mkdir $dRep_dir`;
 `mkdir $dRep_dir/phage_genome_list`;
+`mkdir $dRep_dir/phage_genomes`;
 
 foreach my $genus_cluster (sort keys %Genus_cluster2gn){
 	if (! exists $Genus_cluster_singleton{$genus_cluster}){ # Not singletons
@@ -50,6 +52,18 @@ foreach my $genus_cluster (sort keys %Genus_cluster2gn){
 	}
 }
 
+## Copy all virus genomes into phage_genome folder
+my $source_dir = "/storage1/data11/TYMEFLIES_phage/33*/vRhyme_best_bins_fasta_parsed/";
+my $target_dir = "/storage1/data11/TYMEFLIES_phage/dRep_working_dir/phage_genomes/";
+
+my $find_output = `find $source_dir -type f -name '*.fasta'`;
+
+my @files = split(/\n/, $find_output);
+
+foreach my $file (@files) {
+    system("cp $file $target_dir") == 0 or die "Error copying file $file: $!";
+}
+
 # Step 4 Run dRep for all genus clusters
 open OUT, ">tmp.run_dRep.sh";
 open IN, "find $dRep_dir/phage_genome_list/ -name 'phage_genome_list.*.txt' |";
@@ -57,17 +71,19 @@ while (<IN>){
 	chomp;
 	my $line = $_;
 	my ($genus_cluster) = $line =~ /^.+\/phage_genome_list\.(.+?)\.txt/;
-	print OUT "dRep dereplicate dRep_working_dir/Output.$genus_cluster -p 8 -g $dRep_dir/phage_genome_list/phage_genome_list.$genus_cluster.txt -l 2000 --ignoreGenomeQuality -pa 0.8 -sa 0.95 -nc 0.85 -comW 0 -conW 0 -strW 0 -N50W 0 -sizeW 1 -centW 0\n";
+	print OUT "dRep dereplicate dRep_working_dir/Output.$genus_cluster -p 1 -g $dRep_dir/phage_genome_list/phage_genome_list.$genus_cluster.txt -l 2000 --ignoreGenomeQuality -pa 0.8 -sa 0.95 -nc 0.85 -comW 0 -conW 0 -strW 0 -N50W 0 -sizeW 1 -centW 0\n";
 }
 close IN;
 
-`cat tmp.run_dRep.sh | parallel -j 2`;
+`cat tmp.run_dRep.sh | parallel -j 20`;
 
 `rm tmp.run_dRep.sh`;
-
+=cut
 # Step 5 Make all viral genome to viral sequences hash and find viral genomes that are not included in genus cluster
+## Concatenate all virus genomes
+`find /storage1/data11/TYMEFLIES_phage/33*/vRhyme_best_bins_fasta_parsed/ -name '*.fasta' -exec cat {} + > TYMEFLIES_all_phages.fasta`;
 my %Viral_gn2viral_seq = (); # $viral_gn => $viral_seq collection separated by "\t"
-open IN, "/storage1/data11/TYMEFLIES_phage/Host_prediction/All_phage_genomes.fasta";
+open IN, "/storage1/data11/TYMEFLIES_phage/TYMEFLIES_all_phages.fasta";
 while (<IN>){
 	chomp;
 	if (/^>/){
@@ -81,6 +97,9 @@ while (<IN>){
 		}
 	}
 }
+
+## Remove the "TYMEFLIES_all_phages.fasta"
+`rm TYMEFLIES_all_phages.fasta`; 
 
 my %Viral_gn_not_in_genus_cluster = (); # $viral_gn => $viral_seq collection separated by "\t"
 foreach my $viral_gn (sort keys %Viral_gn2viral_seq){
@@ -105,7 +124,7 @@ while (<IN>){
 	
 	# Store cluster to representive genome and all genome hash
 	my %Hash = (); # $cluster => [0] $rep_gn [1] $gn collection separated by "\,"
-	open INN, "$folder/data_tables/Cdb.csv";
+	open INN, "$folder/data_tables/Cdb.csv" or warn "$folder/data_tables/Cdb.csv is not present";
 	while (<INN>){
 		chomp;
 		if (!/^genome/){
@@ -121,7 +140,7 @@ while (<IN>){
 	}
 	close INN;
 	
-	open INN, "$folder/data_tables/Wdb.csv";
+	open INN, "$folder/data_tables/Wdb.csv" or warn "$folder/data_tables/Wdb.csv is not present";
 	while (<INN>){
 		chomp;
 		if (!/^genome/){
