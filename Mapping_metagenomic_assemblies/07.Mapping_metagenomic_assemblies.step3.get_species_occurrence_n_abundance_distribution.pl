@@ -5,47 +5,9 @@ use warnings;
 
 # Aim: Get the species-level vOTU occurrence and abundance distribution pattern
 
+
 # Step 1 Store all the viral genome abundance (normalized by 100M reads/metagenome)
-## Step 1.1 Store scaffold coverage for each phage genome
-my %Scf2cov = (); # $scf => $cov (within individual metagenome); 
-                  # here $scf did not contain the viral genome in the front
-				  # like "Ga0453728_0000141_fragment_2"
-                
-open IN, "ls 33**/vRhyme_result/vRhyme_coverage_files/vRhyme_coverage_values.tsv | ";
-while (<IN>){
-	chomp;
-	my $file = $_;
-	my ($img_id) = $file =~ /(33\d+?)\//;
-	open INN, "$file";
-	while (<INN>){
-		chomp;
-		if (!/^scaffold/){
-			my @tmp = split (/\t/);
-			my $scf = $tmp[0];
-			my $cov = $tmp[1];
-			$Scf2cov{$scf} = $cov;
-		}
-	}
-	close INN;
-}
-close IN;
-
-## Step 1.2 Store viral genome to viral scaffold hash
-my %Viral_gn2viral_scf = (); # $viral_gn => $viral_scfs (collection of $viral_scf, separated by "\t")
-open IN, "/storage1/data11/TYMEFLIES_phage/Host_prediction/All_phage_genomes_headers.txt";
-while (<IN>){
-	chomp;
-	my ($viral_scf) = $_ =~ /^>(.+?)$/;
-	my ($viral_gn) = $viral_scf =~ /^(.+?\_\_.+?)\_\_/;
-	if (!exists $Viral_gn2viral_scf{$viral_gn}){
-		$Viral_gn2viral_scf{$viral_gn} = $viral_scf;
-	}else{
-		$Viral_gn2viral_scf{$viral_gn} .= "\t".$viral_scf;
-	}
-}
-close IN;
-
-## Step 1.3 Get read numbers for each metagenome
+## Step 1.1 Get read numbers for each metagenome
 my %IMG_ID2read_num = ();
 open IN, "TYMEFLIES_metagenome_info.txt";
 while (<IN>){
@@ -59,28 +21,20 @@ while (<IN>){
 }	
 close IN;
 
-## Step 1.4 Get viral genome abundance (normalized)
+## Step 1.2 Store the previously calculated viral_gn abun (normalized)
+## The viral_gn abun (normalized) file "viral_gn2depth_normalized.txt" was 
+## calculated by "03.Reconstruct_vMAGs.step7.get_all_virus_abundance.py"              
 my %Viral_gn2IMG2abun = (); # $viral_gn => $img_id => $abun (normalized)
-foreach my $viral_gn (sort keys %Viral_gn2viral_scf){
-	my ($img_id) = $viral_gn =~ /^(.+?)\_\_/;
-	my $abun = 0; # the normalized viral genome abundance 
-	
-	my @Viral_scf_abun = (); # Store all the depth values of viral scfs
-	my @Viral_scfs =  split (/\t/, $Viral_gn2viral_scf{$viral_gn});
-	foreach my $viral_scf (@Viral_scfs){
-		my ($viral_scf_short) = $viral_scf =~ /^.+?\_\_.+?\_\_(.+?)$/;
-		my $depth = $Scf2cov{$viral_scf_short};
-		push @Viral_scf_abun, $depth;
-	}
-	
-	$abun = _avg(@Viral_scf_abun);
-	
-	my $read_num = $IMG_ID2read_num{$img_id};
-	
-	$abun = $abun / ($read_num / 100000000);
-	
-	$Viral_gn2IMG2abun{$viral_gn}{$img_id} = $abun;
-}
+open IN, "viral_gn2depth_normalized.txt";
+while (<IN>){
+	chomp;
+	my @tmp = split (/\t/);
+	my $viral_gn = $tmp[0];
+	my $abun_normalized = $tmp[1];
+	my ($img_id) = $viral_gn =~ /^(\d+?)_/;
+	$Viral_gn2IMG2abun{$viral_gn}{$img_id} = $abun_normalized;
+}	
+close IN;
 
 # Step 2 Get the species abundance hash
 ## Step 2.1 Store the species hash

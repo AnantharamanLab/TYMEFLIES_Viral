@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 # Aim: mapping reads of each sample onto all scaffolds within this sample
-# Note: This should be run under the vRhyme conda env by "conda activate vRhyme"
+# Note: This should be run under the Mapping conda env by "conda activate /slowdata/yml_environments/ViWrap-Mapping/"
 
 # 1. store all IMG ID
 my %IMGID = (); # $img_id => 1
@@ -35,12 +35,12 @@ close IN;
 open OUT, ">tmp.bowtie2_mapping.sh";
 foreach my $img_id (sort keys %IMGID){	
 	if (!( -e "$img_id/$img_id.id97.bam")){
-		my $reads_1 = "/storage1/Reads/TYMEFLIES_reads/$img_id.filtered_1.fastq";  
-		my $reads_2 = "/storage1/Reads/TYMEFLIES_reads/$img_id.filtered_2.fastq";  
+		my $reads_1 = "/storage1/Reads/TYMEFLIES_reads/$img_id.filtered_1.fastq.gz";  
+		my $reads_2 = "/storage1/Reads/TYMEFLIES_reads/$img_id.filtered_2.fastq.gz";  
 		my $threads = 1;
 		my $fna = "$img_id/$img_id.a.fna";
 		
-		print OUT "bowtie2-build $fna $img_id/$img_id.bowtie2_idx --quiet;";	
+		print OUT "bowtie2-build $fna $img_id/$img_id.bowtie2_idx;";	
 		print OUT "bowtie2 -x $img_id/$img_id.bowtie2_idx -1 $reads_1 -2 $reads_2 -S $img_id/$img_id.sam -p $threads --no-unal --quiet;";
 		print OUT "python3 /slowdata/scripts/python_scripts/filter_coverage_file.py -s $img_id/$img_id.sam -o $img_id/$img_id.id97.bam -t 1;";
 		print OUT "coverm contig --methods metabat --bam-files $img_id/$img_id.id97.bam > $img_id/$img_id.id97.coverm_depth.txt 2> /dev/null;";
@@ -50,7 +50,7 @@ foreach my $img_id (sort keys %IMGID){
 }
 close OUT;
 
-my $threads = 50;
+my $threads = 10;
 
 `cat tmp.bowtie2_mapping.sh | parallel -j $threads`;
 

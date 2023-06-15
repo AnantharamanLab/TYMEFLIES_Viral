@@ -8,17 +8,19 @@ Map reads onto metagenomic assemblies (including both microbial and viral scaffo
 
 [script] 07.Mapping_metagenomic_assemblies.step1.run_bowtie2_mapping_for_each_metagenome.pl
 
-**2 Get MAG abundance pattern, both monthly pattern (aggregated across 20 years) and yearly pattern (for months in each year)**
+**2 Get MAG abundance pattern, including seasonly pattern (aggregated across 20 years), year-season pattern, and yearly pattern (for each year)**
 
-These four files will be generated in the resulted folder "MAG_abundance":
+These five files will be generated in the resulted folder "MAG_abundance":
 
-Family2month2abun.txt - Family abundances (normalized by read number per metagenome, 100M reads per metagenome, and metagenome number per month) for each month
+Family2season2abun.txt - Family abundances (normalized by read number per metagenome, 100M reads per metagenome, and metagenome number per month) for each season
 
-Family2year_month2abun.txt - Family abundances for each year-month (each month within a year, e.g., "2000-09"; normalizing steps were the same as the above)
+Family2year_season2abun.txt - Family abundances for each year-season (each season within a year, e.g., "2000-Spring"; normalizing steps were the same as the above)
 
-Month2num_of_metagenomes.txt - number of metagenomes in each month
+Season2num_of_metagenomes.txt - number of metagenomes in each season
 
-Year_month2num_of_metagenomes.txt - number of metagenomes in each year-month
+Year_season2num_of_metagenomes.txt - number of metagenomes in each year-season
+
+Year2num_of_metagenomes.txt - number of metagenomes in each year
 
 [script] 07.Mapping_metagenomic_assemblies.step2.get_MAG_abundance_pattern.pl
 
@@ -40,14 +42,40 @@ The KO abundance was the sum value of abundances of scaffolds containing this KO
 
 **5 Draw scatter plots for both species and KO occurrence and abundance by R**
 
+Two PDFs were generated:
+
+./AMG_analysis/Species2occurrence_n_abundance.pdf
+
+./AMG_analysis/KO2occurrence_n_abundance.pdf
+
 [script] 07.Mapping_metagenomic_assemblies.step5.draw_scatter_plots_for_species_n_KO_occurrence_n_abundance.R
 
-**6 Get the monthly viral tax (family level) and host tax (family level) distribution pattern**
+**6 Get seasonal KO-carrying viral genome distribution**
+
+Get the KO to season to KO-carrying genome distribution result 
+
+KO-carrying genome distributing percentage = The number of IMGs that contain the ko / The number of IMGs that belong to the season × 100%
+
+Note: Only high occurrence KO was include (occurrence >= 400)
+
+[script]
+
+07.Mapping_metagenomic_assemblies.step6.get_seasonal_KO_carrying_viral_genome_distribution.py
+
+**7 Visualize the KO-carrying viral genome distribution in a heatmap**
+
+A PDF figure was drawn:
+
+./AMG_analysis/KO2season2KO_carrying_genome_distribution_percentage.pdf
+
+[script] 07.Mapping_metagenomic_assemblies.step7.visualize_KO_carrying_viral_genome_distribution.R
+
+**8 Get the seasonal viral tax (family level) and host tax (family level) distribution pattern**
 
 These two files will be generated:
 
-Month2family2abun.txt - The viral family abundance (normalized) for each month
+Season2family2abun.txt - The viral family abundance (normalized) for each season
 
-Month2host_family2abun.txt - The viral host family abundance (it is the predicted host; still based on viral abundance, not directly the MAG abundance) for each month.
+Season2host_family2abun.txt - The viral host family abundance (it is the predicted host; still based on viral abundance, not directly the MAG abundance) for each season.
 
-[script] 07.Mapping_metagenomic_assemblies.step6.get_monthly_viral_tax_n_host_tax_distribution.pl
+[script] 07.Mapping_metagenomic_assemblies.step6.get_seasonal_viral_tax_n_host_tax_distribution.pl

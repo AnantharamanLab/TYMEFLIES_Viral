@@ -17,7 +17,6 @@ ggsave(p,file="./AMG_analysis/Species2occurrence_n_abundance.pdf", width = 9, he
 ## Read table
 table2 <- read.table ("./AMG_analysis/KO2occurrence_n_abundance.txt", sep = "\t", head = F, na.strings = c("NA"))
 head(table2)
-table2 <- subset(table2, V1!="K00558")  # Delete dcm (K00558), due to it is a abnormal dot
 
 ## Make scatter plot
 p2 <- ggplot(table2, aes(x=V2, y=V3)) + 
