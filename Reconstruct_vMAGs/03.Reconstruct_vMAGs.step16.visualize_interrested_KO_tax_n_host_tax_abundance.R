@@ -5,7 +5,7 @@ library(plyr)
 
 # Step 1 Plot the KO2tax2abun_fraction of 8 low diversity KOs
 table <-read.table("AMG_analysis/KO2tax2abun_fraction.txt",sep = "\t",head=T)
-table.subset <- table  %>% select(Head,K01666,K15895,K02706,K01627,K00507,K02703,K00798,K01734)
+table.subset <- table  %>% select(Head,K05275,K00036,K00033,K05383,K01628,K15359,K02706,K02703)
 row.names(table.subset) <- table.subset$Head
 table.subset[1] <- NULL
 table.subset <- as.matrix(table.subset)
@@ -18,7 +18,7 @@ table.subset$Head <- revalue(table.subset$Head, c("NA;NA"="UNA;NA")) # Replace v
 ## Reshape the data
 table.subset <- table.subset %>% gather("KO.ID", "Percentage",  1:(ncol(table.subset)-1))
 ## Get palette
-getPalette <- colorRampPalette(brewer.pal(36, "Set1"))
+getPalette <- colorRampPalette(brewer.pal(50, "Set1"))
 
 p <- ggplot(table.subset, aes(fill=Head, y=Percentage, x=KO.ID)) + 
       geom_bar(position="stack", stat="identity")+
@@ -28,7 +28,7 @@ p <- ggplot(table.subset, aes(fill=Head, y=Percentage, x=KO.ID)) +
             panel.grid = element_blank(),
             legend.position="bottom")+
       # Use a nice color scheme:
-      scale_fill_manual(values = colorRampPalette(brewer.pal(36, "Accent"))(36)) + xlab("KO ID")
+      scale_fill_manual(values = colorRampPalette(brewer.pal(50, "Accent"))(50)) + xlab("KO ID")
 
 p
 ggsave(p,file="./AMG_analysis/KO2tax2abun_fraction.8_low_diversity_KOs.pdf", width = 11, height = 8.5, units = "in")
@@ -36,7 +36,7 @@ ggsave(p,file="./AMG_analysis/KO2tax2abun_fraction.8_low_diversity_KOs.pdf", wid
 
 # Step 2 Plot the KO2host_tax2abun_fraction of 8 low diversity KOs
 table2 <-read.table("AMG_analysis/KO2host_tax2abun_fraction.txt",sep = "\t",head=T)
-table2.subset <- table2  %>% select(Head,K01666,K15895,K02706,K01627,K00507,K02703,K00798,K01734)
+table2.subset <- table2  %>% select(Head,K05275,K00036,K00033,K05383,K01628,K15359,K02706,K02703)
 row.names(table2.subset) <- table2.subset$Head
 table2.subset[1] <- NULL
 table2.subset <- as.matrix(table2.subset)

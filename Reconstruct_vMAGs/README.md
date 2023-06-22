@@ -62,21 +62,21 @@ The eggNOG-mapper v2 (in March 2023) was used to annotate all AMG proteins to ge
 
 [Result]
 
-Total AMG number before filtering: 236,212
+Total AMG number before filtering: 238,050
 
-Total AMG number after filtering: 149,289
+Total AMG number after filtering: 150,458
 
 ​          which means 63.2% retained
 
 Number of AMGs to be filtered in each step:
 
-*1* tail_AMG number is 46,438
+*1* tail_AMG number is 46,765
 
-*2* AMGs_w_high_v_scores number is 50,272 (using both KEGG v-score and Pfam v-score)
+*2* AMGs_w_high_v_scores number is 50,712 (using both KEGG v-score and Pfam v-score)
 
-*3* AMGs_w_flanking_genes_of_low_v_score number is 96 (using KEGG v-score and considering two flanking genes at both sides)
+*3* AMGs_w_flanking_genes_of_low_v_score number is 97 (using KEGG v-score and considering two flanking genes at both sides)
 
-*4* AMGs_belong_to_not_correct_COG number is 652
+*4* AMGs_belong_to_not_correct_COG number is 657
 
 *Note that the above four collections of AMGs to be filtered have overlaps* 
 
@@ -84,15 +84,21 @@ Number of AMGs to be filtered in each step:
 
 Metagenome date and season ('date | date in the year | season')
 
-Metabolisms (mutiple metabolisms separated by '|')
+Metabolisms (multiple metabolisms separated by '|')
 
-Pathways (mutiple pathways separated by '|')
+Pathways (multiple pathways separated by '|')
 
 This script will use the file ["VIBRANT_KEGG_pathways_summary.tsv"](https://github.com/AnantharamanLab/VIBRANT/blob/master/files/VIBRANT_KEGG_pathways_summary.tsv) from VIBRANT.  
 
 [script] 03.Reconstruct_vMAGs.step5.generate_AMG_summary_table.pl and 03.Reconstruct_vMAGs.step6.filter_AMG_and_add_metagenome_and_KEGG_info_to_AMG_summary_table.py
 
-**7 Summarize AMG frequencies and abundance monthly and calculate AMG abundance for each year-month (for example, "2000-01")**
+**7 Get all virus normalized abundance**
+
+First, store all the normalized depths for individual scaffolds from the mapping result of all-scaffolds-mapping. Then, get the mean scaffold normalized depth for all scaffolds within a viral genome.
+
+[script] 03.Reconstruct_vMAGs.step7.get_all_virus_abundance.py
+
+**8 Summarize AMG frequencies and abundance monthly (seasonal) and calculate AMG abundance for each year-month (year-season) (for example, "2000-01")**
 
 This script will generate following results:
 
@@ -102,7 +108,7 @@ AMG frequencies (normalized by read number per metagenome, 100M reads per metage
 
 2) KO2month2abun.txt
 
-AMG abundances (nnormalized by read number per metagenome, 100M reads per metagenome, and metagenome number per month) for each month
+AMG abundances (normalized by read number per metagenome, 100M reads per metagenome, and metagenome number per month) for each month
 
 3) KO2year_month2abun.txt
 
@@ -120,9 +126,11 @@ the number of metagenomes in each month
 
 the number of metagenomes in each year_month 
 
-[script] 03.Reconstruct_vMAGs.step7.summarize_AMG_frequency_and_abundance.pl
+[script] 03.Reconstruct_vMAGs.step8.summarize_AMG_frequency_and_abundance.pl
 
-**8 Grep all AMG proteins and run against dbCAN2 and MEROPS databases to get annotated**
+03.Reconstruct_vMAGs.step8.summarize_AMG_frequency_and_abundance.v2.pl (This script will generate similar results but with "seasonal" or "year-season" numbers)
+
+**9 Grep all AMG proteins and run against dbCAN2 and MEROPS databases to get annotated**
 
 Get all AMG proteins to annotate by dbCAN2 and MEROPS databases.
 
@@ -140,17 +148,19 @@ This will add more columns to "AMG_summary.txt":
 
 "MEROPS details"
 
-[script] 03.Reconstruct_vMAGs.step8.annnoate_AMG_by_dbCAN2_and_MEROPS.pl
+[script] 03.Reconstruct_vMAGs.step9.annnoate_AMG_by_dbCAN2_and_MEROPS.pl
 
-**9 Make AMG trend R plots for each month and each year-month**
+**10 Make AMG trend R plots for each month (season) and each year-month (year-season)**
 
-Use the results generated from Step 6 ("KO2month2abun.txt", "KO2year_month2abun.txt", and "KO2month_ko_details.txt") to draw AMG trend R plots (AMG KO abundance) for each month (aggregated across 20 years) and each year-month (for months in each year).
+Use the results generated from Step 8 ("KO2month2abun.txt", "KO2year_month2abun.txt", and "KO2month_ko_details.txt") to draw AMG trend R plots (AMG KO abundance) for each month (aggregated across 20 years) and each year-month (for months in each year).
 
 It generates a figure for each KO, containing subpanels of A) heatmap of the number of metagenomes for each month, B) 20 facets of AMG trend plots for each year-month, and C) AMG trend plot for each month (aggregated across 20 years).
 
-[script] 03.Reconstruct_vMAGs.step9.visualize_AMG_abundance.R
+[script] 03.Reconstruct_vMAGs.step10.visualize_AMG_abundance.R
 
-**10 Investigate AMG variation in each species (non-singleton)**
+03.Reconstruct_vMAGs.step10.visualize_AMG_abundance.v2.R (This script will generate similar results but with "seasonal" or "year-season" figures)
+
+**11 Investigate AMG variation in each species (non-singleton)**
 
 The resulted file "Species_level_vOTU_AMG_variation.txt" contains the following information:
 
@@ -170,7 +180,7 @@ The resulted file "Species_level_vOTU_AMG_variation_statistics.txt" contains the
 
 4) The total number of vOTU and KO combinations (for vOTUs with any AMG KO hits(s)) of the 3rd quartile size species-level vOTUs (The size range of 3rd quartile size species-level vOTUs: 3-4)
 
-5) The total number of vOTU and KO combinations (for vOTUs with any AMG KO hits(s)) of the 4th quartile size species-level vOTUs (The size range of 4th quartile size species-level vOTUs: 4-108)
+5) The total number of vOTU and KO combinations (for vOTUs with any AMG KO hits(s)) of the 4th quartile size species-level vOTUs (The size range of 4th quartile size species-level vOTUs: 4-110)
 
 The resulted file "Species_level_vOTU_AMG_variation_statistics.2.txt" [for KO distribution from the 1st quartile KO frequency (> 75%) and the 4th quartile in bin size] contains:
 
@@ -186,13 +196,11 @@ The resulted file "KO2ko_abun_n_mean_ko_freq.txt" [for KO distribution from the 
 
 Abundance and frequency were placed in two columns.
 
-The resulted file "KO2dates_in_a_year.txt" [for KO distribution from the 1st quartile KO frequency (> 75%) and the 4th quartile in bin size] stores the presence/absence information of each KO on a date of a year. 
+[script] 03.Reconstruct_vMAGs.step11.investigate_AMG_variation_in_species.pl
 
-[script] 03.Reconstruct_vMAGs.step10.investigate_AMG_variation_in_species.pl
+**12 Visualize AMG variation**
 
-**11 Visualize AMG variation**
-
-This script generates five plots:
+This script generates two plots:
 
 1) General statistics of vOTU and KO combinations (bar plot)
 
@@ -200,47 +208,33 @@ This script generates five plots:
 
 [output] Species_level_vOTU_AMG_variation_statistics.table_1.pdf
 
-2) KO to vOTU tax abundance [bar plot, only nine KOs with the highest abundance (relative abundance of KO from vOTU and KO combination collection of the 1st quartile KO frequency (> 75%) and the 4th quartile in bin size) were chosen here]
-
-[input] Species_level_vOTU_AMG_variation_statistics.table_2.txt
-
-[output] Species_level_vOTU_AMG_variation_statistics.table_2.pdf
-
-3) KO to vOTU host tax abundance [bar plot, only nine KOs with the highest abundance (relative abundance of KO from vOTU and KO combination collection of the 1st quartile KO frequency (> 75%) and the 4th quartile in bin size) were chosen here]
-
-[input] Species_level_vOTU_AMG_variation_statistics.table_3.txt
-
-[output] Species_level_vOTU_AMG_variation_statistics.table_3.pdf
-
-4) AMG KO fraction (a.k.a, relative abundance) to the mean AMG KO frequency across all vOTUs (scatter plot)
+2) AMG KO fraction (a.k.a, relative abundance) to the mean AMG KO frequency across all vOTUs (scatter plot)
 
 [input] KO2ko_abun_n_mean_ko_freq.mdfed.txt
 
 [output] KO2ko_abun_n_mean_ko_freq.pdf
 
-5) Seasonal distribution of high occurrence KOs across metagenomes  
-
-[input] KO2dates_in_a_year.mdfed.txt
-
-[output] KO2dates_in_a_year.pdf
-
-Only the "HighOccurrenceKO" (occurrence >= 400) and AMG KO fraction >= 1.25% ones were depicted in the figure.
-
-The distribution of available metagenomes on the dates of a year was also depicted (the first row).
-
-[script] 03.Reconstruct_vMAGs.step11.visualize_AMG_variation.R
+[script] 03.Reconstruct_vMAGs.step12.visualize_AMG_variation.R
 
 All the inputs and outputs were also provided here.
 
-**12 Find interested KO tax and host tax abundance info**
+**13 Find interested KO tax and host tax abundance info**
 
 Find the KO to viral family abundance and KO to viral host family abundance.
 
 Both KO abundance values were normalized by read number per metagenome, 100M reads per metagenome.
 
-[script] 03.Reconstruct_vMAGs.step12.find_intereseted_KO_tax_n_host_tax_info.pl
+[script] 03.Reconstruct_vMAGs.step13.find_intereseted_KO_tax_n_host_tax_info.pl
 
-**13 Visualize interested KO tax and host tax abundance**
+**14  Get KO to tax and host tax alpha diversity pattern**
+
+The viral taxonomy for alpha diversity analysis was set to the family level. For each KO, we only randomly took 100 viral genomes with informative family-level taxonomy assigned.
+
+The viral host taxonomy for alpha diversity analysis was set to the family level. For each KO, we only randomly took 25 viral genomes with informative family-level taxonomy assigned.
+
+[script] 03.Reconstruct_vMAGs.step14.get_KO_to_tax_n_host_tax_alpha_diversity.pl
+
+**15 Visualize interested KO tax and host tax abundance**
 
 This script generates two bar plots:
 
@@ -256,19 +250,11 @@ This script generates two bar plots:
 
 [output] KO2host_tax2abun_fraction.8_low_diversity_KOs.pdf
 
-[script] 03.Reconstruct_vMAGs.step13.visualize_interrested_KO_tax_n_host_tax_abundance.R
+[script] 03.Reconstruct_vMAGs.step15.visualize_interrested_KO_tax_n_host_tax_abundance.R
 
 All the inputs and outputs were also provided here.
 
-**14  Get KO to tax and host tax alpha diversity pattern**
-
-The viral taxonomy for alpha diversity analysis was set to the family level. For each KO, we only randomly took 100 viral genomes with informative family-level taxonomy assigned.
-
-The viral host taxonomy for alpha diversity analysis was set to the family level. For each KO, we only randomly took 50 viral genomes with informative family-level taxonomy assigned.
-
-[script] 03.Reconstruct_vMAGs.step14.get_KO_to_tax_n_host_tax_alpha_diversity.pl
-
-**15 Visualize KO to tax and host tax alpha diversity pattern**
+**16 Visualize KO to tax and host tax alpha diversity pattern**
 
 This script generates four plots:
 
@@ -296,41 +282,7 @@ This script generates four plots:
 
 [output] KO.host_family.simpson2occurrence.pdf
 
-[script] 03.Reconstruct_vMAGs.step15.plot_KO_tax_n_host_tax_alpha_diversity.R
+[script] 03.Reconstruct_vMAGs.step16.plot_KO_tax_n_host_tax_alpha_diversity.R
 
 All the inputs and outputs were also provided here.
-
-**16 Visualize AMG KO and host association**
-
-This script depicts KO vs host abundance distribution across months, it generates four line charts:
-
-1) KO vs host abundance distribution (K00507 and K01627 vs Cyanobacteria-Nostocaceae)
-
-[input] Viral_host_association_table_1.txt
-
-[output] Viral_host_association_table_1.pdf
-
-2) KO vs host abundance distribution (K15895, K00798, and K01734 vs Bacteroidota-Flavobacteriaceae)
-
-[input] Viral_host_association_table_2.txt
-
-[output] Viral_host_association_table_2.pdf
-
-3) KO vs host abundance distribution (K01666 vs Bacteroidota-UBA961)
-
-[input] Viral_host_association_table_3.txt
-
-[output] Viral_host_association_table_3.pdf
-
-4) KO vs host abundance distribution (K02703 and K02706 vs Cyanobacteria-Cyanobiaceae)
-
-[input] Viral_host_association_table_4.txt
-
-[output] Viral_host_association_table_4.pdf
-
-[script] 03.Reconstruct_vMAGs.step16.visualize_AMG_KO_host_association.R
-
-All the inputs and outputs were also provided here.
-
-
 

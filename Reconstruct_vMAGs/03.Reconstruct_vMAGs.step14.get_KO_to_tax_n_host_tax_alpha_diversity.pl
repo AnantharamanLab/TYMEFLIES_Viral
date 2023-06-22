@@ -157,14 +157,14 @@ foreach my $ko (sort keys %KO2viral_gn_num){
 	$KO2viral_gns_w_informative_host_family{$ko} = join("\t", @Viral_gns_w_informative_host_family);
 }
 
-## Step 4.3 Store the KO2host_family2viral_gn_num2 hash, only randomly takes 50 viral genomes with informative host family assigned
+## Step 4.3 Store the KO2host_family2viral_gn_num2 hash, only randomly takes 25 viral genomes with informative host family assigned
 my %KO2host_family2viral_gn_num2 = (); # $ko => $host_family (also contains order in the front) => $viral_gn_num
 my %Host_family_for_viral_tax2 = (); # $host_family => 1
 foreach my $ko (sort keys %KO2viral_gns_w_informative_host_family_num){
-	if ($KO2viral_gns_w_informative_host_family_num{$ko} >= 50){
+	if ($KO2viral_gns_w_informative_host_family_num{$ko} >= 25){
 		my @Viral_gns_w_informative_host_family = split (/\t/,$KO2viral_gns_w_informative_host_family{$ko});
 		@Viral_gns_w_informative_host_family = shuffle @Viral_gns_w_informative_host_family;
-		splice @Viral_gns_w_informative_host_family, 50; # Get the first 50 elements
+		splice @Viral_gns_w_informative_host_family, 25; # Get the first 25 elements
 		
 		foreach my $viral_gn (@Viral_gns_w_informative_host_family){
 			my $host_tax = $Viral_gn2host_tax{$viral_gn};

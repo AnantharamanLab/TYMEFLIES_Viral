@@ -63,3 +63,4 @@ p4 <- ggplot(KO.host_family.simpson2occurrence, aes(x=Occurrence, y=KO.host_fami
 
 p4
 ggsave(p4,file="AMG_analysis/KO.host_family.simpson2occurrence.pdf", width = 9, height = 7, units = "cm")
+

@@ -41,22 +41,19 @@ while (<IN>){
 }	
 close IN;
 
-## Step 2.2 Store scaffold abundance
-my %Scf2cov = (); # $scf => $cov (normalized by 100M reads/metagenome)
-open IN, "ls 33**/vRhyme_result/vRhyme_coverage_files/vRhyme_coverage_values.tsv | ";
+## Step 2.2 Store scaffold coverage 
+my %Scf2cov = (); # $scf => $cov (within individual metagenome)
+open IN, "ls /storage1/data11/TYMEFLIES_phage/*/*.id97.coverm_depth.txt | ";
 while (<IN>){
 	chomp;
 	my $file = $_;
-	my ($img_id) = $file =~ /(33\d+?)\//;
-	my $read_num = $IMG_ID2read_num{$img_id};
 	open INN, "$file";
 	while (<INN>){
 		chomp;
-		if (!/^scaffold/){
+		if (!/^contigName/){
 			my @tmp = split (/\t/);
 			my $scf = $tmp[0];
-			my $cov = $tmp[1];
-			$cov = $cov / ($read_num / 100000000);
+			my $cov = $tmp[2];
 			$Scf2cov{$scf} = $cov;
 		}
 	}
@@ -64,11 +61,46 @@ while (<IN>){
 }
 close IN;
 
-## Step 2.3 Store pro abundance (normalized by 100M reads/metagenome)
+## Step 2.3 Store prophage scaffold coverage (containing 'fragment' in scaffold header)
+my %Prophage_scf2cov = (); # $scf => $cov (within individual metagenome)
+open IN, "ls /storage1/data11/TYMEFLIES_phage/*/PropagAtE_result/PropagAtE_result.tsv | ";
+while (<IN>){
+	chomp;
+	my $file = $_;
+	open INN, "$file";
+	while (<INN>){
+		chomp;
+		if (!/^prophage/){
+			my @tmp = split (/\t/);
+			my $prophage_scf = $tmp[0];
+			my $cov = $tmp[7];
+			if ($cov eq 'NA'){
+				$cov = 0;
+			}
+			$Prophage_scf2cov{$prophage_scf} = $cov;
+		}
+	}
+	close INN;
+}
+close IN;
+
+## Step 2.4 Store pro abundance (normalized by 100M reads/metagenome)
 my %Pro2abun = (); # $pro => $abun (normalized)
 foreach my $pro (sort keys %Pro2ko){
-	my ($scf) = $pro =~ /\_\_(Ga.+)\_\d+?$/;
-	$Pro2abun{$pro} = $Scf2cov{$scf};
+	my ($img_id,$scf) = $pro =~ /^(33\d+?)\_\_vRhyme\_.+?\_\_(Ga.+)\_\d+?$/;
+	my $abun = 0;
+	my $abun_normalized = 0;
+	if ($scf =~ /fragment/){ # If this scaffold is from prophage 
+		print "$scf\n"; # Print out the $scf to make a check
+		$abun = $Prophage_scf2cov{$scf}; 
+	}else{		
+		$abun = $Scf2cov{$scf}; # If this scaffold is not from prophage 
+	}
+	my $read_num = $IMG_ID2read_num{$img_id};
+	if ($abun){
+		$abun_normalized = $abun / ($read_num / 100000000);
+	}
+	$Pro2abun{$pro} = $abun_normalized;	
 }
 
 # Step 3 Get the abundance fraction of tax for each KO
