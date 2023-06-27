@@ -16,9 +16,9 @@ It should include AMG counterpart genes and their flanking regions (+-150bp) in 
 
 [script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step2.get_AMG_counterpart_gene_and_flankings.pl
 
-**3 Map all metagenomic reads to the collection of species representatives and AMG counterpart genes and flankings**
+**3 Map all metagenomic reads to the collection of species representatives, MAG representatives, and AMG counterpart genes and flankings**
 
-Map all metagenomic reads to the collection of the representative genomes from individual species and AMG counterpart genes and flankings. We only included representative genomes that carry at least one AMG.
+Map all metagenomic reads to the collection of the representative genomes from individual species, MAG representatives, and AMG counterpart genes and flankings. We only included representative genomes that carry at least one AMG. The MAG representatives are MAGs dereplicated by dRep (using 95% ANI cutoff).
 
 [script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step3.map_metagenomic_reads_to_the_collection_of_species_representatives.pl
 
@@ -194,6 +194,3 @@ The running process was the same as that described in Step 9.
 [script] 
 
 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step18.get_viral_gn_and_AMG_variation.for_each_year.pl
-
-
-
