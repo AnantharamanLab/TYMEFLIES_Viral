@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use List::Util qw(sum);
 
-# Aim: Parse to get the AMG variation in month and year_month
+# Aim: Parse to get the AMG variation in season and year_season
 
 # Step 1 Store AMG_gene_cov_ratio_variation_table
 my %AMG_gene2IMG2cov_ratio = (); # $amg_gene => $img => $cov_ratio
@@ -32,7 +32,7 @@ while (<IN>){
 }
 close IN;
 
-# Step 2 Store AMG KO information and month and year_month metagenome information
+# Step 2 Store AMG KO information and season and year_season metagenome information
 ## Step 2.1 Store AMG KO information
 my %AMG_summary = (); # $pro => $ko
 my %KOs= (); # $ko => 1;
@@ -78,11 +78,11 @@ foreach my $pro (sort keys %AMG_summary){
 	}
 }
 
-## Step 2.2 Store month metagenome information
-my %Month2num = (); # $month => $num_metagenome; Store how many samples (metagenomes) are there in each month for the whole datasets
-my %Month2img_id = (); # $month => collection of $img_id separeted by "\t"
-my %Year_month2num = (); # $year_month => $num_metagenome
-my %Year_month2img_id = (); # $year_month (for example, "2010-06") => collection of $img_id separeted by "\t"
+## Step 2.2 Store season metagenome information
+my %Season2num = (); # $season => $num_metagenome; Store how many samples (metagenomes) are there in each season for the whole datasets
+my %Season2img_id = (); # $season => collection of $img_id separeted by "\t"
+my %Year_season2num = (); # $year_season => $num_metagenome
+my %Year_season2img_id = (); # $year_season (for example, "2010-06") => collection of $img_id separeted by "\t"
 open IN, "TYMEFLIES_metagenome_info.txt";
 while (<IN>){
 	chomp;
@@ -90,45 +90,46 @@ while (<IN>){
 		my @tmp = split (/\t/);
 		my $img_id = $tmp[0];
 		my $date = $tmp[8];
-		my ($month) = $date =~ /\d\d\d\d-(\d\d)-\d\d/; 
-		$Month2num{$month}++;
-		if (!exists $Month2img_id{$month}){
-			$Month2img_id{$month} = $img_id;
+		my $season = $tmp[10]; 
+		$Season2num{$season}++;
+		if (!exists $Season2img_id{$season}){
+			$Season2img_id{$season} = $img_id;
 		}else{
-			$Month2img_id{$month} .= "\t".$img_id;
+			$Season2img_id{$season} .= "\t".$img_id;
 		}
 		
-		my ($year_month) = $date =~ /(\d\d\d\d-\d\d)-\d\d/;
-		$Year_month2num{$year_month}++;
-		if (!exists $Year_month2img_id{$year_month}){
-			$Year_month2img_id{$year_month} = $img_id;
+		my ($year) = $tmp[8] =~ /^(\d\d\d\d)\-/;
+		my $year_season = $year."-".$season;
+		$Year_season2num{$year_season}++;
+		if (!exists $Year_season2img_id{$year_season}){
+			$Year_season2img_id{$year_season} = $img_id;
 		}else{
-			$Year_month2img_id{$year_month} .= "\t".$img_id;
+			$Year_season2img_id{$year_season} .= "\t".$img_id;
 		}		
 	}
 }
 close IN;
 
-my @Month = ('01','02','03','04','05','06','07','08','09','10','11','12');
+my @Season = ('Spring', 'Clearwater', 'Early Summer', 'Late Summer', 'Fall', 'Ice-on');
 my @Year = ('2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019');
-my @Year_month = ();
+my @Year_season = ();
 foreach my $year (@Year){
-	foreach my $month (@Month){
-		my $year_month = "$year\-$month";
-		push @Year_month, $year_month;
+	foreach my $season (@Season){
+		my $year_season = "$year\-$season";
+		push @Year_season, $year_season;
 	}
 }
 
-# Step 3 Make %AMG_gene2month2cov_ratio hash
-my %AMG_gene2month2cov_ratio = (); # $amg_gene => $month => $cov_ratio
+# Step 3 Make %AMG_gene2season2cov_ratio hash
+my %AMG_gene2season2cov_ratio = (); # $amg_gene => $season => $cov_ratio
                                    # Only use $amg_gene with distribution >= 5
 foreach my $amg_gene (sort keys %AMG_gene2distribution){
 	my $distribution = $AMG_gene2distribution{$amg_gene};
 	if ($distribution >= 5){
-		foreach my $month (sort keys %Month2img_id){
-			my @IMG_ID = split (/\t/,$Month2img_id{$month}); # Store all metagenomes from this month
+		foreach my $season (sort keys %Season2img_id){
+			my @IMG_ID = split (/\t/,$Season2img_id{$season}); # Store all metagenomes from this season
 			my @Cov_ratio_collection = (); # Store all the non-"NA" cov ratio values 
-			my $cov_ratio_for_this_month = 0; # Store the cov ratio for this month (the mean value of all non-"NA" values)
+			my $cov_ratio_for_this_season = 0; # Store the cov ratio for this season (the mean value of all non-"NA" values)
 			foreach my $img (@IMG_ID){
 				my $cov_ratio = $AMG_gene2IMG2cov_ratio{$amg_gene}{$img};
 				if ($cov_ratio ne "NA"){
@@ -137,23 +138,23 @@ foreach my $amg_gene (sort keys %AMG_gene2distribution){
 			}
 			
 			if (@Cov_ratio_collection){
-				$cov_ratio_for_this_month = mean(@Cov_ratio_collection);
+				$cov_ratio_for_this_season = mean(@Cov_ratio_collection);
 			}
-			$AMG_gene2month2cov_ratio{$amg_gene}{$month} = $cov_ratio_for_this_month;
+			$AMG_gene2season2cov_ratio{$amg_gene}{$season} = $cov_ratio_for_this_season;
 		}
 	}
 }
 
-## Write down %AMG_gene2month2cov_ratio hash
-open OUT, ">MetaPop/AMG_gene2month2cov_ratio.txt";
-my $row=join("\t", sort keys %Month2num);
+## Write down %AMG_gene2season2cov_ratio hash
+open OUT, ">MetaPop/AMG_gene2season2cov_ratio.txt";
+my $row=join("\t", @Season);
 print OUT "Head\t$row\n";
-foreach my $tmp1 (sort keys %AMG_gene2month2cov_ratio){
+foreach my $tmp1 (sort keys %AMG_gene2season2cov_ratio){
         print OUT $tmp1."\t";
         my @tmp = ();
-        foreach my $tmp2 (sort keys %Month2num) {       
-                if (exists $AMG_gene2month2cov_ratio{$tmp1}{$tmp2}){
-                        push @tmp, $AMG_gene2month2cov_ratio{$tmp1}{$tmp2};
+        foreach my $tmp2 (sort keys %Season2num) {       
+                if (exists $AMG_gene2season2cov_ratio{$tmp1}{$tmp2}){
+                        push @tmp, $AMG_gene2season2cov_ratio{$tmp1}{$tmp2};
                 }else{              
                         push @tmp,"0";
                 }
@@ -162,16 +163,16 @@ foreach my $tmp1 (sort keys %AMG_gene2month2cov_ratio){
 }
 close OUT;
 
-# Step 4 Make %AMG_gene2year_month2cov_ratio hash and write it down
-my %AMG_gene2year_month2cov_ratio = (); # $amg_gene => $year_month => $cov_ratio
+# Step 4 Make %AMG_gene2year_season2cov_ratio hash and write it down
+my %AMG_gene2year_season2cov_ratio = (); # $amg_gene => $year_season => $cov_ratio
                                    # Only use $amg_gene with distribution >= 5
 foreach my $amg_gene (sort keys %AMG_gene2distribution){
 	my $distribution = $AMG_gene2distribution{$amg_gene};
 	if ($distribution >= 5){
-		foreach my $year_month (sort keys %Year_month2img_id){
-			my @IMG_ID = split (/\t/,$Year_month2img_id{$year_month}); # Store all metagenomes from this year_month
+		foreach my $year_season (sort keys %Year_season2img_id){
+			my @IMG_ID = split (/\t/,$Year_season2img_id{$year_season}); # Store all metagenomes from this year_season
 			my @Cov_ratio_collection = (); # Store all the non-"NA" cov ratio values 
-			my $cov_ratio_for_this_year_month = 0; # Store the cov ratio for this year_month (the mean value of all non-"NA" values)
+			my $cov_ratio_for_this_year_season = 0; # Store the cov ratio for this year_season (the mean value of all non-"NA" values)
 			foreach my $img (@IMG_ID){
 				my $cov_ratio = $AMG_gene2IMG2cov_ratio{$amg_gene}{$img};
 				if ($cov_ratio ne "NA"){
@@ -180,23 +181,23 @@ foreach my $amg_gene (sort keys %AMG_gene2distribution){
 			}
 			
 			if (@Cov_ratio_collection){
-				$cov_ratio_for_this_year_month = mean(@Cov_ratio_collection);
+				$cov_ratio_for_this_year_season = mean(@Cov_ratio_collection);
 			}
-			$AMG_gene2year_month2cov_ratio{$amg_gene}{$year_month} = $cov_ratio_for_this_year_month;
+			$AMG_gene2year_season2cov_ratio{$amg_gene}{$year_season} = $cov_ratio_for_this_year_season;
 		}
 	}
 }
 
-## Write down %AMG_gene2year_month2cov_ratio hash
-open OUT, ">MetaPop/AMG_gene2year_month2cov_ratio.txt";
-my $row2=join("\t", @Year_month);
+## Write down %AMG_gene2year_season2cov_ratio hash
+open OUT, ">MetaPop/AMG_gene2year_season2cov_ratio.txt";
+my $row2=join("\t", @Year_season);
 print OUT "Head\t$row2\n";
-foreach my $tmp1 (sort keys %AMG_gene2year_month2cov_ratio){
+foreach my $tmp1 (sort keys %AMG_gene2year_season2cov_ratio){
         print OUT $tmp1."\t";
         my @tmp = ();
-        foreach my $tmp2 (@Year_month) {       
-                if (exists $AMG_gene2year_month2cov_ratio{$tmp1}{$tmp2}){
-                        push @tmp, $AMG_gene2year_month2cov_ratio{$tmp1}{$tmp2};
+        foreach my $tmp2 (@Year_season) {       
+                if (exists $AMG_gene2year_season2cov_ratio{$tmp1}{$tmp2}){
+                        push @tmp, $AMG_gene2year_season2cov_ratio{$tmp1}{$tmp2};
                 }else{              
                         push @tmp,"0";
                 }
@@ -205,7 +206,7 @@ foreach my $tmp1 (sort keys %AMG_gene2year_month2cov_ratio){
 }
 close OUT;
 
-# Step 5 Make %AMG_gene_containing_viral_gn2month2cov_ratio hash and write it down
+# Step 5 Make %AMG_gene_containing_viral_gn2season2cov_ratio hash and write it down
 ## Step 5.1 Store Viral_gn2IMG2cov_norm_filtered.txt
 my %Viral_gn2IMG2cov_norm_filtered = (); # $viral_gn => $img => $cov_norm
 my @Header2 = (); # Store the header
@@ -227,14 +228,14 @@ while (<IN>){
 }
 close IN;
 
-## Step 5.2 Make %AMG_gene_containing_viral_gn2month2cov
-my %AMG_gene_containing_viral_gn2month2cov = (); # $viral_gn => $month => $cov
-foreach my $amg_gene (sort keys %AMG_gene2month2cov_ratio){
+## Step 5.2 Make %AMG_gene_containing_viral_gn2season2cov
+my %AMG_gene_containing_viral_gn2season2cov = (); # $viral_gn => $season => $cov
+foreach my $amg_gene (sort keys %AMG_gene2season2cov_ratio){
 	my ($viral_gn) = $amg_gene =~ /^(.+?\_\_.+?)\_\_/;
-	foreach my $month (sort keys %Month2img_id){
-		my @IMG_ID = split (/\t/,$Month2img_id{$month}); # Store all metagenomes from this month
+	foreach my $season (sort keys %Season2img_id){
+		my @IMG_ID = split (/\t/,$Season2img_id{$season}); # Store all metagenomes from this season
 		my @Cov_collection = (); # Store all the non-"NA" cov values 
-		my $cov_for_this_month = 0; # Store the cov for this month (the mean value of all non-"NA" values)
+		my $cov_for_this_season = 0; # Store the cov for this season (the mean value of all non-"NA" values)
 		foreach my $img (@IMG_ID){
 			my $cov = $Viral_gn2IMG2cov_norm_filtered{$viral_gn}{$img};
 			if ($cov ne "NA"){
@@ -243,22 +244,22 @@ foreach my $amg_gene (sort keys %AMG_gene2month2cov_ratio){
 		}
 		
 		if (@Cov_collection){
-			$cov_for_this_month = mean(@Cov_collection);
+			$cov_for_this_season = mean(@Cov_collection);
 		}
-		$AMG_gene_containing_viral_gn2month2cov{$viral_gn}{$month} = $cov_for_this_month;	
+		$AMG_gene_containing_viral_gn2season2cov{$viral_gn}{$season} = $cov_for_this_season;	
 	}
 }
 
-## Step 5.3 Write down %AMG_gene_containing_viral_gn2month2cov
-open OUT, ">MetaPop/AMG_gene_containing_viral_gn2month2cov.txt";
-my $row3=join("\t", sort keys %Month2num);
+## Step 5.3 Write down %AMG_gene_containing_viral_gn2season2cov
+open OUT, ">MetaPop/AMG_gene_containing_viral_gn2season2cov.txt";
+my $row3=join("\t", @Season);
 print OUT "Head\t$row3\n";
-foreach my $tmp1 (sort keys %AMG_gene_containing_viral_gn2month2cov){
+foreach my $tmp1 (sort keys %AMG_gene_containing_viral_gn2season2cov){
         print OUT $tmp1."\t";
         my @tmp = ();
-        foreach my $tmp2 (sort keys %Month2num) {       
-                if (exists $AMG_gene_containing_viral_gn2month2cov{$tmp1}{$tmp2}){
-                        push @tmp, $AMG_gene_containing_viral_gn2month2cov{$tmp1}{$tmp2};
+        foreach my $tmp2 (sort keys %Season2num) {       
+                if (exists $AMG_gene_containing_viral_gn2season2cov{$tmp1}{$tmp2}){
+                        push @tmp, $AMG_gene_containing_viral_gn2season2cov{$tmp1}{$tmp2};
                 }else{              
                         push @tmp,"0";
                 }
@@ -269,7 +270,7 @@ close OUT;
 
 ## Step 5.4 Store %AMG_gene_containing_viral_gn2KOs and write it down
 my %AMG_gene_containing_viral_gn2KOs = (); # $viral_gn => $kos (collection of $ko, separated by ";")
-foreach my $amg_gene (sort keys %AMG_gene2month2cov_ratio){
+foreach my $amg_gene (sort keys %AMG_gene2season2cov_ratio){
 	my ($viral_gn) = $amg_gene =~ /^(.+?\_\_.+?)\_\_/;
 	my $ko = $AMG_summary{$amg_gene};
 	if (!exists $AMG_gene_containing_viral_gn2KOs{$viral_gn}){
@@ -289,7 +290,7 @@ close OUT;
 
 ## Step 5.5 Make %AMG_gene2ko_n_detail and write it down
 my %KO2detail = (); # $ko => $detail
-open IN, "MetaPop/KO2month_ko_details.txt";
+open IN, "MetaPop/KO2season_ko_details.txt";
 while (<IN>){
 	chomp;
 	my @tmp = split (/\t/);
@@ -300,7 +301,7 @@ while (<IN>){
 close IN;
 
 my %AMG_gene2ko_n_detail = (); # $amg_gene => $ko_n_detail
-foreach my $amg_gene (sort keys %AMG_gene2month2cov_ratio){
+foreach my $amg_gene (sort keys %AMG_gene2season2cov_ratio){
 	my $ko = $AMG_summary{$amg_gene};
 	my $detail = $KO2detail{$ko};
 	my $ko_n_detail = "$ko\: $detail";
@@ -313,15 +314,15 @@ foreach my $amg_gene (sort keys %AMG_gene2ko_n_detail){
 }
 close OUT;
 
-# Step 6 Make %AMG_gene_containing_viral_gn2year_month2cov hash and write it down
-## Step 6.1 Make %AMG_gene_containing_viral_gn2year_month2cov
-my %AMG_gene_containing_viral_gn2year_month2cov = (); # $viral_gn => $year_month => $cov
-foreach my $amg_gene (sort keys %AMG_gene2year_month2cov_ratio){
+# Step 6 Make %AMG_gene_containing_viral_gn2year_season2cov hash and write it down
+## Step 6.1 Make %AMG_gene_containing_viral_gn2year_season2cov
+my %AMG_gene_containing_viral_gn2year_season2cov = (); # $viral_gn => $year_season => $cov
+foreach my $amg_gene (sort keys %AMG_gene2year_season2cov_ratio){
 	my ($viral_gn) = $amg_gene =~ /^(.+?\_\_.+?)\_\_/;
-	foreach my $year_month (sort keys %Year_month2img_id){
-		my @IMG_ID = split (/\t/,$Year_month2img_id{$year_month}); # Store all metagenomes from this year_month
+	foreach my $year_season (sort keys %Year_season2img_id){
+		my @IMG_ID = split (/\t/,$Year_season2img_id{$year_season}); # Store all metagenomes from this year_season
 		my @Cov_collection = (); # Store all the non-"NA" cov values 
-		my $cov_for_this_year_month = 0; # Store the cov for this year_month (the mean value of all non-"NA" values)
+		my $cov_for_this_year_season = 0; # Store the cov for this year_season (the mean value of all non-"NA" values)
 		foreach my $img (@IMG_ID){
 			my $cov = $Viral_gn2IMG2cov_norm_filtered{$viral_gn}{$img};
 			if ($cov ne "NA"){
@@ -330,22 +331,22 @@ foreach my $amg_gene (sort keys %AMG_gene2year_month2cov_ratio){
 		}
 		
 		if (@Cov_collection){
-			$cov_for_this_year_month = mean(@Cov_collection);
+			$cov_for_this_year_season = mean(@Cov_collection);
 		}
-		$AMG_gene_containing_viral_gn2year_month2cov{$viral_gn}{$year_month} = $cov_for_this_year_month;
+		$AMG_gene_containing_viral_gn2year_season2cov{$viral_gn}{$year_season} = $cov_for_this_year_season;
 	}
 }
 
-# Step 6.2 Write down the %AMG_gene_containing_viral_gn2year_month2cov hash 
-open OUT, ">MetaPop/AMG_gene_containing_viral_gn2year_month2cov.txt";
-my $row4=join("\t", @Year_month);
+# Step 6.2 Write down the %AMG_gene_containing_viral_gn2year_season2cov hash 
+open OUT, ">MetaPop/AMG_gene_containing_viral_gn2year_season2cov.txt";
+my $row4=join("\t", @Year_season);
 print OUT "Head\t$row4\n";
-foreach my $tmp1 (sort keys %AMG_gene_containing_viral_gn2year_month2cov){
+foreach my $tmp1 (sort keys %AMG_gene_containing_viral_gn2year_season2cov){
         print OUT $tmp1."\t";
         my @tmp = ();
-        foreach my $tmp2 (@Year_month) {       
-                if (exists $AMG_gene_containing_viral_gn2year_month2cov{$tmp1}{$tmp2}){
-                        push @tmp, $AMG_gene_containing_viral_gn2year_month2cov{$tmp1}{$tmp2};
+        foreach my $tmp2 (@Year_season) {       
+                if (exists $AMG_gene_containing_viral_gn2year_season2cov{$tmp1}{$tmp2}){
+                        push @tmp, $AMG_gene_containing_viral_gn2year_season2cov{$tmp1}{$tmp2};
                 }else{              
                         push @tmp,"0";
                 }

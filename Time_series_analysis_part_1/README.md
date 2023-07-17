@@ -14,17 +14,19 @@ The information contains:1) Tax 2) Host tax 3) AMG KO within. This script also c
 
 It should include AMG counterpart genes and their flanking regions (+-150bp) in the mapping reference for the next step. We first run hmmsearch of all metagenome proteins to AMG KOs, and then grab the AMG counterpart genes and their flankings from positive hmmsearch hits. We excluded all viral scaffolds in the final AMG counterpart gene located scaffolds.
 
+***Note:*** Since that later we have included MAG representatives into our mapping reference, the AMG counterpart genes and their flankings will not be used to avoid overlaps. So the result from this step is not used in the following analysis. 
+
 [script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step2.get_AMG_counterpart_gene_and_flankings.pl
 
-**3 Map all metagenomic reads to the collection of species representatives, MAG representatives, and AMG counterpart genes and flankings**
+**3 Map all metagenomic reads to the collection of species representatives and MAG representatives**
 
-Map all metagenomic reads to the collection of the representative genomes from individual species, MAG representatives, and AMG counterpart genes and flankings. We only included representative genomes that carry at least one AMG. The MAG representatives are MAGs dereplicated by dRep (using 95% ANI cutoff).
+Map all metagenomic reads to the collection of the representative genomes from individual species and MAG representatives. We only included representative genomes that carry at least one AMG. The MAG representatives (2,866 in total) are MAGs dereplicated by dRep (using 96% ANI cutoff).
 
 [script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step3.map_metagenomic_reads_to_the_collection_of_species_representatives.pl
 
 **4 Grep gene files (in prodigal format) for "All_phage_species_rep_gn_containing_AMG.fasta"**
 
-"All_phage_species_rep_gn_containing_AMG.fasta" is the fasta file contains species representative genomes (with at least one AMG) generated from the last step (Step 2). We parsed the ffn file (the prodigal-annotation result containing all genes) from each VIBRANT result folder to get the new gene headers and the corresponding sequences. 
+"All_phage_species_rep_gn_containing_AMG.fasta" is the fasta file contains species representative genomes (with at least one AMG) generated from the last step (Step 3). We parsed the ffn file (the prodigal-annotation result containing all genes) from each VIBRANT result folder to get the new gene headers and the corresponding sequences. 
 
 [script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step4.grep_gene_files_for_all_rep_gn_containing_AMG.pl
 
@@ -38,7 +40,7 @@ A custom Python 3 script "filter_bam_by_reference.py" was used to filter bam. No
 
 **6 Run MetaPop**
 
-1) "--id_min" set to 95 (species genome boundary)
+1) "--id_min" set to 93 (species genome boundary, this value was suggested here  - the section of "Reducing read mis-mapping by adjusting min_read_ani" in https://instrain.readthedocs.io/en/latest/important_concepts.html#strain-level-comparisons-and-popani)
 2) Use genes provided by me (generated from Step 3)
 3) "--genome_detection_cutoff" set to 70 (Percent of bases that must be covered for a sequence to be considered detected for macrodiversity analyses - 70%)
 
@@ -107,11 +109,13 @@ The resulted file "AMG_gene_cov_ratio_variation_table.txt" contains the followin
 
 [script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step9.get_viral_gn_and_AMG_variation.pl
 
-**10 Get AMG coverage ratio distribution in each month and year-month**
+**10 Get AMG coverage ratio distribution in each season and year-season**
 
-Note that we only included AMGs with distribution >= 5. In this script, we calculated both AMG coverage ratio distribution in each month and year-month and AMG-containing viral genome coverage distribution in each month and year-month.
+Note that we only included AMGs with distribution >= 5. In this script, we calculated both AMG coverage ratio distribution in each season and year-season and AMG-containing viral genome coverage distribution in each season and year-season.
 
-[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step10.get_AMG_cov_ratio_variation_in_month_and_year_month.pl
+"MetaPop/KO2season_ko_details.txt" is a file that contains two columns: "KO ID" and "KO details"
+
+[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step10.get_AMG_cov_ratio_variation_in_season_and_year_season.pl
 
 **11 Visualize AMG coverage ratio and corresponding viral genome coverage variations**
 
@@ -148,6 +152,8 @@ We studied the correction between psbA-containing viral genome coverage, psbA AM
  [script] 
 
 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step12.2.conduct_correlation_analysis_for_env_parameter_and_virus.pl
+
+***Note:*** We did not use the results of step 11, since the visualizing result seems not so meaningful to address any ideas. We also did not use the results of step 12.1 and step 12.2, since that they are duplicated with the "Time-series analysis - Part 4 virus and MAG taxa association analysis"
 
 **13 Map all metagenomic reads from each year to the collection of species representatives and AMG counterpart genes and flankings**
 
