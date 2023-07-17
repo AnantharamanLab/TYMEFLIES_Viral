@@ -14,7 +14,7 @@ It contains 15,677,623 lines. For each genome, there might be multiple host info
 It contains 15,677,623 phage genomes, and they are clustered into 8,606,551 vOTUs (dereplicated)
 
 - NAME: IMGVR_all_phage_vOTU_representatives.txt (The vOTU representative map)
-  It contains 3,216,119 vOTUs and 3,216,119 vOTU representatives. Representatives are picked firstly by genome quality and then by genome size
+  It contains 8,606,551 vOTUs and 8,606,551 vOTU representatives. Representatives are picked firstly by genome quality and then by genome size
 
   
 
