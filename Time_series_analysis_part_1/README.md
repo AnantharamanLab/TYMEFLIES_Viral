@@ -153,7 +153,7 @@ We studied the correction between psbA-containing viral genome coverage, psbA AM
 
 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step12.2.conduct_correlation_analysis_for_env_parameter_and_virus.pl
 
-***Note:*** We did not use the results of step 11, since the visualizing result seems not so meaningful to address any ideas. We also did not use the results of step 12.1 and step 12.2, since that they are duplicated with the "Time-series analysis - Part 4 virus and MAG taxa association analysis"
+***Note:*** We did not use the results of step 11, since the visualizing result seems not so meaningful to address any ideas. We also did not use the results of step 12.1 and step 12.2, since that they are duplicated with the "Time-series analysis - Part 4 virus and MAG taxa association analysis".
 
 **13 Map all metagenomic reads from each year to the collection of species representatives and AMG counterpart genes and flankings**
 

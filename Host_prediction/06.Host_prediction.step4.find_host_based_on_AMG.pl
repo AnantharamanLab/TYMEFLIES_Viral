@@ -25,10 +25,10 @@ while (<IN>){
 	}
 }
 close IN;
-=pod
+
 # Step 2 KO to microbial pro hash
 ## Step 2.1 Perform hmmsearch for all KO in %KO2amg_pro
-`mkdir Host_prediction/Find_host_based_on_AMG`;
+#`mkdir Host_prediction/Find_host_based_on_AMG`;
 ### Step 2.1.1 Store KO2cutoff_and_type hash
 my %KO2cutoff_and_type = (); # $ko => $cutoff_and_type
 open IN, "/slowdata/data1/Genome_profile_software/kofam_database/ko_list";
@@ -42,7 +42,7 @@ while (<IN>){
 	}
 }
 close IN;
-
+=pod
 ### Step 2.1.2 Run hmmsearch
 my $all_seq = "/storage1/data11/TYMEFLIES_phage/Robin_MAGs/TYMEFLIES_MAGs_all_seq.faa";
 open OUT, ">tmp.run_hmmsearch_for_host_prediction.sh";
@@ -65,8 +65,68 @@ foreach my $ko (sort keys %KO2amg_pro){
 `cat tmp.run_hmmsearch_for_host_prediction.sh | parallel -j 20`;
 
 `rm tmp.run_hmmsearch_for_host_prediction.sh`;
-=cut
-### Step 2.1.3 Read hmmsearch result
+
+
+### Step 2.1.3 Store all contig to MAG info and MAG to tax info
+my %TYMEFLIES_contig2MAG = (); # $contig => $mag
+open IN, "/storage1/data11/TYMEFLIES_phage/Robin_MAGs/Robin_MAG_stat.CheckM_passed.txt";
+while (<IN>){
+	chomp;
+	if (!/^IMG/){
+		my @tmp = split (/\t/);
+		my $mag = $tmp[0];
+		my $contigs = $tmp[4];
+		my $tax = $tmp[1];
+		my @Contigs = split (/\,/, $contigs);
+		foreach my $contig (@Contigs){
+			$TYMEFLIES_contig2MAG{$contig} = $mag;
+		}
+	}
+}
+close IN;
+
+my %Contig2MAG = %TYMEFLIES_contig2MAG;
+
+### Step 2.1.4 Store all contigs that are determined to be viral sequence mis-binning
+my %Contig_viral_seq_in_MAGs = (); # $contig => $mag (the MAG that contains the contig)
+open IN, "ls /storage1/data11/TYMEFLIES_phage/Robin_MAGs/split_fsa/*.fsa |";
+while (<IN>){
+	chomp;
+	my $fsa_file = $_;
+	my ($out_name) = $fsa_file =~ /split_fsa\/(.+?)\.fsa/;
+	my %Seq = _store_seq("$fsa_file");
+	my %Contig2len = (); # $contig => $len
+	foreach my $key (sort keys %Seq){
+		my ($key_clean) = $key =~ /^>(.+?)$/;
+		my $len = length($Seq{$key});
+		$Contig2len{$key_clean} = $len;
+	}
+	
+	# Read the blastn out
+	open INN, "/storage1/data11/TYMEFLIES_phage/Host_prediction/filter_MAGs_out/TYMEFLIES_MAGs_${out_name}.blastn_out.txt";
+	while (<INN>){
+		chomp;
+		my @tmp = split (/\t/);
+		my $contig = $tmp[0];
+		my $viral_seq = $tmp[1];
+		my $qstart = $tmp[6];
+		my $qend = $tmp[7];
+		my $tstart = $tmp[8];		
+		my $tend = $tmp[9];		
+		my $iden = $tmp[2];
+		my $host_covered_len = abs($qend - $qstart);
+		my $viral_covered_len = abs($tend - $tstart);		
+		my $host_covered_prec = $host_covered_len / $Contig2len{$contig};
+		if ($host_covered_prec >= 0.5 and $iden >= 80){ # Cutoff: viral sequence hit covered region ≥ 50% of the host contig
+			my $mag = $Contig2MAG{$contig};
+			$Contig_viral_seq_in_MAGs{$contig} = $mag;
+		}
+	}
+	close INN;
+}
+close IN;
+
+### Step 2.1.5 Read hmmsearch result
 my %KO2microbial_pros = (); # $ko => $microbial_pros (collection of $microbial_pro, separated by "\,")
 open IN, "find Host_prediction/Find_host_based_on_AMG/ -name '*.hmmsearch_result.txt' | ";
 while (<IN>){
@@ -89,21 +149,25 @@ while (<IN>){
 			my $microbial_pro = $tmp[0];
 			my $score_full = $tmp[5];
 			my $score_domain = $tmp[8];
-			if ($type eq "full"){
-				if ($score_full >= $cutoff){
-					if (!exists $KO2microbial_pros{$ko}){
-						$KO2microbial_pros{$ko} = $microbial_pro;
-					}else{
-						$KO2microbial_pros{$ko} .= "\,".$microbial_pro;
+			my ($microbial_scf) = $microbial_pro =~ /^(.+)\_\d+?$/;
+			# Exclude all contigs/scaffolds that are determined to be viral sequence mis-binning
+			if (! exists $Contig_viral_seq_in_MAGs{$microbial_scf}){ 
+				if ($type eq "full"){
+					if ($score_full >= $cutoff){
+						if (!exists $KO2microbial_pros{$ko}){
+							$KO2microbial_pros{$ko} = $microbial_pro;
+						}else{
+							$KO2microbial_pros{$ko} .= "\,".$microbial_pro;
+						}
 					}
-				}
-			}else{
-				if ($score_domain >= $cutoff){
-					if (!exists $KO2microbial_pros{$ko}){
-						$KO2microbial_pros{$ko} = $microbial_pro;
-					}else{
-						$KO2microbial_pros{$ko} .= "\,".$microbial_pro;
-					}				
+				}else{
+					if ($score_domain >= $cutoff){
+						if (!exists $KO2microbial_pros{$ko}){
+							$KO2microbial_pros{$ko} = $microbial_pro;
+						}else{
+							$KO2microbial_pros{$ko} .= "\,".$microbial_pro;
+						}				
+					}
 				}
 			}
 		}
@@ -168,36 +232,35 @@ while (<IN>){
 	}
 }
 close IN;
-
+=cut
 # Step 5 Store microbial pro to tax hash
 ## Step 5.1 Store the information from TYMEFLIES_all_MAGs_stat.txt, incude tax and scaffolds
 my %TYMEFLIES_MAG_stat = (); # $mag => [0] GTDB tax [1] scaffolds
-open IN, "/storage1/data11/TYMEFLIES_phage/Robin_MAGs/Robin_MAG_stat.txt";
+open IN, "/storage1/data11/TYMEFLIES_phage/Robin_MAGs/Robin_MAG_stat.CheckM_passed.txt";
 while (<IN>){
 	chomp;
-	if (!/^tymeflies/){
+	if (!/^IMG/){
 		my @tmp = split (/\t/);
-		my $mag = $tmp[5];
-		my $num_in_cluster = $tmp[15];		
-		if ($num_in_cluster ne "NA"){
-			my ($img) = $mag =~ /_(33\d+?)_/;
-			my @Contigs = (); # Store all the contigs into an array
-			my $MAG_addr = "/storage1/data11/TYMEFLIES_phage/Robin_MAGs/".$img."/".$mag.".fasta";
-			my %MAG_seq = _store_seq("$MAG_addr");
-			foreach my $header (sort keys %MAG_seq){
-				my ($contig) = $header =~ /^>(.+?)$/;
-				push @Contigs, $contig;	
-			}			
-			my $lineage = join(";", @tmp[16..22]);
-			my $scaffolds = join(',', @Contigs); # Store all scaffolds in each MAG
-			$TYMEFLIES_MAG_stat{$mag}[0] = $lineage;
-			$TYMEFLIES_MAG_stat{$mag}[1] = $scaffolds;
-		}
+		my $mag = $tmp[0];
+		my $scfs = $tmp[4];
+		my $tax = $tmp[1];
+		$TYMEFLIES_MAG_stat{$mag}[0] = $tax;
+		$TYMEFLIES_MAG_stat{$mag}[1] = $scfs;
 	}
 }
 close IN;
 
-## Step 5.2 Store microbial pro to tax hash
+## Step 5.2 Delete MAGs that are Noncyanobacteria_but_contain_psbAD 
+my %Noncyanobacteria_but_contain_psbAD = (); # $mag => 1
+open IN, "/storage1/data11/TYMEFLIES_phage/Check_non-cyanobacteria/Noncyanobacteria_but_contain_psbAD.txt";
+while (<IN>){
+	chomp;	
+	my $mag = $_;
+	$Noncyanobacteria_but_contain_psbAD{$mag} = 1;
+}
+close IN;
+
+## Step 5.3 Store microbial pro to tax hash
 my %Microbial_pro2tax = (); # $microbial_pro => $tax
 open IN, "find /storage1/data11/TYMEFLIES_phage/Robin_MAGs/All_passed_MAGs/ -name '*.faa'| grep -v 'all' |";
 while (<IN>){
@@ -205,15 +268,17 @@ while (<IN>){
 	my $file = $_;
 	my ($mag) = $file =~ /^.+\/(.+?)\.faa/;
 	my $tax = $TYMEFLIES_MAG_stat{$mag}[0];
-	open INN, "$file";
-	while (<INN>){
-		chomp;
-		if (/^>/){
-			my ($microbial_pro) = $_ =~ /^>(.+?)\s/; # Only get the microbial protein before the first whitespace
-			$Microbial_pro2tax{$microbial_pro} = $tax;
+	if (! exists $Noncyanobacteria_but_contain_psbAD{$mag}){
+		open INN, "$file";
+		while (<INN>){
+			chomp;
+			if (/^>/){
+				my ($microbial_pro) = $_ =~ /^>(.+?)\s/; # Only get the microbial protein before the first whitespace
+				$Microbial_pro2tax{$microbial_pro} = $tax;
+			}
 		}
+		close INN;
 	}
-	close INN;
 }
 close IN;
 
@@ -249,16 +314,16 @@ while (<IN>){
 }
 close IN;
 
-## Step 6.2 Get each viral pro hit (the minimal identity cutoff of viral pro to microbial pro hit is 90%)
+## Step 6.2 Get each viral pro hit (the minimal identity cutoff of viral pro to microbial pro hit is 60%)
 my %Viral_pro2microbial_pro_hits = (); # $viral_pro => $microbial_pro_hits (collection of $microbial_pro_hit, separated by "\t")
 foreach my $viral_pro (sort keys %Viral_pro2microbial_pro2identity_n_score){
-	my @Microbial_pro_hits = (); # Only store top 20 microbial pro hits with the highest bitscores
+	my @Microbial_pro_hits = (); # Only store top 10 microbial pro hits with the highest bitscores
 	my %Microbial_pro_hit2score = (); # Store the bitscore for each microbial pro hit
 	my @Microbial_pro_all = split (/\,/, $Viral_pro2microbial_pro_all{$viral_pro});
 	foreach my $microbial_pro (@Microbial_pro_all){
 		if (exists $Viral_pro2microbial_pro2identity_n_score{$viral_pro}{$microbial_pro}){
 			my ($iden, $score) = $Viral_pro2microbial_pro2identity_n_score{$viral_pro}{$microbial_pro} =~ /^(.+?)\t(.+?)$/;
-			if ($iden >= 90){
+			if ($iden >= 60){
 				$Microbial_pro_hit2score{$microbial_pro} = $score;
 			}
 		}
@@ -266,10 +331,10 @@ foreach my $viral_pro (sort keys %Viral_pro2microbial_pro2identity_n_score){
 	
 	# Reorder the %Microbial_pro_hit2score by its values
 	my @Microbial_pro_hit2score = reverse sort { $Microbial_pro_hit2score{$a} <=> $Microbial_pro_hit2score{$b} } keys %Microbial_pro_hit2score;
-	if ((scalar @Microbial_pro_hit2score) <= 20){
+	if ((scalar @Microbial_pro_hit2score) <= 10){
 		@Microbial_pro_hits = @Microbial_pro_hit2score;
 	}else{
-		splice(@Microbial_pro_hit2score, 20); # Splice the orignal array
+		splice(@Microbial_pro_hit2score, 10); # Splice the orignal array
 		@Microbial_pro_hits = @Microbial_pro_hit2score;
 	}
 	
@@ -309,8 +374,10 @@ foreach my $viral_gn (sort keys %Viral_gn2viral_pro){
 	my @Taxs = (); # Store all the tax 
 	if (%Microbial_pro_hits){
 		foreach my $microbial_pro_hit (sort keys %Microbial_pro_hits){
-			my $tax = $Microbial_pro2tax{$microbial_pro_hit};			
-			push @Taxs, $tax;
+			if (exists $Microbial_pro2tax{$microbial_pro_hit}){
+				my $tax = $Microbial_pro2tax{$microbial_pro_hit};			
+				push @Taxs, $tax;
+			}
 		}
 	}
 

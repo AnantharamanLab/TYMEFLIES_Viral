@@ -46,27 +46,16 @@ close IN;
 
 # Step 2. Store TYMEFLIES MAG stat
 my %TYMEFLIES_MAG_stat = (); # $mag => [0] GTDB tax [1] scaffolds
-open IN, "/storage1/data11/TYMEFLIES_phage/Robin_MAGs/Robin_MAG_stat.txt";
+open IN, "/storage1/data11/TYMEFLIES_phage/Robin_MAGs/Robin_MAG_stat.CheckM_passed.txt";
 while (<IN>){
 	chomp;
-	if (!/^tymeflies/){
+	if (!/^IMG/){
 		my @tmp = split (/\t/);
-		my $mag = $tmp[5];
-		my $num_in_cluster = $tmp[15];		
-		if ($num_in_cluster ne "NA"){
-			my ($img) = $mag =~ /_(33\d+?)_/;
-			my @Contigs = (); # Store all the contigs into an array
-			my $MAG_addr = "/storage1/data11/TYMEFLIES_phage/Robin_MAGs/".$img."/".$mag.".fasta";
-			my %MAG_seq = _store_seq("$MAG_addr");
-			foreach my $header (sort keys %MAG_seq){
-				my ($contig) = $header =~ /^>(.+?)$/;
-				push @Contigs, $contig;	
-			}			
-			my $lineage = join(";", @tmp[16..22]);
-			my $scaffolds = join(',', @Contigs); # Store all scaffolds in each MAG
-			$TYMEFLIES_MAG_stat{$mag}[0] = $lineage;
-			$TYMEFLIES_MAG_stat{$mag}[1] = $scaffolds;
-		}
+		my $mag = $tmp[0];
+		my $scfs = $tmp[4];
+		my $tax = $tmp[1];
+		$TYMEFLIES_MAG_stat{$mag}[0] = $tax;
+		$TYMEFLIES_MAG_stat{$mag}[1] = $scfs;
 	}
 }
 close IN;
@@ -94,27 +83,3 @@ foreach my $prophage_gn (sort keys %Prophage_gn2host){
 	print OUT "$prophage_gn\t$Prophage_gn2host{$prophage_gn}[0]\t$Prophage_gn2host{$prophage_gn}[1]\n";
 }
 close OUT;
-
-
-
-sub _store_seq{
-	my $file = $_[0];
-	my %Seq = (); my $head = "";
-	open _IN, "$file";
-	while (<_IN>){
-		chomp;
-		if (/>/){
-			if (/\s/){
-				($head) = $_ =~ /^(>.+?)\s/;
-				$Seq{$head} = "";
-			}else{
-				($head) = $_ =~ /^(>.+?)$/;
-				$Seq{$head} = "";
-			}
-		}else{
-			$Seq{$head} .= $_;
-		}
-	}
-	close _IN;
-	return %Seq;
-}
