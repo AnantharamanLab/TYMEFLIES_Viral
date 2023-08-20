@@ -1,0 +1,3729 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eml:eml packageId="knb-lter-ntl.1.60"
+  system="https://pasta.edirepository.org"
+  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://eml.ecoinformatics.org/eml-2.2.0 https://eml.ecoinformatics.org/eml-2.2.0/eml.xsd">
+  <access
+    authSystem="https://pasta.edirepository.org/authentication"
+    order="allowFirst" scope="document"
+      system="https://pasta.edirepository.org">
+    <allow>
+      <principal>uid=NTL,o=EDI,dc=edirepository,dc=org</principal>
+      <permission>all</permission>
+    </allow>
+    <allow>
+      <principal>public</principal>
+      <permission>read</permission>
+    </allow>
+  </access>
+  <dataset>
+    <alternateIdentifier
+        system="https://doi.org">doi:10.6073/pasta/325232e6e4cd1ce04025fa5674f7b782</alternateIdentifier><title>North Temperate Lakes LTER: Chemical Limnology of Primary Study Lakes: Nutrients, pH and Carbon 1981 - current</title>
+    <creator>
+      <individualName>
+        <givenName>John</givenName>
+        <givenName>J</givenName>
+        <surName>Magnuson</surName>
+      </individualName>
+      <organizationName>University of Wisconsin-Madison</organizationName>
+      <electronicMailAddress>john.magnuson@wisc.edu</electronicMailAddress>
+      <userId
+        directory="https://orcid.org">0000-0001-5612-8765</userId>
+    </creator>
+    <creator>
+      <individualName>
+        <givenName>Stephen</givenName>
+        <givenName>R</givenName>
+        <surName>Carpenter</surName>
+      </individualName>
+      <organizationName>University of Wisconsin-Madison</organizationName>
+      <electronicMailAddress>steve.carpenter@wisc.edu</electronicMailAddress>
+      <userId
+        directory="https://orcid.org">0000-0001-8097-8700</userId>
+    </creator>
+    <creator>
+      <individualName>
+        <givenName>Emily</givenName>
+        <givenName>H</givenName>
+        <surName>Stanley</surName>
+      </individualName>
+      <organizationName>University of Wisconsin-Madison</organizationName>
+      <electronicMailAddress>ehstanley@wisc.edu</electronicMailAddress>
+      <userId
+      directory="https://orcid.org">0000-0003-4922-8121</userId>
+    </creator>
+    <metadataProvider>
+      <individualName>
+        <givenName>NTL</givenName>
+        <surName>Information Manager</surName>
+      </individualName>
+      <organizationName>University of Wisconsin-Madison</organizationName>
+      <address>
+        <deliveryPoint>680 North Park Street</deliveryPoint>
+        <city>Madison</city>
+        <administrativeArea>WI</administrativeArea>
+        <postalCode>53706</postalCode>
+        <country>United States</country>
+      </address>
+      <electronicMailAddress>ntl.infomgr@gmail.com</electronicMailAddress>
+    </metadataProvider>
+    <pubDate>2023-08-08</pubDate><abstract>      <para>Parameters characterizing the nutrient chemistry of the eleven primary lakes (Allequash, Big Muskellunge, Crystal, Sparkling, and Trout lakes, unnamed lakes 27-02 [Crystal Bog] and 12-15 [Trout Bog], Mendota, Monona, Wingra, and Fish) are measured at multiple depths throughout the year. These parameters include total nitrogen, total dissolved nitrogen, nitrite+nitrate-N, ammonium-N, total phosphorus, total dissolved phosphorus, dissolved reactive phosphorus (only in the southern lakes and not in Wingra and Fish after 2003), bicarbonate-reactive filtered and unfiltered silica (both discontinued in 2003), dissolved reactive silica, pH, air equilibrated pH (discontinued in 2014 in the northern lakes and in 2020 in the southern lakes), total alkalinity, total inorganic carbon, dissolved inorganic carbon, total organic carbon, dissolved organic carbon, and total particulate matter (only in the northern lakes in this data set; total particulate matter in southern lakes starting in 2000 is available in a separate dataset). Sampling Frequency: Northern lakes- monthly during ice-free season - every 5 weeks during ice-covered season. Southern lakes- Southern lakes samples are collected every 2-4 weeks during the summer stratified period, at least monthly during the fall, and typically only once during the winter, depending on ice conditions. Number of sites: 11</para>
+</abstract>
+    <keywordSet>
+      <keyword>chemical (all)</keyword>
+      <keyword>chemical limnology</keyword>
+      <keyword>NTL Core Datasets</keyword>
+    </keywordSet>
+    <keywordSet>
+      <keyword>organic matter</keyword>
+      <keyword>inorganic nutrients</keyword>
+      <keyword>alkalinity</keyword>
+      <keyword>ammonia</keyword>
+      <keyword>carbon</keyword>
+      <keyword>dissolved organic carbon</keyword>
+      <keyword>dissolved inorganic carbon</keyword>
+      <keyword>nitrate</keyword>
+      <keyword>nitrogen</keyword>
+      <keyword>nutrients</keyword>
+      <keyword>ph</keyword>
+      <keyword>phosphorus</keyword>
+      <keyword>total nitrogen</keyword>
+      <keyword>total organic carbon</keyword>
+      <keyword>total phosphorus</keyword>
+      <keyword>water chemistry</keyword>
+      <keywordThesaurus>LTER Controlled Vocabulary</keywordThesaurus>
+    </keywordSet>
+    <intellectualRights>This information is released under the Creative Commons license - Attribution - CC BY (https://creativecommons.org/licenses/by/4.0/). The consumer of these data ("Data User" herein) is required to cite it appropriately in any publication that results from its use. The Data User should realize that these data may be actively used by others for ongoing research and that coordination may be necessary to prevent duplicate publication. The Data User is urged to contact the authors of these data if any questions about methodology or results occur. Where appropriate, the Data User is encouraged to consider collaboration or co-authorship with the authors. The Data User should realize that misinterpretation of data may occur if used out of context of the original study. While substantial efforts are made to ensure the accuracy of data and associated documentation, complete accuracy of data sets cannot be guaranteed. All data are made available "as is." The Data User should be aware, however, that data are updated periodically and it is the responsibility of the Data User to check for new versions of the data. The data authors and the repository where these data were obtained shall not be liable for damages resulting from any use or misinterpretation of the data. Thank you.</intellectualRights>
+    <distribution
+      id="10.6073/pasta/325232e6e4cd1ce04025fa5674f7b782" scope="system"
+          system="https://pasta.edirepository.org"><online><url
+        function="information">https://doi.org/10.6073/pasta/325232e6e4cd1ce04025fa5674f7b782</url></online></distribution><coverage>
+      <geographicCoverage>
+        <geographicDescription>Allequash Lake</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-89.6458</westBoundingCoordinate>
+          <eastBoundingCoordinate>-89.6124</eastBoundingCoordinate>
+          <northBoundingCoordinate>46.0481</northBoundingCoordinate>
+          <southBoundingCoordinate>46.0252</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage>
+        <geographicDescription>Big Muskellunge Lake</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-89.6335</westBoundingCoordinate>
+          <eastBoundingCoordinate>-89.5935</eastBoundingCoordinate>
+          <northBoundingCoordinate>46.0273</northBoundingCoordinate>
+          <southBoundingCoordinate>46.0051</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage>
+        <geographicDescription>Crystal Lake</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-89.6191</westBoundingCoordinate>
+          <eastBoundingCoordinate>-89.6082</eastBoundingCoordinate>
+          <northBoundingCoordinate>46.0047</northBoundingCoordinate>
+          <southBoundingCoordinate>45.9989</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage>
+        <geographicDescription>Sparkling Lake</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-89.7045</westBoundingCoordinate>
+          <eastBoundingCoordinate>-89.6945</eastBoundingCoordinate>
+          <northBoundingCoordinate>46.0158</northBoundingCoordinate>
+          <southBoundingCoordinate>46.0024</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage>
+        <geographicDescription>Trout Lake</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-89.7038</westBoundingCoordinate>
+          <eastBoundingCoordinate>-89.6464</eastBoundingCoordinate>
+          <northBoundingCoordinate>46.079</northBoundingCoordinate>
+          <southBoundingCoordinate>46.0131</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage>
+        <geographicDescription>Crystal Bog</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-89.6068</westBoundingCoordinate>
+          <eastBoundingCoordinate>-89.6057</eastBoundingCoordinate>
+          <northBoundingCoordinate>46.008</northBoundingCoordinate>
+          <southBoundingCoordinate>46.0071</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage>
+        <geographicDescription>Trout Bog</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-89.6869</westBoundingCoordinate>
+          <eastBoundingCoordinate>-89.6854</eastBoundingCoordinate>
+          <northBoundingCoordinate>46.0417</northBoundingCoordinate>
+          <southBoundingCoordinate>46.0407</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage>
+        <geographicDescription>Fish Lake</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-89.6622</westBoundingCoordinate>
+          <eastBoundingCoordinate>-89.6439</eastBoundingCoordinate>
+          <northBoundingCoordinate>43.2922</northBoundingCoordinate>
+          <southBoundingCoordinate>43.2821</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage>
+        <geographicDescription>Lake Mendota</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-89.4837</westBoundingCoordinate>
+          <eastBoundingCoordinate>-89.3673</eastBoundingCoordinate>
+          <northBoundingCoordinate>43.146</northBoundingCoordinate>
+          <southBoundingCoordinate>43.0766</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage>
+        <geographicDescription>Lake Monona</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-89.4001</westBoundingCoordinate>
+          <eastBoundingCoordinate>-89.3251</eastBoundingCoordinate>
+          <northBoundingCoordinate>43.0905</northBoundingCoordinate>
+          <southBoundingCoordinate>43.0451</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage>
+        <geographicDescription>Lake Wingra</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-89.4317</westBoundingCoordinate>
+          <eastBoundingCoordinate>-89.4046</eastBoundingCoordinate>
+          <northBoundingCoordinate>43.0581</northBoundingCoordinate>
+          <southBoundingCoordinate>43.0487</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <temporalCoverage>
+        <rangeOfDates>
+          <beginDate>
+            <calendarDate>1981-06-29</calendarDate>
+          </beginDate>
+          <endDate>
+            <calendarDate>2022-12-31</calendarDate>
+          </endDate>
+        </rangeOfDates>
+      </temporalCoverage>
+    </coverage>
+    <maintenance>
+      <description>        <para>ongoing</para>
+</description>
+    </maintenance>
+    <contact>
+      <organizationName>NTL LTER</organizationName>
+      <address>
+        <deliveryPoint>680 North Park Street</deliveryPoint>
+        <city>Madison</city>
+        <administrativeArea>WI</administrativeArea>
+        <postalCode>53706</postalCode>
+        <country>United States</country>
+      </address>
+      <electronicMailAddress>ntl.infomgr@gmail.com</electronicMailAddress>
+      <userId
+        directory="https://ror.org/">04gq8q482</userId>
+    </contact>
+    
+    <publisher><organizationName>Environmental Data Initiative</organizationName><electronicMailAddress>info@edirepository.org</electronicMailAddress><onlineUrl>https://edirepository.org</onlineUrl><userId
+      directory="https://ror.org">0330j0z60</userId></publisher><pubPlace>Environmental Data Initiative</pubPlace>
+    <methods>
+      <methodStep>
+        <description>          <para>Sample Collection and Storage</para>
+          <para>Routine water samples are collected at one station in the deepest part of each lake. </para>
+          <para>Northern lakes- Samples are collected monthly during ice-free periods and every 5 weeks during ice-covered season for the northern lakes. Samples are collected at the top and bottom of the epilimnion, mid-thermocline, and top, middle, and bottom of the hypolimnion. When lakes are not stratified, samples are collected at  the top, middle, and bottom of the water column.  </para>
+          <para>Southern lakes- Samples are collected twice a month during spring and the summer stratified period, monthly during the fall, and typically only once during the winter (depending on ice conditions). During the summer, Fish Lake, Lake Mendota, and Lake Monona are sampled in an alternating fashion; full vertical profile sampling is done monthly in these 3 lakes, and epilimnion (0-4) samples are collected monthly, with these two different sampling efforts staggered by two weeks. Nutrient sampling of Lake Wingra is limited to monthly surface sampling only. </para>
+          <para>In all lakes, water is collected from each depth by lowering a tube to the targeted depth and pumping water to the surface with a peristaltic pump and if appropriate, passing this water through a 0.45 micron filter capsule (0.45 micron polycarbonate filter before 2015) prior to filling the appropriate clean sample containers. </para>
+          <para>Total and dissolved inorganic and organic carbon: Samples are collected in 24 ml glass vials, capped with septa, leaving no head space. Samples are stored refrigerated at 4 degrees Celsius until analysis, which should occur within 2-3 weeks. </para>
+          <para>Silica, total and dissolved nitrogen and phosphorus (filtered and unfiltered)-Northern lakes: 120 ml LDPE bottles filled in the field with filtered and unfiltered water are acidified to a 1 percent HCl matrix by adding 1 ml of ultra pure concentrated HCl to 100 mls of sample. For every sample acidification event, three acid blanks are created by adding the same acid used on the samples to 100 ml ultra pure water supplied from the lab. Once acidified, the samples are stable at room temperature until analysis, which should occur within one year. Until acidification, the samples should be refrigerated at 4 degrees Celsius. </para>
+          <para>Silica, total and dissolved nitrogen and phosphorus (filtered and unfiltered)-Southern lakes: Analysis of these nutrient fractions is done by both the Wisconsin State Laboratory of Hygiene (SLOH) and by the NTL Water Chemistry Lab, and varies among lakes and over time. Various constituents have been analyzed for the same lake/depth/date, allowing for lab intercomparison. Total N determination via Kjeldahl N + NO2NO3-N was terminated in 2016 and replaced with direct determination of Total N following a 1.5 year period for intercomparison (see Stanley et al. 2019).</para>
+          <para>For lakes Mendota, Monona, and Wingra, 250 ml bottles for TN/TP, NO2NO3-N, and NH4-N; and 60 ml bottles for Si and dissolved reactive phosphorus samples are provided SLOH. These bottles are filled with unfiltered water and the 250 mL bottles are acidified in the lab using ampules of pre-measured volumes of H2SO4 acid provided by SLOH. Note: for non-baseline efforts that involve the collection and analysis of samples for these constituents, the NTL protocols are used for all lakes (i.e., samples are collected and analyzed in house, not by SLOH). </para>
+          <para>Inorganic nitrogen: For NTL lab analysis, 20 ml HDPE plastic containers are filled with ca. 18 ml filtered water and sealed with conical caps. The samples are stored frozen until analysis, which occurs within 6 months. This protocol is also used when samples are collected for dissolved reactive phosphorus and for non-baseline projects.</para>
+          <para>pH and millivolts are measured on the Madison lakes during “profile” sampling periods (every 4 weeks during non-ice months, and usually once during ice-on months.  Both air equilibrated and air excluded are conducted for each sample. </para>
+          <para>We measure water column total particulate matter (TPM) monthly during open water at the deepest part of the lake. The sample depths are the same as are used for other water chemistry sample collections. Using a peristaltic pump and tubing, we pump lake water through preweighed 0.45u membrane filters until the filters clog or until we have pumped 500ml. Filters are dried in a 60C drying oven for at least 24 hours, and then weighed on a Sartorius Research analytical balance. Particulates (mg per L) are calculated from the mass on the filter and the volume of lake water filtered.</para>
+          <para>    Protocol Log: 1986 -- began collecting TPM samples. Filters were weighed in Madison.</para>
+          <para>    2000 -- began weighing filters at Trout Lake Station. A Cahn Model 31 electrobalance is used.</para>
+          <para>    2007 -- began using Sartorius Research analytical balance for filter weighing.</para>
+          <para>    2021 -- discontinued TPM measurement</para>
+          <para>Sample Analysis</para>
+          <para>Inorganic and organic carbon</para>
+          <para>The detection limit for inorganic carbon is 0.15 ppm, and the analytical range for the method is 60 ppm. The detection limit for organic carbon is 0.30 ppm and the analytical range for the method is 30 ppm. Method Log: Prior to May 2006 samples, inorganic carbon was analyzed by phosphoric acid addition on an OI Model 700 Carbon Analyzer. From May 2006, inorganic carbon is still analyzed by phosphoric acid addition, on a Shimadzu TOC-V-csh Total Organic Carbon Analyzer until April 2016. From April 2016 to present, samples have been run on a Shimadzu TOC-L-cph Total Organic Carbon Analyzer. Method Log: Prior to May 2006 samples, organic carbon was analyzed by heated persulfate digestion on an OI Model 700 Carbon Analyzer. From May 2006, organic carbon is analyzed by combustion, on a Shimadzu TOC-V-csh Total Organic Carbon Analyzer until April 2016. From April 2016 to present, samples have been run on a Shimadzu TOC-L-cph Total Organic Carbon Analyzer.</para>
+          <para>Dissolved reactive silica</para>
+          <para>Dissolved reactive silica is determined by the Heteropoly Blue Method and the absorption is measured at 820 nm. The detection limit for silicon is 6 ppb and the analytical range is 15000 ppb. Method Log These determinations were performed manually using a Bausch and Lomb Spectrophotometer from the beginning of the project until April 1984. From 1984 through 2005, dissolved reactive silicon was determined on a Technicon AutoAnalyzer II. From January 2006 to present, samples are run on an Astoria-Pacific Astoria II AutoAnalyzer.</para>
+          <para>Total and total dissolved nitrogen and phosphorus</para>
+          <para>The samples must first be prepared for analysis by adding an NaOH–Persulfate digestion reagent and heated for an hour at 120 degrees C and 18-20 psi in an autoclave. The samples are analyzed for total nitrogen and total phosphorus simultaneously by automated colorimetric spectrophotometry, using a segmented flow autoanalyzer. Total nitrogen is determined by utilizing the automated cadmium reduction method, as described in Standard Methods, where the absorption is monitored at 520 nm. The detection limit for total and dissolved nitrogen is approximately 21 ppb and the analytical range for the method extends to 2500 ppb. The detection limit for total phosphorus is approximately 3 ppb and the analytical range for the method extends to 800 ppb. Method Log: Prior to January 2006 samples, total nitrogen was determined on a Technicon segmented flow autoanalyzer. From 2006 to present, total nitrogen is determined by an Astoria-Pacific Astoria II segmented flow autoanalyzer.</para>
+</description>
+      </methodStep>
+    </methods>
+    <project>
+      <title>LTER: Comparative Studies of a Suite of Lakes in Wisconsin 1980</title>
+      <personnel>
+        <individualName>
+          <givenName>John</givenName>
+          <givenName>J</givenName>
+          <surName>Magnuson</surName>
+        </individualName>
+        <organizationName>University of Wisconsin-Madison</organizationName>
+        <role>PI</role>
+      </personnel>
+      <award>
+        <funderName>National Science Foundation LTER</funderName>
+        <awardNumber>LTER 8012313</awardNumber>
+        <title>LTER: Comparative Studies of a Suite of Lakes in Wisconsin</title>
+      </award>
+      <relatedProject>
+        <title>LTER: Comparative Studies of a Suite of Lakes in Wisconsin 1986</title>
+        <personnel>
+          <individualName>
+            <givenName>John</givenName>
+            <givenName>J</givenName>
+            <surName>Magnuson</surName>
+          </individualName>
+          <organizationName>University of Wisconsin-Madison</organizationName>
+          <role>PI</role>
+        </personnel>
+        <award>
+          <funderName>National Science Foundation</funderName>
+          <awardNumber>LTER 8514330</awardNumber>
+          <title>LTER: Comparative Studies of a Suite of Lakes in Wisconsin</title>
+        </award>
+      </relatedProject>
+      <relatedProject>
+        <title>LTER: Comparative Studies of a Suite of Lakes in Wisconsin 1991</title>
+        <personnel>
+          <individualName>
+            <givenName>John</givenName>
+            <givenName>J</givenName>
+            <surName>Magnuson</surName>
+          </individualName>
+          <organizationName>University of Wisconsin-Madison</organizationName>
+          <role>PI</role>
+        </personnel>
+        <award>
+          <funderName>National Science Foundation</funderName>
+          <awardNumber>LTER 9011660</awardNumber>
+          <title>LTER: Comparative Studies of a Suite of Lakes in Wisconsin</title>
+        </award>
+      </relatedProject>
+      <relatedProject>
+        <title>LTER: Comparative Studies of a Suite of Lakes in Wisconsin 1996</title>
+        <personnel>
+          <individualName>
+            <givenName>Stephen</givenName>
+            <givenName>R</givenName>
+            <surName>Carpenter</surName>
+          </individualName>
+          <organizationName>University of Wisconsin-Madison</organizationName>
+          <role>PI</role>
+        </personnel>
+        <award>
+          <funderName>National Science Foundation</funderName>
+          <awardNumber>LTER 9632853</awardNumber>
+          <title>LTER: Comparative Studies of a Suite of Lakes in Wisconsin</title>
+        </award>
+      </relatedProject>
+      <relatedProject>
+        <title>LTER: Comparative Studies of a Suite of Lakes in Wisconsin 2002</title>
+        <personnel>
+          <individualName>
+            <givenName>Stephen</givenName>
+            <givenName>R</givenName>
+            <surName>Carpenter</surName>
+          </individualName>
+          <role>PI</role>
+        </personnel>
+        <award>
+          <funderName>National Science Foundation</funderName>
+          <awardNumber>LTER 0217533</awardNumber>
+          <title>LTER: Comparative Studies of a Suite of Lakes in Wisconsin</title>
+        </award>
+      </relatedProject>
+      <relatedProject>
+        <title>LTER: Comparative Studies of a Suite of Lakes in Wisconsin 2008</title>
+        <personnel>
+          <individualName>
+            <givenName>Emily</givenName>
+            <givenName>H</givenName>
+            <surName>Stanley</surName>
+          </individualName>
+          <organizationName>University of Wisconsin-Madison</organizationName>
+          <role>PI</role>
+        </personnel>
+        <award>
+          <funderName>National Science Foundation</funderName>
+          <awardNumber>LTER 0822700</awardNumber>
+          <title>LTER: Comparative Studies of a Suite of Lakes in Wisconsin</title>
+        </award>
+      </relatedProject>
+      <relatedProject>
+        <title>LTER: Comparative Studies of a Suite of Lakes in Wisconsin 2014</title>
+        <personnel>
+          <individualName>
+            <givenName>Emily</givenName>
+            <givenName>H</givenName>
+            <surName>Stanley</surName>
+          </individualName>
+          <organizationName>University of Wisconsin-Madison</organizationName>
+          <role>PI</role>
+        </personnel>
+        <award>
+          <funderName>National Science Foundation</funderName>
+          <awardNumber>LTER 1440297</awardNumber>
+          <title>LTER: Comparative Studies of a Suite of Lakes in Wisconsin</title>
+        </award>
+      </relatedProject>
+      <relatedProject>
+        <title>LTER: Comparative Studies of a Suite of Lakes in Wisconsin 2021</title>
+        <personnel>
+          <individualName>
+            <givenName>Emily</givenName>
+            <givenName>H</givenName>
+            <surName>Stanley</surName>
+          </individualName>
+          <role>PI</role>
+        </personnel>
+        <award>
+          <funderName>National Science Foundation</funderName>
+          <awardNumber>LTER 2025928</awardNumber>
+          <title>LTER: Comparative Studies of a Suite of Lakes in Wisconsin</title>
+        </award>
+      </relatedProject>
+    </project>
+    <dataTable
+      id="0ff1fd13116d6097376e3745194cdc5f" scope="document"
+          system="https://pasta.edirepository.org">
+      <entityName>Chemical Limnology of North Temperate Lakes LTER Primary Study Lakes: Nutrients, pH and Carbon</entityName>
+      <entityDescription>Chemical Limnology of North Temperate Lakes LTER Primary Study Lakes: Nutrients, pH and Carbon</entityDescription>
+      <physical>
+        <objectName>ntl1_v12.csv</objectName>
+        <size
+          unit="byte">2648511</size>
+        <authentication
+              method="MD5">fa42048e0fcf70405dd35596795fc2ea</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\r\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+              <quoteCharacter>"</quoteCharacter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url
+          function="download">https://pasta.lternet.edu/package/data/eml/knb-lter-ntl/1/60/0ff1fd13116d6097376e3745194cdc5f</url>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute
+          xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+          xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+          xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <attributeName>lakeid</attributeName>
+          <attributeLabel>lake name abbreviation</attributeLabel>
+          <attributeDefinition>lake name abbreviation</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>AL</code>
+                    <definition>Allequash Lake</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>BM</code>
+                    <definition>Big Muskellunge Lake</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>CB</code>
+                    <definition>Bog 27-2 (Crystal Bog)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>CR</code>
+                    <definition>Crystal Lake</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>FI</code>
+                    <definition>Fish Lake</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>ME</code>
+                    <definition>Lake Mendota</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>MO</code>
+                    <definition>Lake Monona</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>SP</code>
+                    <definition>Sparkling Lake</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>TB</code>
+                    <definition>Bog 12-15 (Trout Bog)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>TR</code>
+                    <definition>Trout Lake</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>WI</code>
+                    <definition>Lake Wingra</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute
+          xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+          xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+          xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <attributeName>year4</attributeName>
+          <attributeLabel>year</attributeLabel>
+          <attributeDefinition>year</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>nominalYear</standardUnit>
+              </unit>
+              <precision>1</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute
+          xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+          xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+          xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <attributeName>daynum</attributeName>
+          <attributeLabel>day of year</attributeLabel>
+          <attributeDefinition>day of year</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>nominalDay</standardUnit>
+              </unit>
+              <precision>1</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum
+                    exclusive="false">1</minimum>
+                  <maximum
+          exclusive="false">366</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute
+          xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+          xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+          xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <attributeName>sampledate</attributeName>
+          <attributeLabel>sample date</attributeLabel>
+          <attributeDefinition>sample date</attributeDefinition>
+          <storageType>date</storageType>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY-MM-DD</formatString>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>depth</attributeName>
+          <attributeLabel>sample depth meter</attributeLabel>
+          <attributeDefinition>depth at which the sample or measurement was taken</attributeDefinition>
+          <storageType
+            typeSystem="XML Schema Datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>meter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>rep</attributeName>
+          <attributeLabel>rep</attributeLabel>
+          <attributeDefinition>sample replicate</attributeDefinition>
+          <storageType
+                  typeSystem="XML Schema Datatypes">string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+            enforced="yes">
+                  <codeDefinition>
+                    <code>1</code>
+                    <definition>Replicate 1</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>sta</attributeName>
+          <attributeLabel>sta</attributeLabel>
+          <attributeDefinition>Location station of sample</attributeDefinition>
+          <storageType
+                  typeSystem="XML Schema Datatypes">string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="yes">
+                  <codeDefinition>
+                    <code>1</code>
+                    <definition>Station 1</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>2</code>
+                    <definition>Station 2</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>3</code>
+                    <definition>Station 3</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>event</attributeName>
+          <attributeLabel>Sampling Event</attributeLabel>
+          <attributeDefinition>sampling event</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="no"
+                  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+                  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+                  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <codeDefinition>
+                    <code>Chem</code>
+                    <definition>Samples are taken during one of the monthly (but non-quarterly) chemistry profile sampling events</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Non-chem</code>
+                    <definition>Samples are not taken during one of the monthly (but non-quarterly) chemistry profile sampling events</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Other</code>
+                    <definition>Undesignated type of sample event</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Quarterly</code>
+                    <definition>Samples are taken during one of the four quarterly sampling events</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>ph</attributeName>
+          <attributeLabel>pH</attributeLabel>
+          <attributeDefinition>pH</attributeDefinition>
+          <storageType
+                    typeSystem="XML Schema Datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum
+                    exclusive="false">0</minimum>
+                  <maximum
+            exclusive="false">14</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>phair</attributeName>
+          <attributeLabel>pH air equilibrated</attributeLabel>
+          <attributeDefinition>pH air equilibrated</attributeDefinition>
+          <storageType
+                    typeSystem="XML Schema Datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum
+                    exclusive="false">0</minimum>
+                  <maximum
+            exclusive="false">14</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>alk</attributeName>
+          <attributeLabel>alkalinity</attributeLabel>
+          <attributeDefinition>alkalinity</attributeDefinition>
+          <storageType
+            typeSystem="XML Schema Datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>microequivalentPerLiter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>dic</attributeName>
+          <attributeLabel>dissolved inorganic carbon</attributeLabel>
+          <attributeDefinition>dissolved inorganic carbon</attributeDefinition>
+          <storageType
+            typeSystem="XML Schema Datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>milligramsPerLiter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>tic</attributeName>
+          <attributeLabel>total inorganic carbon</attributeLabel>
+          <attributeDefinition>total inorganic carbon</attributeDefinition>
+          <storageType
+          typeSystem="XML Schema Datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>milligramsPerLiter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute
+          xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+          xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+          xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <attributeName>doc</attributeName>
+          <attributeLabel>dissolved organic carbon</attributeLabel>
+          <attributeDefinition>dissolved organic carbon</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>milligramsPerLiter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>toc</attributeName>
+          <attributeLabel>total organic carbon</attributeLabel>
+          <attributeDefinition>total organic carbon</attributeDefinition>
+          <storageType
+            typeSystem="XML Schema Datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>milligramsPerLiter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>no3no2</attributeName>
+          <attributeLabel>(NO3 + NO2) - N</attributeLabel>
+          <attributeDefinition>(NO3 + NO2) - N</attributeDefinition>
+          <storageType
+            typeSystem="XML Schema Datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>microgramsPerLiter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>no2</attributeName>
+          <attributeLabel>NO2</attributeLabel>
+          <attributeDefinition>NO2</attributeDefinition>
+          <storageType
+            typeSystem="XML Schema Datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>microgramsPerLiter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>nh4</attributeName>
+          <attributeLabel>NH4 - N</attributeLabel>
+          <attributeDefinition>NH4 - N</attributeDefinition>
+          <storageType
+            typeSystem="XML Schema Datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>microgramPerLiter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>totnf</attributeName>
+          <attributeLabel>total N filtered</attributeLabel>
+          <attributeDefinition>total dissolved N (filtered sample)</attributeDefinition>
+          <storageType
+          typeSystem="XML Schema Datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>microgramsPerLiter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute
+          xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+          xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+          xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <attributeName>totnuf</attributeName>
+          <attributeLabel>total N unfiltered</attributeLabel>
+          <attributeDefinition>total N (unfiltered sample)</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>microgramsPerLiter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute
+          xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+          xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+          xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <attributeName>totpf</attributeName>
+          <attributeLabel>total P filtered</attributeLabel>
+          <attributeDefinition>total dissolved P (filtered sample)</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>microgramsPerLiter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute
+          xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+          xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+          xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <attributeName>totpuf</attributeName>
+          <attributeLabel>total P unfiltered</attributeLabel>
+          <attributeDefinition>total P unfiltered</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>microgramsPerLiter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>drsif</attributeName>
+          <attributeLabel>drsif</attributeLabel>
+          <attributeDefinition>dissolved reactive silica filtered</attributeDefinition>
+          <storageType
+            typeSystem="XML Schema Datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>microgramsPerLiter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>brsif</attributeName>
+          <attributeLabel>brsif</attributeLabel>
+          <attributeDefinition>bicarbonate reactive silica filtered</attributeDefinition>
+          <storageType
+            typeSystem="XML Schema Datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>microgramsPerLiter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>brsiuf</attributeName>
+          <attributeLabel>bicarb reactive silica unfilt.</attributeLabel>
+          <attributeDefinition>bicarbonate reactive silica unfiltered</attributeDefinition>
+          <storageType
+            typeSystem="XML Schema Datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>microgramsPerLiter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>tpm</attributeName>
+          <attributeLabel>total particulate matter</attributeLabel>
+          <attributeDefinition>total particulate matter</attributeDefinition>
+          <storageType
+            typeSystem="XML Schema Datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>milligramsPerLiter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>totnuf_sloh</attributeName>
+          <attributeLabel>Total Nitrogen Unfiltered</attributeLabel>
+          <attributeDefinition>Total Nitrogen (unfiltered) from WI State Lab of Hygiene</attributeDefinition>
+          <storageType
+            typeSystem="XML Schema Datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>milligramsPerLiter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>no3no2_sloh</attributeName>
+          <attributeLabel>Nitrate + Nitrite Nitrogen</attributeLabel>
+          <attributeDefinition>Nitrate plus Nitrite Nitrogen from WI State Lab. of Hygiene</attributeDefinition>
+          <storageType
+            typeSystem="XML Schema Datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>milligramsPerLiter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>nh4_sloh</attributeName>
+          <attributeLabel>Ammonium Nitrogen</attributeLabel>
+          <attributeDefinition>Ammonium Nitrogen from WI State Lab. of Hygiene</attributeDefinition>
+          <storageType
+            typeSystem="XML Schema Datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>milligramsPerLiter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>kjdl_n_sloh</attributeName>
+          <attributeLabel>Total Kjeldahl Nitrogen</attributeLabel>
+          <attributeDefinition>Total Kjeldahl Nitrogen from WI State Lab. of Hygiene</attributeDefinition>
+          <storageType
+            typeSystem="XML Schema Datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>milligramsPerLiter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>totpuf_sloh</attributeName>
+          <attributeLabel>Total Phosphorus Unfiltered</attributeLabel>
+          <attributeDefinition>Total Phosphorus Unfiltered from WI State Lab. of Hygiene</attributeDefinition>
+          <storageType
+            typeSystem="XML Schema Datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>milligramsPerLiter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>drp_sloh</attributeName>
+          <attributeLabel>Dissolved Reactive Phosphorus</attributeLabel>
+          <attributeDefinition>Dissolved Reactive Phosphorus from WI State Lab. of Hygiene</attributeDefinition>
+          <storageType
+            typeSystem="XML Schema Datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>milligramsPerLiter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>drsif_sloh</attributeName>
+          <attributeLabel>Dissolved Reactive Silica</attributeLabel>
+          <attributeDefinition>Dissolved Reactive Silica from WI State Lab. of Hygiene</attributeDefinition>
+          <storageType
+                  typeSystem="XML Schema Datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>milligramsPerLiter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flagdepth</attributeName>
+          <attributeLabel>data flag for depth</attributeLabel>
+          <attributeDefinition>data flag for depth</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="no"
+                  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+                  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+                  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>Average of duplicate analyses</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>F</code>
+                    <definition>Duplicate analyses in error</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>Analysed late</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>H</code>
+                    <definition>Outside of standard range</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>I</code>
+                    <definition>Outside of data entry constraints</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>J</code>
+                    <definition>Non standard routine followed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>K</code>
+                    <definition>Data suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>L</code>
+                    <definition>Data point and blind value differ by more than 15%</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>M</code>
+                    <definition>More than t</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>N</code>
+                    <definition>Sample retested</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>O</code>
+                    <definition>Value suspect but total pigment(CHL + PHAEO) value accurate</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>P</code>
+                    <definition>TPM uncorrected for humidity change between filter weighing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Q</code>
+                    <definition>Quality control comments on SLOH lab sheet</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>R</code>
+                    <definition>Value between LOD and LOQ</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>Value below detection limit; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>T</code>
+                    <definition>Sample contaminated; data not reported</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>U</code>
+                    <definition>Equipment malfunction produced bad value; value set to missing;</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>V</code>
+                    <definition>Could not be computed; set to missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>W</code>
+                    <definition>negative light value; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X</code>
+                    <definition>Value below detection limit (non-SLOH data)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flagph</attributeName>
+          <attributeLabel>data flag for ph</attributeLabel>
+          <attributeDefinition>data flag for ph</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="no"
+                  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+                  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+                  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>Average of duplicate analyses</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>F</code>
+                    <definition>Duplicate analyses in error</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>Analysed late</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>H</code>
+                    <definition>Outside of standard range</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>I</code>
+                    <definition>Outside of data entry constraints</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>J</code>
+                    <definition>Non standard routine followed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>K</code>
+                    <definition>Data suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>L</code>
+                    <definition>Data point and blind value differ by more than 15%</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>M</code>
+                    <definition>More than t</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>N</code>
+                    <definition>Sample retested</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>O</code>
+                    <definition>Value suspect but total pigment(CHL + PHAEO) value accurate</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>P</code>
+                    <definition>TPM uncorrected for humidity change between filter weighing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Q</code>
+                    <definition>Quality control comments on SLOH lab sheet</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>R</code>
+                    <definition>Value between LOD and LOQ</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>Value below detection limit; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>T</code>
+                    <definition>Sample contaminated; data not reported</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>U</code>
+                    <definition>Equipment malfunction produced bad value; value set to missing;</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>V</code>
+                    <definition>Could not be computed; set to missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>W</code>
+                    <definition>negative light value; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X</code>
+                    <definition>Value below detection limit (non-SLOH data)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flagphair</attributeName>
+          <attributeLabel>data flag for phair</attributeLabel>
+          <attributeDefinition>data flag for phair</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="no"
+                  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+                  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+                  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>Average of duplicate analyses</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>F</code>
+                    <definition>Duplicate analyses in error</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>Analysed late</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>H</code>
+                    <definition>Outside of standard range</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>I</code>
+                    <definition>Outside of data entry constraints</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>J</code>
+                    <definition>Non standard routine followed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>K</code>
+                    <definition>Data suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>L</code>
+                    <definition>Data point and blind value differ by more than 15%</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>M</code>
+                    <definition>More than t</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>N</code>
+                    <definition>Sample retested</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>O</code>
+                    <definition>Value suspect but total pigment(CHL + PHAEO) value accurate</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>P</code>
+                    <definition>TPM uncorrected for humidity change between filter weighing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Q</code>
+                    <definition>Quality control comments on SLOH lab sheet</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>R</code>
+                    <definition>Value between LOD and LOQ</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>Value below detection limit; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>T</code>
+                    <definition>Sample contaminated; data not reported</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>U</code>
+                    <definition>Equipment malfunction produced bad value; value set to missing;</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>V</code>
+                    <definition>Peak absorbance not near 665 nm</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>W</code>
+                    <definition>negative light value; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X</code>
+                    <definition>Value below detection limit (non-SLOH data)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flagalk</attributeName>
+          <attributeLabel>data flag for alk</attributeLabel>
+          <attributeDefinition>data flag for alkalinity</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="no"
+                  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+                  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+                  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>Average of duplicate analyses</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>F</code>
+                    <definition>Duplicate analyses in error</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>Analysed late</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>H</code>
+                    <definition>Outside of standard range</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>I</code>
+                    <definition>Outside of data entry constraints</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>J</code>
+                    <definition>Non standard routine followed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>K</code>
+                    <definition>Data suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>L</code>
+                    <definition>Data point and blind value differ by more than 15%</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>M</code>
+                    <definition>More than t</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>N</code>
+                    <definition>Sample retested</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>O</code>
+                    <definition>Value suspect but total pigment(CHL + PHAEO) value accurate</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>P</code>
+                    <definition>TPM uncorrected for humidity change between filter weighing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Q</code>
+                    <definition>Quality control comments on SLOH lab sheet</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>R</code>
+                    <definition>Value between LOD and LOQ</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>Value below detection limit; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>T</code>
+                    <definition>Sample contaminated; data not reported</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>U</code>
+                    <definition>Equipment malfunction produced bad value; value set to missing;</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>V</code>
+                    <definition>Could not be computed; set to missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>W</code>
+                    <definition>negative light value; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X</code>
+                    <definition>Value below detection limit (non-SLOH data)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flagdic</attributeName>
+          <attributeLabel>data flag for dic</attributeLabel>
+          <attributeDefinition>data flag for dissolved inorganic carbon</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="no"
+                  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+                  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+                  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>Average of duplicate analyses</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>F</code>
+                    <definition>Duplicate analyses in error</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>Analysed late</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>H</code>
+                    <definition>Outside of standard range</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>I</code>
+                    <definition>Outside of data entry constraints</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>J</code>
+                    <definition>Non standard routine followed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>K</code>
+                    <definition>Data suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>L</code>
+                    <definition>Data point and blind value differ by more than 15%</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>M</code>
+                    <definition>More than t</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>N</code>
+                    <definition>Sample retested</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>O</code>
+                    <definition>Value suspect but total pigment(CHL + PHAEO) value accurate</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>P</code>
+                    <definition>TPM uncorrected for humidity change between filter weighing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Q</code>
+                    <definition>Quality control comments on SLOH lab sheet</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>R</code>
+                    <definition>Value between LOD and LOQ</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>Value below detection limit; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>T</code>
+                    <definition>Sample contaminated; data not reported</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>U</code>
+                    <definition>Equipment malfunction produced bad value; value set to missing;</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>V</code>
+                    <definition>Could not be computed; set to missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>W</code>
+                    <definition>negative light value; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X</code>
+                    <definition>Value below detection limit (non-SLOH data)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flagtic</attributeName>
+          <attributeLabel>data flag for tic</attributeLabel>
+          <attributeDefinition>data flag for total inorganic carbon</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="no"
+                  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+                  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+                  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>Average of duplicate analyses</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>F</code>
+                    <definition>Duplicate analyses in error</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>Analysed late</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>H</code>
+                    <definition>Outside of standard range</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>I</code>
+                    <definition>Outside of data entry constraints</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>J</code>
+                    <definition>Non standard routine followed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>K</code>
+                    <definition>Data suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>L</code>
+                    <definition>Data point and blind value differ by more than 15%</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>M</code>
+                    <definition>More than t</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>N</code>
+                    <definition>Sample retested</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>O</code>
+                    <definition>Value suspect but total pigment(CHL + PHAEO) value accurate</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>P</code>
+                    <definition>TPM uncorrected for humidity change between filter weighing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Q</code>
+                    <definition>Quality control comments on SLOH lab sheet</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>R</code>
+                    <definition>Value between LOD and LOQ</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>Value below detection limit; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>T</code>
+                    <definition>Sample contaminated; data not reported</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>U</code>
+                    <definition>Equipment malfunction produced bad value; value set to missing;</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>V</code>
+                    <definition>Could not be computed; set to missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>W</code>
+                    <definition>negative light value; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X</code>
+                    <definition>Value below detection limit (non-SLOH data)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flagdoc</attributeName>
+          <attributeLabel>data flag for doc</attributeLabel>
+          <attributeDefinition>data flag for dissolved organic carbon</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="no"
+                  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+                  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+                  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>Average of duplicate analyses</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>F</code>
+                    <definition>Duplicate analyses in error</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>Analysed late</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>H</code>
+                    <definition>Outside of standard range</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>I</code>
+                    <definition>Outside of data entry constraints</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>J</code>
+                    <definition>Non standard routine followed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>K</code>
+                    <definition>Data suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>L</code>
+                    <definition>Data point and blind value differ by more than 15%</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>M</code>
+                    <definition>More than t</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>N</code>
+                    <definition>Sample retested</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>O</code>
+                    <definition>Value suspect but total pigment(CHL + PHAEO) value accurate</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>P</code>
+                    <definition>TPM uncorrected for humidity change between filter weighing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Q</code>
+                    <definition>Quality control comments on SLOH lab sheet</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>R</code>
+                    <definition>Value between LOD and LOQ</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>Value below detection limit; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>T</code>
+                    <definition>Sample contaminated; data not reported</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>U</code>
+                    <definition>Equipment malfunction produced bad value; value set to missing;</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>V</code>
+                    <definition>Could not be computed; set to missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>W</code>
+                    <definition>negative light value; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X</code>
+                    <definition>Value below detection limit (non-SLOH data)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flagtoc</attributeName>
+          <attributeLabel>data flag for toc</attributeLabel>
+          <attributeDefinition>data flag for total organic carbon</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="no"
+                  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+                  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+                  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>Average of duplicate analyses</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>F</code>
+                    <definition>Duplicate analyses in error</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>Analysed late</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>H</code>
+                    <definition>Outside of standard range</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>I</code>
+                    <definition>Outside of data entry constraints</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>J</code>
+                    <definition>Non standard routine followed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>K</code>
+                    <definition>Data suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>L</code>
+                    <definition>Data point and blind value differ by more than 15%</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>M</code>
+                    <definition>More than t</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>N</code>
+                    <definition>Sample retested</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>O</code>
+                    <definition>Value suspect but total pigment(CHL + PHAEO) value accurate</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>P</code>
+                    <definition>TPM uncorrected for humidity change between filter weighing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Q</code>
+                    <definition>Quality control comments on SLOH lab sheet</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>R</code>
+                    <definition>Value between LOD and LOQ</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>Value below detection limit; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>T</code>
+                    <definition>Sample contaminated; data not reported</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>U</code>
+                    <definition>Equipment malfunction produced bad value; value set to missing;</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>V</code>
+                    <definition>Peak absorbance not near 665 nm</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>W</code>
+                    <definition>negative light value; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X</code>
+                    <definition>Value below detection limit (non-SLOH data)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flagno3no2</attributeName>
+          <attributeLabel>data flag for no3no2</attributeLabel>
+          <attributeDefinition>data flag for no3no2-n</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="no"
+                  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+                  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+                  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>Average of duplicate analyses</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>F</code>
+                    <definition>Duplicate analyses in error</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>Analysed late</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>H</code>
+                    <definition>Outside of standard range</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>I</code>
+                    <definition>Outside of data entry constraints</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>J</code>
+                    <definition>Non standard routine followed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>K</code>
+                    <definition>Data suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>L</code>
+                    <definition>Data point and blind value differ by more than 15%</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>M</code>
+                    <definition>More than t</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>N</code>
+                    <definition>Sample retested</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>O</code>
+                    <definition>Value suspect but total pigment(CHL + PHAEO) value accurate</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>P</code>
+                    <definition>TPM uncorrected for humidity change between filter weighing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Q</code>
+                    <definition>Quality control comments on SLOH lab sheet</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>R</code>
+                    <definition>Value between LOD and LOQ</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>Value below detection limit; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>T</code>
+                    <definition>Sample contaminated; data not reported</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>U</code>
+                    <definition>Equipment malfunction produced bad value; value set to missing;</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>V</code>
+                    <definition>Could not be computed; set to missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>W</code>
+                    <definition>negative light value; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X</code>
+                    <definition>Value below detection limit (non-SLOH data)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flagno2</attributeName>
+          <attributeLabel>data flag for NO2</attributeLabel>
+          <attributeDefinition>data flag for NO2</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="yes"
+                  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+                  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+                  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <codeDefinition>
+                    <code>A</code>
+                    <definition>Sample suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>B</code>
+                    <definition>Standard curve/reduction suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>C</code>
+                    <definition>No sample taken</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>D</code>
+                    <definition>Sample lost</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>Average of duplicate analyses</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>F</code>
+                    <definition>Duplicate analyses in error</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>Analysed late</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>H</code>
+                    <definition>Outside of standard range</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>I</code>
+                    <definition>Outside of data entry constraints</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>J</code>
+                    <definition>Non standard routine followed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>K</code>
+                    <definition>Data suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>L</code>
+                    <definition>Data point and blind value differ by more than 15%</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>M</code>
+                    <definition>More than t</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>N</code>
+                    <definition>Sample retested</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>O</code>
+                    <definition>Value suspect but total pigment(CHL + PHAEO) value accurate</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>P</code>
+                    <definition>TPM uncorrected for humidity change between filter weighing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Q</code>
+                    <definition>Quality control comments on SLOH lab sheet</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>R</code>
+                    <definition>Value between LOD and LOQ</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>Value below detection limit; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>T</code>
+                    <definition>Sample contaminated; data not reported</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>U</code>
+                    <definition>Equipment malfunction produced bad value; value set to missing;</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>V</code>
+                    <definition>Could not be computed; set to missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>W</code>
+                    <definition>negative light value; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X</code>
+                    <definition>Value below detection limit -- non SLOH data</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flagnh4</attributeName>
+          <attributeLabel>data flag for nh4</attributeLabel>
+          <attributeDefinition>data flag for nh4</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="no"
+                  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+                  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+                  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>Average of duplicate analyses</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>F</code>
+                    <definition>Duplicate analyses in error</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>Analysed late</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>H</code>
+                    <definition>Outside of standard range</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>I</code>
+                    <definition>Outside of data entry constraints</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>J</code>
+                    <definition>Non standard routine followed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>K</code>
+                    <definition>Data suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>L</code>
+                    <definition>Data point and blind value differ by more than 15%</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>M</code>
+                    <definition>More than t</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>N</code>
+                    <definition>Sample retested</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>O</code>
+                    <definition>Value suspect but total pigment(CHL + PHAEO) value accurate</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>P</code>
+                    <definition>TPM uncorrected for humidity change between filter weighing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Q</code>
+                    <definition>Quality control comments on SLOH lab sheet</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>R</code>
+                    <definition>Value between LOD and LOQ</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>Value below detection limit; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>T</code>
+                    <definition>Sample contaminated; data not reported</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>U</code>
+                    <definition>Equipment malfunction produced bad value; value set to missing;</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>V</code>
+                    <definition>Could not be computed; set to missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>W</code>
+                    <definition>negative light value; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X</code>
+                    <definition>Value below detection limit (non-SLOH data)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flagtotnf</attributeName>
+          <attributeLabel>data flag for totnf</attributeLabel>
+          <attributeDefinition>data flag for totnf</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="no"
+                  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+                  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+                  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>Average of duplicate analyses</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>F</code>
+                    <definition>Duplicate analyses in error</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>Analysed late</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>H</code>
+                    <definition>Outside of standard range</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>I</code>
+                    <definition>Outside of data entry constraints</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>J</code>
+                    <definition>Non standard routine followed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>K</code>
+                    <definition>Data suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>L</code>
+                    <definition>Data point and blind value differ by more than 15%</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>M</code>
+                    <definition>More than t</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>N</code>
+                    <definition>Sample retested</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>O</code>
+                    <definition>Value suspect but total pigment(CHL + PHAEO) value accurate</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>P</code>
+                    <definition>TPM uncorrected for humidity change between filter weighing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Q</code>
+                    <definition>Quality control comments on SLOH lab sheet</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>R</code>
+                    <definition>Value between LOD and LOQ</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>Value below detection limit; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>T</code>
+                    <definition>Sample contaminated; data not reported</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>U</code>
+                    <definition>Equipment malfunction produced bad value; value set to missing;</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>V</code>
+                    <definition>Peak absorbance not near 665 nm</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>W</code>
+                    <definition>negative light value; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X</code>
+                    <definition>Value below detection limit (non-SLOH data)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flagtotnuf</attributeName>
+          <attributeLabel>data flag for totnuf</attributeLabel>
+          <attributeDefinition>data flag for totnuf</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="no"
+                  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+                  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+                  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>Average of duplicate analyses</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>F</code>
+                    <definition>Duplicate analyses in error</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>Analysed late</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>H</code>
+                    <definition>Outside of standard range</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>I</code>
+                    <definition>Outside of data entry constraints</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>J</code>
+                    <definition>Non standard routine followed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>K</code>
+                    <definition>Data suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>L</code>
+                    <definition>Data point and blind value differ by more than 15%</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>M</code>
+                    <definition>More than t</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>N</code>
+                    <definition>Sample retested</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>O</code>
+                    <definition>Value suspect but total pigment(CHL + PHAEO) value accurate</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>P</code>
+                    <definition>TPM uncorrected for humidity change between filter weighing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Q</code>
+                    <definition>Quality control comments on SLOH lab sheet</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>R</code>
+                    <definition>Value between LOD and LOQ</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>Value below detection limit; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>T</code>
+                    <definition>Sample contaminated; data not reported</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>U</code>
+                    <definition>Equipment malfunction produced bad value; value set to missing;</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>V</code>
+                    <definition>Could not be computed; set to missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>W</code>
+                    <definition>negative light value; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X</code>
+                    <definition>Value below detection limit (non-SLOH data)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flagtotpf</attributeName>
+          <attributeLabel>data flag for totpf</attributeLabel>
+          <attributeDefinition>data flag for totpf</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="no"
+                  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+                  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+                  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>Average of duplicate analyses</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>F</code>
+                    <definition>Duplicate analyses in error</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>Analysed late</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>H</code>
+                    <definition>Outside of standard range</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>I</code>
+                    <definition>Outside of data entry constraints</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>J</code>
+                    <definition>Non standard routine followed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>K</code>
+                    <definition>Data suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>L</code>
+                    <definition>Data point and blind value differ by more than 15%</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>M</code>
+                    <definition>More than t</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>N</code>
+                    <definition>Sample retested</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>O</code>
+                    <definition>Value suspect but total pigment(CHL + PHAEO) value accurate</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>P</code>
+                    <definition>TPM uncorrected for humidity change between filter weighing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Q</code>
+                    <definition>Quality control comments on SLOH lab sheet</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>R</code>
+                    <definition>Value between LOD and LOQ</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>Value below detection limit; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>T</code>
+                    <definition>Sample contaminated; data not reported</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>U</code>
+                    <definition>Equipment malfunction produced bad value; value set to missing;</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>V</code>
+                    <definition>Could not be computed; set to missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>W</code>
+                    <definition>negative light value; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X</code>
+                    <definition>Value below detection limit (non-SLOH data)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flagtotpuf</attributeName>
+          <attributeLabel>data flag for totpuf</attributeLabel>
+          <attributeDefinition>data flag for totpuf</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="no"
+                  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+                  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+                  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>Average of duplicate analyses</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>F</code>
+                    <definition>Duplicate analyses in error</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>Analysed late</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>H</code>
+                    <definition>Outside of standard range</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>I</code>
+                    <definition>Outside of data entry constraints</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>J</code>
+                    <definition>Non standard routine followed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>K</code>
+                    <definition>Data suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>L</code>
+                    <definition>Data point and blind value differ by more than 15%</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>M</code>
+                    <definition>More than t</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>N</code>
+                    <definition>Sample retested</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>O</code>
+                    <definition>Value suspect but total pigment(CHL + PHAEO) value accurate</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>P</code>
+                    <definition>TPM uncorrected for humidity change between filter weighing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Q</code>
+                    <definition>Quality control comments on SLOH lab sheet</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>R</code>
+                    <definition>Value between LOD and LOQ</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>Value below detection limit; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>T</code>
+                    <definition>Sample contaminated; data not reported</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>U</code>
+                    <definition>Equipment malfunction produced bad value; value set to missing;</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>V</code>
+                    <definition>Could not be computed; set to missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>W</code>
+                    <definition>negative light value; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X</code>
+                    <definition>Value below detection limit (non-SLOH data)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flagdrsif</attributeName>
+          <attributeLabel>data flag for drsif</attributeLabel>
+          <attributeDefinition>data flag for drsif</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="no"
+                  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+                  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+                  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>Average of duplicate analyses</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>F</code>
+                    <definition>Duplicate analyses in error</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>Analysed late</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>H</code>
+                    <definition>Outside of standard range</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>I</code>
+                    <definition>Outside of data entry constraints</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>J</code>
+                    <definition>Non standard routine followed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>K</code>
+                    <definition>Data suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>L</code>
+                    <definition>Data point and blind value differ by more than 15%</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>M</code>
+                    <definition>More than t</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>N</code>
+                    <definition>Sample retested</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>O</code>
+                    <definition>Value suspect but total pigment(CHL + PHAEO) value accurate</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>P</code>
+                    <definition>TPM uncorrected for humidity change between filter weighing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Q</code>
+                    <definition>Quality control comments on SLOH lab sheet</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>R</code>
+                    <definition>Value between LOD and LOQ</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>Value below detection limit; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>T</code>
+                    <definition>Sample contaminated; data not reported</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>U</code>
+                    <definition>Equipment malfunction produced bad value; value set to missing;</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>V</code>
+                    <definition>Peak absorbance not near 665 nm</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>W</code>
+                    <definition>negative light value; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X</code>
+                    <definition>Value below detection limit (non-SLOH data)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flagbrsif</attributeName>
+          <attributeLabel>data flag for brsif</attributeLabel>
+          <attributeDefinition>data flag for brsif</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="no"
+                  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+                  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+                  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>Average of duplicate analyses</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>F</code>
+                    <definition>Duplicate analyses in error</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>Analysed late</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>H</code>
+                    <definition>Outside of standard range</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>I</code>
+                    <definition>Outside of data entry constraints</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>J</code>
+                    <definition>Non standard routine followed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>K</code>
+                    <definition>Data suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>L</code>
+                    <definition>Data point and blind value differ by more than 15%</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>M</code>
+                    <definition>More than t</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>N</code>
+                    <definition>Sample retested</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>O</code>
+                    <definition>Value suspect but total pigment(CHL + PHAEO) value accurate</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>P</code>
+                    <definition>TPM uncorrected for humidity change between filter weighing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Q</code>
+                    <definition>Quality control comments on SLOH lab sheet</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>R</code>
+                    <definition>Value between LOD and LOQ</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>Value below detection limit; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>T</code>
+                    <definition>Sample contaminated; data not reported</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>U</code>
+                    <definition>Equipment malfunction produced bad value; value set to missing;</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>V</code>
+                    <definition>Could not be computed; set to missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>W</code>
+                    <definition>negative light value; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X</code>
+                    <definition>Value below detection limit (non-SLOH data)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flagbrsiuf</attributeName>
+          <attributeLabel>data flag for brsiuf</attributeLabel>
+          <attributeDefinition>data flag for brsiuf</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="no"
+                  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+                  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+                  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>Average of duplicate analyses</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>F</code>
+                    <definition>Duplicate analyses in error</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>Analysed late</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>H</code>
+                    <definition>Outside of standard range</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>I</code>
+                    <definition>Outside of data entry constraints</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>J</code>
+                    <definition>Non standard routine followed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>K</code>
+                    <definition>Data suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>L</code>
+                    <definition>Data point and blind value differ by more than 15%</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>M</code>
+                    <definition>More than t</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>N</code>
+                    <definition>Sample retested</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>O</code>
+                    <definition>Value suspect but total pigment(CHL + PHAEO) value accurate</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>P</code>
+                    <definition>TPM uncorrected for humidity change between filter weighing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Q</code>
+                    <definition>Quality control comments on SLOH lab sheet</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>R</code>
+                    <definition>Value between LOD and LOQ</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>Value below detection limit; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>T</code>
+                    <definition>Sample contaminated; data not reported</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>U</code>
+                    <definition>Equipment malfunction produced bad value; value set to missing;</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>V</code>
+                    <definition>Could not be computed; set to missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>W</code>
+                    <definition>negative light value; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X</code>
+                    <definition>Value below detection limit (non-SLOH data)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flagtpm</attributeName>
+          <attributeLabel>data flag for tpm</attributeLabel>
+          <attributeDefinition>data flag for tpm</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="no"
+                  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+                  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+                  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>Average of duplicate analyses</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>F</code>
+                    <definition>Duplicate analyses in error</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>Analysed late</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>H</code>
+                    <definition>Outside of standard range</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>I</code>
+                    <definition>Outside of data entry constraints</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>J</code>
+                    <definition>Non standard routine followed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>K</code>
+                    <definition>Data suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>L</code>
+                    <definition>Data point and blind value differ by more than 15%</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>M</code>
+                    <definition>More than t</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>N</code>
+                    <definition>Sample retested</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>O</code>
+                    <definition>Value suspect but total pigment(CHL + PHAEO) value accurate</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>P</code>
+                    <definition>TPM uncorrected for humidity change between filter weighing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Q</code>
+                    <definition>Quality control comments on SLOH lab sheet</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>R</code>
+                    <definition>Value between LOD and LOQ</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>Value below detection limit; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>T</code>
+                    <definition>Sample contaminated; data not reported</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>U</code>
+                    <definition>Equipment malfunction produced bad value; value set to missing;</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>V</code>
+                    <definition>Could not be computed; set to missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>W</code>
+                    <definition>negative light value; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X</code>
+                    <definition>Value below detection limit (non-SLOH data)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flagtotnuf_sloh</attributeName>
+          <attributeLabel>data flag for totnuf_sloh</attributeLabel>
+          <attributeDefinition>data flag for totnuf_sloh</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="no"
+                  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+                  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+                  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>Average of duplicate analyses</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>F</code>
+                    <definition>Duplicate analyses in error</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>Analysed late</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>H</code>
+                    <definition>Outside of standard range</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>I</code>
+                    <definition>Outside of data entry constraints</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>J</code>
+                    <definition>Non standard routine followed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>K</code>
+                    <definition>Data suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>L</code>
+                    <definition>Data point and blind value differ by more than 15%</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>M</code>
+                    <definition>More than t</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>N</code>
+                    <definition>Sample retested</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>O</code>
+                    <definition>Value suspect but total pigment(CHL + PHAEO) value accurate</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>P</code>
+                    <definition>TPM uncorrected for humidity change between filter weighing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Q</code>
+                    <definition>Quality control comments on SLOH lab sheet</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>R</code>
+                    <definition>Value between LOD and LOQ</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>Value below detection limit; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>T</code>
+                    <definition>Sample contaminated; data not reported</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>U</code>
+                    <definition>Equipment malfunction produced bad value; value set to missing;</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>V</code>
+                    <definition>Peak absorbance not near 665 nm</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>W</code>
+                    <definition>negative light value; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X</code>
+                    <definition>Value below detection limit (non-SLOH data)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flagno3no2_sloh</attributeName>
+          <attributeLabel>data flag for no3no2_sloh</attributeLabel>
+          <attributeDefinition>data flag for no3no2_sloh</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="no"
+                  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+                  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+                  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>Average of duplicate analyses</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>F</code>
+                    <definition>Duplicate analyses in error</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>Analysed late</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>H</code>
+                    <definition>Outside of standard range</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>I</code>
+                    <definition>Outside of data entry constraints</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>J</code>
+                    <definition>Non standard routine followed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>K</code>
+                    <definition>Data suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>L</code>
+                    <definition>Data point and blind value differ by more than 15%</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>M</code>
+                    <definition>More than t</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>N</code>
+                    <definition>Sample retested</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>O</code>
+                    <definition>Value suspect but total pigment(CHL + PHAEO) value accurate</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>P</code>
+                    <definition>TPM uncorrected for humidity change between filter weighing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Q</code>
+                    <definition>Quality control comments on SLOH lab sheet</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>R</code>
+                    <definition>Value between LOD and LOQ</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>Value below detection limit; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>T</code>
+                    <definition>Sample contaminated; data not reported</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>U</code>
+                    <definition>Equipment malfunction produced bad value; value set to missing;</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>V</code>
+                    <definition>Could not be computed; set to missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>W</code>
+                    <definition>negative light value; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X</code>
+                    <definition>Value below detection limit (non-SLOH data)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flagnh4_sloh</attributeName>
+          <attributeLabel>data flag for nh4_sloh</attributeLabel>
+          <attributeDefinition>data flag for nh4_sloh</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="no"
+                  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+                  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+                  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>Average of duplicate analyses</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>F</code>
+                    <definition>Duplicate analyses in error</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>Analysed late</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>H</code>
+                    <definition>Outside of standard range</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>I</code>
+                    <definition>Outside of data entry constraints</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>J</code>
+                    <definition>Non standard routine followed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>K</code>
+                    <definition>Data suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>L</code>
+                    <definition>Data point and blind value differ by more than 15%</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>M</code>
+                    <definition>More than t</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>N</code>
+                    <definition>Sample retested</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>O</code>
+                    <definition>Value suspect but total pigment(CHL + PHAEO) value accurate</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>P</code>
+                    <definition>TPM uncorrected for humidity change between filter weighing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Q</code>
+                    <definition>Quality control comments on SLOH lab sheet</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>R</code>
+                    <definition>Value between LOD and LOQ</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>Value below detection limit; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>T</code>
+                    <definition>Sample contaminated; data not reported</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>U</code>
+                    <definition>Equipment malfunction produced bad value; value set to missing;</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>V</code>
+                    <definition>Could not be computed; set to missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>W</code>
+                    <definition>negative light value; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X</code>
+                    <definition>Value below detection limit (non-SLOH data)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flagkjdl_n_sloh</attributeName>
+          <attributeLabel>data flag for kjdl_n_sloh</attributeLabel>
+          <attributeDefinition>data flag for kjdl_n_sloh</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="no"
+                  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+                  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+                  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>Average of duplicate analyses</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>F</code>
+                    <definition>Duplicate analyses in error</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>Analysed late</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>H</code>
+                    <definition>Outside of standard range</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>I</code>
+                    <definition>Outside of data entry constraints</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>J</code>
+                    <definition>Non standard routine followed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>K</code>
+                    <definition>Data suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>L</code>
+                    <definition>Data point and blind value differ by more than 15%</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>M</code>
+                    <definition>More than t</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>N</code>
+                    <definition>Sample retested</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>O</code>
+                    <definition>Value suspect but total pigment(CHL + PHAEO) value accurate</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>P</code>
+                    <definition>TPM uncorrected for humidity change between filter weighing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Q</code>
+                    <definition>Quality control comments on SLOH lab sheet</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>R</code>
+                    <definition>Value between LOD and LOQ</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>Value below detection limit; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>T</code>
+                    <definition>Sample contaminated; data not reported</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>U</code>
+                    <definition>Equipment malfunction produced bad value; value set to missing;</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>V</code>
+                    <definition>Could not be computed; set to missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>W</code>
+                    <definition>negative light value; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X</code>
+                    <definition>Value below detection limit (non-SLOH data)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flagtotpuf_sloh</attributeName>
+          <attributeLabel>data flag for totpuf_sloh</attributeLabel>
+          <attributeDefinition>data flag for totpuf_sloh</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="no"
+                  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+                  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+                  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>Average of duplicate analyses</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>F</code>
+                    <definition>Duplicate analyses in error</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>Analysed late</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>H</code>
+                    <definition>Outside of standard range</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>I</code>
+                    <definition>Outside of data entry constraints</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>J</code>
+                    <definition>Non standard routine followed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>K</code>
+                    <definition>Data suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>L</code>
+                    <definition>Data point and blind value differ by more than 15%</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>M</code>
+                    <definition>More than t</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>N</code>
+                    <definition>Sample retested</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>O</code>
+                    <definition>Value suspect but total pigment(CHL + PHAEO) value accurate</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>P</code>
+                    <definition>TPM uncorrected for humidity change between filter weighing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Q</code>
+                    <definition>Quality control comments on SLOH lab sheet</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>R</code>
+                    <definition>Value between LOD and LOQ</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>Value below detection limit; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>T</code>
+                    <definition>Sample contaminated; data not reported</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>U</code>
+                    <definition>Equipment malfunction produced bad value; value set to missing;</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>V</code>
+                    <definition>Peak absorbance not near 665 nm</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>W</code>
+                    <definition>negative light value; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X</code>
+                    <definition>Value below detection limit (non-SLOH data)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flagdrp_sloh</attributeName>
+          <attributeLabel>data flag for drp_sloh</attributeLabel>
+          <attributeDefinition>data flag for drp_sloh</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="no"
+                  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+                  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+                  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>Average of duplicate analyses</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>F</code>
+                    <definition>Duplicate analyses in error</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>Analysed late</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>H</code>
+                    <definition>Outside of standard range</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>I</code>
+                    <definition>Outside of data entry constraints</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>J</code>
+                    <definition>Non standard routine followed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>K</code>
+                    <definition>Data suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>L</code>
+                    <definition>Data point and blind value differ by more than 15%</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>M</code>
+                    <definition>More than t</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>N</code>
+                    <definition>Sample retested</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>O</code>
+                    <definition>Value suspect but total pigment(CHL + PHAEO) value accurate</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>P</code>
+                    <definition>TPM uncorrected for humidity change between filter weighing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Q</code>
+                    <definition>Quality control comments on SLOH lab sheet</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>R</code>
+                    <definition>Value between LOD and LOQ</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>Value below detection limit; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>T</code>
+                    <definition>Sample contaminated; data not reported</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>U</code>
+                    <definition>Equipment malfunction produced bad value; value set to missing;</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>V</code>
+                    <definition>Could not be computed; set to missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>W</code>
+                    <definition>negative light value; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X</code>
+                    <definition>Value below detection limit (non-SLOH data)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flagdrsif_sloh</attributeName>
+          <attributeLabel>data flag for drsif_sloh</attributeLabel>
+          <attributeDefinition>data flag for drsif_sloh</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain
+                  enforced="no"
+                  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+                  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+                  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>Average of duplicate analyses</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>F</code>
+                    <definition>Duplicate analyses in error</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>Analysed late</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>H</code>
+                    <definition>Outside of standard range</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>I</code>
+                    <definition>Outside of data entry constraints</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>J</code>
+                    <definition>Non standard routine followed</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>K</code>
+                    <definition>Data suspect</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>L</code>
+                    <definition>Data point and blind value differ by more than 15%</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>M</code>
+                    <definition>More than t</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>N</code>
+                    <definition>Sample retested</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>O</code>
+                    <definition>Value suspect but total pigment(CHL + PHAEO) value accurate</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>P</code>
+                    <definition>TPM uncorrected for humidity change between filter weighing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Q</code>
+                    <definition>Quality control comments on SLOH lab sheet</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>R</code>
+                    <definition>Value between LOD and LOQ</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>Value below detection limit; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>T</code>
+                    <definition>Sample contaminated; data not reported</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>U</code>
+                    <definition>Equipment malfunction produced bad value; value set to missing;</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>V</code>
+                    <definition>Could not be computed; set to missing</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>W</code>
+                    <definition>negative light value; set to zero</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X</code>
+                    <definition>Value below detection limit (non-SLOH data)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+      </attributeList>
+      <caseSensitive>no</caseSensitive>
+      <numberOfRecords>19296</numberOfRecords>
+    </dataTable>
+  </dataset>
+  <additionalMetadata>
+    <metadata>
+      <emlEditor
+        app="ezEML" release="2023.07.06"/>
+    </metadata>
+  </additionalMetadata>
+</eml:eml>

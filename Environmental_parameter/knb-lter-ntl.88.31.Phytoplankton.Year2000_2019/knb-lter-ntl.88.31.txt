@@ -1,0 +1,528 @@
+
+  
+    
+      uid=NTL,o=EDI,dc=edirepository,dc=org
+      all
+    
+    
+      public
+      read
+    
+  
+  
+    doi:10.6073/pasta/bd03330e83fc52a5442bb39e131c95e9North Temperate Lakes LTER: Phytoplankton - Madison Lakes Area 1995 - current
+    
+      John Magnuson
+      University of Wisconsin
+      john.magnuson@wisc.edu
+    
+    
+      Stephen Carpenter
+      University of Wisconsin
+      steve.carpenter@wisc.edu
+      0000-0001-8097-8700
+    
+    
+      Emily Stanley
+      University of Wisconsin
+      ehstanley@wisc.edu
+      0000-0003-4922-8121
+    
+    2022-11-17
+    
+      Phytoplankton samples for the 4 southern Wisconsin LTER lakes (Mendota, Monona, Wingra, Fish) have been collected for analysis by LTER since 1995 (1996 Wingra, Fish) when the southern Wisconsin lakes were added to the North Temperate Lakes LTER project. Samples are collected as a composite whole-water sample and are preserved in gluteraldehyde. Composite sample depths are 0-8 meters for Lake Mendota (to conform to samples collected and analyzed since 1990 for a UW/DNR food web research study), and 0-2 meters for the other three lakes. A tube sampler is used for the 0-8 m Lake Mendota samples; samples for the other lakes are obtained by collecting water at 1-meter intervals using a Kemmerer water sampler and compositing the samples in a bucket. Samples are taken in the deep hole region of each lake at the same time and location as other limnological sampling. Phytoplankton samples are analyzed by PhycoTech, Inc., a private lab specializing in phytoplankton analyses (see data protocol for procedures). Samples for Wingra and Fish lakes are archived but not routinely counted. Permanent slide mounts (3 per sample) are prepared for all analyzed Mendota and Monona samples as well as 6 samples per year for Wingra and Fish; the slide mounts are archived at the University of Wisconsin - Madison Zoology Museum. Phytoplankton are identified to species using an inverted microscope (Utermohl technique) and are reported as natural unit (i.e., colonies, filaments, or single cells) densities per mL, cell densities per mL, and algal biovolume densities per mL. Multiple entries for the same species on the same date may be due to different variants or vegetative states - (e.g., colonial or attached vs. free cell.) Biovolumes for individual cells of each species are determined during the counting procedure by obtaining cell measurements needed to calculate volumes for geometric solids (e.g., cylinders, spheres, truncated cones) corresponding to actual cell shapes. Biovolume concentrations are then computed by mulitplying the average cell biovolume by the cell densities in the water sample. Note that one million cubicMicrometers of biovolume PerMilliliter of water are equal to a biovolume concentration of one cubicMillimeterPerMilliliter. Assuming a cell density equal to water, a cubicMillimeterPerMilliliter of biovolume converts to a biomass concentration of one milligramPerLiter. Sampling Frequency: bi-weekly during ice-free season from late March or early April through early September, then every 4 weeks through late November; sampling is conducted usually once during the winter (depending on ice conditions). Number of sites: 4
+      
+Several taxonomic updates have been made to this dataset February 2013, see methods for details.
+      
+&#13;
+
+    
+    
+      NTL Core Datasets
+      biological (all)
+      phytoplankton
+      NTL Themes
+    
+    
+      biomass concentration
+      biovolume concentration
+      North Temperate Lakes - LTER
+      NTL LTER
+      plankton
+      NTL Keywords
+    
+    
+      Primary Production
+      Populations
+      Core Areas
+    
+    
+      algae
+      phytoplankton
+      species
+      species composition
+      species diversity
+      species richness
+      LTER Controlled Vocabulary
+    
+    This information is released under the Creative Commons license - Attribution -
+    CC BY (https://creativecommons.org/licenses/by/4.0/). The consumer of these data ("Data User"
+    herein) is required to cite it appropriately in any publication that results from its use. The
+    Data User should realize that these data may be actively used by others for ongoing research and
+    that coordination may be necessary to prevent duplicate publication. The Data User is urged to
+    contact the authors of these data if any questions about methodology or results occur. Where
+    appropriate, the Data User is encouraged to consider collaboration or co-authorship with the
+    authors. The Data User should realize that misinterpretation of data may occur if used out of
+    context of the original study. While substantial efforts are made to ensure the accuracy of data
+    and associated documentation, complete accuracy of data sets cannot be guaranteed. All data are
+    made available "as is." The Data User should be aware, however, that data are updated
+    periodically and it is the responsibility of the Data User to check for new versions of the
+    data. The data authors and the repository where these data were obtained shall not be liable for
+    damages resulting from any use or misinterpretation of the data. Thank you.
+    
+      Creative Commons Attribution 4.0 International
+      https://spdx.org/licenses/CC-BY-4.0.html
+      CC-BY-4.0
+    
+    https://doi.org/10.6073/pasta/bd03330e83fc52a5442bb39e131c95e9
+      
+        Yahara basin
+        
+          -89.607
+          -89.124
+          43.367
+          42.788
+        
+      
+      
+        Lake Mendota
+        
+          -89.4837
+          -89.3673
+          43.146
+          43.0766
+        
+      
+      
+        Lake Monona
+        
+          -89.4001
+          -89.3251
+          43.0905
+          43.0451
+        
+      
+      
+        Lake Wingra
+        
+          -89.4317
+          -89.4046
+          43.0581
+          43.0487
+        
+      
+      
+        Fish Lake
+        
+          -89.6622
+          -89.6439
+          43.2922
+          43.2821
+        
+      
+      
+        
+          
+            1995-01-24
+          
+          
+            2020-12-31
+          
+        
+      
+    
+    
+      ongoing
+    
+    
+      NTL LTER
+      			680 North Park Street
+			Madison, WI 53706  United States
+      ntl.infomgr@gmail.com
+      04gq8q482
+    
+    
+    Environmental Data Initiativeinfo@edirepository.orghttps://edirepository.org0330j0z60Environmental Data Initiative
+    
+      
+        
+          Water samples are taken along routine sampling and then prepared into permanent slides by the company Phyco Tech. Slides are available for all years, however, species may not have been determined for all available slides.
+          
+several taxonomic updates were implemented in February 2013, this includes simple name changes to currently accepted names, changes from genus level to species based on long term experience by Phyco Tech, and some slides were revisited to resolve taxonomic uncertainty.
+          
+1) Converted all Melosira entries to Aulacoseira.  The species names have been changed appropriately. 2) Converted all Oscillatoria entries to Psuedanabaena. The species names have been changed appropriately. 3) Converted all Synedra tenera to Synedra filiformis. 4) Converted all Phacotus entries without a species name to Phacotus lendneri. 5) Converted all Phormidium mucicola to Psuedanabaena 6) Converted Glenodinium entries without a species name to Glenodinium quadridens 7) Assume that all other entries with genera names but not species  names cannot be resolved to species. 8) Converted all Chrysococcus entries to Chrysocccus minutus 9) Changed some single-celled Microcystis entries so that they would match the format of the colonial entries (genus + species) 10) Resolved some entries to species that were previously coded incorrectly by genus. 11) Added in Cylindrospermopsis raciborskii entries that were recently recounted and changed from Anabaenopsis raciborskii. 12) Converted all entries of genus Erkenia to Erkenia subaequiciliata
+          
+&#13;
+
+        
+      
+    
+    
+      LTER: Comparative Studies of a Suite of Lakes in Wisconsin
+      
+        John Magnuson
+        PI
+      
+      
+        National Science Foundation LTER 
+        9011660
+        LTER: Comparative Studies of a Suite of Lakes in Wisconsin
+      
+      
+        Comparative Study of a Suite of Lakes in Wisconsin
+        
+          Stephen Carpenter
+          PI
+        
+        
+          National Science Foundation LTER 
+          9632853
+          Comparative Study of a Suite of Lakes in Wisconsin
+        
+      
+      
+        LTER: Comparative Study of a Suite of Lakes in Wisconsin
+        
+          Stephen Carpenter
+          PI
+        
+        
+          National Science Foundation LTER 
+          0217533
+          LTER: Comparative Study of a Suite of Lakes in Wisconsin
+        
+      
+      
+        LTER: Comparative Study of a Suite of Lakes in Wisconsin
+        
+          Emily Stanley
+          PI
+        
+        
+          National Science Foundation LTER 
+          0822700
+          LTER: Comparative Study of a Suite of Lakes in Wisconsin
+        
+      
+      
+        LTER: Comparative Study of a Suite of Lakes in Wisconsin
+        
+          Emily Stanley
+          PI
+        
+        
+          National Science Foundation LTER 
+          1440297
+          LTER: Comparative Study of a Suite of Lakes in Wisconsin
+        
+      
+    
+    
+      North Temperate Lakes LTER - Phytoplankton - Madison Lakes Area
+      North Temperate Lakes LTER: Phytoplankton - Madison Lakes Area
+      
+        ntl88_v13.csv
+        2448830
+        a0363cc7fdfd6c12889750fea27bd542
+        
+          
+            1
+            \r\n
+            column
+            
+              ,
+              "
+            
+          
+        
+        
+          
+            https://pasta.lternet.edu/package/data/eml/knb-lter-ntl/88/31/f2de15b2fff6ae962a04c150c0a1c510
+          
+        
+      
+      
+        
+          lakeid
+          lake name abbreviation
+          string
+          
+            
+              
+                
+                  
+                    FI
+                    Fish Lake
+                  
+                  
+                    ME
+                    Lake Mendota
+                  
+                  
+                    MO
+                    Lake Monona
+                  
+                  
+                    WI
+                    Lake Wingra
+                  
+                
+              
+            
+          
+        
+        
+          year4
+          year
+          float
+          
+            
+              
+                nominalYear
+              
+              
+                natural
+                
+                  1995
+                  2020
+                
+              
+            
+          
+        
+        
+          sampledate
+          sample date
+          date
+          
+            
+              YYYY-MM-DD
+            
+          
+        
+        
+          sta
+          station number
+          string
+          
+            
+              
+                
+                  station number
+                
+              
+            
+          
+        
+        
+          depth_range
+          depth range
+          string
+          
+            
+              
+                
+                  depth range
+                
+              
+            
+          
+        
+        
+          division
+          division
+          string
+          
+            
+              
+                
+                  division
+                
+              
+            
+          
+        
+        
+          taxa_name
+          taxon name
+          string
+          
+            
+              
+                
+                  taxon name
+                
+              
+            
+          
+        
+        
+          gald
+          avg greatest axial linear dimension
+          float
+          
+            
+              
+                micrometer
+              
+              
+                real
+                
+                  0
+                  3200
+                
+              
+            
+          
+        
+        
+          cells_per_nu
+          cells per natural unit (NU)
+          float
+          
+            
+              
+                number
+              
+              
+                real
+                
+                  0
+                  48000
+                
+              
+            
+          
+        
+        
+          nu_per_ml
+          natural units (NU) per milliliter
+          float
+          
+            
+              
+                numberPerMilliliter
+              
+              
+                real
+                
+                  0.1704
+                  357259.5436
+                
+              
+            
+          
+        
+        
+          cells_per_ml
+          cells per milliliterl
+          float
+          
+            
+              
+                numberPerMilliliter
+              
+              
+                real
+                
+                  0
+                  10074657.1215
+                
+              
+            
+          
+        
+        
+          biovolume_conc
+          biovolume concentration
+          float
+          
+            
+              
+                micrometerCubedPerMilliliter
+              
+              
+                real
+                
+                  0
+                  84070000
+                
+              
+            
+          
+        
+        
+          biomass_conc
+          biomass concentration
+          float
+          
+            
+              
+                milligramsPerLiter
+              
+              
+                real
+                
+                  0
+                  84.6924
+                
+              
+            
+          
+        
+        
+          relative_total_biovolume
+          relative total biovolume
+          float
+          
+            
+              
+                percent
+              
+              
+                real
+                
+                  0
+                  283806.87
+                
+              
+            
+          
+        
+        
+          genus
+          genus
+          string
+          
+            
+              
+                
+                  genus
+                
+              
+            
+          
+        
+      
+      18654
+    
+  
+  
+    
+      
+        
+          concentration
+        
+      
+    
+  

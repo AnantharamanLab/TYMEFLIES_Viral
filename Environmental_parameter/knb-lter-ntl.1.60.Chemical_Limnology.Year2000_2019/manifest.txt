@@ -1,0 +1,5 @@
+Manifest file for knb-lter-ntl.1.60.zip created on Wed Aug 16 15:49:28 UTC 2023
+ntl1_v12.csv (2648511 bytes)
+knb-lter-ntl.1.60.xml (175555 bytes)
+knb-lter-ntl.1.60.txt (94214 bytes)
+knb-lter-ntl.1.60.report.xml (35009 bytes)

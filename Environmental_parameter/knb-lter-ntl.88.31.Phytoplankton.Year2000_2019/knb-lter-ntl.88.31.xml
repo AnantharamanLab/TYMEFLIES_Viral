@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eml:eml packageId="knb-lter-ntl.88.31"
+  system="https://pasta.edirepository.org"
+  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://eml.ecoinformatics.org/eml-2.2.0 https://eml.ecoinformatics.org/eml-2.2.0/eml.xsd">
+  <access
+    authSystem="https://pasta.edirepository.org/authentication"
+    order="allowFirst" scope="document"
+      system="https://pasta.edirepository.org">
+    <allow>
+      <principal>uid=NTL,o=EDI,dc=edirepository,dc=org</principal>
+      <permission>all</permission>
+    </allow>
+    <allow>
+      <principal>public</principal>
+      <permission>read</permission>
+    </allow>
+  </access>
+  <dataset>
+    <alternateIdentifier
+        system="https://doi.org">doi:10.6073/pasta/bd03330e83fc52a5442bb39e131c95e9</alternateIdentifier><title>North Temperate Lakes LTER: Phytoplankton - Madison Lakes Area 1995 - current</title>
+    <creator>
+      <individualName>
+        <givenName>John</givenName>
+        <givenName>J.</givenName>
+        <surName>Magnuson</surName>
+      </individualName>
+      <organizationName>University of Wisconsin</organizationName>
+      <electronicMailAddress>john.magnuson@wisc.edu</electronicMailAddress>
+    </creator>
+    <creator>
+      <individualName>
+        <givenName>Stephen</givenName>
+        <givenName>R.</givenName>
+        <surName>Carpenter</surName>
+      </individualName>
+      <organizationName>University of Wisconsin</organizationName>
+      <electronicMailAddress>steve.carpenter@wisc.edu</electronicMailAddress>
+      <userId
+        directory="http://orcid.org">0000-0001-8097-8700</userId>
+    </creator>
+    <creator>
+      <individualName>
+        <givenName>Emily</givenName>
+        <givenName>H.</givenName>
+        <surName>Stanley</surName>
+      </individualName>
+      <organizationName>University of Wisconsin</organizationName>
+      <electronicMailAddress>ehstanley@wisc.edu</electronicMailAddress>
+      <userId
+      directory="http://orcid.org">0000-0003-4922-8121</userId>
+    </creator>
+    <pubDate>2022-11-17</pubDate>
+    <abstract>
+      <para>Phytoplankton samples for the 4 southern Wisconsin LTER lakes (Mendota, Monona, Wingra, Fish) have been collected for analysis by LTER since 1995 (1996 Wingra, Fish) when the southern Wisconsin lakes were added to the North Temperate Lakes LTER project. Samples are collected as a composite whole-water sample and are preserved in gluteraldehyde. Composite sample depths are 0-8 meters for Lake Mendota (to conform to samples collected and analyzed since 1990 for a UW/DNR food web research study), and 0-2 meters for the other three lakes. A tube sampler is used for the 0-8 m Lake Mendota samples; samples for the other lakes are obtained by collecting water at 1-meter intervals using a Kemmerer water sampler and compositing the samples in a bucket. Samples are taken in the deep hole region of each lake at the same time and location as other limnological sampling. Phytoplankton samples are analyzed by PhycoTech, Inc., a private lab specializing in phytoplankton analyses (see data protocol for procedures). Samples for Wingra and Fish lakes are archived but not routinely counted. Permanent slide mounts (3 per sample) are prepared for all analyzed Mendota and Monona samples as well as 6 samples per year for Wingra and Fish; the slide mounts are archived at the University of Wisconsin - Madison Zoology Museum. Phytoplankton are identified to species using an inverted microscope (Utermohl technique) and are reported as natural unit (i.e., colonies, filaments, or single cells) densities per mL, cell densities per mL, and algal biovolume densities per mL. Multiple entries for the same species on the same date may be due to different variants or vegetative states - (e.g., colonial or attached vs. free cell.) Biovolumes for individual cells of each species are determined during the counting procedure by obtaining cell measurements needed to calculate volumes for geometric solids (e.g., cylinders, spheres, truncated cones) corresponding to actual cell shapes. Biovolume concentrations are then computed by mulitplying the average cell biovolume by the cell densities in the water sample. Note that one million cubicMicrometers of biovolume PerMilliliter of water are equal to a biovolume concentration of one cubicMillimeterPerMilliliter. Assuming a cell density equal to water, a cubicMillimeterPerMilliliter of biovolume converts to a biomass concentration of one milligramPerLiter. Sampling Frequency: bi-weekly during ice-free season from late March or early April through early September, then every 4 weeks through late November; sampling is conducted usually once during the winter (depending on ice conditions). Number of sites: 4</para>
+      <para>
+Several taxonomic updates have been made to this dataset February 2013, see methods for details.</para>
+      <para>
+&amp;#13;
+</para>
+    </abstract>
+    <keywordSet>
+      <keyword>NTL Core Datasets</keyword>
+      <keyword>biological (all)</keyword>
+      <keyword>phytoplankton</keyword>
+      <keywordThesaurus>NTL Themes</keywordThesaurus>
+    </keywordSet>
+    <keywordSet>
+      <keyword>biomass concentration</keyword>
+      <keyword>biovolume concentration</keyword>
+      <keyword>North Temperate Lakes - LTER</keyword>
+      <keyword>NTL LTER</keyword>
+      <keyword>plankton</keyword>
+      <keywordThesaurus>NTL Keywords</keywordThesaurus>
+    </keywordSet>
+    <keywordSet>
+      <keyword>Primary Production</keyword>
+      <keyword>Populations</keyword>
+      <keywordThesaurus>Core Areas</keywordThesaurus>
+    </keywordSet>
+    <keywordSet>
+      <keyword>algae</keyword>
+      <keyword>phytoplankton</keyword>
+      <keyword>species</keyword>
+      <keyword>species composition</keyword>
+      <keyword>species diversity</keyword>
+      <keyword>species richness</keyword>
+      <keywordThesaurus>LTER Controlled Vocabulary</keywordThesaurus>
+    </keywordSet>
+    <intellectualRights>This information is released under the Creative Commons license - Attribution -
+    CC BY (https://creativecommons.org/licenses/by/4.0/). The consumer of these data ("Data User"
+    herein) is required to cite it appropriately in any publication that results from its use. The
+    Data User should realize that these data may be actively used by others for ongoing research and
+    that coordination may be necessary to prevent duplicate publication. The Data User is urged to
+    contact the authors of these data if any questions about methodology or results occur. Where
+    appropriate, the Data User is encouraged to consider collaboration or co-authorship with the
+    authors. The Data User should realize that misinterpretation of data may occur if used out of
+    context of the original study. While substantial efforts are made to ensure the accuracy of data
+    and associated documentation, complete accuracy of data sets cannot be guaranteed. All data are
+    made available "as is." The Data User should be aware, however, that data are updated
+    periodically and it is the responsibility of the Data User to check for new versions of the
+    data. The data authors and the repository where these data were obtained shall not be liable for
+    damages resulting from any use or misinterpretation of the data. Thank you.</intellectualRights>
+    <licensed>
+      <licenseName>Creative Commons Attribution 4.0 International</licenseName>
+      <url>https://spdx.org/licenses/CC-BY-4.0.html</url>
+      <identifier>CC-BY-4.0</identifier>
+    </licensed>
+    <distribution
+      id="10.6073/pasta/bd03330e83fc52a5442bb39e131c95e9" scope="system"
+          system="https://pasta.edirepository.org"><online><url
+        function="information">https://doi.org/10.6073/pasta/bd03330e83fc52a5442bb39e131c95e9</url></online></distribution><coverage>
+      <geographicCoverage>
+        <geographicDescription>Yahara basin</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-89.607</westBoundingCoordinate>
+          <eastBoundingCoordinate>-89.124</eastBoundingCoordinate>
+          <northBoundingCoordinate>43.367</northBoundingCoordinate>
+          <southBoundingCoordinate>42.788</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage>
+        <geographicDescription>Lake Mendota</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-89.4837</westBoundingCoordinate>
+          <eastBoundingCoordinate>-89.3673</eastBoundingCoordinate>
+          <northBoundingCoordinate>43.146</northBoundingCoordinate>
+          <southBoundingCoordinate>43.0766</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage>
+        <geographicDescription>Lake Monona</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-89.4001</westBoundingCoordinate>
+          <eastBoundingCoordinate>-89.3251</eastBoundingCoordinate>
+          <northBoundingCoordinate>43.0905</northBoundingCoordinate>
+          <southBoundingCoordinate>43.0451</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage>
+        <geographicDescription>Lake Wingra</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-89.4317</westBoundingCoordinate>
+          <eastBoundingCoordinate>-89.4046</eastBoundingCoordinate>
+          <northBoundingCoordinate>43.0581</northBoundingCoordinate>
+          <southBoundingCoordinate>43.0487</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage>
+        <geographicDescription>Fish Lake</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-89.6622</westBoundingCoordinate>
+          <eastBoundingCoordinate>-89.6439</eastBoundingCoordinate>
+          <northBoundingCoordinate>43.2922</northBoundingCoordinate>
+          <southBoundingCoordinate>43.2821</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <temporalCoverage>
+        <rangeOfDates>
+          <beginDate>
+            <calendarDate>1995-01-24</calendarDate>
+          </beginDate>
+          <endDate>
+            <calendarDate>2020-12-31</calendarDate>
+          </endDate>
+        </rangeOfDates>
+      </temporalCoverage>
+    </coverage>
+    <maintenance>
+      <description>ongoing</description>
+    </maintenance>
+    <contact>
+      <organizationName>NTL LTER</organizationName>
+      <address>
+        <deliveryPoint>680 North Park Street</deliveryPoint>
+        <city>Madison</city>
+        <administrativeArea>WI</administrativeArea>
+        <postalCode>53706</postalCode>
+        <country>United States</country>
+      </address>
+      <electronicMailAddress>ntl.infomgr@gmail.com</electronicMailAddress>
+      <userId
+        directory="https://ror.org">04gq8q482</userId>
+    </contact>
+    
+    <publisher><organizationName>Environmental Data Initiative</organizationName><electronicMailAddress>info@edirepository.org</electronicMailAddress><onlineUrl>https://edirepository.org</onlineUrl><userId
+      directory="https://ror.org">0330j0z60</userId></publisher><pubPlace>Environmental Data Initiative</pubPlace>
+    <methods>
+      <methodStep>
+        <description>
+          <para>Water samples are taken along routine sampling and then prepared into permanent slides by the company Phyco Tech. Slides are available for all years, however, species may not have been determined for all available slides.</para>
+          <para>
+several taxonomic updates were implemented in February 2013, this includes simple name changes to currently accepted names, changes from genus level to species based on long term experience by Phyco Tech, and some slides were revisited to resolve taxonomic uncertainty.</para>
+          <para>
+1) Converted all Melosira entries to Aulacoseira.  The species names have been changed appropriately. 2) Converted all Oscillatoria entries to Psuedanabaena. The species names have been changed appropriately. 3) Converted all Synedra tenera to Synedra filiformis. 4) Converted all Phacotus entries without a species name to Phacotus lendneri. 5) Converted all Phormidium mucicola to Psuedanabaena 6) Converted Glenodinium entries without a species name to Glenodinium quadridens 7) Assume that all other entries with genera names but not species  names cannot be resolved to species. 8) Converted all Chrysococcus entries to Chrysocccus minutus 9) Changed some single-celled Microcystis entries so that they would match the format of the colonial entries (genus + species) 10) Resolved some entries to species that were previously coded incorrectly by genus. 11) Added in Cylindrospermopsis raciborskii entries that were recently recounted and changed from Anabaenopsis raciborskii. 12) Converted all entries of genus Erkenia to Erkenia subaequiciliata</para>
+          <para>
+&amp;#13;
+</para>
+        </description>
+      </methodStep>
+    </methods>
+    <project>
+      <title>LTER: Comparative Studies of a Suite of Lakes in Wisconsin</title>
+      <personnel>
+        <individualName>
+          <givenName>John</givenName>
+          <surName>Magnuson</surName>
+        </individualName>
+        <role>PI</role>
+      </personnel>
+      <award>
+        <funderName>National Science Foundation LTER </funderName>
+        <awardNumber>9011660</awardNumber>
+        <title>LTER: Comparative Studies of a Suite of Lakes in Wisconsin</title>
+      </award>
+      <relatedProject>
+        <title>Comparative Study of a Suite of Lakes in Wisconsin</title>
+        <personnel>
+          <individualName>
+            <givenName>Stephen</givenName>
+            <surName>Carpenter</surName>
+          </individualName>
+          <role>PI</role>
+        </personnel>
+        <award>
+          <funderName>National Science Foundation LTER </funderName>
+          <awardNumber>9632853</awardNumber>
+          <title>Comparative Study of a Suite of Lakes in Wisconsin</title>
+        </award>
+      </relatedProject>
+      <relatedProject>
+        <title>LTER: Comparative Study of a Suite of Lakes in Wisconsin</title>
+        <personnel>
+          <individualName>
+            <givenName>Stephen</givenName>
+            <surName>Carpenter</surName>
+          </individualName>
+          <role>PI</role>
+        </personnel>
+        <award>
+          <funderName>National Science Foundation LTER </funderName>
+          <awardNumber>0217533</awardNumber>
+          <title>LTER: Comparative Study of a Suite of Lakes in Wisconsin</title>
+        </award>
+      </relatedProject>
+      <relatedProject>
+        <title>LTER: Comparative Study of a Suite of Lakes in Wisconsin</title>
+        <personnel>
+          <individualName>
+            <givenName>Emily</givenName>
+            <surName>Stanley</surName>
+          </individualName>
+          <role>PI</role>
+        </personnel>
+        <award>
+          <funderName>National Science Foundation LTER </funderName>
+          <awardNumber>0822700</awardNumber>
+          <title>LTER: Comparative Study of a Suite of Lakes in Wisconsin</title>
+        </award>
+      </relatedProject>
+      <relatedProject>
+        <title>LTER: Comparative Study of a Suite of Lakes in Wisconsin</title>
+        <personnel>
+          <individualName>
+            <givenName>Emily</givenName>
+            <surName>Stanley</surName>
+          </individualName>
+          <role>PI</role>
+        </personnel>
+        <award>
+          <funderName>National Science Foundation LTER </funderName>
+          <awardNumber>1440297</awardNumber>
+          <title>LTER: Comparative Study of a Suite of Lakes in Wisconsin</title>
+        </award>
+      </relatedProject>
+    </project>
+    <dataTable
+      id="f2de15b2fff6ae962a04c150c0a1c510" scope="document"
+          system="https://pasta.edirepository.org">
+      <entityName>North Temperate Lakes LTER - Phytoplankton - Madison Lakes Area</entityName>
+      <entityDescription>North Temperate Lakes LTER: Phytoplankton - Madison Lakes Area</entityDescription>
+      <physical>
+        <objectName>ntl88_v13.csv</objectName>
+        <size
+          unit="bytes">2448830</size>
+        <authentication
+              method="MD5">a0363cc7fdfd6c12889750fea27bd542</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\r\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+              <quoteCharacter>"</quoteCharacter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url
+                    function="download">https://pasta.lternet.edu/package/data/eml/knb-lter-ntl/88/31/f2de15b2fff6ae962a04c150c0a1c510</url>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>lakeid</attributeName>
+          <attributeDefinition>lake name abbreviation</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>FI</code>
+                    <definition>Fish Lake</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>ME</code>
+                    <definition>Lake Mendota</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>MO</code>
+                    <definition>Lake Monona</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>WI</code>
+                    <definition>Lake Wingra</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>year4</attributeName>
+          <attributeDefinition>year</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>nominalYear</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>natural</numberType>
+                <bounds>
+                  <minimum
+                    exclusive="false">1995</minimum>
+                  <maximum
+                    exclusive="false">2020</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>sampledate</attributeName>
+          <attributeDefinition>sample date</attributeDefinition>
+          <storageType>date</storageType>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY-MM-DD</formatString>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>sta</attributeName>
+          <attributeDefinition>station number</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>station number</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>depth_range</attributeName>
+          <attributeDefinition>depth range</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>depth range</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>division</attributeName>
+          <attributeDefinition>division</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>division</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>taxa_name</attributeName>
+          <attributeDefinition>taxon name</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>taxon name</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>gald</attributeName>
+          <attributeDefinition>avg greatest axial linear dimension</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>micrometer</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum
+                    exclusive="false">0</minimum>
+                  <maximum
+                    exclusive="false">3200</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>cells_per_nu</attributeName>
+          <attributeDefinition>cells per natural unit (NU)</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>number</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum
+                    exclusive="false">0</minimum>
+                  <maximum
+                    exclusive="false">48000</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>nu_per_ml</attributeName>
+          <attributeDefinition>natural units (NU) per milliliter</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>numberPerMilliliter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum
+                    exclusive="false">0.1704</minimum>
+                  <maximum
+                    exclusive="false">357259.5436</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>cells_per_ml</attributeName>
+          <attributeDefinition>cells per milliliterl</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>numberPerMilliliter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum
+                    exclusive="false">0</minimum>
+                  <maximum
+                    exclusive="false">10074657.1215</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>biovolume_conc</attributeName>
+          <attributeDefinition>biovolume concentration</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>micrometerCubedPerMilliliter</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum
+                    exclusive="false">0</minimum>
+                  <maximum
+                    exclusive="false">84070000</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>biomass_conc</attributeName>
+          <attributeDefinition>biomass concentration</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>milligramsPerLiter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum
+                    exclusive="false">0</minimum>
+                  <maximum
+                    exclusive="false">84.6924</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>relative_total_biovolume</attributeName>
+          <attributeDefinition>relative total biovolume</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>percent</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum
+                    exclusive="false">0</minimum>
+                  <maximum
+          exclusive="false">283806.87</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>genus</attributeName>
+          <attributeDefinition>genus</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>genus</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>18654</numberOfRecords>
+    </dataTable>
+  </dataset>
+  <additionalMetadata>
+    <metadata>
+      <unitList>
+        <unit
+          id="micrometerCubedPerMilliliter" multiplierToSI=""
+          name="micrometerCubedPerMilliliter" parentSI="" unitType="volume">
+          <description>concentration</description>
+        </unit>
+      </unitList>
+    </metadata>
+  </additionalMetadata>
+</eml:eml>

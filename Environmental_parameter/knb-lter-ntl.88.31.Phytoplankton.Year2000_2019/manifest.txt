@@ -1,0 +1,5 @@
+Manifest file for knb-lter-ntl.88.31.zip created on Wed Aug 16 18:51:58 UTC 2023
+ntl88_v13.csv (2448830 bytes)
+knb-lter-ntl.88.31.xml (27408 bytes)
+knb-lter-ntl.88.31.txt (14531 bytes)
+knb-lter-ntl.88.31.report.xml (31366 bytes)

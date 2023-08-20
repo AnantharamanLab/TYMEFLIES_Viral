@@ -1,0 +1,5 @@
+Manifest file for knb-lter-ntl.38.28.zip created on Wed Aug 16 17:31:16 UTC 2023
+ntl38_v5.csv (277929 bytes)
+knb-lter-ntl.38.28.xml (48995 bytes)
+knb-lter-ntl.38.28.txt (34303 bytes)
+knb-lter-ntl.38.28.report.xml (32052 bytes)

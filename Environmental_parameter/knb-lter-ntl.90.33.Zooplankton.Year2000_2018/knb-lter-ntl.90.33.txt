@@ -1,0 +1,544 @@
+
+  
+    
+      uid=NTL,o=EDI,dc=edirepository,dc=org
+      all
+    
+    
+      public
+      read
+    
+  
+  
+    doi:10.6073/pasta/d5abe9009d7f6aa87d1fcf49c8c7f8c8North Temperate Lakes LTER: Zooplankton - Madison Lakes Area 1997 - current
+    
+      John Magnuson
+      University of Wisconsin
+      			680 North park Street
+			Madison, WI 53706  US
+      (608) 262-3014
+      (608) 265-2340
+      john.magnuson@wisc.edu
+      http://limnology.wisc.edu/john_magnuson.htm
+    
+    
+      Stephen Carpenter
+      University of Wisconsin
+      			680 North Park Street
+			Madison, WI 53706  US
+      (608) 262-3014
+      (608) 265-2340
+      steve.carpenter@wisc.edu
+      http://limnology.wisc.edu/steve_carpenter.htm
+      0000-0001-8097-8700
+    
+    
+      Emily Stanley
+      University of Wisconsin
+      			680 North Park Street
+			Madison, WI 53706  US
+      (608) 263-2567
+      (608) 265-2340
+      ehstanley@wisc.edu
+      http://limnology.wisc.edu/personnel/emstan/
+      0000-0003-4922-8121
+    
+    
+      NTL Information Manager
+      University of Wisconsin
+      			680 North Park Street
+			Madison, WI 53706  US
+      ntl.infomgr@gmail.com
+    
+    2022-11-17
+    English
+    
+       Zooplankton samples for the 4 southern Wisconsin LTER lakes (Mendota, Monona, Wingra,
+        Fish) have been collected for analysis by LTER since 1995 (1996 Wingra, Fish) when the
+        southern Wisconsin lakes were added to the North Temperate Lakes LTER project. Samples are
+        collected as a vertical tow using an 80-micron mesh conical net with a 30-cm diameter
+        opening (net mouth: net length ratio = 1:3) consistent with sampling conducted by the
+        Wisconsin Dept. Natural Resources in prior years. Zooplankton tows are taken in the deep
+        hole region of each lake at the same time and location as other limnological sampling;
+        zooplankton samples are preserved in 70% ethanol for later processing. Samples are usually
+        collected with standard tow depths on most dates (e.g., 20 meters for Lake Mendota) but not
+        always, so tow depth is recorded as a variate in the database. Crustacean species are
+        identified and counted for Mendota and Monona and body lengths are recorded for a portion of
+        each species identified (see data protocol for counting procedure); samples for Wingra and
+        Fish lakes are archived but not routinely counted. Numerical densities for Mendota and
+        Monona zooplankton samples are reported in the database as number or organisms per square
+        meter without correcting for net efficiency. [Net efficiency varies from a maximum of about
+        70% under clear water conditions; net efficiency declines when algal blooms are dense
+        (Lathrop, R.C. 1998. Water clarity responses to phosphorus and Daphnia in Lake Mendota.
+        Ph.D. Thesis, University of Wisconsin-Madison.)] Organism densities in number per cubic
+        meter can be obtained by dividing the reported square-meter density by the tow depth,
+        although adjustments for the oxygenated depth zone during the summer and early fall
+        stratified season is required to obtain realistic zooplankton volumetric densities in the
+        lake's surface waters. Biomass densities can be calculated using literature formulas for
+        converting organism body lengths reported in the database to body masses. Sampling
+        Frequency: bi-weekly during ice-free season from late March or early April through early
+        September, then every 4 weeks through late November; sampling is conducted usually once
+        during the winter (depending on ice conditions). Number of sites: 4 Note: for a period
+        between approximately 2011 and 2015, a calculation error caused density values to be
+        significantly greater than they should have been for the entire dataset. That issue has been
+        corrected. 
+    
+    
+      NTL Core Datasets
+      biological (all)
+      zooplankton
+      NTL Themes
+    
+    
+      North Temperate Lakes - LTER
+      NTL LTER
+      plankton
+      NTL Keywords
+    
+    
+      Populations
+      Core Areas
+    
+    
+      abundance
+      density
+      species
+      species composition
+      species diversity
+      species richness
+      zooplankton
+      LTER Controlled Vocabulary
+    
+    This information is released under the Creative Commons license -
+      Attribution - CC BY (https://creativecommons.org/licenses/by/4.0/). The consumer of these data
+      ("Data User" herein) is required to cite it appropriately in any publication that results from
+      its use. The Data User should realize that these data may be actively used by others for
+      ongoing research and that coordination may be necessary to prevent duplicate publication. The
+      Data User is urged to contact the authors of these data if any questions about methodology or
+      results occur. Where appropriate, the Data User is encouraged to consider collaboration or
+      co-authorship with the authors. The Data User should realize that misinterpretation of data
+      may occur if used out of context of the original study. While substantial efforts are made to
+      ensure the accuracy of data and associated documentation, complete accuracy of data sets
+      cannot be guaranteed. All data are made available "as is." The Data User should be aware,
+      however, that data are updated periodically and it is the responsibility of the Data User to
+      check for new versions of the data. The data authors and the repository where these data were
+      obtained shall not be liable for damages resulting from any use or misinterpretation of the
+      data. Thank you.
+    
+      Creative Commons Attribution 4.0 International
+      https://spdx.org/licenses/CC-BY-4.0.html
+      CC-BY-4.0
+    
+    https://doi.org/10.6073/pasta/d5abe9009d7f6aa87d1fcf49c8c7f8c8
+      
+        Lake Mendota is located in the Yahara River watershed within Dane County. It is a drainage lake with predominantly muck substrate. It has a surface area of 3961 hectare, 33.8 kilometers of highly developed shoreline and a maximum depth of 25.3 meters. NTL LTER sampling location is at 43.09885, -89.40545 Detailed Info: Surface Area (km2): 39.6, Mean Depth (m): 12.8, Maximum Depth (m): 25.3, Volume (m3): 506,880,000, Shoreline Length (km): 33.8, Landscape Position: Low, Development on shoreline: High, Duration of ice cover (days): 119, pH: 8.4, ANC (µeq/L): 3665, Conductivity (µS/cm): 412, Total P (µg/l): 109.5, Total N (µg/l): 860, SiO2 (µg/l): 711, Secchi Depth (m): 3, Chlorophyll (µg/l): 4.8, Number of fish species: 43
+        
+          -89.4837
+          -89.3673
+          43.146
+          43.0766
+          
+            259
+            259
+            meter
+          
+        
+      
+      
+        Lake Monona is located in the Yahara River watershed within Dane County.It is a drainage lake with muck, sand and gravel substrate. It has a surface area of 1324 hectare, 20.9 kilometers of highly developed shoreline and a maximum depth of 22.5 meters.NTL LTER sampling location is at 43.06337, -89.36086 Detailed Info: Surface Area (km2): 13.6, Mean Depth (m): 8.2, Maximum Depth (m): 22.5, Shoreline Length (km): 20.9, Landscape Position: Low, Development on shoreline: High, Duration of ice cover (days): 107, pH: 8.5, ANC (µeq/L): 3547, Conductivity (µS/cm): 434, Total P (µg/l): 73.5, Total N (µg/l): 845, SiO2 (µg/l): 454, Secchi Depth (m): 2.4, Chlorophyll (µg/l): 8.1, Number of fish species: 41, Volume (m3): 111,520,000
+        
+          -89.4001
+          -89.3251
+          43.0905
+          43.0451
+          
+            258
+            258
+            meter
+          
+        
+      
+      
+        Lake Wingra is located in the Yahara River watershed within Dane County.It is a drainage lake with predominantly muck substrate. It has a surface area of 139.6 hectare, 5.9 kilometers of highly developed shoreline and a maximum depth of 6.7 meters.NTL LTER sampling location is at 43.05258 -89.42499 Detailed Info: Surface Area (km2): 1.36, Mean Depth (m): 2.7, Maximum Depth (m): 6.7, Shoreline Length (km): 5.8, Volume (m3): 3,672,000, Landscape Position: High, Development on shoreline: High, Duration of ice cover (days): 120, pH: 8.5, ANC (µeq/L): 3745, Conductivity (µS/cm): 500, Total P (µg/l): 40.3, Total N (µg/l): 933, SiO2 (µg/l): 5551, Secchi Depth (m): 0.7, Chlorophyll (µg/l): 10.5, Number of fish species: 29
+        
+          -89.4317
+          -89.4046
+          43.0581
+          43.0487
+          
+            259
+            259
+            meter
+          
+        
+      
+      
+        Fish Lake is located in the Yahara River watershed within Dane County.It is a seepage lake with predominantly sand and muck substrate. It has a surface area of 87.4 hectare, 4.3 kilometers of highly developed shoreline and a maximum depth of 18.9 meters.NTL LTER sampling location is at 43.09885, -89.40545 Detailed Info: Surface Area (km2): 0.8, Mean Depth (m): 6.6, Maximum Depth (m): 18.9, Shoreline Length (km): 4.3, Landscape Position: High, Development on shoreline: HIgh, pH: 8.1, ANC (µeq/L): 2921, Conductivity (µS/cm): 280, Total P (µg/l): 22.4, Total N (µg/l): 835, SiO2 (µg/l): 367, Secchi Depth (m): 2.4, Chlorophyll (µg/l): 5.1, Number of fish species: 26, Volume (m3): 5,280,000
+        
+          -89.6622
+          -89.6439
+          43.2922
+          43.2821
+          
+            261
+            261
+            meter
+          
+        
+      
+      
+        
+          
+            1997-06-24
+          
+          
+            2018-12-31
+          
+        
+      
+    
+    
+      
+         ongoing 
+      
+    
+    
+      NTL LTER
+      			680 North Park Street
+			Madison, WI 53706  United States
+      ntl.infomgr@gmail.com
+      04gq8q482
+    
+    Environmental Data Initiativeinfo@edirepository.orghttps://edirepository.org0330j0z60Environmental Data Initiative
+    
+      
+        
+           We collect zooplankton samples at the deepest part of the lake using two different
+            gear types. We take one vertical tow with a Wisconsin Net (80um mesh), and a series of
+            Schindler Patalas (53um mesh) samples spanning the water column. All samples are
+            preserved in cold 95percent EtOH.After collection we combine subsamples of the
+            individual Schindler Patalas trap samples to create one hypsometrically pooled sample
+            for each lakeordate. The individual depth samples are discarded after pooling except
+            from one August sampling date per year. The Hypsometrically Pooled sample and the
+            Wisconsin Net sample are archived in the UW Zoology museum.We count zooplankton in one
+            or two subsamples, each representing 1.8L of lake water, of the hypsometrically pooled
+            samples to calculate zooplankton abundance. We count one sample date per month from the
+            open water season, and the February ice cover sample.  We identify individuals to genus
+            or species, take length measurements, and count eggs and embryos.Protocol log: 
+            1981-May1984 -- a 0.5m high, 31L Schindler Patalas trap with 80um mesh net was used. Two
+            Wisconsin Net tows were collected. Preservative was 12percent buffered formalin.June1984
+            -- changed to 53um mesh net on Schindler trap.July1986 -- began using the 2m high, 45L
+            Schindler Patalas trap. Changed WI Net collection to take only one tow.2001 -- changed
+            zooplankton preservative from 12percent buffered formalin to 95percent EtOH.The number
+            of sample dates per year counted varies with lake and year, from 5 datesoryear to 17
+            datesoryear.1981-1983 -- pooled samples are of several types: Total Pooled (TP) were
+            created using equal volume subsamples of the Schindler samples. Epi, Meta, Hypo pooled
+            used equal volume subsamples from the Schindler samples collected from each of the
+            thermal strata. Strata Pooled used equal volume subsamples from the Epi, Meta, Hypo
+            pooled samples to create an entire lake sample. Hypsometrically Pooled (HP) is our
+            standard, which uses subsample volumes weighted to represent the hypsometry of the lake.
+          
+        
+      
+    
+    
+      Comparative Studies of a Suite of Lakes in Wisconsin
+      
+        John Magnuson
+        PI
+      
+      
+        National Science Foundation LTER 
+        8012313
+        Comparative Studies of a Suite of Lakes in Wisconsin
+      
+      
+        Comparative Studies of a Suite of Lakes in Wisconsin
+        
+          John Magnuson
+          PI
+        
+        
+          National Science Foundation LTER 
+          8514330
+          Comparative Studies of a Suite of Lakes in Wisconsin
+        
+      
+      
+        LTER: Comparative Studies of a Suite of Lakes in Wisconsin
+        
+          John Magnuson
+          PI
+        
+        
+          National Science Foundation LTER 
+          9011660
+          LTER: Comparative Studies of a Suite of Lakes in Wisconsin
+        
+      
+      
+        Comparative Study of a Suite of Lakes in Wisconsin
+        
+          Stephen Carpenter
+          0000-0001-8097-8700
+          PI
+        
+        
+          National Science Foundation LTER 
+          9632853
+          Comparative Study of a Suite of Lakes in Wisconsin
+        
+      
+      
+        LTER: Comparative Study of a Suite of Lakes in Wisconsin
+        
+          Stephen Carpenter
+          0000-0001-8097-8700
+          PI
+        
+        
+          National Science Foundation LTER 
+          0217533
+          LTER: Comparative Study of a Suite of Lakes in Wisconsin
+        
+      
+      
+        LTER: Comparative Study of a Suite of Lakes in Wisconsin
+        
+          Emily Stanley
+          0000-0003-4922-8121
+          PI
+        
+        
+          National Science Foundation LTER 
+          0822700
+          LTER: Comparative Study of a Suite of Lakes in Wisconsin
+        
+      
+      
+        LTER: Comparative Study of a Suite of Lakes in Wisconsin
+        
+          Emily Stanley
+          0000-0003-4922-8121
+          PI
+        
+        
+          National Science Foundation LTER 
+          1440297
+          LTER: Comparative Study of a Suite of Lakes in Wisconsin
+        
+      
+      
+        LTER: Comparative Study of a Suite of Lakes in Wisconsin
+        
+          Emily Stanley
+          0000-0003-4922-8121
+          PI
+        
+        
+          National Science Foundation LTER 
+          2025982
+          LTER: Comparative Study of a Suite of Lakes in Wisconsin
+        
+      
+    
+    
+      North Temperate Lakes LTER - Zooplankton - Madison Lakes Area
+      North Temperate Lakes LTER: Zooplankton - Madison Lakes Area
+      
+        ntl90_v8.csv
+        632820
+        6a4c68a5a22931592cc641f7b33daa34
+        680a8aca2d9bd00e40f911f227f0768d1a60dc3d
+        
+          
+            1
+            \n
+            column
+            
+              ,
+              "
+            
+          
+        
+        
+          
+            https://pasta.lternet.edu/package/data/eml/knb-lter-ntl/90/33/5880c7ba184589e239aec9c55f9d313b
+          
+        
+      
+      
+        
+          lakeid
+          lake name abbreviation
+          lake name abbreviation
+          string
+          
+            
+              
+                
+                  
+                    FI
+                    Fish Lake
+                  
+                  
+                    ME
+                    Lake Mendota
+                  
+                  
+                    MO
+                    Lake Monona
+                  
+                  
+                    WI
+                    Lake Wingra
+                  
+                
+              
+            
+          
+        
+        
+          year4
+          year
+          year
+          
+            
+              
+                nominalYear
+              
+              1
+              
+                real
+              
+            
+          
+        
+        
+          sample_date
+          sample date
+          sample date
+          date
+          
+            
+              YYYY-MM-DD
+            
+          
+        
+        
+          station
+          station number
+          station number
+          string
+          
+            
+              
+                
+                  station number
+                
+              
+            
+          
+        
+        
+          towdepth
+          depth of tow
+          depth of tow
+          
+            
+              
+                meter
+              
+              
+                real
+                
+                  0
+                  50
+                
+              
+            
+          
+        
+        
+          species_code
+          numeric species code
+          numeric species code
+          string
+          
+            
+              
+                
+                  numeric species code
+                
+              
+            
+          
+        
+        
+          species_name
+          species name
+          species name
+          string
+          
+            
+              
+                
+                  species name
+                
+              
+            
+          
+        
+        
+          density
+          number individuals / m2
+          number individuals per meter squared
+          
+            
+              
+                numberPerMeterSquared
+              
+              
+                real
+              
+            
+          
+        
+        
+          individuals_measured
+          number of individuals measured
+          number of individuals measured
+          
+            
+              
+                number
+              
+              
+                real
+              
+            
+          
+        
+        
+          avg_length
+          average length of measured
+          average length of measured individuals
+          
+            
+              
+                millimeter
+              
+              
+                real
+                
+                  0
+                  15
+                
+              
+            
+          
+        
+      
+      9004
+    
+  

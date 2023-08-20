@@ -1,0 +1,5 @@
+Manifest file for knb-lter-ntl.90.33.zip created on Thu Aug 17 21:00:09 UTC 2023
+ntl90_v8.csv (632820 bytes)
+knb-lter-ntl.90.33.xml (31605 bytes)
+knb-lter-ntl.90.33.txt (18320 bytes)
+knb-lter-ntl.90.33.report.xml (31921 bytes)

@@ -1,0 +1,1534 @@
+
+  
+    
+      uid=NTL,o=EDI,dc=edirepository,dc=org
+      all
+    
+    
+      public
+      read
+    
+  
+  
+    doi:10.6073/pasta/bb563f16c7338fdb3ddf82057ef43cc6North Temperate Lakes LTER: Chemical Limnology of Primary Study Lakes: Major Ions 1981 - current
+    
+      John Magnuson
+      University of Wisconsin-Madison
+      john.magnuson@wisc.edu
+      0000-0001-5612-8765
+    
+    
+      Stephen Carpenter
+      University of Wisconsin-Madison
+      steve.carpenter@wisc.edu
+      0000-0001-8097-8700
+    
+    
+      Emily Stanley
+      University of Wisconsin-Madison
+      ehstanley@wisc.edu
+      0000-0003-4922-8121
+    
+    
+      NTL Information Manager
+      University of Wisconsin-Madison
+      			680 North Park Street
+			Madison, WI 53706  United States
+      ntl.infomgr@gmail.com
+    
+    2023-08-08      Parameters characterizing the major ions of the eleven primary lakes (Allequash, Big Muskellunge, Crystal, Sparkling, Trout, bog lakes 27-02 [Crystal Bog], and 12-15 [Trout Bog], Mendota, Monona, Wingra and Fish) are measured at one station in the deepest part of each lake at the top and bottom of the epilimnion, mid-thermocline, and top, middle, and bottom of the hypolimnion. These parameters include chloride, sulfate, calcium, magnesium, sodium, potassium, iron, manganese, and specific conductance (northern lakes only). Lake Wingra has always been just a surface sample, but in the winter we have, at times, taken chloride samples from top to bottom to have a better understanding of road salt effects.
+      Samples for conductivity are collected four times per year in the seven primary lakes (Allequash, Big Muskellunge, Crystal, Sparkling, and Trout lakes, and unnamed lakes 27-02 [Crystal Bog], and 12-15 [Trout Bog] in the Trout Lake area at the deepest part of the lake, sampling at the surface, mid water column, and the bottom. The sampling dates include February under ice, spring mixis, August stratified, and fall mixis.  Conductivity is measured using a YSI Model 32 conductivity meter with YSI 3403 conductivity cell, reported as uS/cm at 25°C.
+      1981-1988: a Sybron Barnstead conductivity bridge was used. 1981-1986: conductivity was measured monthly.
+      Sampling Frequency: quarterly (winter, spring and fall mixes, and summer stratified periods) Number of sites: 11
+
+    
+      chemical (all)
+      chemical limnology
+      NTL Core Datasets
+    
+    
+      inorganic nutrients
+      calcium
+      chloride
+      specific conductivity
+      iron
+      magnesium
+      manganese
+      potassium
+      sodium
+      sulfate
+      water chemistry
+      conductivity
+      LTER Controlled Vocabulary
+    
+    This information is released under the Creative Commons license - Attribution - CC BY (https://creativecommons.org/licenses/by/4.0/). The consumer of these data ("Data User" herein) is required to cite it appropriately in any publication that results from its use. The Data User should realize that these data may be actively used by others for ongoing research and that coordination may be necessary to prevent duplicate publication. The Data User is urged to contact the authors of these data if any questions about methodology or results occur. Where appropriate, the Data User is encouraged to consider collaboration or co-authorship with the authors. The Data User should realize that misinterpretation of data may occur if used out of context of the original study. While substantial efforts are made to ensure the accuracy of data and associated documentation, complete accuracy of data sets cannot be guaranteed. All data are made available "as is." The Data User should be aware, however, that data are updated periodically and it is the responsibility of the Data User to check for new versions of the data. The data authors and the repository where these data were obtained shall not be liable for damages resulting from any use or misinterpretation of the data. Thank you.
+    https://doi.org/10.6073/pasta/bb563f16c7338fdb3ddf82057ef43cc6
+      
+        Allequash Lake
+        
+          -89.6458
+          -89.6124
+          46.0481
+          46.0252
+        
+      
+      
+        Big Muskellunge Lake
+        
+          -89.6335
+          -89.5935
+          46.0273
+          46.0051
+        
+      
+      
+        Crystal Lake
+        
+          -89.6191
+          -89.6082
+          46.0047
+          45.9989
+        
+      
+      
+        Sparkling Lake
+        
+          -89.7045
+          -89.6945
+          46.0158
+          46.0024
+        
+      
+      
+        Trout Lake
+        
+          -89.7038
+          -89.6464
+          46.079
+          46.0131
+        
+      
+      
+        Crystal Bog
+        
+          -89.6068
+          -89.6057
+          46.008
+          46.0071
+        
+      
+      
+        Trout Bog
+        
+          -89.6869
+          -89.6854
+          46.0417
+          46.0407
+        
+      
+      
+        Fish Lake
+        
+          -89.6622
+          -89.6439
+          43.2922
+          43.2821
+        
+      
+      
+        Lake Mendota
+        
+          -89.4837
+          -89.3673
+          43.146
+          43.0766
+        
+      
+      
+        Lake Monona
+        
+          -89.4001
+          -89.3251
+          43.0905
+          43.0451
+        
+      
+      
+        Lake Wingra
+        
+          -89.4317
+          -89.4046
+          43.0581
+          43.0487
+        
+      
+      
+        
+          
+            1981-06-29
+          
+          
+            2022-12-31
+          
+        
+      
+    
+    
+              ongoing
+
+    
+    
+      NTL LTER
+      			680 North Park Street
+			Madison, WI 53706  United States
+      ntl.infomgr@gmail.com
+      04gq8q482
+    
+    
+    Environmental Data Initiativeinfo@edirepository.orghttps://edirepository.org0330j0z60Environmental Data Initiative
+    
+      
+                  Chloride, Sulfate
+          Samples for chloride and sulfate are collected together with a peristaltic pump and tubing and in-line filtered through a 0.45 micron filter capsule (0.45 micron polycarbonate filter before 2015) into new, 20 ml HDPE plastic containers with conical caps. The samples are stored refrigerated at 4 degrees Celsius until analysis, which should occur within 6 months. The samples are analyzed for chloride (and sulfate) simultaneously by Ion Chromatography, using a hydroxide efluent. The detection limit for chloride is approximately 0.01 ppm and the analytical range for the method extends to 100 ppm. The detection limit for sulfate is approximately 0.01 ppm and the analytical range for the method extends to 60 ppm. Method Log: Prior to January 1998 samples, chloride was determined on a Dionex DX10 Ion Chromatograph, using a chemical fiber suppressor. From 1998 to 2011, chloride was determined by a Dionex model DX500, using an electro-chemical suppressor. From January 2011 until present, chloride is determined by a Dionex model ICS 2100 using an electro-chemical suppressor.
+          Calcium, magnesium, sodium, potassium, iron, and manganese
+          Samples for calcium analysis (as well as dissolved nitrogen and phosphorus, magnesium, sodium, potassium, iron, and manganese) are collected together with a peristaltic pump and tubing and in-line filtered through a 0.45 micron filter capsule (0.45 micron polycarbonate filter before 2015) into 120 ml LDPE bottles and acidified to a 1percent HCl matrix by adding 1 ml of ultra pure concentrated HCl to 100 mls of sample. For every sample acidification event, three acid blanks are created by adding the same acid used on the samples to 100 mls of ultra pure water supplied from the lab. Once acidified, the samples are stable at room temperature until analysis, which should occur within one year. Until acidification, the samples should be refrigerated at 4 degrees Celsius. Calcium, as well as magnesium, sodium, potassium, iron, and manganese are analyzed simultaneously on an optical inductively-coupled plasma emission spectrophotometer (ICP-OES). The acidified samples are directly aspirated into the instrument without a digestion. Calcium is analyzed at 317.933 nm and at 315.887 nm and viewed axially for low-level analysis and radially for high level analysis. The detection limit for calcium is 0.06 ppm with an analytical range of the method extends to 50 ppm. The detection limit for iron is 0.02 ppm with an analytical range of the method extends to 20 ppm. The detection limit for magnesium is 0.03 ppm with an analytical range of the method extends to 50 ppm. The detection limit for manganese is 0.01 ppm with an analytical range of the method extends to 2 ppm. The detection limit for potassium is 0.06 ppm with an analytical range of the method extends to 10 ppm. The detection limit for sodium is 0.06 ppm with an analytical range of the method extends to 50 ppm. Method Log: Prior to January 2002, calcium, magnesium, sodium, potassium, iron, and manganese were determined on a Perkin-Elmer model 503 Atomic Absorption Spectrophotometer. Lanthanum at a 0.8percent concentration was added as a matrix modifier to suppress chemical interferences. From January 2002 to April 2019, samples were analyzed for calcium on a Perkin-Elmer model 4300 DV ICP. From May 2019 to present, samples are run on an Agilent 5110 VDV ICP-OES.
+
+      
+      
+                  Samples for conductivity are unfiltered water collected four times per year at the deepest part of the lake. Water is collected from the surface, mid water column, and the bottom using a peristaltic pump and tubing.  Samples are kept cold and dark until analysis, which occurs within one week of sample collection.  Just prior to measurement, the samples are warmed to 25 degrees Celsius in a water bath. Sample conductivity and temperature are measured using a YSI Model 32 conductivity meter equipped with a YSI 3403 conductivity cell and YSI 3220 temperature sensor.  A 1400 uS/cm standard is used to calculate the cell constant.  In addition to the lake water samples,  10 and 100 uS/cm standards are run as quality control check samples.
+          EQUATIONS FOR CALCULATING CELL CONSTANT AND SAMPLE CONDUCTIVITY
+          Conductivity is routinely reported as a value corrected to 25 C. This correction is represented in the following equations as:   (CM)(25 - T)(0.0191)
+          where: CM = measured conductivity, T = measured temperature (C)
+          Calculation of Cell Constant:
+          K = ST/CA where: K = cell constant; ST = true conductivity of standard; CA = calculated conductivity of standard.
+          Calculation of Sample Conductivity: CA = K{CM+(CM)(25-T)(0.0191)}
+
+      
+    
+    
+      LTER: Comparative Studies of a Suite of Lakes in Wisconsin 1980
+      
+        John Magnuson
+        University of Wisconsin-Madison
+        PI
+      
+      
+        National Science Foundation LTER
+        LTER 8012313
+        LTER: Comparative Studies of a Suite of Lakes in Wisconsin
+      
+      
+        LTER: Comparative Studies of a Suite of Lakes in Wisconsin 1986
+        
+          John Magnuson
+          University of Wisconsin-Madison
+          PI
+        
+        
+          National Science Foundation
+          LTER 8514330
+          LTER: Comparative Studies of a Suite of Lakes in Wisconsin
+        
+      
+      
+        LTER: Comparative Studies of a Suite of Lakes in Wisconsin 1991
+        
+          John Magnuson
+          University of Wisconsin-Madison
+          PI
+        
+        
+          National Science Foundation
+          LTER 9011660
+          LTER: Comparative Studies of a Suite of Lakes in Wisconsin
+        
+      
+      
+        LTER: Comparative Studies of a Suite of Lakes in Wisconsin 1996
+        
+          Stephen Carpenter
+          University of Wisconsin-Madison
+          PI
+        
+        
+          National Science Foundation
+          LTER 9632853
+          LTER: Comparative Studies of a Suite of Lakes in Wisconsin
+        
+      
+      
+        LTER: Comparative Studies of a Suite of Lakes in Wisconsin 2002
+        
+          Stephen Carpenter
+          PI
+        
+        
+          National Science Foundation
+          LTER 0217533
+          LTER: Comparative Studies of a Suite of Lakes in Wisconsin
+        
+      
+      
+        LTER: Comparative Studies of a Suite of Lakes in Wisconsin 2008
+        
+          Emily Stanley
+          University of Wisconsin-Madison
+          PI
+        
+        
+          National Science Foundation
+          LTER 0822700
+          LTER: Comparative Studies of a Suite of Lakes in Wisconsin
+        
+      
+      
+        LTER: Comparative Studies of a Suite of Lakes in Wisconsin 2014
+        
+          Emily Stanley
+          University of Wisconsin-Madison
+          PI
+        
+        
+          National Science Foundation
+          LTER 1440297
+          LTER: Comparative Studies of a Suite of Lakes in Wisconsin
+        
+      
+      
+        LTER: Comparative Studies of a Suite of Lakes in Wisconsin 2021
+        
+          Emily Stanley
+          PI
+        
+        
+          National Science Foundation
+          LTER 2025928
+          LTER: Comparative Studies of a Suite of Lakes in Wisconsin
+        
+      
+    
+    
+      Chemical Limnology of North Temperate Lakes LTER Primary Study Lakes: Major Ions
+      Chemical Limnology of North Temperate Lakes LTER Primary Study Lakes: Major Ions
+      
+        ntl2_v10.csv
+        911755
+        66d8abd705a196499e20fcb5f7bc03dc
+        
+          
+            1
+            \r\n
+            column
+            
+              ,
+              "
+            
+          
+        
+        
+          
+            https://pasta.lternet.edu/package/data/eml/knb-lter-ntl/2/38/0701a84081989bb1ff37d621a6c4560a
+          
+        
+      
+      
+        
+          lakeid
+          lake name abbreviation
+          lake name abbreviation
+          string
+          
+            
+              
+                
+                  
+                    AL
+                    Allequash Lake
+                  
+                  
+                    BM
+                    Big Muskellunge Lake
+                  
+                  
+                    CB
+                    Bog 27-2 (Crystal Bog)
+                  
+                  
+                    CR
+                    Crystal Lake
+                  
+                  
+                    FI
+                    Fish Lake
+                  
+                  
+                    ME
+                    Lake Mendota
+                  
+                  
+                    MO
+                    Lake Monona
+                  
+                  
+                    SP
+                    Sparkling Lake
+                  
+                  
+                    TB
+                    Bog 12-15 (Trout Bog)
+                  
+                  
+                    TR
+                    Trout Lake
+                  
+                  
+                    WI
+                    Lake Wingra
+                  
+                
+              
+            
+          
+        
+        
+          year4
+          year4
+          four-digit year
+          float
+          
+            
+              
+                nominalYear
+              
+              
+                integer
+              
+            
+          
+        
+        
+          daynum
+          daynum
+          day of the year
+          float
+          
+            
+              
+                number
+              
+              
+                integer
+              
+            
+          
+        
+        
+          sampledate
+          sampledate
+          Formatted date of sample
+          dateTime
+          
+            
+              YYYY-MM-DD
+            
+          
+        
+        
+          depth
+          depth
+          water depth of sample
+          float
+          
+            
+              
+                meter
+              
+              
+                real
+              
+            
+          
+        
+        
+          rep
+          rep
+          sample replicate
+          string
+          
+            
+              
+                
+                  
+                    1
+                    Replicate 1
+                  
+                
+              
+            
+          
+        
+        
+          sta
+          sta
+          Location station of sample
+          string
+          
+            
+              
+                
+                  
+                    1
+                    Station 1
+                  
+                  
+                    2
+                    Station 2
+                  
+                  
+                    3
+                    Station 3
+                  
+                
+              
+            
+          
+        
+        
+          event
+          Sampling Event
+          sampling event
+          string
+          
+            
+              
+                
+                  
+                    Chem
+                    Samples are taken during one of the monthly (but non-quarterly) chemistry profile sampling events
+                  
+                  
+                    Non-chem
+                    Samples are not taken during one of the monthly (but non-quarterly) chemistry profile sampling events
+                  
+                  
+                    Other
+                    Non standard sampling event
+                  
+                  
+                    Quarterly
+                    Samples are taken during one of the four quarterly sampling events
+                  
+                
+              
+            
+          
+        
+        
+          cl
+          cl
+          chloride concentation
+          float
+          
+            
+              
+                milligramPerLiter
+              
+              
+                real
+              
+            
+          
+        
+        
+          so4
+          so4
+          sulfate concentration
+          float
+          
+            
+              
+                milligramPerLiter
+              
+              
+                real
+              
+            
+          
+        
+        
+          ca
+          ca
+          calcium concentration
+          float
+          
+            
+              
+                milligramPerLiter
+              
+              
+                real
+              
+            
+          
+        
+        
+          mg
+          mg
+          magnesium concentration
+          float
+          
+            
+              
+                milligramPerLiter
+              
+              
+                real
+              
+            
+          
+        
+        
+          na
+          na
+          sodium concentration
+          float
+          
+            
+              
+                milligramPerLiter
+              
+              
+                real
+              
+            
+          
+        
+        
+          k
+          k
+          potassium concentration
+          float
+          
+            
+              
+                milligramPerLiter
+              
+              
+                real
+              
+            
+          
+        
+        
+          fe
+          fe
+          iron concentration
+          float
+          
+            
+              
+                milligramPerLiter
+              
+              
+                real
+              
+            
+          
+        
+        
+          mn
+          mn
+          manganese concentration
+          float
+          
+            
+              
+                milligramPerLiter
+              
+              
+                real
+              
+            
+          
+        
+        
+          cond
+          cond
+          Specific conductance
+          float
+          
+            
+              
+                microsiemens per centimeter
+              
+              
+                real
+              
+            
+          
+        
+        
+          flagcl
+          data flag for cl
+          data flag for chloride
+          string
+          
+            
+              
+                
+                  
+                    E
+                    Average of duplicate analyses
+                  
+                  
+                    F
+                    Duplicate analyses in error
+                  
+                  
+                    G
+                    Analysed late
+                  
+                  
+                    H
+                    Outside of standard range
+                  
+                  
+                    I
+                    Outside of data entry constraints
+                  
+                  
+                    J
+                    Non standard routine followed
+                  
+                  
+                    K
+                    Data suspect
+                  
+                  
+                    L
+                    Data point and blind value differ by more than 15%
+                  
+                  
+                    M
+                    More than t
+                  
+                  
+                    N
+                    Sample retested
+                  
+                  
+                    O
+                    Value suspect but total pigment(CHL + PHAEO) value accurate
+                  
+                  
+                    P
+                    TPM uncorrected for humidity change between filter weighing
+                  
+                  
+                    Q
+                    Quality control comments on SLOH lab sheet
+                  
+                  
+                    R
+                    Value between LOD and LOQ
+                  
+                  
+                    S
+                    Value below detection limit; set to zero
+                  
+                  
+                    T
+                    Sample contaminated; data not reported
+                  
+                  
+                    U
+                    Equipment malfunction produced bad value; value set to missing;
+                  
+                  
+                    V
+                    Could not be computed; set to missing
+                  
+                  
+                    W
+                    negative light value; set to zero
+                  
+                  
+                    X
+                    Value below detection limit (non-SLOH data)
+                  
+                
+              
+            
+          
+        
+        
+          flagso4
+          data flag for so4
+          data flag for so4
+          string
+          
+            
+              
+                
+                  
+                    E
+                    Average of duplicate analyses
+                  
+                  
+                    F
+                    Duplicate analyses in error
+                  
+                  
+                    G
+                    Analysed late
+                  
+                  
+                    H
+                    Outside of standard range
+                  
+                  
+                    I
+                    Outside of data entry constraints
+                  
+                  
+                    J
+                    Non standard routine followed
+                  
+                  
+                    K
+                    Data suspect
+                  
+                  
+                    L
+                    Data point and blind value differ by more than 15%
+                  
+                  
+                    M
+                    More than t
+                  
+                  
+                    N
+                    Sample retested
+                  
+                  
+                    O
+                    Value suspect but total pigment(CHL + PHAEO) value accurate
+                  
+                  
+                    P
+                    TPM uncorrected for humidity change between filter weighing
+                  
+                  
+                    Q
+                    Quality control comments on SLOH lab sheet
+                  
+                  
+                    R
+                    Value between LOD and LOQ
+                  
+                  
+                    S
+                    Value below detection limit; set to zero
+                  
+                  
+                    T
+                    Sample contaminated; data not reported
+                  
+                  
+                    U
+                    Equipment malfunction produced bad value; value set to missing;
+                  
+                  
+                    V
+                    Could not be computed; set to missing
+                  
+                  
+                    W
+                    negative light value; set to zero
+                  
+                  
+                    X
+                    Value below detection limit (non-SLOH data)
+                  
+                
+              
+            
+          
+        
+        
+          flagca
+          data flag for ca
+          data flag for ca
+          string
+          
+            
+              
+                
+                  
+                    E
+                    Average of duplicate analyses
+                  
+                  
+                    F
+                    Duplicate analyses in error
+                  
+                  
+                    G
+                    Analysed late
+                  
+                  
+                    H
+                    Outside of standard range
+                  
+                  
+                    I
+                    Outside of data entry constraints
+                  
+                  
+                    J
+                    Non standard routine followed
+                  
+                  
+                    K
+                    Data suspect
+                  
+                  
+                    L
+                    Data point and blind value differ by more than 15%
+                  
+                  
+                    M
+                    More than t
+                  
+                  
+                    N
+                    Sample retested
+                  
+                  
+                    O
+                    Value suspect but total pigment(CHL + PHAEO) value accurate
+                  
+                  
+                    P
+                    TPM uncorrected for humidity change between filter weighing
+                  
+                  
+                    Q
+                    Quality control comments on SLOH lab sheet
+                  
+                  
+                    R
+                    Value between LOD and LOQ
+                  
+                  
+                    S
+                    Value below detection limit; set to zero
+                  
+                  
+                    T
+                    Sample contaminated; data not reported
+                  
+                  
+                    U
+                    Equipment malfunction produced bad value; value set to missing;
+                  
+                  
+                    V
+                    Peak absorbance not near 665 nm
+                  
+                  
+                    W
+                    negative light value; set to zero
+                  
+                  
+                    X
+                    Value below detection limit (non-SLOH data)
+                  
+                
+              
+            
+          
+        
+        
+          flagmg
+          data flag for mg
+          data flag for magnesiumn
+          string
+          
+            
+              
+                
+                  
+                    E
+                    Average of duplicate analyses
+                  
+                  
+                    F
+                    Duplicate analyses in error
+                  
+                  
+                    G
+                    Analysed late
+                  
+                  
+                    H
+                    Outside of standard range
+                  
+                  
+                    I
+                    Outside of data entry constraints
+                  
+                  
+                    J
+                    Non standard routine followed
+                  
+                  
+                    K
+                    Data suspect
+                  
+                  
+                    L
+                    Data point and blind value differ by more than 15%
+                  
+                  
+                    M
+                    More than t
+                  
+                  
+                    N
+                    Sample retested
+                  
+                  
+                    O
+                    Value suspect but total pigment(CHL + PHAEO) value accurate
+                  
+                  
+                    P
+                    TPM uncorrected for humidity change between filter weighing
+                  
+                  
+                    Q
+                    Quality control comments on SLOH lab sheet
+                  
+                  
+                    R
+                    Value between LOD and LOQ
+                  
+                  
+                    S
+                    Value below detection limit; set to zero
+                  
+                  
+                    T
+                    Sample contaminated; data not reported
+                  
+                  
+                    U
+                    Equipment malfunction produced bad value; value set to missing;
+                  
+                  
+                    V
+                    Could not be computed; set to missing
+                  
+                  
+                    W
+                    negative light value; set to zero
+                  
+                  
+                    X
+                    Value below detection limit (non-SLOH data)
+                  
+                
+              
+            
+          
+        
+        
+          flagna
+          data flag for na
+          data flag for sodium
+          string
+          
+            
+              
+                
+                  
+                    E
+                    Average of duplicate analyses
+                  
+                  
+                    F
+                    Duplicate analyses in error
+                  
+                  
+                    G
+                    Analysed late
+                  
+                  
+                    H
+                    Outside of standard range
+                  
+                  
+                    I
+                    Outside of data entry constraints
+                  
+                  
+                    J
+                    Non standard routine followed
+                  
+                  
+                    K
+                    Data suspect
+                  
+                  
+                    L
+                    Data point and blind value differ by more than 15%
+                  
+                  
+                    M
+                    More than t
+                  
+                  
+                    N
+                    Sample retested
+                  
+                  
+                    O
+                    Value suspect but total pigment(CHL + PHAEO) value accurate
+                  
+                  
+                    P
+                    TPM uncorrected for humidity change between filter weighing
+                  
+                  
+                    Q
+                    Quality control comments on SLOH lab sheet
+                  
+                  
+                    R
+                    Value between LOD and LOQ
+                  
+                  
+                    S
+                    Value below detection limit; set to zero
+                  
+                  
+                    T
+                    Sample contaminated; data not reported
+                  
+                  
+                    U
+                    Equipment malfunction produced bad value; value set to missing;
+                  
+                  
+                    V
+                    Could not be computed; set to missing
+                  
+                  
+                    W
+                    negative light value; set to zero
+                  
+                  
+                    X
+                    Value below detection limit (non-SLOH data)
+                  
+                
+              
+            
+          
+        
+        
+          flagk
+          data flag for k
+          data flag for potassium
+          string
+          
+            
+              
+                
+                  
+                    E
+                    Average of duplicate analyses
+                  
+                  
+                    F
+                    Duplicate analyses in error
+                  
+                  
+                    G
+                    Analysed late
+                  
+                  
+                    H
+                    Outside of standard range
+                  
+                  
+                    I
+                    Outside of data entry constraints
+                  
+                  
+                    J
+                    Non standard routine followed
+                  
+                  
+                    K
+                    Data suspect
+                  
+                  
+                    L
+                    Data point and blind value differ by more than 15%
+                  
+                  
+                    M
+                    More than t
+                  
+                  
+                    N
+                    Sample retested
+                  
+                  
+                    O
+                    Value suspect but total pigment(CHL + PHAEO) value accurate
+                  
+                  
+                    P
+                    TPM uncorrected for humidity change between filter weighing
+                  
+                  
+                    Q
+                    Quality control comments on SLOH lab sheet
+                  
+                  
+                    R
+                    Value between LOD and LOQ
+                  
+                  
+                    S
+                    Value below detection limit; set to zero
+                  
+                  
+                    T
+                    Sample contaminated; data not reported
+                  
+                  
+                    U
+                    Equipment malfunction produced bad value; value set to missing;
+                  
+                  
+                    V
+                    Could not be computed; set to missing
+                  
+                  
+                    W
+                    negative light value; set to zero
+                  
+                  
+                    X
+                    Value below detection limit (non-SLOH data)
+                  
+                
+              
+            
+          
+        
+        
+          flagfe
+          data flag for fe
+          data flag for iron
+          string
+          
+            
+              
+                
+                  
+                    E
+                    Average of duplicate analyses
+                  
+                  
+                    F
+                    Duplicate analyses in error
+                  
+                  
+                    G
+                    Analysed late
+                  
+                  
+                    H
+                    Outside of standard range
+                  
+                  
+                    I
+                    Outside of data entry constraints
+                  
+                  
+                    J
+                    Non standard routine followed
+                  
+                  
+                    K
+                    Data suspect
+                  
+                  
+                    L
+                    Data point and blind value differ by more than 15%
+                  
+                  
+                    M
+                    More than t
+                  
+                  
+                    N
+                    Sample retested
+                  
+                  
+                    O
+                    Value suspect but total pigment(CHL + PHAEO) value accurate
+                  
+                  
+                    P
+                    TPM uncorrected for humidity change between filter weighing
+                  
+                  
+                    Q
+                    Quality control comments on SLOH lab sheet
+                  
+                  
+                    R
+                    Value between LOD and LOQ
+                  
+                  
+                    S
+                    Value below detection limit; set to zero
+                  
+                  
+                    T
+                    Sample contaminated; data not reported
+                  
+                  
+                    U
+                    Equipment malfunction produced bad value; value set to missing;
+                  
+                  
+                    V
+                    Could not be computed; set to missing
+                  
+                  
+                    W
+                    negative light value; set to zero
+                  
+                  
+                    X
+                    Value below detection limit (non-SLOH data)
+                  
+                
+              
+            
+          
+        
+        
+          flagmn
+          data flag for mn
+          data flag for manganese
+          string
+          
+            
+              
+                
+                  
+                    E
+                    Average of duplicate analyses
+                  
+                  
+                    F
+                    Duplicate analyses in error
+                  
+                  
+                    G
+                    Analysed late
+                  
+                  
+                    H
+                    Outside of standard range
+                  
+                  
+                    I
+                    Outside of data entry constraints
+                  
+                  
+                    J
+                    Non standard routine followed
+                  
+                  
+                    K
+                    Data suspect
+                  
+                  
+                    L
+                    Data point and blind value differ by more than 15%
+                  
+                  
+                    M
+                    More than t
+                  
+                  
+                    N
+                    Sample retested
+                  
+                  
+                    O
+                    Value suspect but total pigment(CHL + PHAEO) value accurate
+                  
+                  
+                    P
+                    TPM uncorrected for humidity change between filter weighing
+                  
+                  
+                    Q
+                    Quality control comments on SLOH lab sheet
+                  
+                  
+                    R
+                    Value between LOD and LOQ
+                  
+                  
+                    S
+                    Value below detection limit; set to zero
+                  
+                  
+                    T
+                    Sample contaminated; data not reported
+                  
+                  
+                    U
+                    Equipment malfunction produced bad value; value set to missing;
+                  
+                  
+                    V
+                    Peak absorbance not near 665 nm
+                  
+                  
+                    W
+                    negative light value; set to zero
+                  
+                  
+                    X
+                    Value below detection limit (non-SLOH data)
+                  
+                
+              
+            
+          
+        
+        
+          flagcond
+          data flag for cond
+          data flag for specific conductivity
+          string
+          
+            
+              
+                
+                  
+                    E
+                    Average of duplicate analyses
+                  
+                  
+                    F
+                    Duplicate analyses in error
+                  
+                  
+                    G
+                    Analysed late
+                  
+                  
+                    H
+                    Outside of standard range
+                  
+                  
+                    I
+                    Outside of data entry constraints
+                  
+                  
+                    J
+                    Non standard routine followed
+                  
+                  
+                    K
+                    Data suspect
+                  
+                  
+                    L
+                    Data point and blind value differ by more than 15%
+                  
+                  
+                    M
+                    More than t
+                  
+                  
+                    N
+                    Sample retested
+                  
+                  
+                    O
+                    Value suspect but total pigment(CHL + PHAEO) value accurate
+                  
+                  
+                    P
+                    TPM uncorrected for humidity change between filter weighing
+                  
+                  
+                    Q
+                    Quality control comments on SLOH lab sheet
+                  
+                  
+                    R
+                    Value between LOD and LOQ
+                  
+                  
+                    S
+                    Value below detection limit; set to zero
+                  
+                  
+                    T
+                    Sample contaminated; data not reported
+                  
+                  
+                    U
+                    Equipment malfunction produced bad value; value set to missing;
+                  
+                  
+                    V
+                    Could not be computed; set to missing
+                  
+                  
+                    W
+                    negative light value; set to zero
+                  
+                  
+                    X
+                    Value below detection limit (non-SLOH data)
+                  
+                
+              
+            
+          
+        
+      
+      no
+      11270
+    
+  
+  
+    
+      
+        
+          Electrical conductivity
+        
+      
+    
+  
+  
+    
+      
+    
+  

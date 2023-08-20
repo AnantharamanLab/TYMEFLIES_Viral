@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eml:eml packageId="knb-lter-ntl.38.28"
+  system="https://pasta.edirepository.org"
+  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://eml.ecoinformatics.org/eml-2.2.0 https://eml.ecoinformatics.org/eml-2.2.0/eml.xsd">
+  <access
+    authSystem="https://pasta.edirepository.org/authentication"
+    order="allowFirst" scope="document"
+      system="https://pasta.edirepository.org">
+    <allow>
+      <principal>uid=NTL,o=EDI,dc=edirepository,dc=org</principal>
+      <permission>all</permission>
+    </allow>
+    <allow>
+      <principal>public</principal>
+      <permission>read</permission>
+    </allow>
+  </access>
+  <dataset>
+    <alternateIdentifier
+        system="https://doi.org">doi:10.6073/pasta/f9c2e1059bcf92f138e140950a3632f2</alternateIdentifier><title>North Temperate Lakes LTER: Chlorophyll - Madison Lakes Area 1995 - current</title>
+    <creator>
+      <individualName>
+        <givenName>John</givenName>
+        <surName>Magnuson</surName>
+      </individualName>
+      <organizationName>University of Wisconsin</organizationName>
+      <address>
+        <deliveryPoint>680 North park Street</deliveryPoint>
+        <city>Madison</city>
+        <administrativeArea>WI</administrativeArea>
+        <postalCode>53706</postalCode>
+        <country>US</country>
+      </address>
+      <phone
+        phonetype="voice">(608) 262-3014</phone>
+      <phone
+        phonetype="facsimile">(608) 265-2340</phone>
+      <electronicMailAddress>john.magnuson@wisc.edu</electronicMailAddress>
+      <onlineUrl>http://limnology.wisc.edu/john_magnuson.htm</onlineUrl>
+    </creator>
+    <creator>
+      <individualName>
+        <givenName>Stephen</givenName>
+        <surName>Carpenter</surName>
+      </individualName>
+      <organizationName>University of Wisconsin</organizationName>
+      <address>
+        <deliveryPoint>680 North Park Street</deliveryPoint>
+        <city>Madison</city>
+        <administrativeArea>WI</administrativeArea>
+        <postalCode>53706</postalCode>
+        <country>US</country>
+      </address>
+      <phone
+        phonetype="voice">(608) 262-3014</phone>
+      <phone
+        phonetype="facsimile">(608) 265-2340</phone>
+      <electronicMailAddress>steve.carpenter@wisc.edu</electronicMailAddress>
+      <onlineUrl>http://limnology.wisc.edu/steve_carpenter.htm</onlineUrl>
+      <userId
+        directory="http://orcid.org">0000-0001-8097-8700</userId>
+    </creator>
+    <creator>
+      <individualName>
+        <givenName>Emily</givenName>
+        <surName>Stanley</surName>
+      </individualName>
+      <organizationName>University of Wisconsin</organizationName>
+      <address>
+        <deliveryPoint>680 North Park Street</deliveryPoint>
+        <city>Madison</city>
+        <administrativeArea>WI</administrativeArea>
+        <postalCode>53706</postalCode>
+        <country>US</country>
+      </address>
+      <phone
+        phonetype="voice">(608) 263-2567</phone>
+      <phone
+        phonetype="facsimile">(608) 265-2340</phone>
+      <electronicMailAddress>ehstanley@wisc.edu</electronicMailAddress>
+      <onlineUrl>http://limnology.wisc.edu/personnel/emstan/</onlineUrl>
+      <userId
+      directory="http://orcid.org">0000-0003-4922-8121</userId>
+    </creator>
+    <metadataProvider>
+      <individualName>
+        <givenName>NTL</givenName>
+        <surName>Information Manager</surName>
+      </individualName>
+      <organizationName>University of Wisconsin</organizationName>
+      <address>
+        <deliveryPoint>680 North Park Street</deliveryPoint>
+        <city>Madison</city>
+        <administrativeArea>WI</administrativeArea>
+        <postalCode>53706</postalCode>
+        <country>US</country>
+      </address>
+      <electronicMailAddress>ntl.infomgr@gmail.com</electronicMailAddress>
+    </metadataProvider>
+    <pubDate>2022-11-15</pubDate>
+    <language>English</language>
+    <abstract>
+      <para>
+          Chlorophyll is measured at our permanent sampling station in the deepest part of the lake. Chlorophyll samples are collected from the four primary study lakes in the Madison area (Lakes Mendota, Monona, and Wingra and Fish Lake) at integrated depths and discrete depths for spectrophotometric analysis and fluorometric analysis. Due to a change in instruments starting in 2002 and lasting through 2007, chlorophyll analyses for the southern lakes had an uncorrectable bias, and are not included in this dataset.  Analyses since then (2008 onward) have been determined to not have this bias. Sampling Frequency: bi-weekly during ice-free season from late March or early April through early September, then every 4 weeks through late November; sampling is conducted usually once during the winter (depending on ice conditions). Number of sites: 4
+        </para>
+      <para>Please consult NTL's website for information on experimental lake manipulations and the
+        DNR's website for management activities</para>
+    </abstract>
+    <keywordSet>
+      <keyword>NTL Core Datasets</keyword>
+      <keyword>biological (all)</keyword>
+      <keyword>chlorophyll</keyword>
+      <keywordThesaurus>NTL Themes</keywordThesaurus>
+    </keywordSet>
+    <keywordSet>
+      <keyword>North Temperate Lakes - LTER</keyword>
+      <keyword>NTL LTER</keyword>
+      <keyword>phaeophyton</keyword>
+      <keywordThesaurus>NTL Keywords</keywordThesaurus>
+    </keywordSet>
+    <keywordSet>
+      <keyword>Primary Production</keyword>
+      <keywordThesaurus>Core Areas</keywordThesaurus>
+    </keywordSet>
+    <keywordSet>
+      <keyword>chlorophyll</keyword>
+      <keyword>chlorophyll a</keyword>
+      <keywordThesaurus>LTER Controlled Vocabulary</keywordThesaurus>
+    </keywordSet>
+    <intellectualRights>This information is released under the Creative Commons license - Attribution -
+    CC BY (https://creativecommons.org/licenses/by/4.0/). The consumer of these data ("Data User"
+    herein) is required to cite it appropriately in any publication that results from its use. The
+    Data User should realize that these data may be actively used by others for ongoing research and
+    that coordination may be necessary to prevent duplicate publication. The Data User is urged to
+    contact the authors of these data if any questions about methodology or results occur. Where
+    appropriate, the Data User is encouraged to consider collaboration or co-authorship with the
+    authors. The Data User should realize that misinterpretation of data may occur if used out of
+    context of the original study. While substantial efforts are made to ensure the accuracy of data
+    and associated documentation, complete accuracy of data sets cannot be guaranteed. All data are
+    made available "as is." The Data User should be aware, however, that data are updated
+    periodically and it is the responsibility of the Data User to check for new versions of the
+    data. The data authors and the repository where these data were obtained shall not be liable for
+    damages resulting from any use or misinterpretation of the data. Thank you.</intellectualRights>
+    <licensed>
+      <licenseName>Creative Commons Attribution 4.0 International</licenseName>
+      <url>https://spdx.org/licenses/CC-BY-4.0.html</url>
+      <identifier>CC-BY-4.0</identifier>
+    </licensed>
+    <distribution
+      id="10.6073/pasta/f9c2e1059bcf92f138e140950a3632f2" scope="system"
+          system="https://pasta.edirepository.org"><online><url
+        function="information">https://doi.org/10.6073/pasta/f9c2e1059bcf92f138e140950a3632f2</url></online></distribution><coverage>
+      <geographicCoverage>
+        <geographicDescription>Lake Mendota is located in the Yahara River watershed within Dane County. It is a drainage lake with predominantly muck substrate. It has a surface area of 3961 hectare, 33.8 kilometers of highly developed shoreline and a maximum depth of 25.3 meters. NTL LTER sampling location is at 43.09885, -89.40545 Detailed Info: Surface Area (km2): 39.6, Mean Depth (m): 12.8, Maximum Depth (m): 25.3, Volume (m3): 506,880,000, Shoreline Length (km): 33.8, Landscape Position: Low, Development on shoreline: High, Duration of ice cover (days): 119, pH: 8.4, ANC (µeq/L): 3665, Conductivity (µS/cm): 412, Total P (µg/l): 109.5, Total N (µg/l): 860, SiO2 (µg/l): 711, Secchi Depth (m): 3, Chlorophyll (µg/l): 4.8, Number of fish species: 43</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-89.4837</westBoundingCoordinate>
+          <eastBoundingCoordinate>-89.3673</eastBoundingCoordinate>
+          <northBoundingCoordinate>43.146</northBoundingCoordinate>
+          <southBoundingCoordinate>43.0766</southBoundingCoordinate>
+          <boundingAltitudes>
+            <altitudeMinimum>259</altitudeMinimum>
+            <altitudeMaximum>259</altitudeMaximum>
+            <altitudeUnits>meter</altitudeUnits>
+          </boundingAltitudes>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage>
+        <geographicDescription>Lake Monona is located in the Yahara River watershed within Dane County.It is a drainage lake with muck, sand and gravel substrate. It has a surface area of 1324 hectare, 20.9 kilometers of highly developed shoreline and a maximum depth of 22.5 meters.NTL LTER sampling location is at 43.06337, -89.36086 Detailed Info: Surface Area (km2): 13.6, Mean Depth (m): 8.2, Maximum Depth (m): 22.5, Shoreline Length (km): 20.9, Landscape Position: Low, Development on shoreline: High, Duration of ice cover (days): 107, pH: 8.5, ANC (µeq/L): 3547, Conductivity (µS/cm): 434, Total P (µg/l): 73.5, Total N (µg/l): 845, SiO2 (µg/l): 454, Secchi Depth (m): 2.4, Chlorophyll (µg/l): 8.1, Number of fish species: 41, Volume (m3): 111,520,000</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-89.4001</westBoundingCoordinate>
+          <eastBoundingCoordinate>-89.3251</eastBoundingCoordinate>
+          <northBoundingCoordinate>43.0905</northBoundingCoordinate>
+          <southBoundingCoordinate>43.0451</southBoundingCoordinate>
+          <boundingAltitudes>
+            <altitudeMinimum>258</altitudeMinimum>
+            <altitudeMaximum>258</altitudeMaximum>
+            <altitudeUnits>meter</altitudeUnits>
+          </boundingAltitudes>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage>
+        <geographicDescription>Lake Wingra is located in the Yahara River watershed within Dane County.It is a drainage lake with predominantly muck substrate. It has a surface area of 139.6 hectare, 5.9 kilometers of highly developed shoreline and a maximum depth of 6.7 meters.NTL LTER sampling location is at 43.05258 -89.42499 Detailed Info: Surface Area (km2): 1.36, Mean Depth (m): 2.7, Maximum Depth (m): 6.7, Shoreline Length (km): 5.8, Volume (m3): 3,672,000, Landscape Position: High, Development on shoreline: High, Duration of ice cover (days): 120, pH: 8.5, ANC (µeq/L): 3745, Conductivity (µS/cm): 500, Total P (µg/l): 40.3, Total N (µg/l): 933, SiO2 (µg/l): 5551, Secchi Depth (m): 0.7, Chlorophyll (µg/l): 10.5, Number of fish species: 29</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-89.4317</westBoundingCoordinate>
+          <eastBoundingCoordinate>-89.4046</eastBoundingCoordinate>
+          <northBoundingCoordinate>43.0581</northBoundingCoordinate>
+          <southBoundingCoordinate>43.0487</southBoundingCoordinate>
+          <boundingAltitudes>
+            <altitudeMinimum>259</altitudeMinimum>
+            <altitudeMaximum>259</altitudeMaximum>
+            <altitudeUnits>meter</altitudeUnits>
+          </boundingAltitudes>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage>
+        <geographicDescription>Fish Lake is located in the Yahara River watershed within Dane County.It is a seepage lake with predominantly sand and muck substrate. It has a surface area of 87.4 hectare, 4.3 kilometers of highly developed shoreline and a maximum depth of 18.9 meters.NTL LTER sampling location is at 43.09885, -89.40545 Detailed Info: Surface Area (km2): 0.8, Mean Depth (m): 6.6, Maximum Depth (m): 18.9, Shoreline Length (km): 4.3, Landscape Position: High, Development on shoreline: HIgh, pH: 8.1, ANC (µeq/L): 2921, Conductivity (µS/cm): 280, Total P (µg/l): 22.4, Total N (µg/l): 835, SiO2 (µg/l): 367, Secchi Depth (m): 2.4, Chlorophyll (µg/l): 5.1, Number of fish species: 26, Volume (m3): 5,280,000</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-89.6622</westBoundingCoordinate>
+          <eastBoundingCoordinate>-89.6439</eastBoundingCoordinate>
+          <northBoundingCoordinate>43.2922</northBoundingCoordinate>
+          <southBoundingCoordinate>43.2821</southBoundingCoordinate>
+          <boundingAltitudes>
+            <altitudeMinimum>261</altitudeMinimum>
+            <altitudeMaximum>261</altitudeMaximum>
+            <altitudeUnits>meter</altitudeUnits>
+          </boundingAltitudes>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <temporalCoverage>
+        <rangeOfDates>
+          <beginDate>
+            <calendarDate>1995-01-24</calendarDate>
+          </beginDate>
+          <endDate>
+            <calendarDate>2018-12-31</calendarDate>
+          </endDate>
+        </rangeOfDates>
+      </temporalCoverage>
+    </coverage>
+    <maintenance>
+      <description>
+        <para>
+          ongoing
+        </para>
+      </description>
+    </maintenance>
+    <contact>
+      <organizationName>NTL LTER</organizationName>
+      <address>
+        <deliveryPoint>680 North Park Street</deliveryPoint>
+        <city>Madison</city>
+        <administrativeArea>WI</administrativeArea>
+        <postalCode>53706</postalCode>
+        <country>United States</country>
+      </address>
+      <electronicMailAddress>ntl.infomgr@gmail.com</electronicMailAddress>
+      <userId
+        directory="https://ror.org">04gq8q482</userId>
+    </contact>
+    <publisher><organizationName>Environmental Data Initiative</organizationName><electronicMailAddress>info@edirepository.org</electronicMailAddress><onlineUrl>https://edirepository.org</onlineUrl><userId
+            directory="https://ror.org">0330j0z60</userId></publisher><pubPlace>Environmental Data Initiative</pubPlace>
+    <methods>
+      <methodStep>
+        <description>
+          <para>
+              Spectrophotometer
+A. Chlorophyll Extraction (using tissue grinder at DNR Research Station)1. Dim the lights and keep the sample tubes in the freezer: Because chlorophyll degrades when exposed to light and heat, this procedure and all others associated with analyzing chlorophyll should be carried out in dim light conditions. Only one sample tube should be out of the freezer at any one time while the pre-grinding or grinding procedure is occurring. Return each tube to the freezer as soon as its filter has been ground.2. Pre-grind filters: Use the sharpened stainless steel probe to chop up the filter into small pieces. This should take approximately 2 minutes.3. Grind filters: The teflon tip on the tissue grinder should be sanded after grinding approximately 5 filters. Grind each filter for 2 minutes. Do not lift the teflon tip out of the test tube while the grinder is rotating. Grind the filters by attempting to keep the teflon tip in the acetone solution and pressing the tip against the filter and the tube.4. Return the sample tubes to the freezer for 24 hours: Most protocols call for extracting the samples in the refrigerator (at 4 degrees C). However, after extracting duplicate samples in the freezer and refrigerator (after grinding) there was no significant difference in the chlorophyll results. Because past samples have been extracted in the freezer, this is the current procedure being used.B. Centrifuging the Samples:The samples should be centrifuged as close as possible to 24 hours after extraction. Before centrifuging the samples, turn on the spectrophotometer and enter the correct program number to be sure that it is working properly. Perform the procedures below in dim light.1. Checking acetone volume: In dim light, use an identical tube as those used for the samples but with mL marked on it, to measure the volume of the acetone in the samples. Measure to the nearest 0.5 mL. If the sample has any other volume than 5 mL, write the volume on the sample label and remember to enter the volume later into the spreadsheet.2. Loading the centrifuge: Making sure that the rubber stoppers are on tight, put tubes with equal acetone volumes opposite each other in the centrifuge. If there is an odd tube remaining or a tube with a different volume, put a spare tube opposite the sample with the same volume of water to counterbalance the centrifuge.4. Running the centrifuge: Turn the speed dial below 40. Turn the timer past 15 minutes. Slowly turn up the speed allowing time for the centrifuge to increase in speed. If there is an imbalance in the centrifuge (or any other problem), the centrifuge will run much louder than normal. In this case, stop the centrifuge and attempt to locate the imbalance. If the centrifuge is running smoothly, set the speed at 90 and the timer at 15 minutes. Previously, the numbers on the dial were believed to correspond to revolutions per second; however, this is not the case, for the centrifuge will only reach rpms of approximately 2500.5. Unloading the centrifuge: Allow the centrifuge to come to a stop on its own. Carefully take each sample tube out of the centrifuge with minimal mixing. If the filter paper is mixed with the liquid, it will be necessary to re-centrifuge the sample. Transport the samples to the spectrophotometer in a rack that has tinfoil on the sides in order to block out the light.C. Running a Sample:1. Select the test: Allow the spectrophotometer to warm up for at least 15 minutes. Select the proper program by pressing the test number followed by Select.2. Rinse the cuvettes 3 times with acetone. It is most efficient to rotate 4 matching 1 cm cuvettes. Try to touch the cuvettes only on the opaque sides avoiding touching the clear sides especially on the lower half of the cuvette.3. Run a blank and check that all cuvettes read near 0: Add acetone to the 4 matching cuvettes (at least half full), wipe them clean with a tissue, and insert them into the spectrophotometer with the labeled sides all facing the same direction (always put the tops on the cuvettes when they are in the spec). Press Run and the spec. will ask for a blank. Use one of the cuvettes filled with acetone as the blank. Once the blank is run, run all of the cuvettes (the cuvette position is changed by pulling out the metal rod to the next notched position). All of the readings at all wavelengths should be within .001 of 0. If this is not the case, remove the suspect cuvette and rinse, wipe, add acetone, and rerun it. Make sure that the correct program is being run by checking the wavelengths. The LTER samples should be run at 750, 665, 664, 647, and 630 nm.4. Rinse the pipette tip: Before adding sample to a cuvette, the pipette tip should be rinsed with acetone. You should have 2 different sized beakers, one for waste and one for acetone rinse. Set the 10-1000uL pipette to 1000 uL (1 mL) and pipette 1mL of acetone from the rinse beaker and dispose of it in the waste beaker. Be sure that the pipette tip is firmly on the pipette (press it on the bottom of the rinse beaker).5. Add sample to a cuvette: Before bringing the samples into the spectrophotometer room, turn off the overhead light and turn on the desk light in the corner. Carefully remove a sample from the rack and pipette approximately 2 mL of sample into a cuvette. Use caution not to suck up any filter paper into the pipette; tilt the sample to the side and submerge the pipette tip only just below the fluid level. If the pipette tip is getting close to the filter paper when removing the second mL of sample, stop pipetting and add the partial mL to the cuvette (it is possible to read approximately 1.5 mL of sample).6. Check the 750 nm reading and run the sample: Insert the cuvette into the spec. (making sure that the labeled side is always facing in the same direction). The default reading on the spec is 750 nm. Check to make sure that this reading is less than 0.010 A. If the reading is higher, remove the cuvette and re-wipe it with a tissue. If the reading is still high, pour the sample back into the tube and re-centrifuge it. To run the sample press Run.7. Acidify the sample: Once the sample has been run, remove it from the spec and add 60 uL of 0.1 N HCl (30 uL per 1 mL of sample). Gently shake the sample and wait 90 seconds to run it.8. Check the acidification ratio: The before acidorafter acid ratio of the LTER samples is usually between 1.3 and 1.7. Compare the two readings to make sure the ratio fits in this range. If the ratio is higher than 1.7, re-acidify the sample and run it again (the acid probably did not make contact with the sample).9. Rinse the cuvette: After checking the acidification ratio, dispose of the sample in the waste beaker and rinse the cuvette 3 times with acetone. Be sure to fill the cuvette to the top with acetone during each rinse to be sure that there is not any trace of acid left.Running Multiple Samples:1. It may be more efficient to run 2 samples before acidification and then run them both after acidification. If this is done, take caution to add the correct sample to the correct cuvette and not to mix up the samples when they are removed from the spec. for acidification.Recording the Results:1. Write the spec. id number located on the left of the printout onto the label of the corresponding sample. Each sample should have a before and an after acidification spec. id number written on its label. After all of the samples have been run, enter the date of analysis onto the spec. printout. This date will be used to identify the spec. printout when the data is proofread (after which proofed from spec. printout should be written on the spreadsheet).Clean-up:1. Rinse the cuvettes 3 times with acetone, allow them to dry for several minutes in the cuvette rack, and return them to their box.2. Solutions of less than 20percent Acetone can be disposed of down the drain followed by at least 10 volumes of water. Fill the waste beaker with water and pour the waste down the sink with the water running. Leave the water running for several minutes3. Rinse the beakers and pipette tips 3 times with tap water followed by 3 rinses with distilled water. Hang the beakers on the drying rack. 
+            </para>
+        </description>
+      </methodStep>
+      <methodStep>
+        <description>
+          <para>
+              Flourometer
+1. Extracting the Sample:Note: Because Chlorophyll degrades in the presence of light (and heat), perform the following procedures in low-light conditionsA. Add 25 mL of methanol to each film canister. After making sure that the top fits on snuggly, shake each canister for 5 seconds.B. Put the film canisters in the refrigerator for 24 hours. The film canisters should be shaken again sometime during the 24 hour period in the refrigerator.2. Preparing the Instrument:A. Turn on Turner TD-700 Fluorometer at least 30 minutes before analysis. Make sure that the proper lamp is installed (Daylight White, marked with a D) and that the correct filters are lined up in the filter adapter (Position A). If you change the lamp, be sure to handle it on the black rubber area and not on the bulb itself. Refer to the Owners Manual for more information (Turner Designs Technical Support has been fairly helpful with questions).B. Settings on Turner TD-700 should be set as follows:direct concentration, ugorLSet the maximum concentration to 250 ugorLSet the calibration to read 2 standardsSet the standard concentrations the same as the solid standard readings during the last primary standard calibration.C. Read the solid standard on the high and low setting. After 30 minutes of warm-up, compare the results to the solid standard measurement the known solid standards.Use solid standard R010 for Chl-ACompare readings to known standards (High=184.6, Low=30.5)If the current readings vary by more than 5percent from the known standards, recalibrate the fluorometerD. Calibrating the Turner TD-700. Primary standard calibration should be done at least annually. See calibration notes and manual.Start by pressing Enter greater than press 2 for calibration greater than Max range 250.0 greater than press 1 for ok greater than number of standards 2 greater than enterPlace standard in fluorometer so the H side is on the left greater than press 1 for ok greater than follow instructions greater than press timesFlip standard so L is on the left side greater than press 1 for ok greater than press timesRemove standard and replace with original sample holder with the arrow facing leftInsert blank into fluorometer greater than press enter greater than press 0Remove blank and replace with the solid standard. Re-read high and low. They should read 184.6 and 30.5, respectively.Note: It is a good idea to perform the above steps before extracting the sample to make sure that the fluorometer is functioning properly3. Reading the Sample:A. Follow the procedures above for Preparing the InstrumentB. Allow the film canisters to sit at room temperature for approximately 15 minutes to avoid excessive condensation on the glass tubes.C. Record the sample information for all of the film canisters on the data sheetD. Add 4 mL of sample to a 13 x 100 mL glass tubeE. Insert the sample into the fluorometer and record the reading in the Fluor Before Acid column. If the sample is over 250 ugorL an OVER message appears and the sample must be diluted. It is a good idea to quickly check the reading of a sample which is suspected to be to high to get an idea if other samples may need to be diluted. If possible read the samples undiluted.If a sample needs to be diluted, use an accurate 1000 uL pipette and add 2 mL of methanol to a tube followed by 2 mL of undiluted sample (2x Dilution Factor). Shake the tube well before inserting it into the fluorometer. If the sample still reads OVER, combine 1 mL of undiluted sample with 3 mL of methanol (4x Dilution Factor). Be sure to record the dilution information on the data sheet. Note that Dilution Factor = Total VolumeorSample Volume where Total Volume = Sample Volume plus Methanol VolumeG. Acidify the sample by adding 30 uL of 0.1 N HCl for every one mL of sample (30 uL of 0.1 N HCl is added for each 1 mL of sample; 120 uL of acid is added to a 4 mL sample). Then gently shake the sample and wait 90 seconds before putting the sample into the fluorometer and recording the reading in the Fluor after acid column.To read multiple samples, it is generally a good idea to group them in categories (by lake or date) and pipette 4 mL of no more than 10 samples into glass tubes. Be sure to keep the samples in the same order that you placed them in the tubes. You will then read and record all of the samples before acidification, acidify all of the samples, shake them all while they are in the glass tube holder, wait 90 seconds, and finally read and record the samples after acidification.H. Double check the results and redo samples which have suspicious numbers.Make sure that the after-acidification values make sense when compared to the before acidification value (the before acidorafter acid ratio should be approximately the same for all samples). Note that for samples from Fish Lake in the late summer at depths below the thermocline, the after acid readings have been higher than the before acid readings. In this case, all numbers should be entered into the excel spreadsheet but only the uncorrected chlorophyll a value should be computed.Check that replicate samples are approximately the same.4. Clean up:Methanol can be disposed of down the drain as long as water is added to make the solution less than 20percent methanol and disposal is followed by at least 10 more volumes of water. Disposal down the drain is limited to 10 liters of solvent per day per Principal Investigator.Fill the tubes containing methanol with tap water and dispose of down the drain. Keep the faucet running for a few minutes. Throw the glass tubes in the glass disposal can. Dispose of the remaining methanol in the film canisters and the waste methanol in a similar manner.Rinse the film canisters and lids well with tap water and scrub them out with a bottle brush making sure to remove any remaining filter paper. Give a final rinse with distilled water or Milli-Q and allow to dry.5. Calculations:The TD700 Fluorometer is calibrated to display readings in ugorL of Chlorophyll (see TD700 Manual). The formulas are in the spreadsheets where the data is entered (from EPA Method 445.0):Corrected Chlorophyll a (ugorL) = Dilution Factor times (fluor before acid – fluor after acid) times(Ror(R-1)) times (mL extraction volumeormL filtered volume)Uncorrected Chlorophyll a (ugorL) = Dilution Factor times (fluor. before acid) times (mL extraction volumeormL filtered volume)Pheophytin a (ugorL) = Dilution Factor times ((R times fluor. after acid)-fluor before acid) times (RorR-1) times (mL extraction volumeormL filtered volume)where R=acid ratio during primary standard calibration (See Calibration of TD700 Fluorometer) 
+            </para>
+        </description>
+      </methodStep>
+    </methods>
+    <project>
+      <title>LTER: Comparative Studies of a Suite of Lakes in Wisconsin</title>
+      <personnel>
+        <individualName>
+          <givenName>John</givenName>
+          <surName>Magnuson</surName>
+        </individualName>
+        <role>PI</role>
+      </personnel>
+      <award>
+        <funderName>National Science Foundation LTER </funderName>
+        <awardNumber>9011660</awardNumber>
+        <title>LTER: Comparative Studies of a Suite of Lakes in Wisconsin</title>
+      </award>
+      <relatedProject>
+        <title>Comparative Study of a Suite of Lakes in Wisconsin</title>
+        <personnel>
+          <individualName>
+            <givenName>Stephen</givenName>
+            <surName>Carpenter</surName>
+          </individualName>
+          <userId
+            directory="http://orcid.org">0000-0001-8097-8700</userId>
+          <role>PI</role>
+        </personnel>
+        <award>
+          <funderName>National Science Foundation LTER </funderName>
+          <awardNumber>9632853</awardNumber>
+          <title>Comparative Study of a Suite of Lakes in Wisconsin</title>
+        </award>
+      </relatedProject>
+      <relatedProject>
+        <title>LTER: Comparative Study of a Suite of Lakes in Wisconsin</title>
+        <personnel>
+          <individualName>
+            <givenName>Stephen</givenName>
+            <surName>Carpenter</surName>
+          </individualName>
+          <userId
+            directory="http://orcid.org">0000-0001-8097-8700</userId>
+          <role>PI</role>
+        </personnel>
+        <award>
+          <funderName>National Science Foundation LTER </funderName>
+          <awardNumber>0217533</awardNumber>
+          <title>LTER: Comparative Study of a Suite of Lakes in Wisconsin</title>
+        </award>
+      </relatedProject>
+      <relatedProject>
+        <title>LTER: Comparative Study of a Suite of Lakes in Wisconsin</title>
+        <personnel>
+          <individualName>
+            <givenName>Emily</givenName>
+            <surName>Stanley</surName>
+          </individualName>
+          <userId
+            directory="http://orcid.org">0000-0003-4922-8121</userId>
+          <role>PI</role>
+        </personnel>
+        <award>
+          <funderName>National Science Foundation LTER </funderName>
+          <awardNumber>0822700</awardNumber>
+          <title>LTER: Comparative Study of a Suite of Lakes in Wisconsin</title>
+        </award>
+      </relatedProject>
+      <relatedProject>
+        <title>LTER: Comparative Study of a Suite of Lakes in Wisconsin</title>
+        <personnel>
+          <individualName>
+            <givenName>Emily</givenName>
+            <surName>Stanley</surName>
+          </individualName>
+          <userId
+            directory="http://orcid.org">0000-0003-4922-8121</userId>
+          <role>PI</role>
+        </personnel>
+        <award>
+          <funderName>National Science Foundation LTER </funderName>
+          <awardNumber>1440297</awardNumber>
+          <title>LTER: Comparative Study of a Suite of Lakes in Wisconsin</title>
+        </award>
+      </relatedProject>
+      <relatedProject>
+        <title>LTER: Comparative Study of a Suite of Lakes in Wisconsin</title>
+        <personnel>
+          <individualName>
+            <givenName>Emily</givenName>
+            <surName>Stanley</surName>
+          </individualName>
+          <userId
+      directory="http://orcid.org">0000-0003-4922-8121</userId>
+          <role>PI</role>
+        </personnel>
+        <award>
+          <funderName>National Science Foundation LTER </funderName>
+          <awardNumber>2025982</awardNumber>
+          <title>LTER: Comparative Study of a Suite of Lakes in Wisconsin</title>
+        </award>
+      </relatedProject>
+    </project>
+    <dataTable
+      id="66796c3bc77617e7cc95c4b09d4995c5" scope="document"
+          system="https://pasta.edirepository.org">
+      <entityName>North Temperate Lakes LTER - Chlorophyll - Madison Lakes Area</entityName>
+      <entityDescription>North Temperate Lakes LTER: Chlorophyll - Madison Lakes Area</entityDescription>
+      <physical>
+        <objectName>ntl38_v5.csv</objectName>
+        <size>277929</size>
+        <authentication
+          method="MD5">a9f13a93fcfd63c2be7b9bf1114c8957</authentication>
+        <authentication
+              method="SHA-1">6c35572ddb86953c2f8413ba25dfae9cbb443fce</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+              <quoteCharacter>"</quoteCharacter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url
+        function="download">https://pasta.lternet.edu/package/data/eml/knb-lter-ntl/38/28/66796c3bc77617e7cc95c4b09d4995c5</url>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>lakeid</attributeName>
+          <attributeLabel>lake name abbreviation</attributeLabel>
+          <attributeDefinition>lake name abbreviation</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>FI</code>
+                    <definition>Fish Lake</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>ME</code>
+                    <definition>Lake Mendota</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>MO</code>
+                    <definition>Lake Monona</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>WI</code>
+                    <definition>Lake Wingra</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>year4</attributeName>
+          <attributeLabel>year</attributeLabel>
+          <attributeDefinition>year</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>nominalYear</standardUnit>
+              </unit>
+              <precision>1</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>sampledate</attributeName>
+          <attributeLabel>sample date</attributeLabel>
+          <attributeDefinition>sample date</attributeDefinition>
+          <storageType>date</storageType>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY-MM-DD</formatString>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>depth_range_m</attributeName>
+          <attributeLabel>depth range in meters</attributeLabel>
+          <attributeDefinition>depth range in meters</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>depth range in meters</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>rep</attributeName>
+          <attributeLabel>replicate number</attributeLabel>
+          <attributeDefinition>replicate number</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>replicate number</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>tri_chl_spec</attributeName>
+          <attributeLabel>chloro a + phaeo - spect</attributeLabel>
+          <attributeDefinition>the sum of chlorophyll a concentration and phaeophyton concentration using a spectrophotometer</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>microgramPerLiter</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>mono_chl_spec</attributeName>
+          <attributeLabel>chloro a spect</attributeLabel>
+          <attributeDefinition>chlorophyll a concentration using a spectrophotometer</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>microgramPerLiter</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>phaeo_spec</attributeName>
+          <attributeLabel>phaeophyton - spectr</attributeLabel>
+          <attributeDefinition>phaeophyton concentration using a spectrophotometer</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>microgramPerLiter</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>uncorrect_chl_fluor</attributeName>
+          <attributeLabel>uncorrected chlor a - fluor</attributeLabel>
+          <attributeDefinition>uncorrected chlorophyll a concentration using a fluorometer</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>microgramPerLiter</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>correct_chl_fluor</attributeName>
+          <attributeLabel>corrected chlor a - fluor</attributeLabel>
+          <attributeDefinition>corrected chlorophyll a concentration using a fluorometer</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>microgramPerLiter</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>phaeo_fluor</attributeName>
+          <attributeLabel>phaeophyton - fluor</attributeLabel>
+          <attributeDefinition>phaeophyton concentration using a fluorometer</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>microgramPerLiter</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flag_spec</attributeName>
+          <attributeLabel>data flag for spectophotometer</attributeLabel>
+          <attributeDefinition>data flag for spectophotometer</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>F</code>
+                    <definition>These samples were analyzed using the DNR research spectrophotometer.  Only a few of these samples were acidified.  The trichromatic chlorophyll-a equation is from Scor-UNESCO (1966).</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>This data has not been proofread as the data sheets are missing (this comment is for spectrophotometer. or fluorometer chlorophyll data)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>H</code>
+                    <definition>These samples were analyzed using the DNR research spectrophotometer. The trichromatic chlorophyll-a equation is from Jeffrey-Humphrey which uses slightly different wavelength data than the Scor-UNESCO equation (the chlorophyll values are approximately 3% higher than the values obtained using the Scor- UNESCO equation).  These samples were acidified and thus monochromatic chlorophyll-a and pheophytin-a values have also been calculated.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>J</code>
+                    <definition>These samples were analyzed using the CFL spectrophotometer. The trichromatic chlorophyll-a equation is from Jeffrey-Humphrey which uses slightly different wavelength data than the Scor-UNESCO equation (the chlorophyll values are approximately 3% higher than the values obtained using the Scor- UNESCO equation).  These samples were acidified and thus monochromatic chlorophyll-a and pheophytin-a values have also been calculated.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>K</code>
+                    <definition>Depth range uncertain</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>flag_fluor</attributeName>
+          <attributeLabel>data flag for fluorometer</attributeLabel>
+          <attributeDefinition>data flag for fluorometer</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>A</code>
+                    <definition>The samples were analyzed using  a Turner 450 fluorometer using SC665 and NB440 filters.  All of the data is calculated using the 1996 calibration values (see notes) with the slope(m) defined as m=actual chl.a/ fb.  Note that defining the slope as stated above corresponds with how the slope is calculated in later data when using the TD700 fluorometer. The same fluorometer and filters were used for samples dating from 1995-1998. The only other calibrations were performed in 3/99 and 6/99.  The 3/99 calibration values result in chlorophyll values approximately 40% less than (depending on scale) those obtained using the 1996 calibration values.  The 6/99 calibration values result in chlorophyll values approximately 12% less than the 1996 calibration values (see notes).</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>B</code>
+                    <definition>These 1998 samples were analyzed with the same Turner 450 fluorometer as past samples (see comment a) but with new filters (still SC665 and NB440).  The data is calculated using the 6/99 calibration (with the new filters).  Note that the 3/99 calibration and the 6/99 calibration (using the new filters) result in chlorophyll values which differ by approximately 37% (depending on scale).</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>C</code>
+                    <definition>These samples were analyzed using a Turner Designs TD700 fluorometer.  The data was analyzed using  an incorrect lamp/filter combination (mercury blue lamp and filters for daylight white lamp).  An experiment (as well as conversations with company reps, see notes) has shown that the incorrect lamp/filter combination used results in comparable Fb values, and thus uncorrected chlorophyll-a values, as using the correct daylight white lamp/filter combination.  For this reason, only uncorrected chlorophyll-a values are reported.  The fluorometer was calibrated to raw fluorescence values (see notes and instrument manual).</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>D</code>
+                    <definition>These samples were analyzed using a Turner Designs TD700 fluorometer with the correct daylight white lamp/filter combination.  The fluorometer was calibrated to direct concentration values with a maximum of 250 ug/L (see notes and instrument manual).</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>This data (for an unknown reason) has fluorometer readings after acidification which are higher than fluorometer readings before acidification.  This results in negative corrected chlorophyll-a values.  For this reason, only the uncorrected chlorophyll-a values (which do not take into account the acidified readings) are reported. Note that up to the present time this phenomenon has only occurred in samples from the deeper depths of Fish Lake during the late summer and early fall.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>I</code>
+                    <definition>Sample analyzed after 48 hour wait due to repairs to fluorometer.</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>5201</numberOfRecords>
+    </dataTable>
+  </dataset>
+  <additionalMetadata>
+    <metadata>
+      <unitList
+        xmlns:sch="http://www.ascc.net/xml/schematron"
+        xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.1"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.xml-cml.org/schema/stmml-1.1 http://nis.lternet.edu/schemas/EML/eml-2.1.0/stmml.xsd">
+        <unit
+          abbreviation="µg/L" constantToSI="0" id="microgramPerLiter"
+          multiplierToSI="0.000001" name="microgramPerLiter"
+          parentSI="kilogramPerCubicMeter" unitType="massDensity">
+          <description>micrograms / liter</description>
+        </unit>
+        <xmlns>http://www.xml-cml.org/schema/stmml</xmlns>
+      </unitList>
+    </metadata>
+  </additionalMetadata>
+</eml:eml>

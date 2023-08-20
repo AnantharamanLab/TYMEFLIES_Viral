@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eml:eml packageId="knb-lter-ntl.90.33"
+  system="https://pasta.edirepository.org"
+  xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://eml.ecoinformatics.org/eml-2.2.0 https://eml.ecoinformatics.org/eml-2.2.0/eml.xsd">
+  <access
+    authSystem="https://pasta.edirepository.org/authentication"
+    order="allowFirst" scope="document"
+      system="https://pasta.edirepository.org">
+    <allow>
+      <principal>uid=NTL,o=EDI,dc=edirepository,dc=org</principal>
+      <permission>all</permission>
+    </allow>
+    <allow>
+      <principal>public</principal>
+      <permission>read</permission>
+    </allow>
+  </access>
+  <dataset>
+    <alternateIdentifier
+        system="https://doi.org">doi:10.6073/pasta/d5abe9009d7f6aa87d1fcf49c8c7f8c8</alternateIdentifier><title>North Temperate Lakes LTER: Zooplankton - Madison Lakes Area 1997 - current</title>
+    <creator>
+      <individualName>
+        <givenName>John</givenName>
+        <surName>Magnuson</surName>
+      </individualName>
+      <organizationName>University of Wisconsin</organizationName>
+      <address>
+        <deliveryPoint>680 North park Street</deliveryPoint>
+        <city>Madison</city>
+        <administrativeArea>WI</administrativeArea>
+        <postalCode>53706</postalCode>
+        <country>US</country>
+      </address>
+      <phone
+        phonetype="voice">(608) 262-3014</phone>
+      <phone
+        phonetype="facsimile">(608) 265-2340</phone>
+      <electronicMailAddress>john.magnuson@wisc.edu</electronicMailAddress>
+      <onlineUrl>http://limnology.wisc.edu/john_magnuson.htm</onlineUrl>
+    </creator>
+    <creator>
+      <individualName>
+        <givenName>Stephen</givenName>
+        <surName>Carpenter</surName>
+      </individualName>
+      <organizationName>University of Wisconsin</organizationName>
+      <address>
+        <deliveryPoint>680 North Park Street</deliveryPoint>
+        <city>Madison</city>
+        <administrativeArea>WI</administrativeArea>
+        <postalCode>53706</postalCode>
+        <country>US</country>
+      </address>
+      <phone
+        phonetype="voice">(608) 262-3014</phone>
+      <phone
+        phonetype="facsimile">(608) 265-2340</phone>
+      <electronicMailAddress>steve.carpenter@wisc.edu</electronicMailAddress>
+      <onlineUrl>http://limnology.wisc.edu/steve_carpenter.htm</onlineUrl>
+      <userId
+        directory="http://orcid.org">0000-0001-8097-8700</userId>
+    </creator>
+    <creator>
+      <individualName>
+        <givenName>Emily</givenName>
+        <surName>Stanley</surName>
+      </individualName>
+      <organizationName>University of Wisconsin</organizationName>
+      <address>
+        <deliveryPoint>680 North Park Street</deliveryPoint>
+        <city>Madison</city>
+        <administrativeArea>WI</administrativeArea>
+        <postalCode>53706</postalCode>
+        <country>US</country>
+      </address>
+      <phone
+        phonetype="voice">(608) 263-2567</phone>
+      <phone
+        phonetype="facsimile">(608) 265-2340</phone>
+      <electronicMailAddress>ehstanley@wisc.edu</electronicMailAddress>
+      <onlineUrl>http://limnology.wisc.edu/personnel/emstan/</onlineUrl>
+      <userId
+      directory="http://orcid.org">0000-0003-4922-8121</userId>
+    </creator>
+    <metadataProvider>
+      <individualName>
+        <givenName>NTL</givenName>
+        <surName>Information Manager</surName>
+      </individualName>
+      <organizationName>University of Wisconsin</organizationName>
+      <address>
+        <deliveryPoint>680 North Park Street</deliveryPoint>
+        <city>Madison</city>
+        <administrativeArea>WI</administrativeArea>
+        <postalCode>53706</postalCode>
+        <country>US</country>
+      </address>
+      <electronicMailAddress>ntl.infomgr@gmail.com</electronicMailAddress>
+    </metadataProvider>
+    <pubDate>2022-11-17</pubDate>
+    <language>English</language>
+    <abstract>
+      <para> Zooplankton samples for the 4 southern Wisconsin LTER lakes (Mendota, Monona, Wingra,
+        Fish) have been collected for analysis by LTER since 1995 (1996 Wingra, Fish) when the
+        southern Wisconsin lakes were added to the North Temperate Lakes LTER project. Samples are
+        collected as a vertical tow using an 80-micron mesh conical net with a 30-cm diameter
+        opening (net mouth: net length ratio = 1:3) consistent with sampling conducted by the
+        Wisconsin Dept. Natural Resources in prior years. Zooplankton tows are taken in the deep
+        hole region of each lake at the same time and location as other limnological sampling;
+        zooplankton samples are preserved in 70% ethanol for later processing. Samples are usually
+        collected with standard tow depths on most dates (e.g., 20 meters for Lake Mendota) but not
+        always, so tow depth is recorded as a variate in the database. Crustacean species are
+        identified and counted for Mendota and Monona and body lengths are recorded for a portion of
+        each species identified (see data protocol for counting procedure); samples for Wingra and
+        Fish lakes are archived but not routinely counted. Numerical densities for Mendota and
+        Monona zooplankton samples are reported in the database as number or organisms per square
+        meter without correcting for net efficiency. [Net efficiency varies from a maximum of about
+        70% under clear water conditions; net efficiency declines when algal blooms are dense
+        (Lathrop, R.C. 1998. Water clarity responses to phosphorus and Daphnia in Lake Mendota.
+        Ph.D. Thesis, University of Wisconsin-Madison.)] Organism densities in number per cubic
+        meter can be obtained by dividing the reported square-meter density by the tow depth,
+        although adjustments for the oxygenated depth zone during the summer and early fall
+        stratified season is required to obtain realistic zooplankton volumetric densities in the
+        lake's surface waters. Biomass densities can be calculated using literature formulas for
+        converting organism body lengths reported in the database to body masses. Sampling
+        Frequency: bi-weekly during ice-free season from late March or early April through early
+        September, then every 4 weeks through late November; sampling is conducted usually once
+        during the winter (depending on ice conditions). Number of sites: 4 Note: for a period
+        between approximately 2011 and 2015, a calculation error caused density values to be
+        significantly greater than they should have been for the entire dataset. That issue has been
+        corrected. </para>
+    </abstract>
+    <keywordSet>
+      <keyword>NTL Core Datasets</keyword>
+      <keyword>biological (all)</keyword>
+      <keyword>zooplankton</keyword>
+      <keywordThesaurus>NTL Themes</keywordThesaurus>
+    </keywordSet>
+    <keywordSet>
+      <keyword>North Temperate Lakes - LTER</keyword>
+      <keyword>NTL LTER</keyword>
+      <keyword>plankton</keyword>
+      <keywordThesaurus>NTL Keywords</keywordThesaurus>
+    </keywordSet>
+    <keywordSet>
+      <keyword>Populations</keyword>
+      <keywordThesaurus>Core Areas</keywordThesaurus>
+    </keywordSet>
+    <keywordSet>
+      <keyword>abundance</keyword>
+      <keyword>density</keyword>
+      <keyword>species</keyword>
+      <keyword>species composition</keyword>
+      <keyword>species diversity</keyword>
+      <keyword>species richness</keyword>
+      <keyword>zooplankton</keyword>
+      <keywordThesaurus>LTER Controlled Vocabulary</keywordThesaurus>
+    </keywordSet>
+    <intellectualRights>This information is released under the Creative Commons license -
+      Attribution - CC BY (https://creativecommons.org/licenses/by/4.0/). The consumer of these data
+      ("Data User" herein) is required to cite it appropriately in any publication that results from
+      its use. The Data User should realize that these data may be actively used by others for
+      ongoing research and that coordination may be necessary to prevent duplicate publication. The
+      Data User is urged to contact the authors of these data if any questions about methodology or
+      results occur. Where appropriate, the Data User is encouraged to consider collaboration or
+      co-authorship with the authors. The Data User should realize that misinterpretation of data
+      may occur if used out of context of the original study. While substantial efforts are made to
+      ensure the accuracy of data and associated documentation, complete accuracy of data sets
+      cannot be guaranteed. All data are made available "as is." The Data User should be aware,
+      however, that data are updated periodically and it is the responsibility of the Data User to
+      check for new versions of the data. The data authors and the repository where these data were
+      obtained shall not be liable for damages resulting from any use or misinterpretation of the
+      data. Thank you.</intellectualRights>
+    <licensed>
+      <licenseName>Creative Commons Attribution 4.0 International</licenseName>
+      <url>https://spdx.org/licenses/CC-BY-4.0.html</url>
+      <identifier>CC-BY-4.0</identifier>
+    </licensed>
+    <distribution
+      id="10.6073/pasta/d5abe9009d7f6aa87d1fcf49c8c7f8c8" scope="system"
+          system="https://pasta.edirepository.org"><online><url
+        function="information">https://doi.org/10.6073/pasta/d5abe9009d7f6aa87d1fcf49c8c7f8c8</url></online></distribution><coverage>
+      <geographicCoverage>
+        <geographicDescription>Lake Mendota is located in the Yahara River watershed within Dane County. It is a drainage lake with predominantly muck substrate. It has a surface area of 3961 hectare, 33.8 kilometers of highly developed shoreline and a maximum depth of 25.3 meters. NTL LTER sampling location is at 43.09885, -89.40545 Detailed Info: Surface Area (km2): 39.6, Mean Depth (m): 12.8, Maximum Depth (m): 25.3, Volume (m3): 506,880,000, Shoreline Length (km): 33.8, Landscape Position: Low, Development on shoreline: High, Duration of ice cover (days): 119, pH: 8.4, ANC (µeq/L): 3665, Conductivity (µS/cm): 412, Total P (µg/l): 109.5, Total N (µg/l): 860, SiO2 (µg/l): 711, Secchi Depth (m): 3, Chlorophyll (µg/l): 4.8, Number of fish species: 43</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-89.4837</westBoundingCoordinate>
+          <eastBoundingCoordinate>-89.3673</eastBoundingCoordinate>
+          <northBoundingCoordinate>43.146</northBoundingCoordinate>
+          <southBoundingCoordinate>43.0766</southBoundingCoordinate>
+          <boundingAltitudes>
+            <altitudeMinimum>259</altitudeMinimum>
+            <altitudeMaximum>259</altitudeMaximum>
+            <altitudeUnits>meter</altitudeUnits>
+          </boundingAltitudes>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage>
+        <geographicDescription>Lake Monona is located in the Yahara River watershed within Dane County.It is a drainage lake with muck, sand and gravel substrate. It has a surface area of 1324 hectare, 20.9 kilometers of highly developed shoreline and a maximum depth of 22.5 meters.NTL LTER sampling location is at 43.06337, -89.36086 Detailed Info: Surface Area (km2): 13.6, Mean Depth (m): 8.2, Maximum Depth (m): 22.5, Shoreline Length (km): 20.9, Landscape Position: Low, Development on shoreline: High, Duration of ice cover (days): 107, pH: 8.5, ANC (µeq/L): 3547, Conductivity (µS/cm): 434, Total P (µg/l): 73.5, Total N (µg/l): 845, SiO2 (µg/l): 454, Secchi Depth (m): 2.4, Chlorophyll (µg/l): 8.1, Number of fish species: 41, Volume (m3): 111,520,000</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-89.4001</westBoundingCoordinate>
+          <eastBoundingCoordinate>-89.3251</eastBoundingCoordinate>
+          <northBoundingCoordinate>43.0905</northBoundingCoordinate>
+          <southBoundingCoordinate>43.0451</southBoundingCoordinate>
+          <boundingAltitudes>
+            <altitudeMinimum>258</altitudeMinimum>
+            <altitudeMaximum>258</altitudeMaximum>
+            <altitudeUnits>meter</altitudeUnits>
+          </boundingAltitudes>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage>
+        <geographicDescription>Lake Wingra is located in the Yahara River watershed within Dane County.It is a drainage lake with predominantly muck substrate. It has a surface area of 139.6 hectare, 5.9 kilometers of highly developed shoreline and a maximum depth of 6.7 meters.NTL LTER sampling location is at 43.05258 -89.42499 Detailed Info: Surface Area (km2): 1.36, Mean Depth (m): 2.7, Maximum Depth (m): 6.7, Shoreline Length (km): 5.8, Volume (m3): 3,672,000, Landscape Position: High, Development on shoreline: High, Duration of ice cover (days): 120, pH: 8.5, ANC (µeq/L): 3745, Conductivity (µS/cm): 500, Total P (µg/l): 40.3, Total N (µg/l): 933, SiO2 (µg/l): 5551, Secchi Depth (m): 0.7, Chlorophyll (µg/l): 10.5, Number of fish species: 29</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-89.4317</westBoundingCoordinate>
+          <eastBoundingCoordinate>-89.4046</eastBoundingCoordinate>
+          <northBoundingCoordinate>43.0581</northBoundingCoordinate>
+          <southBoundingCoordinate>43.0487</southBoundingCoordinate>
+          <boundingAltitudes>
+            <altitudeMinimum>259</altitudeMinimum>
+            <altitudeMaximum>259</altitudeMaximum>
+            <altitudeUnits>meter</altitudeUnits>
+          </boundingAltitudes>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage>
+        <geographicDescription>Fish Lake is located in the Yahara River watershed within Dane County.It is a seepage lake with predominantly sand and muck substrate. It has a surface area of 87.4 hectare, 4.3 kilometers of highly developed shoreline and a maximum depth of 18.9 meters.NTL LTER sampling location is at 43.09885, -89.40545 Detailed Info: Surface Area (km2): 0.8, Mean Depth (m): 6.6, Maximum Depth (m): 18.9, Shoreline Length (km): 4.3, Landscape Position: High, Development on shoreline: HIgh, pH: 8.1, ANC (µeq/L): 2921, Conductivity (µS/cm): 280, Total P (µg/l): 22.4, Total N (µg/l): 835, SiO2 (µg/l): 367, Secchi Depth (m): 2.4, Chlorophyll (µg/l): 5.1, Number of fish species: 26, Volume (m3): 5,280,000</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-89.6622</westBoundingCoordinate>
+          <eastBoundingCoordinate>-89.6439</eastBoundingCoordinate>
+          <northBoundingCoordinate>43.2922</northBoundingCoordinate>
+          <southBoundingCoordinate>43.2821</southBoundingCoordinate>
+          <boundingAltitudes>
+            <altitudeMinimum>261</altitudeMinimum>
+            <altitudeMaximum>261</altitudeMaximum>
+            <altitudeUnits>meter</altitudeUnits>
+          </boundingAltitudes>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <temporalCoverage>
+        <rangeOfDates>
+          <beginDate>
+            <calendarDate>1997-06-24</calendarDate>
+          </beginDate>
+          <endDate>
+            <calendarDate>2018-12-31</calendarDate>
+          </endDate>
+        </rangeOfDates>
+      </temporalCoverage>
+    </coverage>
+    <maintenance>
+      <description>
+        <para> ongoing </para>
+      </description>
+    </maintenance>
+    <contact>
+      <organizationName>NTL LTER</organizationName>
+      <address>
+        <deliveryPoint>680 North Park Street</deliveryPoint>
+        <city>Madison</city>
+        <administrativeArea>WI</administrativeArea>
+        <postalCode>53706</postalCode>
+        <country>United States</country>
+      </address>
+      <electronicMailAddress>ntl.infomgr@gmail.com</electronicMailAddress>
+      <userId
+        directory="https://ror.org">04gq8q482</userId>
+    </contact>
+    <publisher><organizationName>Environmental Data Initiative</organizationName><electronicMailAddress>info@edirepository.org</electronicMailAddress><onlineUrl>https://edirepository.org</onlineUrl><userId
+            directory="https://ror.org">0330j0z60</userId></publisher><pubPlace>Environmental Data Initiative</pubPlace>
+    <methods>
+      <methodStep>
+        <description>
+          <para> We collect zooplankton samples at the deepest part of the lake using two different
+            gear types. We take one vertical tow with a Wisconsin Net (80um mesh), and a series of
+            Schindler Patalas (53um mesh) samples spanning the water column. All samples are
+            preserved in cold 95percent EtOH.After collection we combine subsamples of the
+            individual Schindler Patalas trap samples to create one hypsometrically pooled sample
+            for each lakeordate. The individual depth samples are discarded after pooling except
+            from one August sampling date per year. The Hypsometrically Pooled sample and the
+            Wisconsin Net sample are archived in the UW Zoology museum.We count zooplankton in one
+            or two subsamples, each representing 1.8L of lake water, of the hypsometrically pooled
+            samples to calculate zooplankton abundance. We count one sample date per month from the
+            open water season, and the February ice cover sample.  We identify individuals to genus
+            or species, take length measurements, and count eggs and embryos.Protocol log: 
+            1981-May1984 -- a 0.5m high, 31L Schindler Patalas trap with 80um mesh net was used. Two
+            Wisconsin Net tows were collected. Preservative was 12percent buffered formalin.June1984
+            -- changed to 53um mesh net on Schindler trap.July1986 -- began using the 2m high, 45L
+            Schindler Patalas trap. Changed WI Net collection to take only one tow.2001 -- changed
+            zooplankton preservative from 12percent buffered formalin to 95percent EtOH.The number
+            of sample dates per year counted varies with lake and year, from 5 datesoryear to 17
+            datesoryear.1981-1983 -- pooled samples are of several types: Total Pooled (TP) were
+            created using equal volume subsamples of the Schindler samples. Epi, Meta, Hypo pooled
+            used equal volume subsamples from the Schindler samples collected from each of the
+            thermal strata. Strata Pooled used equal volume subsamples from the Epi, Meta, Hypo
+            pooled samples to create an entire lake sample. Hypsometrically Pooled (HP) is our
+            standard, which uses subsample volumes weighted to represent the hypsometry of the lake.
+          </para>
+        </description>
+      </methodStep>
+    </methods>
+    <project>
+      <title>Comparative Studies of a Suite of Lakes in Wisconsin</title>
+      <personnel>
+        <individualName>
+          <givenName>John</givenName>
+          <surName>Magnuson</surName>
+        </individualName>
+        <role>PI</role>
+      </personnel>
+      <award>
+        <funderName>National Science Foundation LTER </funderName>
+        <awardNumber>8012313</awardNumber>
+        <title>Comparative Studies of a Suite of Lakes in Wisconsin</title>
+      </award>
+      <relatedProject>
+        <title>Comparative Studies of a Suite of Lakes in Wisconsin</title>
+        <personnel>
+          <individualName>
+            <givenName>John</givenName>
+            <surName>Magnuson</surName>
+          </individualName>
+          <role>PI</role>
+        </personnel>
+        <award>
+          <funderName>National Science Foundation LTER </funderName>
+          <awardNumber>8514330</awardNumber>
+          <title>Comparative Studies of a Suite of Lakes in Wisconsin</title>
+        </award>
+      </relatedProject>
+      <relatedProject>
+        <title>LTER: Comparative Studies of a Suite of Lakes in Wisconsin</title>
+        <personnel>
+          <individualName>
+            <givenName>John</givenName>
+            <surName>Magnuson</surName>
+          </individualName>
+          <role>PI</role>
+        </personnel>
+        <award>
+          <funderName>National Science Foundation LTER </funderName>
+          <awardNumber>9011660</awardNumber>
+          <title>LTER: Comparative Studies of a Suite of Lakes in Wisconsin</title>
+        </award>
+      </relatedProject>
+      <relatedProject>
+        <title>Comparative Study of a Suite of Lakes in Wisconsin</title>
+        <personnel>
+          <individualName>
+            <givenName>Stephen</givenName>
+            <surName>Carpenter</surName>
+          </individualName>
+          <userId
+            directory="http://orcid.org">0000-0001-8097-8700</userId>
+          <role>PI</role>
+        </personnel>
+        <award>
+          <funderName>National Science Foundation LTER </funderName>
+          <awardNumber>9632853</awardNumber>
+          <title>Comparative Study of a Suite of Lakes in Wisconsin</title>
+        </award>
+      </relatedProject>
+      <relatedProject>
+        <title>LTER: Comparative Study of a Suite of Lakes in Wisconsin</title>
+        <personnel>
+          <individualName>
+            <givenName>Stephen</givenName>
+            <surName>Carpenter</surName>
+          </individualName>
+          <userId
+            directory="http://orcid.org">0000-0001-8097-8700</userId>
+          <role>PI</role>
+        </personnel>
+        <award>
+          <funderName>National Science Foundation LTER </funderName>
+          <awardNumber>0217533</awardNumber>
+          <title>LTER: Comparative Study of a Suite of Lakes in Wisconsin</title>
+        </award>
+      </relatedProject>
+      <relatedProject>
+        <title>LTER: Comparative Study of a Suite of Lakes in Wisconsin</title>
+        <personnel>
+          <individualName>
+            <givenName>Emily</givenName>
+            <surName>Stanley</surName>
+          </individualName>
+          <userId
+            directory="http://orcid.org">0000-0003-4922-8121</userId>
+          <role>PI</role>
+        </personnel>
+        <award>
+          <funderName>National Science Foundation LTER </funderName>
+          <awardNumber>0822700</awardNumber>
+          <title>LTER: Comparative Study of a Suite of Lakes in Wisconsin</title>
+        </award>
+      </relatedProject>
+      <relatedProject>
+        <title>LTER: Comparative Study of a Suite of Lakes in Wisconsin</title>
+        <personnel>
+          <individualName>
+            <givenName>Emily</givenName>
+            <surName>Stanley</surName>
+          </individualName>
+          <userId
+            directory="http://orcid.org">0000-0003-4922-8121</userId>
+          <role>PI</role>
+        </personnel>
+        <award>
+          <funderName>National Science Foundation LTER </funderName>
+          <awardNumber>1440297</awardNumber>
+          <title>LTER: Comparative Study of a Suite of Lakes in Wisconsin</title>
+        </award>
+      </relatedProject>
+      <relatedProject>
+        <title>LTER: Comparative Study of a Suite of Lakes in Wisconsin</title>
+        <personnel>
+          <individualName>
+            <givenName>Emily</givenName>
+            <surName>Stanley</surName>
+          </individualName>
+          <userId
+      directory="http://orcid.org">0000-0003-4922-8121</userId>
+          <role>PI</role>
+        </personnel>
+        <award>
+          <funderName>National Science Foundation LTER </funderName>
+          <awardNumber>2025982</awardNumber>
+          <title>LTER: Comparative Study of a Suite of Lakes in Wisconsin</title>
+        </award>
+      </relatedProject>
+    </project>
+    <dataTable
+      id="5880c7ba184589e239aec9c55f9d313b" scope="document"
+          system="https://pasta.edirepository.org">
+      <entityName>North Temperate Lakes LTER - Zooplankton - Madison Lakes Area</entityName>
+      <entityDescription>North Temperate Lakes LTER: Zooplankton - Madison Lakes Area</entityDescription>
+      <physical>
+        <objectName>ntl90_v8.csv</objectName>
+        <size>632820</size>
+        <authentication
+          method="MD5">6a4c68a5a22931592cc641f7b33daa34</authentication>
+        <authentication
+              method="SHA-1">680a8aca2d9bd00e40f911f227f0768d1a60dc3d</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+              <quoteCharacter>"</quoteCharacter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url
+                    function="download">https://pasta.lternet.edu/package/data/eml/knb-lter-ntl/90/33/5880c7ba184589e239aec9c55f9d313b</url>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>lakeid</attributeName>
+          <attributeLabel>lake name abbreviation</attributeLabel>
+          <attributeDefinition>lake name abbreviation</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>FI</code>
+                    <definition>Fish Lake</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>ME</code>
+                    <definition>Lake Mendota</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>MO</code>
+                    <definition>Lake Monona</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>WI</code>
+                    <definition>Lake Wingra</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>year4</attributeName>
+          <attributeLabel>year</attributeLabel>
+          <attributeDefinition>year</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>nominalYear</standardUnit>
+              </unit>
+              <precision>1</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>sample_date</attributeName>
+          <attributeLabel>sample date</attributeLabel>
+          <attributeDefinition>sample date</attributeDefinition>
+          <storageType>date</storageType>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY-MM-DD</formatString>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>station</attributeName>
+          <attributeLabel>station number</attributeLabel>
+          <attributeDefinition>station number</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>station number</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>towdepth</attributeName>
+          <attributeLabel>depth of tow</attributeLabel>
+          <attributeDefinition>depth of tow</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>meter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum
+                    exclusive="false">0</minimum>
+                  <maximum
+                    exclusive="false">50</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>species_code</attributeName>
+          <attributeLabel>numeric species code</attributeLabel>
+          <attributeDefinition>numeric species code</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>numeric species code</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>species_name</attributeName>
+          <attributeLabel>species name</attributeLabel>
+          <attributeDefinition>species name</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>species name</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>density</attributeName>
+          <attributeLabel>number individuals / m2</attributeLabel>
+          <attributeDefinition>number individuals per meter squared</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>numberPerMeterSquared</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>individuals_measured</attributeName>
+          <attributeLabel>number of individuals measured</attributeLabel>
+          <attributeDefinition>number of individuals measured</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>number</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>avg_length</attributeName>
+          <attributeLabel>average length of measured</attributeLabel>
+          <attributeDefinition>average length of measured individuals</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>millimeter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum
+                    exclusive="false">0</minimum>
+                  <maximum exclusive="false">15</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>9004</numberOfRecords>
+    </dataTable>
+  </dataset>
+</eml:eml>
