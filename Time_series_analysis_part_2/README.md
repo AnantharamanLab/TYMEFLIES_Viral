@@ -4,7 +4,7 @@
 
 **1 Get the psbA-containing viral genome coverage statistics**
 
-We get the psbA-containing viral genome coverage statistics across all 465 metagenomes. The distribution of the viral genome should be >= 20 out of 465 metagenomes.
+We get the psbA-containing viral genome coverage statistics across all 471 metagenomes. The distribution of the viral genome should be >= 20 out of 471 metagenomes.
 
 It will generate the following outputs:
 
@@ -32,19 +32,19 @@ It will generate the following outputs:
 
 **2 Get the pmoC-containing viral genome coverage statistics**
 
-The running process and outputs are similar to those described in Step 1 except that the distribution of the viral genome should be >= 5 out of 465 metagenomes.
+The running process and outputs are similar to those described in Step 1 except that the distribution of the viral genome should be >= 5 out of 471 metagenomes.
 
 [script] 08.Time_series_analysis.part2.each_AMG_analysis.step2.get_pmoC-containing_viral_gn_coverage_statistics.pl
 
 **3 Get the katG-containing viral genome coverage statistics**
 
-The running process and outputs are similar to those described in Step 1 except that the distribution of the viral genome should be >= 5 out of 465 metagenomes.
+The running process and outputs are similar to those described in Step 1 except that the distribution of the viral genome should be >= 5 out of 471 metagenomes.
 
 [script] 08.Time_series_analysis.part2.each_AMG_analysis.step3.get_katG-containing_viral_gn_coverage_statistics.pl
 
 **4 Get the ahbD-containing viral genome coverage statistics**
 
-The running process and outputs are similar to those described in Step 1 except that the distribution of the viral genome should be >= 20 out of 465 metagenomes.
+The running process and outputs are similar to those described in Step 1 except that the distribution of the viral genome should be >= 20 out of 471 metagenomes.
 
 [script] 08.Time_series_analysis.part2.each_AMG_analysis.step4.get_ahbD-containing_viral_gn_coverage_statistics.pl
 

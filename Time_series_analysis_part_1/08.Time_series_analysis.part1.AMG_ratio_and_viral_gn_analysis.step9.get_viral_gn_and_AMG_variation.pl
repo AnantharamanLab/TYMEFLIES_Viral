@@ -5,11 +5,11 @@ use warnings;
 use List::Util qw(sum);
 
 # Aim: Parse to get the viral gn coverage and AMG coverage variation pattern across metagenomes
-# Processing the viral gn presence with both coverage (>= 1.5) and breadth (>= 70%)
+# Processing the viral gn presence with both coverage (>= 0.33) and breadth (>= 50%)
 
 # Step 1 Store all scaffold length
 my %Scf2length = (); # $scf => $length
-my %Seq_all_scfs = _store_seq("reference_fasta_for_metapop/All_phage_species_rep_gn_containing_AMG.fasta");
+my %Seq_all_scfs = _store_seq("All_phage_species_rep_gn_containing_AMG.fasta"); # Only store the viral rep gn containing AMGs
 foreach my $key (sort keys %Seq_all_scfs){
 	my ($scf) = $key =~ /^>(.+?)$/;
 	my $length = length($Seq_all_scfs{$key});
@@ -58,12 +58,12 @@ foreach my $viral_gn (sort keys %Viral_gn2scfs){
 		my $total_Breadth_multipled_by_length = 0;
 		my $total_length = 0;
 		foreach my $scf (@Scfs){
-			my $breath = 0;
+			my $breadth = 0;
 			if (exists $Scf2IMG2Breadth{$scf}{$img}){
-				$breath = $Scf2IMG2Breadth{$scf}{$img};
+				$breadth = $Scf2IMG2Breadth{$scf}{$img};
 			}
 			my $length = $Scf2length{$scf};
-			$total_Breadth_multipled_by_length += $breath * $length;
+			$total_Breadth_multipled_by_length += $breadth * $length;
 			$total_length += $length;
 		}
 		
@@ -91,8 +91,11 @@ while (<IN>){
 		for(my $i=1; $i<=$#tmp; $i++){
 			my $img = $Header[$i];
 			my $cov_norm = $tmp[$i];
-			my $breadth = $Viral_gn2IMG2Breadth{$viral_gn}{$img};
-			if ($cov_norm >= 1.5 and $breadth >= 70){
+			my $breadth = 0;
+			if (exists $Viral_gn2IMG2Breadth{$viral_gn}{$img}){
+				$breadth = $Viral_gn2IMG2Breadth{$viral_gn}{$img};
+			}
+			if ($cov_norm >= 0.33 and $breadth >= 50){
 				$Viral_gn2IMG2cov_norm_filtered{$viral_gn}{$img} = $cov_norm;
 			}else{
 				$Viral_gn2IMG2cov_norm_filtered{$viral_gn}{$img} = "NA";
@@ -238,7 +241,7 @@ close IN;
 ### Store %AMG_gene_cov_ratio_variation_table
 my %AMG_gene_cov_ratio_variation_table = (); # $amg_gene => [0] KO ($ko) [1] KO detail ($ko_detail) [2] Viral gn ($viral_gn)
 														#	[3] Distribution of viral gn ($distribution) [4] Coverage mean across all metagenomes ($cov_mean)
-														#   [5] Distribution of AMG gene [6] - [470] 465 metagenomes
+														#   [5] Distribution of AMG gene [6] - [476] 471 metagenomes
 my @Header3 = ();														
 foreach my $amg_gene (sort keys %AMG_gene2IMG2cov_ratio_filtered){
 	my $ko = $AMG_summary{$amg_gene};
