@@ -90,7 +90,7 @@ We have processed both the viral genome coverages and AMG coverage ratios (AMG c
 
 **9 Get viral genome and AMG variation**
 
-Parse to get the viral genome coverage and AMG coverage ratio variation pattern across all metagenomes. Process the viral genome and assign it as "present" in a metagenome with both coverage >= 1.5 and breadth >= 70%.
+Parse to get the viral genome coverage and AMG coverage ratio variation pattern across all metagenomes. Process the viral genome and assign it as "present" in a metagenome with both coverage >= 0.33 and breadth >= 50%.
 
 The resulted file "AMG_gene_cov_ratio_variation_table.txt" contains the following columns:
 
@@ -133,7 +133,7 @@ It contains three subpanels of A) heatmap of the number of metagenomes for each 
 
 08.Time_series_analysis.step11.visualize_AMG_and_corresponding_viral_gn_cov_ratio_varition.R
 
-**12.1 Сonduct correlation analysis for viral species and the corresponding host species**
+**12 Сonduct correlation analysis for viral species and the corresponding host species**
 
 In this step, we first found viral species that had its host species identified at the species level. Then,  we parsed to get viral species coverage and host coverage within individual metagenomes. Finally, we conducted Spearman's correlation test to investigate the correlation.
 
@@ -141,62 +141,40 @@ In this step, we first found viral species that had its host species identified 
 
 [script] 
 
-08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step12.1.conduct_correlation_analysis_for_viral_species_and_host_species.pl
+08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step12.conduct_correlation_analysis_for_viral_species_and_host_species.pl
 
 calc_spearman_correlation.py
 
-**12.2 Сonduct correlation analysis for environmental parameters and viruses**
+**13 Сonduct correlation analysis for environmental parameters and viruses**
 
 We studied the correction between psbA-containing viral genome coverage, psbA AMG coverage, and host (Cyanobacteria) coverage with environmental parameters. 
 
  [script] 
 
-08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step12.2.conduct_correlation_analysis_for_env_parameter_and_virus.pl
+08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step13.conduct_correlation_analysis_for_env_parameter_and_virus.pl
 
-***Note:*** We did not use the results of step 11, since the visualizing result seems not so meaningful to address any ideas. We also did not use the results of step 12.1 and step 12.2, since that they are duplicated with the "Time-series analysis - Part 4 virus and MAG taxa association analysis".
+***Note:*** We did not use the results of step 11, since the visualizing result seems not so meaningful to address any ideas. We also did not use the results of step 12 and step 13, since that they are duplicated with the "Time-series analysis - Part 4 virus and MAG taxa association analysis".
 
-**13 Map all metagenomic reads from each year to the collection of species representatives and AMG counterpart genes and flankings**
+**14 Map all metagenomic reads from each year to the collection of species representatives and AMG counterpart genes and flankings**
 
 Map all metagenomic reads from each year to the collection of the representative genomes from individual species and AMG counterpart genes and flankings. We only included representative genomes that carry at least one AMG.
 
-[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step13.map_metagenomic_reads_from_each_year_to_the_collection_of_species_representatives.pl
+[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step14.map_metagenomic_reads_from_each_year_to_the_collection_of_species_representatives.pl
 
-**14 Filter bam files using only the collection of viral species representative genomes as the reference**
+**15 Filter bam files using only the collection of viral species representative genomes as the reference**
 
-All the "*.viral_species_rep.id90.bam" files from the Step 13 were placed into a new folder. Filter bam files by scaffold names of viral species representative genomes. 
+All the "*.viral_species_rep.id90.bam" files from the Step 14 were placed into a new folder. Filter bam files by scaffold names of viral species representative genomes. 
 
 A custom Python 3 script "filter_bam_by_reference.py" was used to filter bam. Note that this script should be run under conda env "python_scripts_env_Jan2022.yml". Both the script and yml file were provided here.
 
-[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step14.filter_bam_files.for_each_year.pl
+[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step15.filter_bam_files.for_each_year.pl
 
-**15 Run MetaPop for bam files from each year**
+**16 Run MetaPop for bam files from each year**
 
 The settings were the same as those listed in Step 6.
 
 [script] 
 
-08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step15.run_metapop.for_each_year.pl
+08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step16.run_metapop.for_each_year.pl
 
-**16 Parse MetaPop result to get AMG coverage for each year**
 
-The running process was the same as that described in Step 7.
-
-[script] 
-
-08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step16.parse_metapop_result_to_get_AMG_coverage.for_each_year.pl
-
-**17 Parse the AMG coverage for each year**
-
-The running process was the same as that described in Step 8.
-
-[script] 
-
-08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step17.parse_AMG_coverage.for_each_year.pl
-
-**18 Get viral genome and AMG variation for each year**
-
-The running process was the same as that described in Step 9.
-
-[script] 
-
-08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step18.get_viral_gn_and_AMG_variation.for_each_year.pl
