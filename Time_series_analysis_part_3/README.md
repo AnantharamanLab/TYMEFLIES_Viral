@@ -4,7 +4,7 @@
 
 **1 Get the AMG-containing viral genome microdiversity (nt diversity) statistics**
 
-The distribution of viral genome should be >= 20 out of 465 metagenomes for calculating month and year_month distribution. 
+The distribution of viral genome should be >= 20 out of 471 metagenomes for calculating month and year_month distribution. 
 
 One microdiversity parameter was obtained from this step: nt diversity. 
 
@@ -12,7 +12,7 @@ One microdiversity parameter was obtained from this step: nt diversity.
 
 **2 Get the AMG-containing viral genome SNP density statistics**
 
-The distribution of viral genome should be >= 20 out of 465 metagenomes for calculating month and year_month distribution. 
+The distribution of viral genome should be >= 20 out of 471 metagenomes for calculating month and year_month distribution. 
 
 One microdiversity parameter was obtained from this step: SNP density. 
 
@@ -152,7 +152,25 @@ The following requirements were used:
 
 Gene gain or loss was determined by comparing the mean gene frequency of year 2000-2003 and year 2016-2019 (the minimum difference of gene frequency to determine a gene gain or loss is 0.4).
 
-08.Time_series_analysis.part3.microdiversity_analysis.step12.3.calculate_gene_gain_and_loss_result.for_each_year.pl
+[script] 08.Time_series_analysis.part3.microdiversity_analysis.step12.3.calculate_gene_gain_and_loss_result.for_each_year.pl
+
+**13 Get the gene pN/pS results of 2000-2003 and 2016-2019 for viral species genomes**
+
+Get the viral species genomes' gene pNpS results of 2000-2003 and 2016-2019 for comparing them to see if there are genes with elevated pNpS values
+
+[script] 08.Time_series_analysis.part3.microdiversity_analysis.step13.compare_pNpS_results.for_2000-2003_and_2016-2019.pl
+
+**14 Conduct t test for gene pN/pS results of 2000-2003 and 2016-2019 for viral species genomes**
+
+Use the gene pN/pS results parsed from Step 13 to conduct t test to find genes with elevated pNpS values with significance support
+
+[script] 08.Time_series_analysis.part3.microdiversity_analysis.step14.conduct_t_test_for_pNpS_results.for_2000-2003_and_2016-2019.py
+
+
+
+
+
+
 
 
 

@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-# Aim: Get the viral species (four AMG containing viral species) pNpS results
+# Aim: Get the viral species (four AMG containing viral species) pNpS results for 2000-2003 and 2016-2019, and compare them to see if there are genes with elevated pNpS values
 
 # Step 1 Get AMG-containing viral gn list (species representatives)
 ## Step 1.1 Store species info
@@ -145,8 +145,9 @@ while (<IN>){
 close IN;
 
 ## Step 3.2 Store all pNpS result for all genes
-my %Gene2IMG2pNpS = (); # $gene => $img => $pNpS
-open IN, "MetaPop/10.Microdiversity/global_gene_microdiversity.tsv";
+my %Gene2year2pNpS = (); # $gene => $year => $pNpS
+my %Year = (); # $year => 1
+open IN, "MetaPop.for_each_year/MetaPop/10.Microdiversity/global_gene_microdiversity.tsv";
 while (<IN>){
 	chomp;
 	if (!/^contig/){
@@ -157,25 +158,26 @@ while (<IN>){
 		if ($pNpS eq ""){
 			$pNpS = "NA";
 		}
-		my ($img) = $tmp[1] =~ /^(.+?)\./;
+		my ($year) = $tmp[1] =~ /^(.+?)\./;
+		$Year{$year} = 1;
+		
 		if ($snp_represent eq "TRUE"){
-			$Gene2IMG2pNpS{$gene}{$img} = $pNpS;
+			$Gene2year2pNpS{$gene}{$year} = $pNpS;
 		}
 	}
 }
 close IN;
 
 foreach my $gene (sort keys %All_gene_seq_ID){
-	foreach my $img (sort keys %IMG2date){
-		if (!exists $Gene2IMG2pNpS{$gene}{$img}){
-			$Gene2IMG2pNpS{$gene}{$img} = "NA";
+	foreach my $year (sort keys %Year){
+		if (!exists $Gene2year2pNpS{$gene}{$year}){
+			$Gene2year2pNpS{$gene}{$year} = "NA";
 		}
 	}
 }
 
-## Step 3.3 Store all pNpS summary for all viral gn
-## Get the percentage of positive, neutral, negative, and "NA" for each viral gn
-### Get the Viral gn to gene number hash
+# Step 4 Write down results
+## Get the Viral gn to gene number hash
 my %Viral_gn2gene_num = (); # $viral_gn => $gene_num
 my %Viral_gn2genes = (); # $viral_gn => $genes (collection of $gene, separated by "\t")
 foreach my $gene (sort keys %All_gene_seq_ID){
@@ -188,120 +190,53 @@ foreach my $gene (sort keys %All_gene_seq_ID){
 	}
 }
 
-my %Viral_gn2IMG2pNpS_summary = (); # $viral_gn => $img => $pNpS_summary (four percentages)
-foreach my $viral_gn (sort keys %Viral_gn2gene_num){
-	foreach my $img (sort keys %IMG2date){
-		my @Genes = split (/\t/, $Viral_gn2genes{$viral_gn});
-		my $gene_num = $Viral_gn2gene_num{$viral_gn};
-		
-		my $perc_positive = 0;
-		my $perc_neutral = 0;
-		my $perc_negative = 0;
-		my $perc_na = 0;
-		
-		foreach my $gene (@Genes){
-			if ($Gene2IMG2pNpS{$gene}{$img} eq "NA"){
-				$perc_na++;
-			}elsif($Gene2IMG2pNpS{$gene}{$img} > 1){
-				$perc_positive++;
-			}elsif($Gene2IMG2pNpS{$gene}{$img} = 1){
-				$perc_neutral++;
-			}elsif($Gene2IMG2pNpS{$gene}{$img} < 1){
-				$perc_negative++;
-			}
-		}
-		
-		$perc_positive = $perc_positive / $gene_num * 100;
-		$perc_neutral = $perc_neutral / $gene_num * 100;
-		$perc_negative = $perc_negative / $gene_num * 100;
-		$perc_na = $perc_na / $gene_num * 100;
-		
-		$perc_positive = sprintf "%.1f", $perc_positive;
-		$perc_neutral = sprintf "%.1f", $perc_neutral;
-		$perc_negative = sprintf "%.1f", $perc_negative;
-		$perc_na = sprintf "%.1f", $perc_na;
-		
-		my $pNpS_summary = "$perc_positive \| $perc_neutral \| $perc_negative \| $perc_na";
-		$Viral_gn2IMG2pNpS_summary{$viral_gn}{$img} = $pNpS_summary;
-	}
-}
-
-# Step 4 Write down results
-## Step 4.1 Write down positively selected genes in viral species containing four AMGs
-open OUT, ">MetaPop/Positive_pNpS_result.for_four_AMGs.txt";
-print OUT "Gene\tViral gn\tViral gn characteristics\t$annotation_header\n";
+## Step 4.1 Write down gene pN/pS results for 2000-2003 and 2016-2019 in viral species containing four AMGs
+open OUT, ">MetaPop.for_each_year/MetaPop/pNpS_result.for_2000-2003_and_2016-2019.for_four_AMGs.txt";
+print OUT "Gene\tViral gn\tViral gn characteristics\t2000\t2001\t2002\t2003\t2016\t2017\t2018\t2019\t$annotation_header\n";
 foreach my $viral_gn (sort keys %Viral_species_containing_four_AMGs){
 	my @Genes = split (/\t/, $Viral_gn2genes{$viral_gn});
 	foreach my $gene (@Genes){
-		foreach my $img (sort keys %IMG2date){
-			if ($Gene2IMG2pNpS{$gene}{$img} ne "NA" and $Gene2IMG2pNpS{$gene}{$img} > 1){
-				# This gene is positively selected
-				my $gene_annotation = $All_gene_annotation{$gene};
-				if (! $gene_annotation){
-					print "$gene annotation is not present\n";
-					$gene_annotation = "NA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA";
-				}
-				print OUT "$gene\t$viral_gn\t$img\t$Viral_species_containing_four_AMGs{$viral_gn}\t$gene_annotation\n";
-			}
+		my @Year_2000_2003_and_2016_2019 = qw/2000 2001 2002 2003 2016 2017 2018 2019/;
+		my @pNpS_values_for_year_2000_2003_and_2016_2019 = ();
+		
+		foreach my $year (@Year_2000_2003_and_2016_2019){
+			push @pNpS_values_for_year_2000_2003_and_2016_2019, $Gene2year2pNpS{$gene}{$year};
 		}
+		
+		my $pNpS_values_for_year_2000_2003_and_2016_2019 = join("\t", @pNpS_values_for_year_2000_2003_and_2016_2019);
+		
+		my $gene_annotation = $All_gene_annotation{$gene};
+		if (! $gene_annotation){
+			print "$gene annotation is not present\n";
+			$gene_annotation = "NA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA";
+		}
+		print OUT "$gene\t$viral_gn\t$Viral_species_containing_four_AMGs{$viral_gn}\t$pNpS_values_for_year_2000_2003_and_2016_2019\t$gene_annotation\n";
 	}
 }
 close OUT;
 
-## Step 4.2 Write down positively selected genes in viral species
-open OUT, ">MetaPop/Positive_pNpS_result.txt";
-print OUT "Gene\tViral gn\t$annotation_header\n";
+## Step 4.2 Write down gene pN/pS results for 2000-2003 and 2016-2019 in viral species
+open OUT, ">MetaPop.for_each_year/MetaPop/pNpS_result.for_2000-2003_and_2016-2019.txt";
+print OUT "Gene\tViral gn\t2000\t2001\t2002\t2003\t2016\t2017\t2018\t2019\t$annotation_header\n";
 foreach my $viral_gn (sort keys %Viral_gn2genes){
 	my @Genes = split (/\t/, $Viral_gn2genes{$viral_gn});
 	foreach my $gene (@Genes){
-		foreach my $img (sort keys %IMG2date){
-			if ($Gene2IMG2pNpS{$gene}{$img} ne "NA" and $Gene2IMG2pNpS{$gene}{$img} > 1){
-				# This gene is positively selected
-				my $gene_annotation = $All_gene_annotation{$gene};
-				if (! $gene_annotation){
-					print "$gene annotation is not present\n";
-					$gene_annotation = "NA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA";
-				}				
-				print OUT "$gene\t$viral_gn\t$img\t$gene_annotation\n";
-			}
+		my @Year_2000_2003_and_2016_2019 = qw/2000 2001 2002 2003 2016 2017 2018 2019/;
+		my @pNpS_values_for_year_2000_2003_and_2016_2019 = ();
+		
+		foreach my $year (@Year_2000_2003_and_2016_2019){
+			push @pNpS_values_for_year_2000_2003_and_2016_2019, $Gene2year2pNpS{$gene}{$year};
 		}
+		
+		my $pNpS_values_for_year_2000_2003_and_2016_2019 = join("\t", @pNpS_values_for_year_2000_2003_and_2016_2019);
+		
+		my $gene_annotation = $All_gene_annotation{$gene};
+		if (! $gene_annotation){
+			print "$gene annotation is not present\n";
+			$gene_annotation = "NA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA";
+		}
+		print OUT "$gene\t$viral_gn\t$pNpS_values_for_year_2000_2003_and_2016_2019\t$gene_annotation\n";
 	}
-}
-close OUT;
-
-## Step 4.3 Write down pNpS_summary information for viral species containing four AMGs
-open OUT, ">MetaPop/pNpS_summary.for_four_AMGs.txt";
-my $row=join("\t", sort keys %IMG2date);
-print OUT "Viral gn\tViral gn characteristics\t$row\n";
-foreach my $tmp1 (sort keys %Viral_species_containing_four_AMGs){
-        print OUT $tmp1."\t".$Viral_species_containing_four_AMGs{$tmp1}."\t";
-        my @tmp = ();
-        foreach my $tmp2 (sort keys %IMG2date) {       
-                if (exists $Viral_gn2IMG2pNpS_summary{$tmp1}{$tmp2}){
-                        push @tmp, $Viral_gn2IMG2pNpS_summary{$tmp1}{$tmp2};
-                }else{              
-                        push @tmp,"NA";
-                }
-        }
-        print OUT join("\t",@tmp)."\n";
-}
-close OUT;
-
-## Step 4.4 Write down pNpS_summary information for viral species
-open OUT, ">MetaPop/pNpS_summary.txt";
-my $row2=join("\t", sort keys %IMG2date);
-print OUT "Viral gn\t$row2\n";
-foreach my $tmp1 (sort keys %Viral_gn2genes){
-        print OUT $tmp1."\t";
-        my @tmp = ();
-        foreach my $tmp2 (sort keys %IMG2date) {       
-                if (exists $Viral_gn2IMG2pNpS_summary{$tmp1}{$tmp2}){
-                        push @tmp, $Viral_gn2IMG2pNpS_summary{$tmp1}{$tmp2};
-                }else{              
-                        push @tmp,"NA";
-                }
-        }
-        print OUT join("\t",@tmp)."\n";
 }
 close OUT;
 

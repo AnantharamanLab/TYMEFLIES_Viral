@@ -3,9 +3,9 @@
 use strict;
 use warnings;
 
-# Aim: Get the pmoC-containing viral gn coverage statistics (the distribution of viral gn should be >= 5 out of 471 metagenomes)
+# Aim: Get the ahbD-containing viral gn coverage statistics (the distribution of viral gn should be >= 20 out of 471 metagenomes)
 
-# Step 1 Get pmoC-containing viral gn list (species representatives)
+# Step 1 Get ahbD-containing viral gn list (species representatives)
 ## Step 1.1 Store species info
 my %Species = (); # $gn_rep => $gns 
 open IN, "/storage1/data11/TYMEFLIES_phage/Cluster_phage_genomes/Species_level_vOTUs_cluster.txt";
@@ -63,13 +63,13 @@ foreach my $pro (sort keys %AMG_summary){
 	}
 }
 
-## Step 1.3 Get pmoC-containing viral genome
-my %PmoC_containing_viral_gn = (); # $gn => 1
+## Step 1.3 Get ahbD-containing viral genome
+my %AhbD_containing_viral_gn = (); # $gn => 1
 foreach my $pro (sort keys %AMG_summary){
 	my ($gn) = $pro =~ /^(.+?\_\_.+?)\_\_/;
 	my $ko = $AMG_summary{$pro};
-	if (exists $Species{$gn} and $ko eq "K10946"){ # If both this genome is species representative genome and this AMG is pmoC
-		$PmoC_containing_viral_gn{$gn} = 1;
+	if (exists $Species{$gn} and $ko eq "K22227"){ # If both this genome is species representative genome and this AMG is ahbD
+		$AhbD_containing_viral_gn{$gn} = 1;
 	}
 }
 
@@ -87,14 +87,16 @@ while (<IN>){
 }
 close IN;
 
-# Step 3 Get pmoC-containing viral gn coverage statistics and write it down
+# Step 3 Get ahbD-containing viral gn coverage statistics and write it down
 # Step 3.1 Get distribution and coverage mean information
-my %PmoC_containing_viral_gn2distribution_n_cov_mean = (); # $gn => [0] distribution [1] $cov_mean
-foreach my $gn (sort keys %PmoC_containing_viral_gn){
-	my $distribution = $Viral_gn2distribution_n_cov_mean{$gn}[0];
-	my $cov_mean = $Viral_gn2distribution_n_cov_mean{$gn}[1];
-	$PmoC_containing_viral_gn2distribution_n_cov_mean{$gn}[0] = $distribution;
-	$PmoC_containing_viral_gn2distribution_n_cov_mean{$gn}[1] = $cov_mean;
+my %AhbD_containing_viral_gn2distribution_n_cov_mean = (); # $gn => [0] distribution [1] $cov_mean
+foreach my $gn (sort keys %AhbD_containing_viral_gn){
+	if (exists $Viral_gn2distribution_n_cov_mean{$gn}[0]){
+		my $distribution = $Viral_gn2distribution_n_cov_mean{$gn}[0];
+		my $cov_mean = $Viral_gn2distribution_n_cov_mean{$gn}[1];
+		$AhbD_containing_viral_gn2distribution_n_cov_mean{$gn}[0] = $distribution;
+		$AhbD_containing_viral_gn2distribution_n_cov_mean{$gn}[1] = $cov_mean;
+	}
 }
 
 # Step 3.2 Get tax and host tax information
@@ -124,10 +126,10 @@ while (<IN>){
 }
 close IN;
 
-open OUT, ">MetaPop/PmoC_containing_viral_gn2distribution_n_cov_mean_n_tax_n_host_tax.txt";
-foreach my $gn (sort keys %PmoC_containing_viral_gn2distribution_n_cov_mean){
-	my $distribution = $PmoC_containing_viral_gn2distribution_n_cov_mean{$gn}[0];
-	my $cov_mean = $PmoC_containing_viral_gn2distribution_n_cov_mean{$gn}[1];
+open OUT, ">MetaPop/AhbD_containing_viral_gn2distribution_n_cov_mean_n_tax_n_host_tax.txt";
+foreach my $gn (sort keys %AhbD_containing_viral_gn2distribution_n_cov_mean){
+	my $distribution = $AhbD_containing_viral_gn2distribution_n_cov_mean{$gn}[0];
+	my $cov_mean = $AhbD_containing_viral_gn2distribution_n_cov_mean{$gn}[1];
 	my $tax = "NA"; my $tax_method = "NA";
 	my $host_tax = "NA"; my $host_tax_method = "NA";
 	if (exists $Viral_gn2tax{$gn}[0]){
@@ -140,8 +142,7 @@ foreach my $gn (sort keys %PmoC_containing_viral_gn2distribution_n_cov_mean){
 }
 close OUT;
 
-# Step 4 Get pmoC-containing viral gn 2 season 2 cov_ratio result and 2 year_season 2 cov_ratio result
-
+# Step 4 Get ahbD-containing viral gn 2 season 2 cov_ratio result and 2 year_season 2 cov_ratio result
 ## Store season and year season information
 my @Season = ('Spring', 'Clearwater', 'Early Summer', 'Late Summer', 'Fall', 'Ice-on');
 my @Year = ('2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019');
@@ -153,8 +154,8 @@ foreach my $year (@Year){
 	}
 }
 
-## Step 4.1 Get pmoC-containing viral gn 2 season 2 cov result
-my %PmoC_containing_viral_gn2season2cov = (); # $pmoC_containing_viral_gn => $season => $cov
+## Step 4.1 Get ahbD-containing viral gn 2 season 2 cov result
+my %AhbD_containing_viral_gn2season2cov = (); # $ahbD_containing_viral_gn => $season => $cov
 my @Header = (); # Store the header line of AMG_gene_containing_viral_gn2season2cov.txt 
 open IN, "MetaPop/AMG_gene_containing_viral_gn2season2cov.txt";
 while (<IN>){
@@ -165,26 +166,26 @@ while (<IN>){
 	}else{
 		my @tmp = split (/\t/);
 		my $viral_gn = $tmp[0];
-		if (exists $PmoC_containing_viral_gn{$viral_gn} and $PmoC_containing_viral_gn2distribution_n_cov_mean{$viral_gn}[0] >= 5){	
+		if (exists $AhbD_containing_viral_gn{$viral_gn} and $AhbD_containing_viral_gn2distribution_n_cov_mean{$viral_gn}[0] >= 20){	
 			for(my $i=1; $i<=$#tmp; $i++){
 				my $season = $Header[$i];
 				my $cov = $tmp[$i];
-				$PmoC_containing_viral_gn2season2cov{$viral_gn}{$season} = $cov;
+				$AhbD_containing_viral_gn2season2cov{$viral_gn}{$season} = $cov;
 			}
 		}	
 	}
 }
 close IN;
 
-open OUT, ">MetaPop/PmoC_containing_viral_gn2season2cov.txt";
+open OUT, ">MetaPop/AhbD_containing_viral_gn2season2cov.txt";
 my $row=join("\t", @Season);
 print OUT "Head\t$row\n";
-foreach my $tmp1 (sort keys %PmoC_containing_viral_gn2season2cov){
+foreach my $tmp1 (sort keys %AhbD_containing_viral_gn2season2cov){
         print OUT $tmp1."\t";
         my @tmp = ();
         foreach my $tmp2 (@Season) {       
-                if (exists $PmoC_containing_viral_gn2season2cov{$tmp1}{$tmp2}){
-                        push @tmp, $PmoC_containing_viral_gn2season2cov{$tmp1}{$tmp2};
+                if (exists $AhbD_containing_viral_gn2season2cov{$tmp1}{$tmp2}){
+                        push @tmp, $AhbD_containing_viral_gn2season2cov{$tmp1}{$tmp2};
                 }else{              
                         push @tmp,"0";
                 }
@@ -193,8 +194,8 @@ foreach my $tmp1 (sort keys %PmoC_containing_viral_gn2season2cov){
 }
 close OUT;
 
-## Step 4.2 Get pmoC-containing viral gn 2 year_season 2 cov result
-my %PmoC_containing_viral_gn2year_season2cov = (); # $pmoC_containing_viral_gn => $year_season => $cov
+## Step 4.2 Get ahbD-containing viral gn 2 year_season 2 cov result
+my %AhbD_containing_viral_gn2year_season2cov = (); # $ahbD_containing_viral_gn => $year_season => $cov
 my @Header2 = (); # Store the header line of AMG_gene_containing_viral_gn2year_season2cov.txt 
 open IN, "MetaPop/AMG_gene_containing_viral_gn2year_season2cov.txt";
 while (<IN>){
@@ -205,26 +206,26 @@ while (<IN>){
 	}else{
 		my @tmp = split (/\t/);
 		my $viral_gn = $tmp[0];
-		if (exists $PmoC_containing_viral_gn{$viral_gn} and $PmoC_containing_viral_gn2distribution_n_cov_mean{$viral_gn}[0] >= 5){	
+		if (exists $AhbD_containing_viral_gn{$viral_gn} and $AhbD_containing_viral_gn2distribution_n_cov_mean{$viral_gn}[0] >= 20){	
 			for(my $i=1; $i<=$#tmp; $i++){
 				my $year_season = $Header2[$i];
 				my $cov = $tmp[$i];
-				$PmoC_containing_viral_gn2year_season2cov{$viral_gn}{$year_season} = $cov;
+				$AhbD_containing_viral_gn2year_season2cov{$viral_gn}{$year_season} = $cov;
 			}
 		}	
 	}
 }
 close IN;
 
-open OUT, ">MetaPop/PmoC_containing_viral_gn2year_season2cov.txt";
+open OUT, ">MetaPop/AhbD_containing_viral_gn2year_season2cov.txt";
 my $row2=join("\t", @Year_season);
 print OUT "Head\t$row2\n";
-foreach my $tmp1 (sort keys %PmoC_containing_viral_gn2year_season2cov){
+foreach my $tmp1 (sort keys %AhbD_containing_viral_gn2year_season2cov){
         print OUT $tmp1."\t";
         my @tmp = ();
         foreach my $tmp2 (@Year_season) {       
-                if (exists $PmoC_containing_viral_gn2year_season2cov{$tmp1}{$tmp2}){
-                        push @tmp, $PmoC_containing_viral_gn2year_season2cov{$tmp1}{$tmp2};
+                if (exists $AhbD_containing_viral_gn2year_season2cov{$tmp1}{$tmp2}){
+                        push @tmp, $AhbD_containing_viral_gn2year_season2cov{$tmp1}{$tmp2};
                 }else{              
                         push @tmp,"0";
                 }
@@ -233,9 +234,9 @@ foreach my $tmp1 (sort keys %PmoC_containing_viral_gn2year_season2cov){
 }
 close OUT;
 
-# Step 5 Get pmoC AMG gene 2 season 2 cov result and 2 year_season 2 cov ratio result
-## Step 5.1 Get pmoC AMG gene 2 season 2 cov ratio result
-my %PmoC_AMG_gene2season2cov_ratio = (); # $pmoC_amg_gene => $season => $cov_ratio
+# Step 5 Get ahbD AMG gene 2 season 2 cov result and 2 year_season 2 cov ratio result
+## Step 5.1 Get ahbD AMG gene 2 season 2 cov ratio result
+my %AhbD_AMG_gene2season2cov_ratio = (); # $ahbD_amg_gene => $season => $cov_ratio
 my @Header3 = (); # Store the header line of AMG_gene2season2cov_ratio.txt
 open IN, "MetaPop/AMG_gene2season2cov_ratio.txt";
 while (<IN>){
@@ -248,27 +249,27 @@ while (<IN>){
 		my $amg_gene = $tmp[0];
 		my ($viral_gn) = $amg_gene =~ /^(.+?\_\_.+?)\_\_/;
 		# Satisfy three conditions:
-		# 1) $amg_gene is pmoC 2) $amg_gene is in a pmoC containing viral gn 3) this viral gn has distribution >= 5 out of 471 metagenomes
-		if ($AMG_summary{$amg_gene} eq "K10946" and exists $PmoC_containing_viral_gn{$viral_gn} and $PmoC_containing_viral_gn2distribution_n_cov_mean{$viral_gn}[0] >= 5){	
+		# 1) $amg_gene is ahbD 2) $amg_gene is in a ahbD containing viral gn 3) this viral gn has distribution >= 20 out of 471 metagenomes
+		if ($AMG_summary{$amg_gene} eq "K22227" and exists $AhbD_containing_viral_gn{$viral_gn} and $AhbD_containing_viral_gn2distribution_n_cov_mean{$viral_gn}[0] >= 20){	
 			for(my $i=1; $i<=$#tmp; $i++){
 				my $season = $Header3[$i];
 				my $cov_ratio = $tmp[$i];
-				$PmoC_AMG_gene2season2cov_ratio{$amg_gene}{$season} = $cov_ratio;
+				$AhbD_AMG_gene2season2cov_ratio{$amg_gene}{$season} = $cov_ratio;
 			}
 		}	
 	}
 }
 close IN;
 
-open OUT, ">MetaPop/PmoC_AMG_gene2season2cov_ratio.txt";
+open OUT, ">MetaPop/AhbD_AMG_gene2season2cov_ratio.txt";
 my $row3=join("\t", @Season);
 print OUT "Head\t$row3\n";
-foreach my $tmp1 (sort keys %PmoC_AMG_gene2season2cov_ratio){
+foreach my $tmp1 (sort keys %AhbD_AMG_gene2season2cov_ratio){
         print OUT $tmp1."\t";
         my @tmp = ();
         foreach my $tmp2 (@Season) {       
-                if (exists $PmoC_AMG_gene2season2cov_ratio{$tmp1}{$tmp2}){
-                        push @tmp, $PmoC_AMG_gene2season2cov_ratio{$tmp1}{$tmp2};
+                if (exists $AhbD_AMG_gene2season2cov_ratio{$tmp1}{$tmp2}){
+                        push @tmp, $AhbD_AMG_gene2season2cov_ratio{$tmp1}{$tmp2};
                 }else{              
                         push @tmp,"0";
                 }
@@ -277,8 +278,8 @@ foreach my $tmp1 (sort keys %PmoC_AMG_gene2season2cov_ratio){
 }
 close OUT;
 
-## Step 5.2 Get pmoC AMG gene 2 year_season 2 cov ratio result
-my %PmoC_AMG_gene2year_season2cov_ratio = (); # $pmoC_amg_gene => $year_season => $cov_ratio
+## Step 5.2 Get ahbD AMG gene 2 year_season 2 cov ratio result
+my %AhbD_AMG_gene2year_season2cov_ratio = (); # $ahbD_amg_gene => $year_season => $cov_ratio
 my @Header4 = (); # Store the header line of AMG_gene2year_season2cov_ratio.txt
 open IN, "MetaPop/AMG_gene2year_season2cov_ratio.txt";
 while (<IN>){
@@ -291,27 +292,27 @@ while (<IN>){
 		my $amg_gene = $tmp[0];
 		my ($viral_gn) = $amg_gene =~ /^(.+?\_\_.+?)\_\_/;
 		# Satisfy three conditions:
-		# 1) $amg_gene is pmoC 2) $amg_gene is in a pmoC containing viral gn 3) this viral gn has distribution >= 5 out of 471 metagenomes
-		if ($AMG_summary{$amg_gene} eq "K10946" and exists $PmoC_containing_viral_gn{$viral_gn} and $PmoC_containing_viral_gn2distribution_n_cov_mean{$viral_gn}[0] >= 5){	
+		# 1) $amg_gene is ahbD 2) $amg_gene is in a ahbD containing viral gn 3) this viral gn has distribution >= 20 out of 471 metagenomes
+		if ($AMG_summary{$amg_gene} eq "K22227" and exists $AhbD_containing_viral_gn{$viral_gn} and $AhbD_containing_viral_gn2distribution_n_cov_mean{$viral_gn}[0] >= 20){	
 			for(my $i=1; $i<=$#tmp; $i++){
 				my $year_season = $Header4[$i];
 				my $cov_ratio = $tmp[$i];
-				$PmoC_AMG_gene2year_season2cov_ratio{$amg_gene}{$year_season} = $cov_ratio;
+				$AhbD_AMG_gene2year_season2cov_ratio{$amg_gene}{$year_season} = $cov_ratio;
 			}
 		}	
 	}
 }
 close IN;
 
-open OUT, ">MetaPop/PmoC_AMG_gene2year_season2cov_ratio.txt";
+open OUT, ">MetaPop/AhbD_AMG_gene2year_season2cov_ratio.txt";
 my $row4=join("\t", @Year_season);
 print OUT "Head\t$row4\n";
-foreach my $tmp1 (sort keys %PmoC_AMG_gene2year_season2cov_ratio){
+foreach my $tmp1 (sort keys %AhbD_AMG_gene2year_season2cov_ratio){
         print OUT $tmp1."\t";
         my @tmp = ();
         foreach my $tmp2 (@Year_season) {       
-                if (exists $PmoC_AMG_gene2year_season2cov_ratio{$tmp1}{$tmp2}){
-                        push @tmp, $PmoC_AMG_gene2year_season2cov_ratio{$tmp1}{$tmp2};
+                if (exists $AhbD_AMG_gene2year_season2cov_ratio{$tmp1}{$tmp2}){
+                        push @tmp, $AhbD_AMG_gene2year_season2cov_ratio{$tmp1}{$tmp2};
                 }else{              
                         push @tmp,"0";
                 }

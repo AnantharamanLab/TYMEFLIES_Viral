@@ -105,7 +105,7 @@ foreach my $gene (sort keys %Fst){
 	my $pNpS_2 = $Gene2pNpS{$gene}[1];
 	
 	my $logic = 0; # Record how many requirements are meet
-	if ($fst ne "NA" and $fst >= 0.75){
+	if ($fst ne "NA" and $fst >= 0.5){
 		$logic++;
 	}
 	

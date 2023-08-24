@@ -7,7 +7,7 @@ use List::Util qw(sum);
 # Aim: Calculate gene frequency for AMG-containing viral gn (species representatives) for each year
 
 # Note:
-# (1) Gene frequency was estimated as the coverage of each gene divided by the median coverage of all other genes in the genome
+# (1) Gene frequency was estimated as the coverage of each gene divided by the mean coverage of all other genes in the genome
 # (2) The mean coverage of all other genes in the genome should be >= 5
 # (3) The gene number in a genome with a valid coverage (not "NA" and > 0) should be over 50% of the total gene number
 # (4) Genes with their length < 450 bp were excluded from analysis
@@ -89,7 +89,7 @@ foreach my $gene (sort keys %All_gene_coordinates){
 		my @Viral_scf = split (/\t/, $Viral_gn2viral_scf{$viral_gn});
 		
 		# The gene freq is the ratio of this gene's depth over the median depth of all other genes in the viral gn
-		my $median_depth_of_all_other_genes = 0;
+		my $mean_depth_of_all_other_genes = 0;
 		my @Depth_of_all_other_genes = ();
 		
 		my $mean_depth_of_all_genes = 0;
@@ -118,7 +118,7 @@ foreach my $gene (sort keys %All_gene_coordinates){
 		}	
 		
 		if (@Depth_of_all_other_genes){
-			$median_depth_of_all_other_genes = _median(@Depth_of_all_other_genes);
+			$mean_depth_of_all_other_genes = _mean(@Depth_of_all_other_genes);
 		}
 		
 		if (@Mean_depth){
@@ -133,12 +133,12 @@ foreach my $gene (sort keys %All_gene_coordinates){
 		my $gene_freq = "NA";
 		# We set the following three requirements to gene freq that are not assigned as "NA":
 		# (1) The gene coverage should not be "NA"
-		# (2) The median depth of all other genes should not be 0
+		# (2) The mean depth of all other genes should not be 0
 		# (3) The mean depth of all genes within this genome should be >= 5
 		# (4) The gene number in a genome with a valid coverage (not "NA" and > 0) should be over 50% of the total gene number
 		
-		if ($Viral_gene2year2depth{$gene}{$year} ne "NA" and $median_depth_of_all_other_genes and $mean_depth_of_all_genes >= 5 and $ratio_genes_with_valid_depth >= 0.5){
-			$gene_freq = $Viral_gene2year2depth{$gene}{$year} / $median_depth_of_all_other_genes;
+		if ($Viral_gene2year2depth{$gene}{$year} ne "NA" and $mean_depth_of_all_other_genes and $mean_depth_of_all_genes >= 5 and $ratio_genes_with_valid_depth >= 0.5){
+			$gene_freq = $Viral_gene2year2depth{$gene}{$year} / $mean_depth_of_all_other_genes;
 		}
 		
 		$Viral_gene2year2gene_freq{$gene}{$year} = $gene_freq;

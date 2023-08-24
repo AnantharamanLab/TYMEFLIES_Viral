@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-# Aim: Get the katG-containing viral gn coverage statistics (the distribution of viral gn should be >= 5 out of 465 metagenomes)
+# Aim: Get the katG-containing viral gn coverage statistics (the distribution of viral gn should be >= 5 out of 471 metagenomes)
 
 # Step 1 Get katG-containing viral gn list (species representatives)
 ## Step 1.1 Store species info
@@ -140,23 +140,23 @@ foreach my $gn (sort keys %KatG_containing_viral_gn2distribution_n_cov_mean){
 }
 close OUT;
 
-# Step 4 Get katG-containing viral gn 2 month 2 cov_ratio result and 2 year_month 2 cov_ratio result
+# Step 4 Get katG-containing viral gn 2 season 2 cov_ratio result and 2 year_season 2 cov_ratio result
 
-## Store month and year month information
-my @Month = ('01','02','03','04','05','06','07','08','09','10','11','12');
+## Store season and year season information
+my @Season = ('Spring', 'Clearwater', 'Early Summer', 'Late Summer', 'Fall', 'Ice-on');
 my @Year = ('2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019');
-my @Year_month = ();
+my @Year_season = ();
 foreach my $year (@Year){
-	foreach my $month (@Month){
-		my $year_month = "$year\-$month";
-		push @Year_month, $year_month;
+	foreach my $season (@Season){
+		my $year_season = "$year\-$season";
+		push @Year_season, $year_season;
 	}
 }
 
-## Step 4.1 Get katG-containing viral gn 2 month 2 cov result
-my %KatG_containing_viral_gn2month2cov = (); # $katG_containing_viral_gn => $month => $cov
-my @Header = (); # Store the header line of AMG_gene_containing_viral_gn2month2cov.txt 
-open IN, "MetaPop/AMG_gene_containing_viral_gn2month2cov.txt";
+## Step 4.1 Get katG-containing viral gn 2 season 2 cov result
+my %KatG_containing_viral_gn2season2cov = (); # $katG_containing_viral_gn => $season => $cov
+my @Header = (); # Store the header line of AMG_gene_containing_viral_gn2season2cov.txt 
+open IN, "MetaPop/AMG_gene_containing_viral_gn2season2cov.txt";
 while (<IN>){
 	chomp;
 	if (/^Head/){
@@ -167,24 +167,24 @@ while (<IN>){
 		my $viral_gn = $tmp[0];
 		if (exists $KatG_containing_viral_gn{$viral_gn} and $KatG_containing_viral_gn2distribution_n_cov_mean{$viral_gn}[0] >= 5){	
 			for(my $i=1; $i<=$#tmp; $i++){
-				my $month = $Header[$i];
+				my $season = $Header[$i];
 				my $cov = $tmp[$i];
-				$KatG_containing_viral_gn2month2cov{$viral_gn}{$month} = $cov;
+				$KatG_containing_viral_gn2season2cov{$viral_gn}{$season} = $cov;
 			}
 		}	
 	}
 }
 close IN;
 
-open OUT, ">MetaPop/KatG_containing_viral_gn2month2cov.txt";
-my $row=join("\t", @Month);
+open OUT, ">MetaPop/KatG_containing_viral_gn2season2cov.txt";
+my $row=join("\t", @Season);
 print OUT "Head\t$row\n";
-foreach my $tmp1 (sort keys %KatG_containing_viral_gn2month2cov){
+foreach my $tmp1 (sort keys %KatG_containing_viral_gn2season2cov){
         print OUT $tmp1."\t";
         my @tmp = ();
-        foreach my $tmp2 (@Month) {       
-                if (exists $KatG_containing_viral_gn2month2cov{$tmp1}{$tmp2}){
-                        push @tmp, $KatG_containing_viral_gn2month2cov{$tmp1}{$tmp2};
+        foreach my $tmp2 (@Season) {       
+                if (exists $KatG_containing_viral_gn2season2cov{$tmp1}{$tmp2}){
+                        push @tmp, $KatG_containing_viral_gn2season2cov{$tmp1}{$tmp2};
                 }else{              
                         push @tmp,"0";
                 }
@@ -193,10 +193,10 @@ foreach my $tmp1 (sort keys %KatG_containing_viral_gn2month2cov){
 }
 close OUT;
 
-## Step 4.2 Get katG-containing viral gn 2 year_month 2 cov result
-my %KatG_containing_viral_gn2year_month2cov = (); # $katG_containing_viral_gn => $year_month => $cov
-my @Header2 = (); # Store the header line of AMG_gene_containing_viral_gn2year_month2cov.txt 
-open IN, "MetaPop/AMG_gene_containing_viral_gn2year_month2cov.txt";
+## Step 4.2 Get katG-containing viral gn 2 year_season 2 cov result
+my %KatG_containing_viral_gn2year_season2cov = (); # $katG_containing_viral_gn => $year_season => $cov
+my @Header2 = (); # Store the header line of AMG_gene_containing_viral_gn2year_season2cov.txt 
+open IN, "MetaPop/AMG_gene_containing_viral_gn2year_season2cov.txt";
 while (<IN>){
 	chomp;
 	if (/^Head/){
@@ -207,24 +207,24 @@ while (<IN>){
 		my $viral_gn = $tmp[0];
 		if (exists $KatG_containing_viral_gn{$viral_gn} and $KatG_containing_viral_gn2distribution_n_cov_mean{$viral_gn}[0] >= 5){	
 			for(my $i=1; $i<=$#tmp; $i++){
-				my $year_month = $Header2[$i];
+				my $year_season = $Header2[$i];
 				my $cov = $tmp[$i];
-				$KatG_containing_viral_gn2year_month2cov{$viral_gn}{$year_month} = $cov;
+				$KatG_containing_viral_gn2year_season2cov{$viral_gn}{$year_season} = $cov;
 			}
 		}	
 	}
 }
 close IN;
 
-open OUT, ">MetaPop/KatG_containing_viral_gn2year_month2cov.txt";
-my $row2=join("\t", @Year_month);
+open OUT, ">MetaPop/KatG_containing_viral_gn2year_season2cov.txt";
+my $row2=join("\t", @Year_season);
 print OUT "Head\t$row2\n";
-foreach my $tmp1 (sort keys %KatG_containing_viral_gn2year_month2cov){
+foreach my $tmp1 (sort keys %KatG_containing_viral_gn2year_season2cov){
         print OUT $tmp1."\t";
         my @tmp = ();
-        foreach my $tmp2 (@Year_month) {       
-                if (exists $KatG_containing_viral_gn2year_month2cov{$tmp1}{$tmp2}){
-                        push @tmp, $KatG_containing_viral_gn2year_month2cov{$tmp1}{$tmp2};
+        foreach my $tmp2 (@Year_season) {       
+                if (exists $KatG_containing_viral_gn2year_season2cov{$tmp1}{$tmp2}){
+                        push @tmp, $KatG_containing_viral_gn2year_season2cov{$tmp1}{$tmp2};
                 }else{              
                         push @tmp,"0";
                 }
@@ -233,11 +233,11 @@ foreach my $tmp1 (sort keys %KatG_containing_viral_gn2year_month2cov){
 }
 close OUT;
 
-# Step 5 Get katG AMG gene 2 month 2 cov result and 2 year_month 2 cov ratio result
-## Step 5.1 Get katG AMG gene 2 month 2 cov ratio result
-my %KatG_AMG_gene2month2cov_ratio = (); # $katG_amg_gene => $month => $cov_ratio
-my @Header3 = (); # Store the header line of AMG_gene2month2cov_ratio.txt
-open IN, "MetaPop/AMG_gene2month2cov_ratio.txt";
+# Step 5 Get katG AMG gene 2 season 2 cov result and 2 year_season 2 cov ratio result
+## Step 5.1 Get katG AMG gene 2 season 2 cov ratio result
+my %KatG_AMG_gene2season2cov_ratio = (); # $katG_amg_gene => $season => $cov_ratio
+my @Header3 = (); # Store the header line of AMG_gene2season2cov_ratio.txt
+open IN, "MetaPop/AMG_gene2season2cov_ratio.txt";
 while (<IN>){
 	chomp;
 	if (/^Head/){
@@ -248,27 +248,27 @@ while (<IN>){
 		my $amg_gene = $tmp[0];
 		my ($viral_gn) = $amg_gene =~ /^(.+?\_\_.+?)\_\_/;
 		# Satisfy three conditions:
-		# 1) $amg_gene is katG 2) $amg_gene is in a katG containing viral gn 3) this viral gn has distribution >= 5 out of 465 metagenomes
+		# 1) $amg_gene is katG 2) $amg_gene is in a katG containing viral gn 3) this viral gn has distribution >= 5 out of 471 metagenomes
 		if ($AMG_summary{$amg_gene} eq "K03782" and exists $KatG_containing_viral_gn{$viral_gn} and $KatG_containing_viral_gn2distribution_n_cov_mean{$viral_gn}[0] >= 5){	
 			for(my $i=1; $i<=$#tmp; $i++){
-				my $month = $Header3[$i];
+				my $season = $Header3[$i];
 				my $cov_ratio = $tmp[$i];
-				$KatG_AMG_gene2month2cov_ratio{$amg_gene}{$month} = $cov_ratio;
+				$KatG_AMG_gene2season2cov_ratio{$amg_gene}{$season} = $cov_ratio;
 			}
 		}	
 	}
 }
 close IN;
 
-open OUT, ">MetaPop/KatG_AMG_gene2month2cov_ratio.txt";
-my $row3=join("\t", @Month);
+open OUT, ">MetaPop/KatG_AMG_gene2season2cov_ratio.txt";
+my $row3=join("\t", @Season);
 print OUT "Head\t$row3\n";
-foreach my $tmp1 (sort keys %KatG_AMG_gene2month2cov_ratio){
+foreach my $tmp1 (sort keys %KatG_AMG_gene2season2cov_ratio){
         print OUT $tmp1."\t";
         my @tmp = ();
-        foreach my $tmp2 (@Month) {       
-                if (exists $KatG_AMG_gene2month2cov_ratio{$tmp1}{$tmp2}){
-                        push @tmp, $KatG_AMG_gene2month2cov_ratio{$tmp1}{$tmp2};
+        foreach my $tmp2 (@Season) {       
+                if (exists $KatG_AMG_gene2season2cov_ratio{$tmp1}{$tmp2}){
+                        push @tmp, $KatG_AMG_gene2season2cov_ratio{$tmp1}{$tmp2};
                 }else{              
                         push @tmp,"0";
                 }
@@ -277,10 +277,10 @@ foreach my $tmp1 (sort keys %KatG_AMG_gene2month2cov_ratio){
 }
 close OUT;
 
-## Step 5.2 Get katG AMG gene 2 year_month 2 cov ratio result
-my %KatG_AMG_gene2year_month2cov_ratio = (); # $katG_amg_gene => $year_month => $cov_ratio
-my @Header4 = (); # Store the header line of AMG_gene2year_month2cov_ratio.txt
-open IN, "MetaPop/AMG_gene2year_month2cov_ratio.txt";
+## Step 5.2 Get katG AMG gene 2 year_season 2 cov ratio result
+my %KatG_AMG_gene2year_season2cov_ratio = (); # $katG_amg_gene => $year_season => $cov_ratio
+my @Header4 = (); # Store the header line of AMG_gene2year_season2cov_ratio.txt
+open IN, "MetaPop/AMG_gene2year_season2cov_ratio.txt";
 while (<IN>){
 	chomp;
 	if (/^Head/){
@@ -291,27 +291,27 @@ while (<IN>){
 		my $amg_gene = $tmp[0];
 		my ($viral_gn) = $amg_gene =~ /^(.+?\_\_.+?)\_\_/;
 		# Satisfy three conditions:
-		# 1) $amg_gene is katG 2) $amg_gene is in a katG containing viral gn 3) this viral gn has distribution >= 5 out of 465 metagenomes
+		# 1) $amg_gene is katG 2) $amg_gene is in a katG containing viral gn 3) this viral gn has distribution >= 5 out of 471 metagenomes
 		if ($AMG_summary{$amg_gene} eq "K03782" and exists $KatG_containing_viral_gn{$viral_gn} and $KatG_containing_viral_gn2distribution_n_cov_mean{$viral_gn}[0] >= 5){	
 			for(my $i=1; $i<=$#tmp; $i++){
-				my $year_month = $Header4[$i];
+				my $year_season = $Header4[$i];
 				my $cov_ratio = $tmp[$i];
-				$KatG_AMG_gene2year_month2cov_ratio{$amg_gene}{$year_month} = $cov_ratio;
+				$KatG_AMG_gene2year_season2cov_ratio{$amg_gene}{$year_season} = $cov_ratio;
 			}
 		}	
 	}
 }
 close IN;
 
-open OUT, ">MetaPop/KatG_AMG_gene2year_month2cov_ratio.txt";
-my $row4=join("\t", @Year_month);
+open OUT, ">MetaPop/KatG_AMG_gene2year_season2cov_ratio.txt";
+my $row4=join("\t", @Year_season);
 print OUT "Head\t$row4\n";
-foreach my $tmp1 (sort keys %KatG_AMG_gene2year_month2cov_ratio){
+foreach my $tmp1 (sort keys %KatG_AMG_gene2year_season2cov_ratio){
         print OUT $tmp1."\t";
         my @tmp = ();
-        foreach my $tmp2 (@Year_month) {       
-                if (exists $KatG_AMG_gene2year_month2cov_ratio{$tmp1}{$tmp2}){
-                        push @tmp, $KatG_AMG_gene2year_month2cov_ratio{$tmp1}{$tmp2};
+        foreach my $tmp2 (@Year_season) {       
+                if (exists $KatG_AMG_gene2year_season2cov_ratio{$tmp1}{$tmp2}){
+                        push @tmp, $KatG_AMG_gene2year_season2cov_ratio{$tmp1}{$tmp2};
                 }else{              
                         push @tmp,"0";
                 }

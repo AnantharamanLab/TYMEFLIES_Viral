@@ -47,7 +47,7 @@ foreach my $viral_gn (sort keys %Viral_gn_four_AMG2cov_array){
 	print OUT "$Viral_gn_four_AMG2nt_diversity_array{$viral_gn}\n";
 	close OUT;
 	
-	`python3 /storage1/data14/for_chao/calc_spearman_correlation.py -i MetaPop/tmp_folder_for_correlation_test/$viral_gn.corr_test.input.txt -o MetaPop/tmp_folder_for_correlation_test/$viral_gn.corr_test.output.txt`;
+	`python3 calc_spearman_correlation.py -i MetaPop/tmp_folder_for_correlation_test/$viral_gn.corr_test.input.txt -o MetaPop/tmp_folder_for_correlation_test/$viral_gn.corr_test.output.txt`;
 
 	open IN, "MetaPop/tmp_folder_for_correlation_test/$viral_gn.corr_test.output.txt";
 	while (<IN>){
@@ -89,7 +89,7 @@ foreach my $viral_gn (sort keys %Viral_gn_four_AMG2cov_array){
 	print OUT "$Viral_gn_four_AMG2snp_density_array{$viral_gn}\n";
 	close OUT;
 	
-	`python3 /storage1/data14/for_chao/calc_spearman_correlation.py -i MetaPop/tmp_folder_for_correlation_test/$viral_gn.corr_test.input.txt -o MetaPop/tmp_folder_for_correlation_test/$viral_gn.corr_test.output.txt`;
+	`python3 calc_spearman_correlation.py -i MetaPop/tmp_folder_for_correlation_test/$viral_gn.corr_test.input.txt -o MetaPop/tmp_folder_for_correlation_test/$viral_gn.corr_test.output.txt`;
 
 	open IN, "MetaPop/tmp_folder_for_correlation_test/$viral_gn.corr_test.output.txt";
 	while (<IN>){
@@ -166,7 +166,7 @@ foreach my $viral_gn (sort keys %Viral_gn2cov_array){
 	print OUT "$Viral_gn2nt_diversity_array{$viral_gn}\n";
 	close OUT;
 	
-	`python3 /storage1/data14/for_chao/calc_spearman_correlation.py -i MetaPop/tmp_folder_for_correlation_test/$viral_gn.corr_test.input.txt -o MetaPop/tmp_folder_for_correlation_test/$viral_gn.corr_test.output.txt`;
+	`python3 calc_spearman_correlation.py -i MetaPop/tmp_folder_for_correlation_test/$viral_gn.corr_test.input.txt -o MetaPop/tmp_folder_for_correlation_test/$viral_gn.corr_test.output.txt`;
 
 	open IN, "MetaPop/tmp_folder_for_correlation_test/$viral_gn.corr_test.output.txt";
 	while (<IN>){
@@ -206,7 +206,7 @@ foreach my $viral_gn (sort keys %Viral_gn2cov_array){
 	print OUT "$Viral_gn2snp_density_array{$viral_gn}\n";
 	close OUT;
 	
-	`python3 /storage1/data14/for_chao/calc_spearman_correlation.py -i MetaPop/tmp_folder_for_correlation_test/$viral_gn.corr_test.input.txt -o MetaPop/tmp_folder_for_correlation_test/$viral_gn.corr_test.output.txt`;
+	`python3 calc_spearman_correlation.py -i MetaPop/tmp_folder_for_correlation_test/$viral_gn.corr_test.input.txt -o MetaPop/tmp_folder_for_correlation_test/$viral_gn.corr_test.output.txt`;
 
 	open IN, "MetaPop/tmp_folder_for_correlation_test/$viral_gn.corr_test.output.txt";
 	while (<IN>){

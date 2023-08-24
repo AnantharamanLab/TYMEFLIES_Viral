@@ -63,7 +63,7 @@ foreach my $viral_gene (sort keys %Viral_gene2year2gene_freq){
 		$year_2016_2019_gene_freq_mean = _mean(@Year_2016_2019_gene_freq);
 	}	
 	
-	if ($year_2000_2003_gene_freq_mean ne "NA" and $year_2016_2019_gene_freq_mean ne "NA" and abs($year_2000_2003_gene_freq_mean - $year_2016_2019_gene_freq_mean) >= 0.4){
+	if ($year_2000_2003_gene_freq_mean ne "NA" and $year_2016_2019_gene_freq_mean ne "NA" and abs($year_2000_2003_gene_freq_mean - $year_2016_2019_gene_freq_mean) >= 1){
 		if ($year_2000_2003_gene_freq_mean > $year_2016_2019_gene_freq_mean){
 			$Viral_gene2gain_or_loss{$viral_gene} = "loss";
 		}else{

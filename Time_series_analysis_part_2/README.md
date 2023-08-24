@@ -1,6 +1,6 @@
 # Time-series analysis - Part 2 Each AMG analysis
 
-(Get four important AMG-containing viral genome coverage statistics using time-series metagenomes across 20 years; the four important AMGs include: *psbA*, *pmoC*, *katG*, and *glnA*)
+(Get four important AMG-containing viral genome coverage statistics using time-series metagenomes across 20 years; the four important AMGs include: *psbA*, *pmoC*, *katG*, and *ahbD*)
 
 **1 Get the psbA-containing viral genome coverage statistics**
 
@@ -42,35 +42,9 @@ The running process and outputs are similar to those described in Step 1 except 
 
 [script] 08.Time_series_analysis.part2.each_AMG_analysis.step3.get_katG-containing_viral_gn_coverage_statistics.pl
 
-**4 Get the glnA-containing viral genome coverage statistics**
+**4 Get the ahbD-containing viral genome coverage statistics**
 
-The running process and outputs are similar to those described in Step 1 except that the distribution of the viral genome should be >= 5 out of 465 metagenomes.
+The running process and outputs are similar to those described in Step 1 except that the distribution of the viral genome should be >= 20 out of 465 metagenomes.
 
-[script] 08.Time_series_analysis.part2.each_AMG_analysis.step4.get_glnA-containing_viral_gn_coverage_statistics.pl
-
-**5 Get the psbA-containing viral genome coverage statistics for each year**
-
-The running process and outputs are similar to those described in Step 1 except that the distribution of the viral genome should be >= 2 out of 20 years. 
-
-[script] 08.Time_series_analysis.part2.each_AMG_analysis.step5.get_psbA-containing_viral_gn_coverage_statistics.for_each_year.pl
-
-**6 Get the pmoC-containing viral genome coverage statistics for each year**
-
-The running process and outputs are similar to those described in Step 1 except that the distribution of the viral genome should be >= 1 out of 20 years. 
-
-[script] 08.Time_series_analysis.part2.each_AMG_analysis.step6.get_pmoC-containing_viral_gn_coverage_statistics.for_each_year.pl
-
-**7 Get the katG-containing viral genome coverage statistics for each year**
-
-The running process and outputs are similar to those described in Step 1 except that the distribution of the viral genome should be >= 1 out of 20 years. 
-
-[script] 08.Time_series_analysis.part2.each_AMG_analysis.step7.get_katG-containing_viral_gn_coverage_statistics.for_each_year.pl
-
-**8 Get the glnA-containing viral genome coverage statistics for each year**
-
-The running process and outputs are similar to those described in Step 1 except that the distribution of the viral genome should be >= 1 out of 20 years. 
-
-[script] 08.Time_series_analysis.part2.each_AMG_analysis.step8.get_glnA-containing_viral_gn_coverage_statistics.for_each_year.pl
-
-
+[script] 08.Time_series_analysis.part2.each_AMG_analysis.step4.get_ahbD-containing_viral_gn_coverage_statistics.pl
 
