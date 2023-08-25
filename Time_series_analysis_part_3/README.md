@@ -6,7 +6,7 @@
 
 The distribution of viral genome should be >= 20 out of 471 metagenomes for calculating month and year_month distribution. 
 
-One microdiversity parameter was obtained from this step: nt diversity. 
+One microdiversity parameter was obtained from this step: nucleotide (nt) diversity. 
 
 [script] 08.Time_series_analysis.part3.microdiversity_analysis.step1.get_viral_gn_microdiversity_statistics.pl
 
@@ -38,7 +38,9 @@ Parse the "global_gene_microdiversity.tsv" file from MetaPop result folder (10.M
 
 The script "filter_coverage_file.py" was used to filter sam files by setting a coverage cutoff.
 
-The script "filter_bam_by_reference.py" was used to filter bam file by using the scaffold name of only viral species representatives
+The script "filter_bam_by_reference.py" was used to filter bam file by using the scaffold name of only viral species representatives.
+
+Summer => Late Summer and Winter => Ice-on, separately.
 
 [script] 08.Time_series_analysis.part3.microdiversity_analysis.step5.conduct_separate_mapping_for_summer_and_winter.pl
 
