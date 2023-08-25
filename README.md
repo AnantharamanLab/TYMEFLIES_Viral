@@ -23,9 +23,7 @@ Scripts (including some of the inputs/outputs) are placed in the following folde
 
 (This part is mainly based on the method in [Nucleic Acids Res. 2021 Jan 8;49(D1):D764-D775.](https://pubmed.ncbi.nlm.nih.gov/33137183/))
 
-**6** [Host prediction](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Host_prediction): Predict host using four approaches: 1) search sequence similarity to a microbial genome; 2) match to CRISPR spacers; 3) prophage scaffold search; 4) match to AMG (auxiliary metabolic gene)
-
-(This part is mainly based on the method in [Nucleic Acids Res. 2021 Jan 8;49(D1):D764-D775.](https://pubmed.ncbi.nlm.nih.gov/33137183/))
+**6** [Host prediction](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Host_prediction): Predict host using three approaches: 1) iPHoP-based prediction; 2) prophage scaffold search;  3) match to AMG (auxiliary metabolic gene)
 
 **7** [Rscript for visualization](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Rscript_for_visualization): Rscripts for a variety of visualization works
 
@@ -36,6 +34,16 @@ Scripts (including some of the inputs/outputs) are placed in the following folde
 **10** [Time series analysis - Part 2](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Time_series_analysis_part_2): Get four important AMG-containing viral genome coverage statistics
 
 **11** [Time series analysis - Part 3](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Time_series_analysis_part_3): Get microdiversity analysis results
+
+**12** [Time series analysis - Part 4](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Time_series_analysis_part_4): Conduct virus and MAG taxa association analysis
+
+**13** [Metatranscriptome analysis](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Metatranscriptome_analysis): Conduct metatranscriptome analysis using different mapping references to see the gene expression pattern
+
+**14** [Miscellaneous scripts](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Miscellaneous scripts): Contain various auxiliary scripts that were used within the whole project
+
+**15** [Environmental parameter](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Environmental_parameter): Contain the organized tables, original dataset sources, and scripts parsing original datasets
+
+
 
 
 
@@ -50,6 +58,4 @@ Database processing scripts are placed in the following folders:
 **3** [Database VOG97](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_VOG97):   VOG97 HMMs Release date Apr 19, 2021 (for [Taxonomical classification](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Taxonomic_classification)) 
 
 **4** [Database TYMEFLIES MAGs](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_TYMEFLIES_MAGs): MAGs in IMG platform (for [Host prediction](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Host_prediction)) 
-
-**5** [Database GEM](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Database_GEM): MAGs from GEM (A genomic catalog of Earth’s microbiomes) (for [Host prediction](https://github.com/AnantharamanLab/TYMEFLIES_Viral/tree/main/Host_prediction)) 
 

@@ -48,6 +48,10 @@ Parse the mapping result from Step 1 to get MAG abundance and family abundance. 
 
 
 
+**Also do not forget the scripts in the folders on the server (need to modify in the future)**
+
+
+
 
 
 

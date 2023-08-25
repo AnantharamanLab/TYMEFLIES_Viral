@@ -2,7 +2,7 @@
 
 There are 33 environmental parameters included in the analysis.
 
-The organized table, original dataset sources, and scripts parsing original datasets were placed in the corresponding folders:
+The organized tables, original dataset sources, and scripts parsing original datasets were placed in the corresponding folders:
 
 **(1) temperature, dissolved oxygen and Secchi depth (3 in total)**
 
