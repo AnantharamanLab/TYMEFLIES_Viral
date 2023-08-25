@@ -38,5 +38,6 @@ os.system(add_to_db_cmd)
 # Step 3 Run iPHoP prediction
 ## Cat all Nlinked virus genomes
 ## all_Nlinked_virus_genomes.fasta is the concatenated virus genomes with N-linked sequences to make temporary ‘single-contig’ viral genomes
+## Note: The input fasta file can be split into multiple small files and run separately to avoid memory leaks
 predict_cmd = f"iphop predict --fa_file all_Nlinked_virus_genomes.fasta --db_dir iPHoP_db_w_TYMEFLIES_rep_MAGs --out_dir iphop_output/ --no_qc -t {threads}"
 os.system(predict_cmd)
