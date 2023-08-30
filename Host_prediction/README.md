@@ -36,7 +36,7 @@ For approach #3, We find viral host based on the AMG identity match between AMGs
 
 **5 Integrate all host prediction results**
 
-Integrate all host prediction results and write down the final result. 
+Integrate all host prediction results (the host taxonomical results that are predicted from the above three methods should be at least down to the family level) and write down the final result. 
 
 
 
@@ -44,13 +44,13 @@ Integrate all host prediction results and write down the final result.
 
 1) Get into each species cluster to see if any genomes have already got hits, then expand the host prediction to all the members within this species. 
 
-2) Only use prophage, AMG host prediction, and "blast" or "CRISPR"-based iPHoP results to get other vOTU (species) member host prediction.
+2) Use prophage, AMG host prediction, and iPHoP results to get other vOTU (species) member host prediction.
 
 
 
-The overlapped host taxonomies were solved down to the genus level based on the following priority: 
+The overlapped host taxonomies were solved down to the family level based on the following priority: 
 
-1) provirus within a host genome; 2) AMG match to host genome; 3) iPHoP result; 4) derived from species host taxonomy  
+1) provirus within a host genome; 2) AMG match to host genome; 3) iPHoP result; 4) derived from species host taxonomy
 
 [script] 06.Host_prediction.step5.integrate_all_results.pl
 
