@@ -82,7 +82,7 @@ p.part3 <- ggplot(data=VIBRANT_result.4,aes(x=Scaffold.type,y=Number.of.scaffold
      geom_boxplot(aes(fill=Scaffold.type),outlier.shape = NA)+
      labs(title="VIBRANT result summary part 3",x="Scaffold assignment", y = "Scaffold number (Normalized by 100M reads/metagenome)")+
      #geom_jitter(width = 0.25, alpha = 0.1, color = 'black')+
-     stat_summary(fun=mean, colour="darkred", geom="point", hape=18, size=3,show.legend = FALSE)+
+     stat_summary(fun=mean, colour="darkred", geom="point", shape=18, size=3,show.legend = FALSE)+
      stat_summary(fun=mean, colour="red", geom="text", show.legend = FALSE, 
                vjust=-1, aes( label=round(..y.., digits=1)))+
      scale_y_continuous(labels = scales::scientific)+   

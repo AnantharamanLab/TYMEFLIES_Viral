@@ -28,7 +28,7 @@ p.length <- ggplot(data=table.length,aes(x=Group,y=Length))+
   #geom_jitter(width = 0.25, alpha = 0.1, color = 'black')+ # Too many dots to plot (cause too big picture)
   scale_x_discrete(limits=c("Phage scaffolds","vMAGs + unbinned scaffolds","vMAGs","Binned scaffolds (within vMAGs)","Unbinned scaffolds"))+
   scale_fill_discrete(name = "Group", limits = c("Phage scaffolds","vMAGs + unbinned scaffolds","vMAGs","Binned scaffolds (within vMAGs)","Unbinned scaffolds"))+
-  stat_summary(fun=mean, colour="darkred", geom="point", hape=18, size=3,show.legend = FALSE)+
+  stat_summary(fun=mean, colour="darkred", geom="point", shape=18, size=3,show.legend = FALSE)+
   stat_summary(fun=mean, colour="red", geom="text", show.legend = FALSE, 
                  vjust=-0.7, aes( label=round(10^..y.., digits=1)))+
   geom_signif(comparisons = compaired,step_increase = 0.1,map_signif_level = F,test = t.test)
@@ -45,7 +45,7 @@ p.completeness <- ggplot(data=table.completeness,aes(x=Group,y=Completeness))+
   #geom_jitter(width = 0.25, alpha = 0.1, color = 'black')+
   scale_x_discrete(limits=c("Phage scaffolds","vMAGs + unbinned scaffolds","vMAGs","Binned scaffolds (within vMAGs)","Unbinned scaffolds"))+
   scale_fill_discrete(name = "Group", limits = c("Phage scaffolds","vMAGs + unbinned scaffolds","vMAGs","Binned scaffolds (within vMAGs)","Unbinned scaffolds"))+
-  stat_summary(fun=mean, colour="darkred", geom="point", hape=18, size=3,show.legend = FALSE)+
+  stat_summary(fun=mean, colour="darkred", geom="point", shape=18, size=3,show.legend = FALSE)+
   stat_summary(fun=mean, colour="red", geom="text", show.legend = FALSE, 
                vjust=-0.7, aes( label=round(..y.., digits=1)))+
   geom_signif(comparisons = compaired,step_increase = 0.1,map_signif_level = F,test = t.test)

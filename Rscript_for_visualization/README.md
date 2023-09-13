@@ -60,26 +60,26 @@ Sample_num2species_num_for_rarefaction_curve.png
 
 [script] 12.draw_rarefaction_curve.R
 
-**8 Draw bar plots for monthly viral family abundance, viral host family abundance, and MAG family abundance**
+**8 Draw bar plots for seasonally viral family abundance, viral host family abundance, and MAG family abundance**
 
 The input files and output figures were also provided here:
 
-1) monthly viral family abundance:
+1) seasonally viral family abundance:
 
-Month2family2abun.mdfed.txt
+Season2family2abun.mdfed.txt
 
-Month2family2abun.pdf
+Season2family2abun.pdf
 
-2) monthly viral host family abundance
+2) seasonally viral host family abundance
 
-Month2host_family2abun.mdfed.txt
+Season2host_family2abun.mdfed.txt
 
-Month2host_family2abun.pdf
+Season2host_family2abun.pdf
 
-3) monthly MAG family abundance
+3) seasonally MAG family abundance
 
-Family2month2abun_for_MAG.mdfed.txt
+Family2season2abun_for_MAG.mdfed.txt
 
-Month2family2abun_for_MAG.pdf
+Season2family2abun_for_MAG.pdf
 
-[script] 13.draw_bar_plots_for_monthly_tax_n_host_tax_n_MAG_tax_distribution.R
+[script] 13.draw_bar_plots_for_seasonally_tax_n_host_tax_n_MAG_tax_distribution.R

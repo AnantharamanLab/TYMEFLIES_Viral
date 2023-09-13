@@ -3,7 +3,7 @@ library(reshape2)
 library(ggpubr)
 
 # Read table
-table <- read.table ("Sample_num2species_num_for_refraction_curve.txt", sep = "\t", head = T, na.strings = c("NA"))
+table <- read.table ("Sample_num2species_num_for_rarefaction_curve.txt", sep = "\t", head = T, na.strings = c("NA"))
 head(table)
 
 # Make line plot

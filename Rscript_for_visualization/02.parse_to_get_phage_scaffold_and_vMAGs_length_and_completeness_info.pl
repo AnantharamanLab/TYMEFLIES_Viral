@@ -5,13 +5,13 @@ use warnings;
 
 # AIM: Get phage scaffold and vMAGs length and completeness info for plotting
 # Including the following groups:
-# 1) Phage scaffolds: for length plotting n = 1,804,721; for completeness plotting: 1,604,757
-# 2) vMAGs + unbinned scaffolds: for length plotting n = 1,296,523; for completeness plotting: 1,172,718
-# 3) vMAGs: for length plotting n = 220,288; for completeness plotting: 216,486
-# 4) Binned scaffolds (within vMAGs): for length plotting n = 728,486; for completeness plotting: 648,525
-# 5) Unbinned scaffolds: for length plotting n = 1,076,235; for completeness plotting: 956,232
+# 1) Phage scaffolds: for length plotting n = 1,820,639; for completeness plotting: 1,618,826
+# 2) vMAGs + unbinned scaffolds: for length plotting n = 1,307,400; for completeness plotting: 1,182,522
+# 3) vMAGs: for length plotting n = 222,390; for completeness plotting: 218,547
+# 4) Binned scaffolds (within vMAGs): for length plotting n = 735,629 ; for completeness plotting: 654,851
+# 5) Unbinned scaffolds: for length plotting n = 1,085,010; for completeness plotting: 963,975
 
-# Hash for Phage scaffolds: %Scf2length_n_completeness; [0] for length; [1] for completeness; Should be 1,804,721 lines
+# Hash for Phage scaffolds: %Scf2length_n_completeness; [0] for length; [1] for completeness; Should be 1,820,639 lines
 # Hash for vMAGs + unbinned scaffolds: %vMAG_and_unbinned_scaffold2length_n_completeness; [0] for length; [1] for completeness
 # Hash for vMAGs: %vMAG2length_n_completeness; [0] for length; [1] for completeness
 # Hash for Binned scaffolds (within vMAGs): %Binned_scaffold2length_n_completeness; [0] for length; [1] for completeness
@@ -71,7 +71,7 @@ while (<IN>){
 	close INN;
 }
 close IN;
-=pod
+
 # Step 3. Test the code to see if scaffold number and bin number are both correct
 my $num_Bin = 0;
 my $num_Scf_full2scf = 0;
@@ -81,10 +81,10 @@ $num_Bin = scalar (keys %Bin);
 $num_Scf_full2scf = scalar (keys %Scf_full2scf);
 $num_Scf = scalar (keys %Scf2length_n_completeness);
 
-print "The number of bins is: $num_Bin\n"; # Should be 1,296,523
-print "The number of scaffolds (full) is: $num_Scf_full2scf\n"; # Should be 1,804,721
-print "The number of scaffolds is: $num_Scf\n"; # Should be 1,804,721
-=cut
+print "The number of bins is: $num_Bin\n"; # Should be 1,307,400
+print "The number of scaffolds (full) is: $num_Scf_full2scf\n"; # Should be 1,820,639
+print "The number of scaffolds is: $num_Scf\n"; # Should be 1,820,639
+
 
 # Step 4. Get bin completeness hash
 my %Bin2completeness = (); # $bin => $completeness
