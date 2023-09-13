@@ -1,27 +1,17 @@
-Head	Algavirales;Phycodnaviridae	Asfuvirales;Asfarviridae	Chitovirales;Poxviridae	Crassvirales;Steigviridae	Crassvirales;Suoliviridae	Imitervirales;Mimiviridae	Imitervirales;NA	Ligamenvirales;Lipothrixviridae	NA;Ackermannviridae	NA;Assiduviridae	NA;Autographiviridae	NA;Bicaudaviridae	NA;Casjensviridae	NA;Chaseviridae	NA;Demerecviridae	NA;Duneviridae	NA;Herelleviridae	NA;Kyanoviridae	NA;Mesyanzhinovviridae	NA;Naomviridae	NA;Pachyviridae	NA;Peduoviridae	NA;Rountreeviridae	NA;Schitoviridae	NA;Straboviridae	NA;Vilmaviridae	NA;Zobellviridae	Petitvirales;Microviridae	Pimascovirales;Iridoviridae	Pimascovirales;Marseilleviridae	Pimascovirales;NA	Priklausovirales;Lavidaviridae	Thumleimavirales;Druskaviridae	Thumleimavirales;Hafunaviridae
-K00012	37	0	0	0	8	8	1	0	2	0	2	0	0	0	2	0	2	30	0	0	0	0	1	0	1	0	0	2	0	1	0	2	1	0
-K00067	21	0	0	0	0	28	0	2	0	0	35	0	0	0	0	0	0	9	0	0	0	0	0	0	0	0	0	1	0	3	0	1	0	0
-K00568	37	0	0	0	0	18	0	0	0	0	24	0	4	0	0	0	2	8	0	0	0	0	0	0	1	0	0	1	1	3	1	0	0	0
-K00709	3	0	0	0	1	6	0	0	0	0	0	0	0	0	0	0	1	83	0	0	0	0	0	0	1	0	0	0	0	3	0	2	0	0
-K00737	64	0	0	0	1	12	0	0	0	0	8	0	0	0	2	0	0	7	0	0	0	0	0	0	2	1	1	0	0	2	0	0	0	0
-K00860	11	0	0	0	2	5	0	0	0	0	4	2	10	0	0	0	0	49	0	0	0	0	0	0	7	0	1	1	0	2	0	5	0	1
-K00973	6	0	0	0	59	10	0	0	0	0	1	0	0	0	0	0	0	20	0	1	0	0	0	0	0	0	1	0	0	1	0	1	0	0
-K01710	12	0	0	0	28	28	0	0	1	0	1	0	0	0	0	0	0	23	0	0	0	0	0	1	0	0	0	0	0	0	5	1	0	0
-K01711	35	0	0	0	14	16	0	9	0	0	0	0	0	0	0	0	3	18	0	1	0	0	0	0	0	0	0	0	0	2	0	2	0	0
-K01784	25	0	0	0	8	9	0	0	0	0	5	0	0	0	0	0	1	40	0	1	1	0	1	0	2	0	0	0	0	3	0	3	0	1
-K01790	29	0	0	1	1	29	1	0	1	0	5	2	0	1	6	0	1	15	0	0	0	0	0	0	0	0	0	3	0	3	1	1	0	0
-K01854	30	0	0	1	3	30	0	0	8	0	1	0	2	0	0	0	2	16	0	0	0	0	0	0	1	0	0	1	0	2	2	1	0	0
-K01915	5	0	0	0	0	95	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
-K01953	46	0	0	0	2	37	0	0	0	0	0	0	0	0	0	0	0	9	0	0	0	0	0	0	0	0	0	0	1	2	0	2	1	0
-K02377	34	0	0	0	0	30	0	0	0	0	2	0	0	0	0	0	0	23	0	0	0	0	0	0	1	0	1	0	0	9	0	0	0	0
-K02703	5	0	0	1	0	2	0	0	0	0	59	0	0	0	0	0	0	32	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0
-K02843	10	0	0	0	3	10	1	0	0	0	11	0	0	0	1	0	0	59	0	0	0	0	0	0	0	0	0	1	0	0	1	3	0	0
-K03183	49	1	0	0	2	33	0	0	0	0	3	0	0	0	0	0	6	5	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0
-K03272	10	0	0	0	1	10	0	0	0	0	2	0	1	0	0	0	0	51	0	0	0	1	0	0	23	0	0	1	0	0	0	0	0	0
-K03274	6	0	0	0	1	7	1	0	0	0	1	0	1	0	0	0	1	77	0	0	0	1	0	0	2	0	0	1	0	0	1	0	0	0
-K07260	7	0	0	0	0	3	0	0	0	0	82	0	0	0	0	0	0	4	0	2	0	0	0	0	0	0	0	1	0	1	0	0	0	0
-K10026	8	0	1	0	0	11	0	0	1	1	4	0	1	0	0	0	3	21	2	0	0	0	1	4	27	0	0	1	0	11	0	2	1	0
-K12450	42	0	0	0	25	23	0	0	0	0	0	0	0	0	0	0	0	3	0	0	0	0	0	0	0	0	0	0	0	0	7	0	0	0
-K12452	53	0	0	0	6	18	0	0	0	0	0	0	0	0	0	1	1	17	0	0	0	0	0	0	0	0	0	0	0	4	0	0	0	0
-K14266	3	0	0	0	1	4	0	0	0	0	0	0	0	0	0	0	0	90	0	0	0	0	0	0	1	0	0	1	0	0	0	0	0	0
-K22227	17	0	0	0	2	7	0	0	3	0	2	0	0	0	0	0	2	63	0	1	0	0	0	0	1	0	0	2	0	0	0	0	0	0
+Head	Ackermannviridae;NA	Algavirales;NA	Algavirales;Phycodnaviridae	Asfuvirales;Asfarviridae	Autographiviridae;NA	Chitovirales;Poxviridae	Crassvirales;NA	Crassvirales;Steigviridae	Herelleviridae;NA	Imitervirales;Mimiviridae	Imitervirales;NA	Kyanoviridae;NA	Ligamenvirales;Lipothrixviridae	NA;Ackermannviridae	NA;Autographiviridae	NA;Casjensviridae	NA;Herelleviridae	NA;Kyanoviridae	NA;Naomviridae	NA;Peduoviridae	NA;Straboviridae	NA;Zobellviridae	Petitvirales;Microviridae	Pimascovirales;Iridoviridae	Pimascovirales;Marseilleviridae	Pimascovirales;NA	Priklausovirales;Lavidaviridae	Straboviridae;NA	Thumleimavirales;Druskaviridae
+K00012	0	0	46	0	0	0	1	0	0	18	2	2	0	0	1	0	1	19	0	1	1	0	2	0	2	0	3	0	1
+K00568	0	2	48	0	0	0	0	0	0	20	0	1	0	0	5	0	0	13	0	0	1	0	1	2	4	3	0	0	0
+K00737	0	0	70	0	0	0	7	0	0	15	0	2	0	0	0	0	0	3	0	0	0	2	0	0	1	0	0	0	0
+K01710	0	9	20	0	0	0	4	0	0	44	0	2	0	1	1	0	1	7	0	0	0	0	3	0	0	8	0	0	0
+K01711	0	3	39	0	0	0	1	1	0	21	3	2	5	0	1	0	0	7	0	0	0	0	0	5	2	8	2	0	0
+K01784	0	0	18	0	0	0	8	0	0	19	0	4	0	0	7	0	0	24	0	0	0	0	1	0	12	2	4	1	0
+K01854	0	0	26	0	0	1	12	0	1	35	0	5	0	7	1	0	0	3	0	0	1	0	1	0	3	2	1	1	0
+K01915	0	0	4	0	0	0	0	0	0	96	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+K01953	0	0	48	0	0	0	0	0	0	38	6	1	0	0	0	0	0	0	0	0	0	0	0	1	3	1	2	0	0
+K02377	0	2	38	0	0	0	6	0	0	25	3	8	0	0	1	0	0	8	0	0	0	0	0	0	7	1	1	0	0
+K02703	0	0	2	0	1	0	0	0	0	5	0	9	0	0	69	0	0	12	0	0	0	0	0	0	0	0	2	0	0
+K02843	1	0	7	0	0	0	27	0	3	11	2	4	0	0	9	0	0	28	0	0	0	0	1	2	1	1	3	0	0
+K03183	0	2	47	1	0	0	1	0	0	36	3	0	0	0	1	0	0	5	0	0	0	0	0	1	1	2	0	0	0
+K03272	0	1	10	0	0	0	5	0	0	17	0	3	0	0	1	1	0	56	0	0	0	0	1	0	1	1	3	0	0
+K12450	0	3	51	0	0	0	0	0	0	27	0	0	0	0	0	0	0	0	1	0	0	0	0	0	2	16	0	0	0
+K12452	0	2	50	0	0	0	0	0	0	27	1	5	0	0	0	0	0	8	0	0	0	0	0	1	5	0	1	0	0
