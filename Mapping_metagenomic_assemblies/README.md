@@ -10,11 +10,15 @@ Map reads onto metagenomic assemblies (including both microbial and viral scaffo
 
 **2 Get MAG abundance pattern, including seasonly pattern (aggregated across 20 years), year-season pattern, and yearly pattern (for each year)**
 
-These five files will be generated in the resulted folder "MAG_abundance":
+These seven files will be generated in the resulted folder "MAG_abundance":
+
+MAG2IMG2abun.txt - MAG abundances (normalized by read number per metagenome, 100M reads per metagenome) for each metagenome (IMG)
 
 Family2season2abun.txt - Family abundances (normalized by read number per metagenome, 100M reads per metagenome, and metagenome number per month) for each season
 
 Family2year_season2abun.txt - Family abundances for each year-season (each season within a year, e.g., "2000-Spring"; normalizing steps were the same as the above)
+
+Family2year2abun.txt - Family abundances for each year; normalizing steps were the same as the above
 
 Season2num_of_metagenomes.txt - number of metagenomes in each season
 
