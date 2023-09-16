@@ -20,11 +20,15 @@ Get the consensus taxonomic affiliation based on individual markers detected by 
 
 [script] 05.Taxonomic_classification.step2.run_hmmsearch_to_VOG_marker.pl
 
-**3 Integrate all results and provide the final taxonomic classification result**
+**3** **Use geNomad to annotate all viral scaffolds to get taxonomy**
 
-Store the taxonomic classification results from the above two steps (NCBI RefSeq viral protein searching and VOG marker HMM searching). And then get taxonomy based on other members' taxonomy from each genus and expand the tax to all the members within this genus (Genus-level vOTU LCA assigning). Last, write down the final taxonomic classification result.
+First we used 1000 Ns to link multiple fasta sequences to make multiple-fasta viruses to be single-fasta viruses (to meet the input requirement of geNomad). Then we used the default settings of "geNomad annotate" to annotate viruses and get taxonomy from the annotation result.
 
-[script] 05.Taxonomic_classification.step3.integrate_all_results.pl
+**4 Integrate all results and provide the final taxonomic classification result**
+
+Store the taxonomic classification results from the above three steps ("NCBI RefSeq viral protein searching", "VOG marker HMM searching", and "geNomad classifying"). And then get taxonomy based on other members' taxonomy (only the hits of "NCBI RefSeq viral protein searching" will be counted) from each genus and expand the tax to all the members within this genus (Genus-level vOTU LCA assigning). Last, write down the final taxonomic classification result.
+
+[script] 05.Taxonomic_classification.step4.integrate_all_results.pl
 
 
 

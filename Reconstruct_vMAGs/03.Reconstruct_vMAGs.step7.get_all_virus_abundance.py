@@ -74,7 +74,7 @@ with open('/storage1/data11/TYMEFLIES_phage/TYMEFLIES_metagenome_info.txt', 'r')
 lines.close()
 
 
-# Step 2 Store the normalized depth for each scaffold depth
+# Step 2 Store the normalized depth for each scaffold
 scf2depth_normalized = {} # scf => depth_normalized
 depth_file_addrs = glob('/storage1/data11/TYMEFLIES_phage/*/*.id97.coverm_depth.txt')
 for depth_file_addr in depth_file_addrs:

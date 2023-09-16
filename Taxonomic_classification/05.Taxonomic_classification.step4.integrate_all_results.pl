@@ -5,7 +5,7 @@ use warnings;
 
 # AIM: Integrate all results and provide the final taxonomic classification result
 
-# Step 1 Store taxonomic classification result from two methods
+# Step 1 Store taxonomic classification result from three methods
 my %Viral_gn2tax = (); # $viral_gn => [0] $tax [1] $method 
 open IN, "/storage1/data11/TYMEFLIES_phage/Taxonomic_classification/Each_bin_consensus_tax_by_NCBI_RefSeq_viral_protein_searching.txt";
 while (<IN>){
@@ -44,6 +44,31 @@ while (<IN>){
 		
 		$Viral_gn2tax{$viral_gn}[0] = $tax;
 		$Viral_gn2tax{$viral_gn}[1] = $method;
+	}
+}
+close IN;
+
+open IN, "/storage1/data11/TYMEFLIES_phage/Taxonomic_classification/genomad_output/all_virus_genome_fastas_Nlinked_annotate/all_virus_genome_fastas_Nlinked_taxonomy.tsv";
+while (<IN>){
+	chomp;
+	if (!/^seq/){
+		my @tmp = split (/\t/);
+		my $viral_gn = $tmp[0];
+		my $tax = $tmp[4];
+		my $method = "geNomad classifying";
+		if (! exists $Viral_gn2tax{$viral_gn}){ # NCBI RefSeq viral protein searching and VOG marker HMM searching methods have the higher priority
+			# Add the rest ranks into the tax (of course both are "NA"), the total number of ranks is 8 (excluding "Virus")
+			my @Tax = split (/\;/, $tax); 
+			shift @Tax; # Delete the first element
+			# Add "NA" elements
+			while (@Tax < 8) {
+				push @Tax, "NA";
+			}
+			$tax = join("\;", @Tax);
+			
+			$Viral_gn2tax{$viral_gn}[0] = $tax;
+			$Viral_gn2tax{$viral_gn}[1] = $method;
+		}
 	}
 }
 close IN;
