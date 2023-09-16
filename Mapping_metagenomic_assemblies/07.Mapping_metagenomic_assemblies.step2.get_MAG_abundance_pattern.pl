@@ -85,6 +85,7 @@ while (<IN>){
 			}
 			my $depth_mean = _avg(@Depths);
 			
+			
 			my $read_num = $IMG_ID2read_num{$img_id};
 			my $abun_normalized = $depth_mean / ($read_num / 100000000); # Normalized abun (or depth) for the $mag
 			$MAG2IMG2abun{$mag}{$img_id} = $abun_normalized;
@@ -92,6 +93,25 @@ while (<IN>){
 	}
 }
 close IN;
+
+`mkdir MAG_abundance`;
+## Step 1.4 Write down the %MAG2IMG2abun result
+open OUT, ">MAG_abundance/MAG2IMG2abun.txt";
+my $row0=join("\t", sort keys %IMG_ID2read_num);
+print OUT "Head\t$row0\n";
+foreach my $tmp1 (sort keys %MAG2IMG2abun){
+        print OUT $tmp1."\t";
+        my @tmp = ();
+        foreach my $tmp2 (sort keys %IMG_ID2read_num) {       
+                if (exists $MAG2IMG2abun{$tmp1}{$tmp2}){
+                        push @tmp, $MAG2IMG2abun{$tmp1}{$tmp2};
+                }else{              
+                        push @tmp,"0";
+                }
+        }
+        print OUT join("\t",@tmp)."\n";
+}
+close OUT;
 
 # Step 2 Get family (contains the order too) to $img to $abun
 my %Family2mag = (); # $family (contains the order in the front too) => $mags (collection of $mag, separated by "\,")
@@ -187,7 +207,6 @@ foreach my $family (sort keys %Family2IMG2abun){
 }
 
 ## Step 3.3 Write down Family abundances (normalized by read number per metagenome and metagenome number per season) for each season
-`mkdir MAG_abundance`;
 my @Season = ("Spring", "Clearwater", "Early Summer", "Late Summer", "Fall", "Ice-on");
 open OUT, ">MAG_abundance/Family2season2abun.txt";
 my $row=join("\t", @Season);
