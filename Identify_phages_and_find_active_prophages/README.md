@@ -10,7 +10,7 @@ Use default settings, the minimum input scaffold length is 1000 bp. VIBRANT link
 
 1) Prophage results from VIBRANT need to be refined:
 
-Cutoff for two prophages in the same saffold to be combined and this scaffold is a entire phage scaffold: 
+Cutoff for two prophages in the same scaffold to be combined and this scaffold is a entire phage scaffold: 
 1. protein distance <= 20 proteins or nt distance <= 20 kb                                                
 2. a fragment gap in between both prophages (for example, prophages are fragment_1 and fragment_3)        
 3. host region (front, end, and gap regions counted together) <= 30%                                      
