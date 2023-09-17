@@ -16,33 +16,8 @@ except Exception as e:
     
 # Aim: Parse to get MAG abundance and family abundance
 # Note: This script should be run under Mapping conda env: "conda activate /storage1/data11/yml_environments/ViWrap-Mapping"
-# Processing the MAG presence with both coverage (>= 0.33) and breadth (>= 50%), 
-# and also filtering the scaffold abundance by removing the highest 5% and lowest 5% fractions
-
-
-def calculate_average_after_filtering(scf_abun_list_input):
-    # Sort the scaffold abundance list in ascending order
-    sorted_list = sorted(scf_abun_list_input)
-
-    # Calculate the number of elements representing the highest 5% and lowest 5%
-    n = len(sorted_list)
-    top_5_percent = int(n * 0.05)
-    bottom_5_percent = int(n * 0.95)
-
-    # Filter out the highest 5% and lowest 5% fractions
-    filtered_list = sorted_list[top_5_percent:bottom_5_percent]
-
-    # Calculate the average value of the filtered list
-    average_value = sum(filtered_list) / len(filtered_list)
-
-    return average_value
-    
-def calculate_sum(scf_abun_list_input):
-    # Calculate the sum of all scaffold abundances
-    total_sum = sum(scf_abun_list_input)
-
-    return total_sum    
-
+# Processing the MAG presence with breadth (>= 10%), 
+  
 
 # Step 1 Run CoverM for all result bam files 
 coverm_cmds = []
@@ -52,37 +27,25 @@ for bam_addr in bam_addrs:
     parent_path = Path(bam_addr).parent    
     coverm_cmd = f"coverm contig -b {bam_addr} --min-read-percent-identity 93 -m metabat -o {parent_path}/{stem_name}.coverm_result.txt -q -t 1"
     coverm_cmds.append(coverm_cmd)
-   
+'''   
 n = 30 # The number of parallel processes
 for j in range(max(int(len(coverm_cmds)/n + 1), 1)):
     procs = [subprocess.Popen(i, shell=True, stdout=DEVNULL) for i in coverm_cmds[j*n: min((j+1)*n, len(coverm_cmds))] ]
     for p in procs:
         p.wait() 
-
-# Step 2 Store CoverM result and parse to get MAG abundance       
-## Step 2.1 Get the rep_MAG_list
-rep_MAG_list = []
-with open('/storage1/data11/TYMEFLIES_phage/Robin_MAGs/Robin_MAG_stat.txt','r') as lines:
-    for line in lines:
-        line = line.rstrip('\n')
-        if not line.startswith('tymeflies'):
-            tmp = line.split('\t')
-            MAG, winner = tmp[5], tmp[14]
-            if winner == 'TRUE':
-                rep_MAG_list.append(MAG)
-           
-## Step 2.2 Store rep_MAG2scfs and rep_MAG2tax dict, and get rep_MAG2family and family2rep_MAGs dict
+'''
+# Step 2 Store CoverM result and parse to get MAG abundance             
+## Step 2.1 Store rep_MAG2scfs and rep_MAG2tax dict, and get rep_MAG2family and family2rep_MAGs dict
 rep_MAG2scfs = {}
 rep_MAG2tax = {}
-with open('/storage1/data11/TYMEFLIES_phage/Robin_MAGs/Robin_MAG_stat.CheckM_passed.txt', 'r') as lines:
+with open('/storage1/data11/TYMEFLIES_phage/Robin_MAGs/Robin_MAG_stat.rep_MAG.txt', 'r') as lines:
     for line in lines:
         line = line.rstrip('\n')
         if not line.startswith('IMG'):
             tmp = line.split('\t')
             MAG, scfs, tax = tmp[0], tmp[4], tmp[1]
-            if MAG in rep_MAG_list:
-                rep_MAG2scfs[MAG] = scfs.split(',')
-                rep_MAG2tax[MAG] = tax
+            rep_MAG2scfs[MAG] = scfs.split(',')
+            rep_MAG2tax[MAG] = tax
                 
 rep_MAG2family = {}
 family2rep_MAGs = defaultdict(list)
@@ -92,7 +55,7 @@ for MAG in rep_MAG2tax:
     rep_MAG2family[MAG] = family
     family2rep_MAGs[family].append(MAG)
                 
-## Step 2.3 Get IMG2read_no dict 
+## Step 2.2 Get IMG2read_no dict 
 IMG2read_no = {} # IMG => read_no
 with open('/storage1/data11/TYMEFLIES_phage/TYMEFLIES_metagenome_info.txt', 'r') as lines:
     for line in lines:
@@ -103,7 +66,7 @@ with open('/storage1/data11/TYMEFLIES_phage/TYMEFLIES_metagenome_info.txt', 'r')
             IMG2read_no[IMG] = read_no
 lines.close()           
             
-## Step 2.4 Parse to get the MAG abundance
+## Step 2.3 Parse to get the MAG abundance
 MAG2IMG2abun = defaultdict(dict) # MAG => IMG => abun (normalized)
 for bam_addr in bam_addrs:
     stem_name = Path(bam_addr).stem
@@ -129,25 +92,24 @@ for bam_addr in bam_addrs:
         total_length_not_zero = 0 # The total length of scaffold with coverage higher than 0 in the MAG
         
         scfs = rep_MAG2scfs[MAG]
-        scf_abun_list = [] # Store all the scf abun
         for scf in scfs:
-            scf_abun_list.append(scf2abun[scf])
             total_length += scf2length[scf]
             if scf2abun[scf] > 0:
                 total_length_not_zero += scf2length[scf]
-        
-        if calculate_sum(scf_abun_list) > 0:
-            abun = calculate_average_after_filtering(scf_abun_list) # Store the abun of the MAG after filtering the top and bottom 10% fractions
+                   
+        for scf in scfs:
+            scf_length_fraction = float(scf2length[scf] / total_length) 
+            abun += scf_length_fraction * scf2abun[scf]
             
-        if abun > 0 and float(total_length_not_zero / total_length) > 0.5: # If the non-0-coverage scaffold fraction is high than 70%
+        if abun > 0 and float(total_length_not_zero / total_length) > 0.1: # If the non-0-coverage scaffold fraction is high than 10%
             abun_normalized = float(abun) / (float(IMG2read_no[IMG]) / 100000000) # Normalized by 100M reads
         
-        if abun_normalized > 0.33:
+        if abun_normalized > 0:
             MAG2IMG2abun[MAG][IMG] = float(abun_normalized)
         else:
             MAG2IMG2abun[MAG][IMG] = 0
             
-## Step 2.5 Write down the MAG2IMG2abun dict
+## Step 2.4 Write down the MAG2IMG2abun dict
 #os.mkdir('virus_n_MAG_tax_association')
 with open('virus_n_MAG_tax_association/MAG2IMG2abun.txt', 'w') as file:
     ## Write table header
@@ -156,7 +118,7 @@ with open('virus_n_MAG_tax_association/MAG2IMG2abun.txt', 'w') as file:
 
     ## Write table rows
     for MAG in sorted(MAG2IMG2abun.keys()):
-        row_values = [str(MAG2IMG2abun.get(MAG, {}).get(IMG, '')) for IMG in IMG2read_no.keys()]
+        row_values = [str(MAG2IMG2abun.get(MAG, {}).get(IMG, '')) for IMG in sorted(IMG2read_no.keys())]
         row = MAG + '\t' + '\t'.join(row_values) + '\n'
         file.write(row)        
                 
@@ -180,7 +142,99 @@ with open('virus_n_MAG_tax_association/family2IMG2abun.txt', 'w') as file:
 
     ## Write table rows
     for family in sorted(family2IMG2abun.keys()):
-        row_values = [str(family2IMG2abun.get(family, {}).get(IMG, '')) for IMG in IMG2read_no.keys()]
+        row_values = [str(family2IMG2abun.get(family, {}).get(IMG, '')) for IMG in sorted(IMG2read_no.keys())]
         row = family + '\t' + '\t'.join(row_values) + '\n'
         file.write(row) 
+        
+# Step 4 Store and write down family2season2abun dict
+## Step 4.1 Store season/year_season to img id info
+season2num = {}  # season => num_metagenome; Store how many samples (metagenomes) are there in each season for the whole datasets
+season2img_id = {}  # season => collection of img_id separated by "\t"
+year_season2num = {}  # year_season => num_metagenome
+year_season2img_id = {}  # year_season (for example, "2010-Ice-on") => collection of img_id separated by "\t"
+year2num = {}  # year => num_metagenome
+year2img_id = {}  # year (for example, "2010") => collection of img_id separated by "\t"
+
+with open("/storage1/data11/TYMEFLIES_phage/TYMEFLIES_metagenome_info.txt") as IN:
+    for line in IN:
+        line = line.strip()
+        if not line.startswith('IMG'):
+            tmp = line.split('\t')
+            img_id = tmp[0]
+            date = tmp[8]
+            year = date.split('-')[0]
+            season = tmp[10]
+            # Increment the count of metagenomes for the current season
+            if season in season2num:
+                season2num[season] += 1
+            else:
+                season2num[season] = 1
+
+            # Append the current IMG ID to the list of IMG IDs for the current season
+            if season in season2img_id:
+                season2img_id[season] += "\t" + img_id
+            else:
+                season2img_id[season] = img_id
+
+            # Create a year-season combination
+            year_season = year + '-' + season
+
+            # Increment the count of metagenomes for the current year-season
+            if year_season in year_season2num:
+                year_season2num[year_season] += 1
+            else:
+                year_season2num[year_season] = 1
+
+            # Append the current IMG ID to the list of IMG IDs for the current year-season
+            if year_season in year_season2img_id:
+                year_season2img_id[year_season] += "\t" + img_id
+            else:
+                year_season2img_id[year_season] = img_id
+
+            # Increment the count of metagenomes for the current year
+            if year in year2num:
+                year2num[year] += 1
+            else:
+                year2num[year] = 1
+
+            # Append the current IMG ID to the list of IMG IDs for the current year
+            if year in year2img_id:
+                year2img_id[year] += "\t" + img_id
+            else:
+                year2img_id[year] = img_id
+
+# Step 4.2 Get family abundances for each season (the number of metagenome each season was normalized)
+family2season2abun = defaultdict(dict)  # family => season => abun (normalized abundance)
+for family in sorted(family2IMG2abun):
+    for season in sorted(season2num):
+        num_metagenome = season2num[season]  # num of metagenomes in this season
+        abun_sum_for_season = 0  # Store the sum of family abun from all metagenomes from this season
+        abun_for_season_normalized = 0  # Store the normalized family abun for this season
+
+        IMG_ID = season2img_id[season].split('\t')
+        for img_id in IMG_ID:
+            abun = family2IMG2abun[family].get(img_id, 0)
+            if abun:
+                abun_sum_for_season += abun
+
+        if abun_sum_for_season:
+            abun_for_season_normalized = abun_sum_for_season / num_metagenome
+
+        family2season2abun[family][season] = abun_for_season_normalized
+
+# Step 4.3 Write down Family abundances (normalized by read number per metagenome and metagenome number per season) for each season
+Season = ["Spring", "Clearwater", "Early Summer", "Late Summer", "Fall", "Ice-on"]
+with open("virus_n_MAG_tax_association/family2season2abun.txt", 'w') as OUT:
+    row = "\t".join(Season)
+    OUT.write("Head\t" + row + "\n")
+    for tmp1 in sorted(family2season2abun):
+        OUT.write(tmp1 + "\t")
+        tmp = []
+        for tmp2 in Season:
+            if tmp2 in family2season2abun[tmp1]:
+                tmp.append(str(family2season2abun[tmp1][tmp2]))
+            else:
+                tmp.append("0")
+        OUT.write("\t".join(tmp) + "\n")
+
 

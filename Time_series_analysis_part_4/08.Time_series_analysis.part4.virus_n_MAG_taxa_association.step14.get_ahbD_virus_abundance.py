@@ -15,7 +15,7 @@ except Exception as e:
     sys.stderr.write(str(e) + "\n\n")
     exit(1)
     
-# Aim: Parse to get ahbD virus abundance from 0 day of Clearwater
+# Aim: Parse to get ahbD-containing virus abundance from 0 day of Clearwater
 
 
 # Step 1 Calculate the IMG2clearwater_day dict
@@ -130,33 +130,33 @@ with open('MetaPop/Viral_gn2IMG2cov_norm_filtered.txt', 'r') as lines:
                 cov = tmp[i]
                 if cov == 'NA':
                     cov = '0'
-                viral_gn2IMG2cov[viral_gn][IMG] = cov
+                viral_gn2IMG2cov[viral_gn][IMG] = float(cov)
 
 
-# Step 4 Calculate IMG2ahbD_viral_gn_cov dict
-IMG2ahbD_viral_gn_cov = {} # IMG => ahbD_viral_gn_cov (The sum cov of ahbD-containing viral gn (rep))            
+# Step 4 Calculate IMG2ahbD_containing_viral_gn_cov dict
+IMG2ahbD_containing_viral_gn_cov = {} # IMG => ahbD_containing_viral_gn_cov (The sum cov of ahbD-containing viral gn (rep))            
 for IMG in IMG2date:
-    ahbD_viral_gn_cov = 0
+    ahbD_containing_viral_gn_cov = 0
     for viral_gn in viral_gn2IMG2cov:
         if viral_gn in AhbD_containing_viral_gn:
             cov = viral_gn2IMG2cov[viral_gn][IMG]
-            ahbD_viral_gn_cov += float(cov)
-    IMG2ahbD_viral_gn_cov[IMG] = ahbD_viral_gn_cov    
+            ahbD_containing_viral_gn_cov += float(cov)
+    IMG2ahbD_containing_viral_gn_cov[IMG] = ahbD_containing_viral_gn_cov    
          
         
-# Step 5 Calculate clearwater_day2ahbD_viral_gn_cov dicts for each year
-os.mkdir("virus_n_MAG_tax_association/ahbD_virus_n_MAG")
+# Step 5 Calculate clearwater_day2ahbD_containing_viral_gn_cov dicts for each year
+os.mkdir("virus_n_MAG_tax_association/ahbD_containing_virus")
 for year in year2IMGs:
     IMGs = year2IMGs[year]
-    clearwater_day2ahbD_viral_gn_cov = {} # int(clearwater_day) => ahbD_viral_gn_cov
+    clearwater_day2ahbD_containing_viral_gn_cov = {} # int(clearwater_day) => ahbD_containing_viral_gn_cov
     for IMG in IMGs:
         clearwater_day = int(IMG2clearwater_day[IMG])
-        ahbD_viral_gn_cov = IMG2ahbD_viral_gn_cov[IMG]
-        clearwater_day2ahbD_viral_gn_cov[clearwater_day] = ahbD_viral_gn_cov
+        ahbD_containing_viral_gn_cov = IMG2ahbD_containing_viral_gn_cov[IMG]
+        clearwater_day2ahbD_containing_viral_gn_cov[clearwater_day] = ahbD_containing_viral_gn_cov
 
     ## Write down the result
-    f = open(f"virus_n_MAG_tax_association/ahbD_virus_n_MAG/{year}.ahbD_viral_gn_cov.txt", 'w')
-    f.write('clearwater_day\tahbD_viral_gn_cov\n')
-    for clearwater_day in sorted(clearwater_day2ahbD_viral_gn_cov.keys()):
-        line = str(clearwater_day) + '\t' + str(clearwater_day2ahbD_viral_gn_cov[clearwater_day])
+    f = open(f"virus_n_MAG_tax_association/ahbD_containing_virus/{year}.ahbD_containing_viral_gn_cov.txt", 'w')
+    f.write('clearwater_day\tahbD_containing_viral_gn_cov\n')
+    for clearwater_day in sorted(clearwater_day2ahbD_containing_viral_gn_cov.keys()):
+        line = str(clearwater_day) + '\t' + str(clearwater_day2ahbD_containing_viral_gn_cov[clearwater_day])
         f.write(line + '\n')
