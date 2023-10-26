@@ -5,7 +5,7 @@ use warnings;
 use List::Util qw(sum);
 
 # Aim: 1) Get the AMG-containing viral gn SNP density statistics 
-# (the distribution of viral gn should be >= 20 out of 465 metagenomes for calculating season and year_season distribution)
+# (the distribution of viral gn should be >= 20 out of 471 metagenomes for calculating season and year_season distribution)
 # 2) Get the AMG-containing viral gn SNP density statistics for four AMGs
 
 # Step 1 Get AMG-containing viral gn list (species representatives)

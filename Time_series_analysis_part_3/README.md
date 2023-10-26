@@ -4,7 +4,7 @@
 
 **1 Get the AMG-containing viral genome microdiversity (nt diversity) statistics**
 
-The distribution of viral genome should be >= 20 out of 471 metagenomes for calculating month and year_month distribution. 
+The distribution of viral genome should be >= 20 out of 471 metagenomes for calculating season and year_season distribution. 
 
 One microdiversity parameter was obtained from this step: nucleotide (nt) diversity. 
 
@@ -12,7 +12,7 @@ One microdiversity parameter was obtained from this step: nucleotide (nt) divers
 
 **2 Get the AMG-containing viral genome SNP density statistics**
 
-The distribution of viral genome should be >= 20 out of 471 metagenomes for calculating month and year_month distribution. 
+The distribution of viral genome should be >= 20 out of 471 metagenomes for calculating season and year_season distribution. 
 
 One microdiversity parameter was obtained from this step: SNP density. 
 
@@ -20,7 +20,7 @@ One microdiversity parameter was obtained from this step: SNP density.
 
 **3 Conduct Spearman's correlation test between species cov with nt diversity and SNP density**
 
-The script "calc_spearman_correlation.py" was used to conduct Spearman's correlation test.
+The script "calc_spearman_correlation.py" was used to conduct Spearman's correlation test between species cov with nt diversity and SNP density for both species containing four AMGs and all AMG-containing species.
 
 [script] 
 
@@ -44,57 +44,55 @@ Summer => Late Summer and Winter => Ice-on, separately.
 
 [script] 08.Time_series_analysis.part3.microdiversity_analysis.step5.conduct_separate_mapping_for_summer_and_winter.pl
 
-**6.1 Conduct Fst analysis for summer and winter sample groups by inStrain_lite**
+**6.1 Conduct Fst analysis for summer and winter sample groups by MetaPop**
+
+Use the all summer and winter bam files as the input to conduct MetaPop analysis.
 
 [script] 
 
-08.Time_series_analysis.part3.microdiversity_analysis.step6.1.conduct_Fst_analysis_for_summer_and_winter_groups.pl
+08.Time_series_analysis.part3.microdiversity_analysis.step6.1.run_metapop.for_summer_vs_winter.pl
 
 **6.2 Parse Fst result for winter group and summer group**
 
-The following requirements are used to parse the result from Step 6.1:
-(1) Fst >= 0.5
-(2) pi in winter group > pi in summer group (pi stands for nt diversity)
-(3) gene N/S SNV ratio in winter group < gene N/S SNV ratio in summer group
-(4) gene coverages in winter group and summer group both > 5×
+Viral scaffolds with Fst > 0.15 are identified as significantly differentiating between seasonal groups (also referred to as "fixed viral scaffolds").
+
+The following requirements are used to obtain the selected genes located on the fixed Fst viral scaffolds:
+(1) pi in winter group > pi in summer group (pi stands for nt diversity)
+(2) gene N/S SNV ratio in winter group < gene N/S SNV ratio in summer group
 
 [script] 
 
-08.Time_series_analysis.part3.microdiversity_analysis.step6.2.parse_Fst_result_for_summer_and_winter_groups.pl
+08.Time_series_analysis.part3.microdiversity_analysis.step6.2.parse_Fst_result_for_summer_and_winter.py
 
-**7.1 Conduct Fst analysis for year 2000-2003 and year 2016-2019 by inStrain_lite**
+**7.1 Conduct Fst analysis for year 2000-2003 and year 2016-2019 by MetaPop**
+
+Use the 2000-2003 and 2016-2019 merged bam files as the input to conduct MetaPop analysis.
 
 [script] 
 
-08.Time_series_analysis.part3.microdiversity_analysis.step7.1.conduct_Fst_analysis_for_2000-2003_and_2016-2019.pl
+08.Time_series_analysis.part3.microdiversity_analysis.step7.1.run_metapop.for_2000-2003_vs_2016-2019.pl
 
 **7.2 Parse Fst result for  year 2000-2003 and year 2016-2019**
 
-The following requirements are used to parse the result from Step 7.1:
-(1) Fst >= 0.5
-(2) pi in year 2000-2003 > pi in year 2016-2019
-(3) gene N/S SNV ratio in year 2000-2003 < gene N/S SNV ratio in year 2016-2019
-(4) gene coverages in year 2000-2003 and 2016-2019 both > 5×
+Viral scaffolds with Fst > 0.15 are identified as significantly differentiating between seasonal groups (also referred to as "fixed viral scaffolds").
+
+The following requirements are used to obtain the selected genes located on the fixed Fst viral scaffolds:
+(1) pi in winter group > pi in summer group (pi stands for nt diversity)
+(2) gene N/S SNV ratio in winter group < gene N/S SNV ratio in summer group
 
 [script] 
 
-08.Time_series_analysis.part3.microdiversity_analysis.step7.2.parse_Fst_result_for_2000-2003_and_2016-2019.pl
+08.Time_series_analysis.part3.microdiversity_analysis.step7.2.parse_Fst_result_for_2000-2003_and_2016-2019.py
 
-**8 Parse the viral species Fst from "MetaPop.for_each_year" folder**
 
-Two outputs were generated:
 
-(1) Viral_scf2year_pair_between_2000_2003_and_2016_2019_period2fst_high.txt
 
-The high Fst (>=0.5) result between 2000-2003 and 2016-2019 period
 
-(2) Viral_scf2year_pair_between_2000_2003_and_2016_2019_period2fst_high.for_four_AMGs.txt
 
-The high Fst  (>=0.5) result between 2000-2003 and 2016-2019 period for viral species containing four AMGs
 
-[script] 
 
-08.Time_series_analysis.part3.microdiversity_analysis.step8.parse_viral_gn_Fst_by_MetaPop.pl
+
+
 
 **9 Get the viral species (four AMG containing viral species) pN/pS results for each year**
 
