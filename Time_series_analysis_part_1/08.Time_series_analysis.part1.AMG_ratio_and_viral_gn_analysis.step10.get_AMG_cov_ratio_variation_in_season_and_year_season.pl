@@ -152,7 +152,7 @@ print OUT "Head\t$row\n";
 foreach my $tmp1 (sort keys %AMG_gene2season2cov_ratio){
         print OUT $tmp1."\t";
         my @tmp = ();
-        foreach my $tmp2 (sort keys %Season2num) {       
+        foreach my $tmp2 (@Season) {       
                 if (exists $AMG_gene2season2cov_ratio{$tmp1}{$tmp2}){
                         push @tmp, $AMG_gene2season2cov_ratio{$tmp1}{$tmp2};
                 }else{              
@@ -257,7 +257,7 @@ print OUT "Head\t$row3\n";
 foreach my $tmp1 (sort keys %AMG_gene_containing_viral_gn2season2cov){
         print OUT $tmp1."\t";
         my @tmp = ();
-        foreach my $tmp2 (sort keys %Season2num) {       
+        foreach my $tmp2 (@Season) {       
                 if (exists $AMG_gene_containing_viral_gn2season2cov{$tmp1}{$tmp2}){
                         push @tmp, $AMG_gene_containing_viral_gn2season2cov{$tmp1}{$tmp2};
                 }else{              
@@ -290,7 +290,7 @@ close OUT;
 
 ## Step 5.5 Make %AMG_gene2ko_n_detail and write it down
 my %KO2detail = (); # $ko => $detail
-open IN, "MetaPop/KO2season_ko_details.txt";
+open IN, "MetaPop/KO2ko_details.txt";
 while (<IN>){
 	chomp;
 	my @tmp = split (/\t/);

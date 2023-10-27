@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 # Aim: Map all metagenomic reads to the collection of species representatives
-# Note: This script should be run within conda env vRhyme (conda activate vRhyme)
+# Note: This script should be run within conda env ViWrap-Mapping (conda activate /storage1/data11/yml_environments/ViWrap-Mapping)
 
 # Step 1 Get the viral genomic sequences of all species representatives
 my %All_viral_genome_seq = _store_seq("/storage1/data11/TYMEFLIES_phage/Host_prediction/All_phage_genomes.fasta");
@@ -45,7 +45,7 @@ while (<IN>){
 	}
 }
 close IN;
-=pod
+
 open OUT, ">All_phage_species_rep_gn_containing_AMG.fasta";
 foreach my $header (sort keys %All_viral_genome_seq){
 	my ($gn) = $header =~ /^>(.+?\_\_.+?)\_\_/;
@@ -54,7 +54,18 @@ foreach my $header (sort keys %All_viral_genome_seq){
 	}
 }
 close OUT;
-=cut
+
+=pod
+open OUT, ">All_phage_species_rep_gn.fasta";
+foreach my $header (sort keys %All_viral_genome_seq){
+	my ($gn) = $header =~ /^>(.+?\_\_.+?)\_\_/;
+	if (exists $Species{$gn}){
+		print OUT "$header\n$All_viral_genome_seq{$header}\n";
+	}
+}
+close OUT;
+
+
 # Step 2 Make batch bowtie 2 mapping command
 ## Step 2.1 store all IMG ID
 my %IMGID = (); # $img_id => 1
@@ -67,33 +78,32 @@ while (<IN>){
 close IN;
 
 ## Step 2.2 Make bowtie index
-#`cat AMG_counterpart_genes_and_flankings.fasta reference_fasta_for_metapop/All_phage_species_rep_gn_containing_AMG.fasta > All_phage_species_rep_gn_containing_AMG_n_AMG_counterpart_gene_and_flankings.fasta`;
-#`bowtie2-build --large-index All_phage_species_rep_gn_containing_AMG_n_AMG_counterpart_gene_and_flankings.fasta All_phage_species_rep_gn_containing_AMG_n_AMG_counterpart_gene_and_flankings.bowtie2_idx --threads 10 --quiet`;
+#`cat All_phage_species_rep_gn.fasta AMG_counterpart_genes_and_flankings.fasta > All_phage_species_rep_gn_n_AMG_counterparts.fasta`;
+#`bowtie2-build --large-index All_phage_species_rep_gn_n_AMG_counterparts.fasta All_phage_species_rep_gn_n_AMG_counterparts.bowtie2_idx --threads 20 --quiet`;
 
 ## Step 2.3 Make run command
 open OUT, ">tmp.bowtie2_mapping.sh";
 foreach my $img_id (sort keys %IMGID){	
 	if (!( -e "$img_id/$img_id.viral_species_rep.id90.bam")){
-		my $reads_1 = "/storage1/Reads/TYMEFLIES_reads/$img_id.filtered_1.fastq";  
-		my $reads_2 = "/storage1/Reads/TYMEFLIES_reads/$img_id.filtered_2.fastq";  
+		my $reads_1 = "/storage1/Reads/TYMEFLIES_reads/$img_id.filtered_1.fastq.gz";  
+		my $reads_2 = "/storage1/Reads/TYMEFLIES_reads/$img_id.filtered_2.fastq.gz";  
 		my $threads = 1;
 	
-		print OUT "bowtie2 -x All_phage_species_rep_gn_containing_AMG_n_AMG_counterpart_gene_and_flankings.bowtie2_idx -1 $reads_1 -2 $reads_2 -S $img_id/$img_id.viral_species_rep.sam -p $threads --no-unal --quiet --mm;";
+		print OUT "bowtie2 -x All_phage_species_rep_gn_containing_AMG_n_AMG_counterparts.bowtie2_idx -1 $reads_1 -2 $reads_2 -S $img_id/$img_id.viral_species_rep.sam -p $threads --no-unal --quiet --mm;";
 		print OUT "samtools view -bS $img_id/$img_id.viral_species_rep.sam > $img_id/$img_id.viral_species_rep.bam -@ $threads 2> /dev/null;";
 		print OUT "samtools flagstat $img_id/$img_id.viral_species_rep.bam > $img_id/$img_id.viral_species_rep.stat 2> /dev/null;";
 		print OUT "python3 /slowdata/scripts/python_scripts/filter_coverage_file.py -b $img_id/$img_id.viral_species_rep.bam -o $img_id/$img_id.viral_species_rep.id90.bam -p 0.90 -t $threads;";
 		print OUT "samtools flagstat $img_id/$img_id.viral_species_rep.id90.bam > $img_id/$img_id.viral_species_rep.id90.stat 2> /dev/null;";
-		#print OUT "coverm contig --methods metabat --bam-files $img_id/$img_id.viral_species_rep.id90.bam > $img_id/$img_id.viral_species_rep.id90.coverm_depth.txt 2> /dev/null;";
 		print OUT "samtools index $img_id/$img_id.viral_species_rep.id90.bam 2> /dev/null;";
 		print OUT "rm $img_id/$img_id.viral_species_rep.sam $img_id/$img_id.viral_species_rep.sorted.bam $img_id/$img_id.viral_species_rep.bam\n";
 	}
 }
 close OUT;
 
-`cat tmp.bowtie2_mapping.sh | parallel -j 40`;
+#`cat tmp.bowtie2_mapping.sh | parallel -j 30`;
 
-`rm tmp.bowtie2_mapping.sh`;
-
+#`rm tmp.bowtie2_mapping.sh`;
+=cut
 
 
 ## Subroutine
@@ -119,3 +129,4 @@ sub _store_seq{
 	close _IN;
 	return %Seq;
 }
+

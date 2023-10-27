@@ -14,25 +14,23 @@ The information contains:1) Tax 2) Host tax 3) AMG KO within. This script also c
 
 It should include AMG counterpart genes and their flanking regions (+-150bp) in the mapping reference for the next step. We first run hmmsearch of all metagenome proteins to AMG KOs, and then grab the AMG counterpart genes and their flankings from positive hmmsearch hits. We excluded all viral scaffolds in the final AMG counterpart gene located scaffolds.
 
-***Note:*** Since that later we have included MAG representatives into our mapping reference, the AMG counterpart genes and their flankings will not be used to avoid overlaps. So the result from this step is not used in the following analysis. 
-
 [script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step2.get_AMG_counterpart_gene_and_flankings.pl
 
-**3 Map all metagenomic reads to the collection of species representatives and MAG representatives**
+**3 Map all metagenomic reads to the collection of species representatives and AMG counterpart genes and flankings**
 
-Map all metagenomic reads to the collection of the representative genomes from individual species and MAG representatives. We only included representative genomes that carry at least one AMG. The MAG representatives (2,866 in total) are MAGs dereplicated by dRep (using 96% ANI cutoff).
+Map all metagenomic reads to the collection of species representatives and AMG counterpart genes and flankings.  The resulting sam files were converted to bam files and subjected to read identity filtering with a cutoff threshold of 90%.
 
 [script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step3.map_metagenomic_reads_to_the_collection_of_species_representatives.pl
 
-**4 Grep gene files (in prodigal format) for "All_phage_species_rep_gn_containing_AMG.fasta"**
+**4 Grep gene files (in prodigal format) for "All_phage_species_rep_gn.fasta"**
 
-"All_phage_species_rep_gn_containing_AMG.fasta" is the fasta file contains species representative genomes (with at least one AMG) generated from the last step (Step 3). We parsed the ffn file (the prodigal-annotation result containing all genes) from each VIBRANT result folder to get the new gene headers and the corresponding sequences. 
+"All_phage_species_rep_gn.fasta" is the fasta file contains all the species representative genomes. We parsed the ffn file (the prodigal-annotation result containing all genes) from each VIBRANT result folder to get the new gene headers and the corresponding sequences. 
 
 [script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step4.grep_gene_files_for_all_rep_gn_containing_AMG.pl
 
 **5 Filter bam files using only the collection of viral species representative genomes as the reference**
 
-All the "*.viral_species_rep.id90.bam" files from the Step 4 were placed into a new folder. Filter bam files by scaffold names of viral species representative genomes. 
+All the "*.viral_species_rep.id90.bam" files from the Step 3 were placed into a new folder. Filter bam files by scaffold names of viral species representative genomes. 
 
 A custom Python 3 script "filter_bam_by_reference.py" was used to filter bam. Note that this script should be run under conda env "python_scripts_env_Jan2022.yml" (requirement: pysam >= 0.16). Both the script and yml file were provided here.
 
@@ -54,7 +52,7 @@ Note:  The custom gene file should be strictly in the same format/shape as a Pro
 
 In this script, two AMG coordinate files need to be provided:
 
-1) For non-prophage viruses: AMG coordinate file was parsed from the gene file (generated from Step 3).
+1) For non-prophage viruses: AMG coordinate file was parsed from the gene file (generated from Step 4).
 
 2) For prophage: AMG coordinate file was the concatenated file of all "VIBRANT_integrated_prophage_coordinates_*.a.tsv" from VIBRANT result folders.
 
@@ -117,53 +115,15 @@ Note that we only included AMGs with distribution >= 5. In this script, we calcu
 
 [script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step10.get_AMG_cov_ratio_variation_in_season_and_year_season.pl
 
-**11 Visualize AMG coverage ratio and corresponding viral genome coverage variations**
-
-The script generates two figures:
-
-1) AMG coverage ratio figure
-
-It contains three subpanels of A) heatmap of the number of metagenomes for each month, B) 20 facets of AMG coverage ratio plots for each year-month, and C) AMG coverage ratio plot for each month (aggregated across 20 years).
-
-2) AMG-containing viral genome coverage figure
-
-It contains three subpanels of A) heatmap of the number of metagenomes for each month, B) 20 facets of AMG-containing viral genome coverage plots for each year-month, and C) AMG-containing viral genome coverage plot for each month (aggregated across 20 years).
-
-[script] 
-
-08.Time_series_analysis.step11.visualize_AMG_and_corresponding_viral_gn_cov_ratio_varition.R
-
-**12 Сonduct correlation analysis for viral species and the corresponding host species**
-
-In this step, we first found viral species that had its host species identified at the species level. Then,  we parsed to get viral species coverage and host coverage within individual metagenomes. Finally, we conducted Spearman's correlation test to investigate the correlation.
-
-"calc_spearman_correlation.py" was used to perform Spearman's correlation test.
-
-[script] 
-
-08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step12.conduct_correlation_analysis_for_viral_species_and_host_species.pl
-
-calc_spearman_correlation.py
-
-**13 Сonduct correlation analysis for environmental parameters and viruses**
-
-We studied the correction between psbA-containing viral genome coverage, psbA AMG coverage, and host (Cyanobacteria) coverage with environmental parameters. 
-
- [script] 
-
-08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step13.conduct_correlation_analysis_for_env_parameter_and_virus.pl
-
-***Note:*** We did not use the results of step 11, since the visualizing result seems not so meaningful to address any ideas. We also did not use the results of step 12 and step 13, since that they are duplicated with the "Time-series analysis - Part 4 virus and MAG taxa association analysis".
-
 **14 Map all metagenomic reads from each year to the collection of species representatives and AMG counterpart genes and flankings**
 
-Map all metagenomic reads from each year to the collection of the representative genomes from individual species and AMG counterpart genes and flankings. We only included representative genomes that carry at least one AMG.
+Map all metagenomic reads from each year to the collection of the representative genomes from individual species and AMG counterpart genes and flankings. 
 
 [script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step14.map_metagenomic_reads_from_each_year_to_the_collection_of_species_representatives.pl
 
-**15 Filter bam files using only the collection of viral species representative genomes as the reference**
+**15 Filter bam files using only the collection of viral species representative genomes containing AMGs as the reference**
 
-All the "*.viral_species_rep.id90.bam" files from the Step 14 were placed into a new folder. Filter bam files by scaffold names of viral species representative genomes. 
+All the "*.viral_species_rep.id90.bam" files from the Step 14 were placed into a new folder. Filter bam files by scaffold names of viral species representative genomes containing AMGs. 
 
 A custom Python 3 script "filter_bam_by_reference.py" was used to filter bam. Note that this script should be run under conda env "python_scripts_env_Jan2022.yml". Both the script and yml file were provided here.
 
@@ -171,10 +131,73 @@ A custom Python 3 script "filter_bam_by_reference.py" was used to filter bam. No
 
 **16 Run MetaPop for bam files from each year**
 
-The settings were the same as those listed in Step 6.
+The settings were the same as those listed in Step 6. The mapping reference is "All_phage_species_rep_gn_containing_AMG.fasta".
 
 [script] 
 
 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step16.run_metapop.for_each_year.pl
+
+**17 Calculate the AMG containing viral genome statistics**
+
+This script is written to calculate the following statistics of AMG containing viral genomes:
+
+(1) The percentage of species representatives containing AMG 
+
+(2) The psbA-containing species rep to species with any members containing psbA ratio
+
+(3) The virus completeness to specific AMG-containing species members AMG containing percentage
+
+​     To see if the virus completeness degree will influence the AMG-containing situation of the species members. The following AMGs are inspected: 
+
+```sh
+# AMG gene: KO ID
+'psbA': 'K02703',
+'psbD': 'K02706',
+'pmoC': 'K10946',
+'ahbD': 'K22227',
+'katG': 'K03782',
+'gpx': 'K00432',
+'cobS': 'K09882',
+'cobT': 'K09883',
+'nadE': 'K01916',
+'cysC': 'K00860',
+'cysD': 'K00957',
+'cysH': 'K00390',
+'cysK': 'K01738'
+```
+[script]
+
+08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step17.AMG_containing_gn_stat.py
+
+**18 Visualize the virus completeness to specific AMG-containing species members AMG containing percentage**
+
+For each AMG, we plotted two bars representing two genome completeness ranges: 75-100% and 50-75%. Each bar represents the percentage of AMG containing percentage of the species members that fall into the corresponding genome completeness range.
+
+[script]
+
+08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step18.AMG_containing_gn_stat.visualize.R
+
+**19 Parse to get other viral genome (no-AMG containing viral genome) abundance**
+
+Parse to get other viral genome abundance (viruses that do not contain any AMGs)
+Screen viral genome with the following two criteria:
+(1) Screen viral genome with its any scaffold with < 0.01 coverage 
+(2) Process the viral genome presence with both coverage (>= 0.33) and breadth (>= 50%)
+
+[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step19.parse_to_get_other_viral_gn_abundance.py
+
+**20 Make the composition pattern table based on viral genome abundance at the family level**
+
+The composition pattern table comprised of the abundances of viral family across all the samples. The sample to season information was also included.
+
+[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step20.make_composition_pattern_table.py
+
+**21 Visualize the composition pattern**
+
+Visualize the composition pattern of viral community at the family level across six seasons by NMDS plots and conduct ANOSIM tests for all six seasons. At the same time, visualize the composition pattern of viral community of the seasons of (1) "Fall", "Ice-on", and "Spring", (2) "Spring", "Clearwater", and "Early Summer", (3) "Early Summer", "Late Summer", and "Fall", separately; and conduct ANOSIM tests accordingly.
+
+[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step21.visualize_composition_pattern.R
+
+
 
 

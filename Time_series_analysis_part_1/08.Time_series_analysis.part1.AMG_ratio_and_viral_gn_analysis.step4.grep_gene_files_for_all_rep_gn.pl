@@ -3,11 +3,11 @@
 use strict;
 use warnings;
 
-# Aim: Grep gene files (in prodigal format) for "All_phage_species_rep_gn_containing_AMG.fasta"
+# Aim: Grep gene files (in prodigal format) for "All_phage_species_rep_gn.fasta"
 
 # Step 1 Store viruses species rep genomes that contain AMG
 my %Viruses_species_rep_gn = (); # $gn => 1
-open IN, "All_phage_species_rep_gn_containing_AMG.fasta";
+open IN, "All_phage_species_rep_gn.fasta";
 while (<IN>){
 	chomp;
 	if (/^>/){
@@ -30,9 +30,9 @@ close IN;
 
 ## Step 2.2 store the ffn file (only store genes from Viruses_species_rep_gn)
 my %All_ffn_seq = (); # Store all the ffn sequences that belong to %Viruses_species_rep_gn
-#`find /storage1/data11/TYMEFLIES_phage/*/vRhyme_best_bins_fasta_parsed -name '*.ffn' -exec cat {} + > TYMEFLIES_All_ffn_seq.ffn`;
+`find /storage1/data11/TYMEFLIES_phage/*/vRhyme_best_bins_fasta_parsed -name '*.ffn' -exec cat {} + > TYMEFLIES_All_ffn_seq.ffn`;
 %All_ffn_seq = _store_seq("TYMEFLIES_All_ffn_seq.ffn");
-#`rm TYMEFLIES_All_ffn_seq.ffn`;
+`rm TYMEFLIES_All_ffn_seq.ffn`;
 foreach my $key (sort keys %All_ffn_seq){
 	my ($gn) = $key =~ /^>(.+?\_\_.+?)\_\_/;
 	if (!exists $Viruses_species_rep_gn{$gn}){
@@ -79,6 +79,7 @@ foreach my $img_id (sort keys %IMGID){
 my %All_ffn_seq2 = ();
 foreach my $header1 (sort keys %All_ffn_seq){
 	my $header1_transferred = ""; # Transfer back the header (gene id) to the original one in the metagenome
+	# A typical $header1_transferred is like: Ga0454392_0000005_106
 	if ($header1 !~ /fragment/){
 		($header1_transferred) = $header1 =~ /^>33.+?\_\_.+?\_\_(.+?)$/;
 	}else{
@@ -88,12 +89,14 @@ foreach my $header1 (sort keys %All_ffn_seq){
 	}
 	
 	my $header2 = "";
+	# A typical $header2 is like: Ga0454392_0151379_1 # 2 # 100 # 1 # ID=1_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.626
 	if (exists $All_metagenome_ffn_seq_headers{$header1_transferred}){
 		$header2 = $All_metagenome_ffn_seq_headers{$header1_transferred};
 	}
 	
 	my ($header1_clean) = $header1 =~ /^>(.+?)$/;
-
+	# A typical $header1_clean is like: 3300042549__vRhyme_unbinned7298__Ga0454392_0044768_1
+	
 	$header2 =~ s/$header1_transferred/$header1_clean/g;
 	
 	$All_ffn_seq2{$header2} = $All_ffn_seq{$header1};
@@ -101,7 +104,7 @@ foreach my $header1 (sort keys %All_ffn_seq){
 
 
 ## Step 5 Write down the ffn sequences (gene sequences)
-open OUT, ">All_phage_species_rep_gn_containing_AMG.genes";
+open OUT, ">All_phage_species_rep_gn.genes";
 foreach my $key (sort keys %All_ffn_seq2){
 	print OUT "$key\n$All_ffn_seq2{$key}\n";
 }

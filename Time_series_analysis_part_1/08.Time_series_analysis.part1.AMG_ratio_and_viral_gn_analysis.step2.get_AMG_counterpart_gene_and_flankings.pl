@@ -7,7 +7,7 @@ use warnings;
 # Note there are two requirements: 
 # 1) Only include hits from microbial scaffolds
 # 2) Also include flanking regions (150 bp on left and right)
-=pod
+
 # Step 1 Store all AMG info
 my %AMG_pro2ko = (); # $amg_pro => $ko
 my %KO2amg_pro = (); # $ko => $amg_pros (collection of $amg_pro, separated by "\,")
@@ -54,7 +54,7 @@ while (<IN>){
 	$IMGID{$img_id} = 1;
 }
 close IN;
-
+=pod
 ### Step 2.1.3 Run hmmsearch
 `mkdir tmp_folder_for_hmmsearch_for_AMG_counterpart_genes`;
 open OUT, ">tmp.run_hmmsearch_for_getting_AMG_counterpart_gene_located_scaffold.sh";
@@ -76,10 +76,10 @@ foreach my $img_id (sort keys %IMGID){
 	}
 }
 
-`cat tmp.run_hmmsearch_for_getting_AMG_counterpart_gene_located_scaffold.sh | parallel -j 30`;
+`cat tmp.run_hmmsearch_for_getting_AMG_counterpart_gene_located_scaffold.sh | parallel -j 20`;
 
 `rm tmp.run_hmmsearch_for_getting_AMG_counterpart_gene_located_scaffold.sh`;
-
+=cut
 ## Step 2.2 Read and parse hmmsearch results
 my %IMG2all_pros = (); # $img_id => $all_pros (collection of $pro, separated by "\,"); all protein hits of AMG KOs
 open IN, "find /storage1/data11/TYMEFLIES_phage/tmp_folder_for_hmmsearch_for_AMG_counterpart_genes/ -name '*.hmmsearch_result.txt' | ";
@@ -131,24 +131,20 @@ foreach my $img_id (sort keys %IMG2all_pros){
 	print OUT "$img_id\t$IMG2all_pros{$img_id}\n";
 }
 close OUT;
-=cut
-
-my %IMG2all_pros = (); # $img_id => $all_pros (collection of $pro, separated by "\,"); all protein hits of AMG KOs
-open IN, "IMG2all_pros.txt";
-while (<IN>){
-	chomp;
-	my @tmp = split (/\t/);
-	$IMG2all_pros{$tmp[0]} = $tmp[1];
-}
-close IN;
 
 ## Step 2.3 Get AMG counterpart gene and flanking regions
-my %Scaffolds_from_viruses = (); # $scaffold => 1
+my %Scaffolds_from_viruses = (); # $scaffold => 1; do not contain "fragment" in the header
 open IN, "Host_prediction/All_phage_genomes_headers.txt";
 while (<IN>){
 	chomp;
-	my ($scaffold) = $_ =~ /^>.+?\_\_(Ga.+?)$/;
-	$Scaffolds_from_viruses{$scaffold} = 1;
+	my ($scaffold) = $_ =~ /^>.+?\_\_(Ga.+?\_.+?)$/;
+	if ($scaffold =~ /fragment/){
+		my ($scaffold_wo_fragment) = $scaffold =~ /^(.+)_fragment/;
+		$Scaffolds_from_viruses{$scaffold_wo_fragment} = 1;
+	}else{
+		$Scaffolds_from_viruses{$scaffold} = 1;
+	}
+	
 }
 close IN;
 

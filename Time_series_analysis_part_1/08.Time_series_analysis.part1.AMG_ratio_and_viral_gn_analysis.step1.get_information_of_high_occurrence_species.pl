@@ -8,7 +8,7 @@ use warnings;
 
 # Step 1 Store the species to occurrence and abundance hash
 my %Species2occurrence_n_abundance = (); # $species => [0] $occurrence [1] $abundance
-open IN, "Species2occurrence_n_abundance.txt";
+open IN, "./AMG_analysis/Species2occurrence_n_abundance.txt";
 while (<IN>){
 	chomp;
 	my @tmp = split (/\t/);

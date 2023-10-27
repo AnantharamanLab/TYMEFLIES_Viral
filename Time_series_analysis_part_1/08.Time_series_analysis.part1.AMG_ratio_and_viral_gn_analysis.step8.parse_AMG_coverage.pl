@@ -13,7 +13,6 @@ use List::Util qw(sum);
 # Step 1 Store all AMG coverage results
 my %Scf2IMG2amg_gene2cov = (); # Store the coverage information of each AMG gene
                                # $scf => $img => $amg_gene => $amg_gene_cov
-my %Viral_gn2scfs = (); # $viral_gn => $scf collection separated by "\t" (Only for rep gn with AMG genes)	
 my %Scf2IMG2cov = (); # $scf => $img => $partial_scf_cov
 my %Scf2amg_genes = (); # $scf => $amg_gene collection separated by "\t"
 open IN, "ls MetaPop/AMG_coverage_result/*.viral_species_rep.id90.AMG_cov.txt|";
@@ -34,16 +33,6 @@ while (<IN>){
 			if ($amg_gene_cov ne "NA"){
 				$Scf2IMG2amg_gene2cov{$scf}{$img}{$amg_gene} = $amg_gene_cov; # $amg_gene_cov can be "0.0"
 			}
-			
-			# Store %Viral_gn2scfs
-			my ($viral_gn) = $scf =~ /^(.+?\_\_.+?)\_\_/;
-			if (!exists $Viral_gn2scfs{$viral_gn}){
-				$Viral_gn2scfs{$viral_gn} = $scf;
-			}else{
-				if ($Viral_gn2scfs{$viral_gn} !~ /$scf/){
-					$Viral_gn2scfs{$viral_gn} .= "\t".$scf;
-				}
-			}	
 			
 			# Store %Scf2IMG2cov
 			if ($partial_scf_cov ne "NA"){
@@ -66,6 +55,19 @@ while (<IN>){
 }
 close IN;
 
+## Store %Viral_gn2scfs
+my %Seq_all_scfs = _store_seq("All_phage_species_rep_gn_containing_AMG.fasta");
+my %Viral_gn2scfs = (); # $viral_gn => $scf collection separated by "\t" (Only for rep gn with AMG genes)
+foreach my $key (sort keys %Seq_all_scfs){
+	my ($scf) = $key =~ /^>(.+?)$/;
+	my ($viral_gn) = $scf =~ /^(.+?\_\_.+?)\_\_/;
+	if (!exists $Viral_gn2scfs{$viral_gn}){
+		$Viral_gn2scfs{$viral_gn} = $scf;
+	}else{
+		$Viral_gn2scfs{$viral_gn} .= "\t".$scf;
+	}
+}
+
 # Step 2 Make %Viral_gn2IMG2cov_norm
 ## Step 2.1 Store %IMG2read_num
 my %IMG2read_num = (); # $img => $read_num
@@ -86,7 +88,10 @@ foreach my $viral_gn (sort keys %Viral_gn2scfs){
 		my @Scfs = split(/\t/, $Viral_gn2scfs{$viral_gn});
 		my @Scf_cov_norm_collection = ();
 		foreach my $scf (@Scfs){
-			my $scf_cov = $Scf2IMG2cov{$scf}{$img};
+			my $scf_cov = 0;
+			if (exists $Scf2IMG2cov{$scf}{$img}){
+				$scf_cov = $Scf2IMG2cov{$scf}{$img};
+			}
 			my $scf_cov_norm = $scf_cov * (100000000 / $IMG2read_num{$img}); # Normalized cov, normalized by 100M reads per metagenome
 			push @Scf_cov_norm_collection, $scf_cov_norm;
 		}
@@ -201,4 +206,26 @@ close OUT;
 # Subroutine
 sub mean {
     return sum(@_)/@_;
+}
+
+sub _store_seq{
+	my $file = $_[0];
+	my %Seq = (); my $head = "";
+	open _IN, "$file";
+	while (<_IN>){
+		chomp;
+		if (/>/){
+			if (/\s/){
+				($head) = $_ =~ /^(>.+?)\s/;
+				$Seq{$head} = "";
+			}else{
+				($head) = $_ =~ /^(>.+?)$/;
+				$Seq{$head} = "";
+			}
+		}else{
+			$Seq{$head} .= $_;
+		}
+	}
+	close _IN;
+	return %Seq;
 }

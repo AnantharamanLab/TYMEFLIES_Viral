@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 # Aim: Parse metapop result to get AMG coverage
-# This script should be run under the conda env - "conda activate /home/kieft/miniconda3/envs/pyscripts"
+# This script should be run under the conda env - "conda activate base"
 
 # Step 1 Get and write down the AMG coordinates
 ## Step 1.1 Store AMG summary table 
@@ -50,22 +50,22 @@ foreach my $pro (sort keys %AMG_summary){
 
 ## Step 1.2 Store and write down AMG coordinates 
 my %AMG_coordinates = (); # $amg => $scf, $amg, $start, $stop connected by "\t"
-open IN, "All_phage_species_rep_gn_containing_AMG.mdfed.genes"; # Note: Using mdfed gene files here 
+open IN, "All_phage_species_rep_gn.mdfed.genes"; # Note: Using mdfed gene files here 
 while (<IN>){
 	chomp;
 	if (/^>/){
 		my $line = $_;
-		my ($amg, $start, $stop) = $line =~ /^>(.+?) \# (.+?) \# (.+?) \#/;
-		my ($scf) = $amg =~ /^(.+)\_/;
-		if (exists $AMG_summary{$amg}){
-			$AMG_coordinates{$amg} = "$scf\t$amg\t$start\t$stop";
+		my ($gene, $start, $stop) = $line =~ /^>(.+?) \# (.+?) \# (.+?) \#/;
+		my ($scf) = $gene =~ /^(.+)\_/;
+		if (exists $AMG_summary{$gene}){ # If this gene is an AMG
+			$AMG_coordinates{$gene} = "$scf\t$gene\t$start\t$stop"; # Only store the scf that contains AMGs
 		}
 	}
 }
 close IN;
 
-open OUT, ">MetaPop/All_phage_species_rep_gn_containing_AMG_coordinates.txt";
-print OUT "scaffold\tregion\tstart\tstop\n";
+open OUT, ">MetaPop/All_phage_species_rep_gn_AMG_containing_scf_coordinates.txt";
+print OUT "scaffold\tregion\tstart\tstop\n"; 
 foreach my $amg (sort keys %AMG_coordinates){
 	print OUT "$AMG_coordinates{$amg}\n";
 }
@@ -85,7 +85,9 @@ while (<IN>){
 	chomp;
 	my $depth_file = $_;
 	my ($basename) = $depth_file =~ /(33*.+?\.viral_species_rep\.id90)/;
-	print OUT "/storage1/data14/for_chao/cov_by_region.py -i $depth_file -r MetaPop/All_phage_species_rep_gn_containing_AMG_coordinates.txt -f MetaPop/01.Genomes_and_Genes/all_genomes.fasta -o MetaPop/AMG_coverage_result/$basename.AMG_cov.txt --no_header\n";
+	if (!-e "MetaPop/AMG_coverage_result/$basename.AMG_cov.txt"){
+		print OUT "/storage1/data14/for_chao/TYMEFLIES/cov_by_region.py -i $depth_file -r MetaPop/All_phage_species_rep_gn_AMG_containing_scf_coordinates.txt -f MetaPop/01.Genomes_and_Genes/all_genomes.fasta -o MetaPop/AMG_coverage_result/$basename.AMG_cov.txt --no_header\n";
+	}
 }
 close IN;
 close OUT;
