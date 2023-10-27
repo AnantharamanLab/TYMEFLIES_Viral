@@ -54,6 +54,10 @@ The organized tables, original dataset sources, and scripts parsing original dat
 
 ​         The data from the tow depth of 20 m were employed for the analysis.
 
+
+
+ The script employed for parsing and obtaining the average environmental parameters for each season is located within the "Summarize_all_parameters_by_season" directory. Furthermore, the environmental parameter tables, both for input and output, are also available within this same directory. 
+
 ​         
 
 

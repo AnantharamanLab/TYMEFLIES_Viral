@@ -1,0 +1,85 @@
+Biology Entity	Environment	Correlation Coefficient	P-Value	is_significant
+Cyanobacteria virus duration days	Temperature	0.7323170151483157	0.0019565348429604335	True
+Cyanobacteria virus duration days	Dissolved oxygen	0.23230600178420888	0.43257174357183903	False
+Cyanobacteria virus duration days	Secchi depth	0.7345294532605462	0.0018542724994528026	True
+Cyanobacteria virus duration days	Chlorophyll a	0.21577279468363694	0.48816594936200053	False
+Cyanobacteria virus duration days	Chloride	0.26106769724320616	0.37541238324383164	False
+Cyanobacteria virus duration days	Sulfate	0.0973472769381447	0.7460212360664251	False
+Cyanobacteria virus duration days	Calcium	0.41815080321157605	0.139571988019084	False
+Cyanobacteria virus duration days	Magnesium	0.5110732039252596	0.06132044936528369	False
+Cyanobacteria virus duration days	Sodium	0.362893417396839	0.22923079287867454	False
+Cyanobacteria virus duration days	Potassium	0.17478261086621433	0.5580758469737233	False
+Cyanobacteria virus duration days	Iron	0.06464905679858149	0.8299886428534069	False
+Cyanobacteria virus duration days	Manganese	0.0	1.0	False
+Cyanobacteria virus duration days	pH	0.4845239465784928	0.07941437463028778	False
+Cyanobacteria virus duration days	Dissolved inorganic carbon	0.7054110595426593	0.005495626701974121	True
+Cyanobacteria virus duration days	Total inorganic carbon	0.7192426489454565	0.004166693985824921	True
+Cyanobacteria virus duration days	Dissolved organic carbon	0.4823115084662623	0.08106870462584559	False
+Cyanobacteria virus duration days	Total organic carbon	0.5154980801497208	0.05861059187029394	False
+Cyanobacteria virus duration days	Nitrate plus nitrite	0.11062190561152806	0.712575731928879	False
+Cyanobacteria virus duration days	Ammonium	0.5331975850475652	0.04860128865071145	True
+Cyanobacteria virus duration days	Total phosphorus	0.2876169545899729	0.3262923352343985	False
+Cyanobacteria virus duration days	Soluble reactive phosphorus	0.2533339588500534	0.390388149383321	False
+Cyanobacteria duration days	Temperature	0.7306914481821845	0.002034460203914845	True
+Cyanobacteria duration days	Dissolved oxygen	0.33775163616880427	0.24362752857947734	False
+Cyanobacteria duration days	Secchi depth	0.7130312319119201	0.0030483697374548147	True
+Cyanobacteria duration days	Chlorophyll a	0.2758644307162943	0.37048889592333767	False
+Cyanobacteria duration days	Chloride	0.22296023041208649	0.45198621723767296	False
+Cyanobacteria duration days	Sulfate	0.03311290550674552	0.9125178293092289	False
+Cyanobacteria duration days	Calcium	0.40397744718229534	0.15536942402942167	False
+Cyanobacteria duration days	Magnesium	0.47682583929713546	0.08527071642136819	False
+Cyanobacteria duration days	Sodium	0.31492193346260305	0.30258669983979014	False
+Cyanobacteria duration days	Potassium	0.2053000141418222	0.4897422579745554	False
+Cyanobacteria duration days	Iron	0.07986401614419587	0.7906672158780159	False
+Cyanobacteria duration days	Manganese	0.02457354342898335	0.935030301363363	False
+Cyanobacteria duration days	pH	0.4326752986214748	0.12448789135271632	False
+Cyanobacteria duration days	Dissolved inorganic carbon	0.6979370097122246	0.00633555634622307	True
+Cyanobacteria duration days	Total inorganic carbon	0.7586271844698093	0.0016891527195057598	True
+Cyanobacteria duration days	Dissolved organic carbon	0.5585043395471078	0.03646964553747423	True
+Cyanobacteria duration days	Total organic carbon	0.5849946639525042	0.026268905085055305	True
+Cyanobacteria duration days	Nitrate plus nitrite	0.1214139868580669	0.6857119863096002	False
+Cyanobacteria duration days	Ammonium	0.5209763799727961	0.055372191913046986	False
+Cyanobacteria duration days	Total phosphorus	0.2759408792228793	0.3474517399327888	False
+Cyanobacteria duration days	Soluble reactive phosphorus	0.2328159645232816	0.4315239522408958	False
+Phytoplankton-Total biomass concentration	Temperature	0.23956043956043957	0.41778093316703657	False
+Phytoplankton-Total biomass concentration	Dissolved oxygen	0.3142857142857143	0.28064237369071865	False
+Phytoplankton-Total biomass concentration	Secchi depth	-0.1252747252747253	0.6761785468906714	False
+Phytoplankton-Total biomass concentration	Chlorophyll a	0.3681318681318681	0.22191092407385105	False
+Phytoplankton-Total biomass concentration	Chloride	0.11208791208791209	0.7089086132415123	False
+Phytoplankton-Total biomass concentration	Sulfate	0.3142857142857143	0.28064237369071865	False
+Phytoplankton-Total biomass concentration	Calcium	0.1912087912087912	0.5208274264918418	False
+Phytoplankton-Total biomass concentration	Magnesium	0.02857142857142857	0.9244844051361811	False
+Phytoplankton-Total biomass concentration	Sodium	0.2747252747252747	0.3725750729797126	False
+Phytoplankton-Total biomass concentration	Potassium	-0.05054945054945055	0.8667433139726168	False
+Phytoplankton-Total biomass concentration	Iron	-0.07033770704607463	0.8152414556001473	False
+Phytoplankton-Total biomass concentration	Manganese	-0.033639772935079165	0.9111305659283511	False
+Phytoplankton-Total biomass concentration	pH	0.4241758241758242	0.13318016537049027	False
+Phytoplankton-Total biomass concentration	Dissolved inorganic carbon	0.19230769230769232	0.5380279362315727	False
+Phytoplankton-Total biomass concentration	Total inorganic carbon	0.1868131868131868	0.5499900441837353	False
+Phytoplankton-Total biomass concentration	Dissolved organic carbon	-0.04615384615384615	0.8782533154624499	False
+Phytoplankton-Total biomass concentration	Total organic carbon	-0.032967032967032975	0.9129019563547709	False
+Phytoplankton-Total biomass concentration	Nitrate plus nitrite	-0.12967032967032965	0.6653759541355331	False
+Phytoplankton-Total biomass concentration	Ammonium	0.45494505494505494	0.10348414842166331	False
+Phytoplankton-Total biomass concentration	Total phosphorus	0.6923076923076923	0.004698561009804925	True
+Phytoplankton-Total biomass concentration	Soluble reactive phosphorus	0.39073228497959717	0.17110821977979684	False
+Zooplankton density	Temperature	0.6	0.021510100289286793	True
+Zooplankton density	Dissolved oxygen	0.14725274725274726	0.6227485517409632	False
+Zooplankton density	Secchi depth	0.42857142857142855	0.12863762413165536	False
+Zooplankton density	Chlorophyll a	-0.4450549450549451	0.13022813982700532	False
+Zooplankton density	Chloride	0.3010989010989011	0.30274394246716474	False
+Zooplankton density	Sulfate	0.3230769230769231	0.2664260045563376	False
+Zooplankton density	Calcium	0.3274725274725274	0.25947437512306903	False
+Zooplankton density	Magnesium	0.4593406593406593	0.09963570179271053	False
+Zooplankton density	Sodium	0.19230769230769232	0.5380279362315727	False
+Zooplankton density	Potassium	-0.01098901098901099	0.9709252260816468	False
+Zooplankton density	Iron	-0.14373357526806552	0.6312028739586135	False
+Zooplankton density	Manganese	-0.1987804764345587	0.5040214760573309	False
+Zooplankton density	pH	0.2967032967032967	0.31031653091811773	False
+Zooplankton density	Dissolved inorganic carbon	0.3516483516483516	0.24540661462567037	False
+Zooplankton density	Total inorganic carbon	0.32967032967032966	0.2788313446817443	False
+Zooplankton density	Dissolved organic carbon	-0.059340659340659345	0.8437945127671473	False
+Zooplankton density	Total organic carbon	-0.03736263736263736	0.9013346265359652	False
+Zooplankton density	Nitrate plus nitrite	-0.006593406593406593	0.9825531132421035	False
+Zooplankton density	Ammonium	0.1956043956043956	0.5110423015601455	False
+Zooplankton density	Total phosphorus	0.1032967032967033	0.7309795576853952	False
+Zooplankton density	Soluble reactive phosphorus	0.13907420312833116	0.6424573478764823	False

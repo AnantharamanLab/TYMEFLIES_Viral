@@ -115,29 +115,7 @@ Note that we only included AMGs with distribution >= 5. In this script, we calcu
 
 [script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step10.get_AMG_cov_ratio_variation_in_season_and_year_season.pl
 
-**14 Map all metagenomic reads from each year to the collection of species representatives and AMG counterpart genes and flankings**
-
-Map all metagenomic reads from each year to the collection of the representative genomes from individual species and AMG counterpart genes and flankings. 
-
-[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step14.map_metagenomic_reads_from_each_year_to_the_collection_of_species_representatives.pl
-
-**15 Filter bam files using only the collection of viral species representative genomes containing AMGs as the reference**
-
-All the "*.viral_species_rep.id90.bam" files from the Step 14 were placed into a new folder. Filter bam files by scaffold names of viral species representative genomes containing AMGs. 
-
-A custom Python 3 script "filter_bam_by_reference.py" was used to filter bam. Note that this script should be run under conda env "python_scripts_env_Jan2022.yml". Both the script and yml file were provided here.
-
-[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step15.filter_bam_files.for_each_year.pl
-
-**16 Run MetaPop for bam files from each year**
-
-The settings were the same as those listed in Step 6. The mapping reference is "All_phage_species_rep_gn_containing_AMG.fasta".
-
-[script] 
-
-08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step16.run_metapop.for_each_year.pl
-
-**17 Calculate the AMG containing viral genome statistics**
+**11 Calculate the AMG containing viral genome statistics**
 
 This script is written to calculate the following statistics of AMG containing viral genomes:
 
@@ -167,36 +145,36 @@ This script is written to calculate the following statistics of AMG containing v
 ```
 [script]
 
-08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step17.AMG_containing_gn_stat.py
+08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step11.AMG_containing_gn_stat.py
 
-**18 Visualize the virus completeness to specific AMG-containing species members AMG containing percentage**
+**12 Visualize the virus completeness to specific AMG-containing species members AMG containing percentage**
 
 For each AMG, we plotted two bars representing two genome completeness ranges: 75-100% and 50-75%. Each bar represents the percentage of AMG containing percentage of the species members that fall into the corresponding genome completeness range.
 
 [script]
 
-08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step18.AMG_containing_gn_stat.visualize.R
+08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step12.AMG_containing_gn_stat.visualize.R
 
-**19 Parse to get other viral genome (no-AMG containing viral genome) abundance**
+**13 Parse to get other viral genome (no-AMG containing viral genome) abundance**
 
 Parse to get other viral genome abundance (viruses that do not contain any AMGs)
 Screen viral genome with the following two criteria:
 (1) Screen viral genome with its any scaffold with < 0.01 coverage 
 (2) Process the viral genome presence with both coverage (>= 0.33) and breadth (>= 50%)
 
-[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step19.parse_to_get_other_viral_gn_abundance.py
+[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step13.parse_to_get_other_viral_gn_abundance.py
 
-**20 Make the composition pattern table based on viral genome abundance at the family level**
+**14 Make the composition pattern table based on viral genome abundance at the family level**
 
 The composition pattern table comprised of the abundances of viral family across all the samples. The sample to season information was also included.
 
-[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step20.make_composition_pattern_table.py
+[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step14.make_composition_pattern_table.py
 
-**21 Visualize the composition pattern**
+**15 Visualize the composition pattern**
 
 Visualize the composition pattern of viral community at the family level across six seasons by NMDS plots and conduct ANOSIM tests for all six seasons. At the same time, visualize the composition pattern of viral community of the seasons of (1) "Fall", "Ice-on", and "Spring", (2) "Spring", "Clearwater", and "Early Summer", (3) "Early Summer", "Late Summer", and "Fall", separately; and conduct ANOSIM tests accordingly.
 
-[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step21.visualize_composition_pattern.R
+[script] 08.Time_series_analysis.part1.AMG_ratio_and_viral_gn_analysis.step15.visualize_composition_pattern.R
 
 
 

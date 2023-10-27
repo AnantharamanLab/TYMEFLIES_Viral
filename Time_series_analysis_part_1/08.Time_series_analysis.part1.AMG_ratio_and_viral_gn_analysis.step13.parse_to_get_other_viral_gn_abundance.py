@@ -18,7 +18,7 @@ except Exception as e:
 # Aim: Parse to get other viral gn abundance (viruses that do not contain any AMGs)
 # Screen viral gn with the following two criteria:
 # (1) Screen viral gn with its any scaffold with < 0.01 coverage 
-# (2) Process the viral gn presence with both coverage (>= 0.33) and breadth (>= 50%)
+# (2) Process the viral gn presence with both coverage (>= 0.33) and breadth (>= 50%), 
 
 
 def store_seq(input_seq_file): # The input sequence file should be a file with full path

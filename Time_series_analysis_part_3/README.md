@@ -84,7 +84,27 @@ The following requirements are used to obtain the selected genes located on the 
 
 08.Time_series_analysis.part3.microdiversity_analysis.step7.2.parse_Fst_result_for_2000-2003_and_2016-2019.py
 
+**8 Map all metagenomic reads from each year to the collection of species representatives and AMG counterpart genes and flankings**
 
+Map all metagenomic reads from each year to the collection of the representative genomes from individual species and AMG counterpart genes and flankings. 
+
+[script] 08.Time_series_analysis.part3.microdiversity_analysis.step8.map_metagenomic_reads_from_each_year_to_the_collection_of_species_representatives.pl
+
+**9 Filter bam files using only the collection of viral species representative genomes containing AMGs as the reference**
+
+All the "*.viral_species_rep.id90.bam" files from the Step 8 were placed into a new folder. Filter bam files by scaffold names of viral species representative genomes containing AMGs. 
+
+A custom Python 3 script "filter_bam_by_reference.py" was used to filter bam. Note that this script should be run under conda env "python_scripts_env_Jan2022.yml". Both the script and yml file were provided here.
+
+[script] 08.Time_series_analysis.part3.microdiversity_analysis.step9.filter_bam_files.for_each_year.pl
+
+**10 Run MetaPop for bam files from each year**
+
+The settings were the same as those listed in Step 6 of "Time-series analysis - Part 1 AMG ratio and viral genome coverage analysis". The mapping reference is "All_phage_species_rep_gn_containing_AMG.fasta".
+
+[script] 
+
+08.Time_series_analysis.part3.microdiversity_analysis.step10.run_metapop.for_each_year.pl
 
 
 
