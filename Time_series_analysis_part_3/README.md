@@ -114,77 +114,66 @@ The settings were the same as those listed in Step 6 of "Time-series analysis - 
 
 
 
-**9 Get the viral species (four AMG containing viral species) pN/pS results for each year**
+**11 Get the viral species (four AMG containing viral species) pN/pS results for each year**
 
 Parse the "global_gene_microdiversity.tsv" file from MetaPop result (for each year) folder (10.Microdiversity) to get pN/pS results for both all AMG-containing viral species and those four important AMG-containing viral species.
 
 [script] 
 
-08.Time_series_analysis.part3.microdiversity_analysis.step9.get_viral_gn_pNpS_results.for_each_year.pl
+08.Time_series_analysis.part3.microdiversity_analysis.step11.get_viral_gn_pNpS_results.for_each_year.pl
 
-**10 Get the viral species (species rep gn) SNP allele frequencies for each year**
+**12 Get the viral species (species rep gn) SNP allele frequencies for each year**
 
 The reference allele was the majority allele in the year of 2018.
 
 [script] 
 
-08.Time_series_analysis.part3.microdiversity_analysis.step10.get_viral_gn_SNP_allele_freq.for_each_year.pl
+08.Time_series_analysis.part3.microdiversity_analysis.step12.get_viral_gn_SNP_allele_freq.for_each_year.pl
 
-**11 Parse the viral species (species rep gn) SNP allele frequencies for each year**
+**13 Parse the viral species (species rep gn) SNP allele frequencies for each year**
 
 Get the linear regression patterns and Spearman's rank correlation patterns for each viral genome.
 
 The script "calc_regression.py" was used to get the "reg_slope", "reg_yint", and "reg_rsquared" parameters.
 
-The script "calc_spearman_correlation.py" was used to get the "spearman_corr" and "spearman_pval" parameters.
+The script "calc_spearman_correlation_batch_mode.py" was used to get the "spearman_corr" and "spearman_pval" parameters.
 
 [script] 
 
-08.Time_series_analysis.part3.microdiversity_analysis.step11.parse_viral_gn_SNP_allele_freq_pattern.for_each_year.pl
+08.Time_series_analysis.part3.microdiversity_analysis.step13.parse_viral_gn_SNP_allele_freq_pattern.for_each_year.pl
 
-**12.1 Calculate gene coverage for AMG-containing viral gn (species representatives) for each year**
+**14.1 Calculate gene coverage for AMG-containing viral gn (species representatives) for each year**
 
 The following requirements were used:
 
-(1) Only take sub-region of a given scaffold, cut the start and stop 150 bp regions
+(1) Only take sub-region of a given scaffold, cut the start and stop 150 bp regions of the scaffold
 
 (2) If the gene length is less than 450 bp, we do not use it
 
 [script] 
 
-08.Time_series_analysis.part3.microdiversity_analysis.step12.1.calculate_gene_coverage.for_each_year.pl
+08.Time_series_analysis.part3.microdiversity_analysis.step14.1.calculate_gene_coverage.for_each_year.pl
 
-**12.2 Calculate gene frequency for AMG-containing viral gn (species representatives) for each year**
+**14.2 Calculate gene frequency for AMG-containing viral gn (species representatives) for each year**
+
+Gene frequency was estimated as the coverage of each gene divided by the mean coverage of all other genes in the genome
 
 The following requirements were used:
 
-(1) Gene frequency was estimated as the coverage of each gene divided by the median coverage of all other genes in the genome
-
-(2) The mean coverage of all other genes in the genome should be >= 5
-
-(3) The gene number in a genome with a valid coverage (not "NA" and > 0) should be over 50% of the total gene number
+(1) The gene coverage should not be "NA"
+(2) The mean depth of all other genes should not be 0
+(3) The mean depth of all genes within this genome should be >= 5
+(4) The gene number in a genome with a valid coverage (not "NA" and > 0) should be over 50% of the total gene number
 
 [script] 
 
-08.Time_series_analysis.part3.microdiversity_analysis.step12.2.calculate_gene_frequency.for_each_year.pl
+08.Time_series_analysis.part3.microdiversity_analysis.step14.2.calculate_gene_frequency.for_each_year.pl
 
-**12.3 Get gene gain and loss for AMG-containing viral gn (species representatives) for each year**
+**14.3 Get gene gain and loss for AMG-containing viral gn (species representatives) for each year**
 
-Gene gain or loss was determined by comparing the mean gene frequency of year 2000-2003 and year 2016-2019 (the minimum difference of gene frequency to determine a gene gain or loss is 0.4).
+Gene gain or loss was determined by comparing the mean gene frequency of year 2000-2003 and year 2016-2019 (the minimum difference of gene frequency to determine a gene gain or loss is 1).
 
-[script] 08.Time_series_analysis.part3.microdiversity_analysis.step12.3.calculate_gene_gain_and_loss_result.for_each_year.pl
-
-**13 Get the gene pN/pS results of 2000-2003 and 2016-2019 for viral species genomes**
-
-Get the viral species genomes' gene pNpS results of 2000-2003 and 2016-2019 for comparing them to see if there are genes with elevated pNpS values
-
-[script] 08.Time_series_analysis.part3.microdiversity_analysis.step13.compare_pNpS_results.for_2000-2003_and_2016-2019.pl
-
-**14 Conduct t test for gene pN/pS results of 2000-2003 and 2016-2019 for viral species genomes**
-
-Use the gene pN/pS results parsed from Step 13 to conduct t test to find genes with elevated pNpS values with significance support
-
-[script] 08.Time_series_analysis.part3.microdiversity_analysis.step14.conduct_t_test_for_pNpS_results.for_2000-2003_and_2016-2019.py
+[script] 08.Time_series_analysis.part3.microdiversity_analysis.step14.3.calculate_gene_gain_and_loss_result.for_each_year.pl
 
 
 

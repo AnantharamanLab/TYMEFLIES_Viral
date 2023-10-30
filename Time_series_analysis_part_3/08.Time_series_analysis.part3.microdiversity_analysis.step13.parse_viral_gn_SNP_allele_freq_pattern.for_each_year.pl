@@ -6,7 +6,7 @@ use List::Util qw(sum);
 
 # Aim: Parse the viral species (species rep gn) SNP allele frequencies for each year
 #      Get the linear regression patterns for each viral gn
-#      and the Spearman' rank correlation result for each viral gn
+#      and the Spearman's rank correlation result for each viral gn
 
 # Step 1 Store %All_SNP_pos2year2allele_freq hash
 my %All_SNP_pos2year2allele_freq = (); # $snp_pos => $year => $allele_freq
@@ -105,7 +105,7 @@ foreach my $viral_gn (sort keys %Viral_gn2year2allele_freq_mean){
 }
 close OUTT;
 
-`python3 /storage1/data14/for_chao/calc_regression.py -i MetaPop.for_each_year/MetaPop/batch_input_for_allele_freq_pattern.txt --batch-mode`;
+`python3 calc_regression.py -i MetaPop.for_each_year/MetaPop/batch_input_for_allele_freq_pattern.txt --batch-mode`;
 
 open IN, "find MetaPop.for_each_year/MetaPop/Viral_gn_allele_freq_tmp_dir/ -name '*.allele_freq_output.txt' | ";
 while (<IN>){
@@ -131,7 +131,7 @@ while (<IN>){
 }
 close IN;
 
-## Step 4.2 Get Spearman' rank correlation result
+## Step 4.2 Get Spearman's rank correlation result
 open OUTT, ">MetaPop.for_each_year/MetaPop/batch_input_for_allele_freq_pattern.for_spearman_test.txt";
 my %Viral_gn2spearman_parameters = (); # $viral_gn => $spearman_parameters
 foreach my $viral_gn (sort keys %Viral_gn2year2allele_freq_mean){
@@ -150,7 +150,7 @@ foreach my $viral_gn (sort keys %Viral_gn2year2allele_freq_mean){
 }
 close OUTT;
 
-`python3 /storage1/data14/for_chao/calc_spearman_correlation.py -i MetaPop.for_each_year/MetaPop/batch_input_for_allele_freq_pattern.for_spearman_test.txt --batch-mode`;
+`python3 calc_spearman_correlation_batch_mode.py -i MetaPop.for_each_year/MetaPop/batch_input_for_allele_freq_pattern.for_spearman_test.txt --batch-mode`;
 
 open IN, "find MetaPop.for_each_year/MetaPop/Viral_gn_allele_freq_tmp_dir/ -name '*.allele_freq_output.for_spearman_test.txt' | ";
 while (<IN>){

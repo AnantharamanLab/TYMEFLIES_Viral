@@ -38,7 +38,7 @@ close IN;
 # Step 2 Calculate gene depth
 ## Step 2.1 Store the hash %Viral_gn2viral_scf and hash %Viral_scf2length
 my %All_phage_species_rep_gn_containing_AMG_seq = ();
-%All_phage_species_rep_gn_containing_AMG_seq = _store_seq("reference_fasta_for_metapop/All_phage_species_rep_gn_containing_AMG.fasta");
+%All_phage_species_rep_gn_containing_AMG_seq = _store_seq("All_phage_species_rep_gn_containing_AMG.fasta");
 
 my %Viral_gn2viral_scf = (); # $viral_gn => collection of $viral_scf, separated by "\t"
 my %Viral_scf2length = (); # $viral_scf => $length
@@ -131,7 +131,7 @@ foreach my $gene (sort keys %All_gene_coordinates){
 		my $ratio_genes_with_valid_depth = $num_genes_with_valid_depth / $num_genes; 
 		
 		my $gene_freq = "NA";
-		# We set the following three requirements to gene freq that are not assigned as "NA":
+		# We set the following four requirements to gene freq that are not assigned as "NA":
 		# (1) The gene coverage should not be "NA"
 		# (2) The mean depth of all other genes should not be 0
 		# (3) The mean depth of all genes within this genome should be >= 5

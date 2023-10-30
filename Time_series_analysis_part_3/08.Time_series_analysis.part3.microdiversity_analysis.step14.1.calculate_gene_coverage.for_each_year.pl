@@ -22,7 +22,7 @@ close IN;
 # Step 2 Calculate gene depth
 ## Step 2.1 Store the hash %Viral_gn2viral_scf and hash %Viral_scf2length
 my %All_phage_species_rep_gn_containing_AMG_seq = ();
-%All_phage_species_rep_gn_containing_AMG_seq = _store_seq("reference_fasta_for_metapop/All_phage_species_rep_gn_containing_AMG.fasta");
+%All_phage_species_rep_gn_containing_AMG_seq = _store_seq("All_phage_species_rep_gn_containing_AMG.fasta");
 
 my %Viral_gn2viral_scf = (); # $viral_gn => collection of $viral_scf, separated by "\t"
 my %Viral_scf2length = (); # $viral_scf => $length
@@ -65,7 +65,7 @@ while (<IN>){
 }
 close IN;
 
-open OUT, ">MetaPop.for_each_year/MetaPop/All_phage_species_rep_gn_gene_coordinates.txt";
+open OUT, ">MetaPop.for_each_year/MetaPop/All_phage_species_rep_gn_containing_AMG_coordinates.txt";
 print OUT "gene\tscaffold\tscaffold length\tstart\tstop\tgene size\n";
 foreach my $gene (sort keys %All_gene_coordinates){
 	print OUT "$All_gene_coordinates{$gene}\n";
@@ -89,7 +89,7 @@ foreach my $viral_scf (sort keys %Viral_scf2length){
 ### Process each *depth_per_pos.tsv to get viral gene 2 year 2 depth file
 `mkdir MetaPop.for_each_year/MetaPop/04.Depth_per_Pos/Gene_coverage_for_each_year`;
 
-open IN, "ls MetaPop.for_each_year/MetaPop/04.Depth_per_Pos/*.tsv |";
+open IN, "ls /storage2/scratch/zzhou388/run_metapop/MetaPop.for_each_year/MetaPop/04.Depth_per_Pos/*.tsv |";
 while (<IN>){
 	chomp;
 	my $file = $_;
