@@ -37,8 +37,7 @@ close IN;
 
 # Step 2 Calculate gene depth
 ## Step 2.1 Store the hash %Viral_gn2viral_scf and hash %Viral_scf2length
-my %All_phage_species_rep_gn_containing_AMG_seq = ();
-%All_phage_species_rep_gn_containing_AMG_seq = _store_seq("All_phage_species_rep_gn_containing_AMG.fasta");
+my %All_phage_species_rep_gn_containing_AMG_seq = _store_seq("All_phage_species_rep_gn_containing_AMG.fasta");
 
 my %Viral_gn2viral_scf = (); # $viral_gn => collection of $viral_scf, separated by "\t"
 my %Viral_scf2length = (); # $viral_scf => $length
