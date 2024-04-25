@@ -92,6 +92,8 @@ This script will use the file ["VIBRANT_KEGG_pathways_summary.tsv"](https://gith
 
 [script] 03.Reconstruct_vMAGs.step5.generate_AMG_summary_table.pl and 03.Reconstruct_vMAGs.step6.filter_AMG_and_add_metagenome_and_KEGG_info_to_AMG_summary_table.py
 
+Note: The AMG summary table were further manually filtered (removing *queC/E/F* from the final AMG list due to that they are for the biosynthesis of queuosine which is against host restriction system). The final AMG number is 143,751.
+
 **7 Get all virus normalized abundance**
 
 First, store all the normalized depths for individual scaffolds from the mapping result of all-scaffolds-mapping. Then, get the mean scaffold normalized depth for all scaffolds within a viral genome.

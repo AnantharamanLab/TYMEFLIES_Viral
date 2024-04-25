@@ -307,7 +307,7 @@ open OUT, ">AMG_analysis/KO2month_ko_details.txt";
 foreach my $ko (sort keys %KO2month2abun){
 	my $ko_details = $KOs{$ko};
 	$ko_details =~ s/^'(.*)'$/$1/;
-	$ko_details =~ s/'/(prime)/g
+	$ko_details =~ s/'/(prime)/g;
 	print OUT "$ko\t$ko_details\n";
 }
 close OUT;

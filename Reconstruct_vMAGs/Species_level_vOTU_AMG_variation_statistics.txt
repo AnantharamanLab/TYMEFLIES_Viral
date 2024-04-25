@@ -1,26 +1,26 @@
-The total number of vOTU and ko combinations (for vOTUs with any AMG KO hits(s)): 44766
-1st quartile	0.293079569315999
-2nd quartile	0.0817138006522807
-3rd quartile	0.490193450386454
-4th quartile	0.135013179645266
-The total number of vOTU and ko combinations (for vOTUs with any AMG KO hits(s)) of the 1st quartile size species-level vOTUs: 10903
+The total number of vOTU and ko combinations (for vOTUs with any AMG KO hits(s)): 42722
+1st quartile	0.292238191095922
+2nd quartile	0.0821356678058143
+3rd quartile	0.49005196385937
+4th quartile	0.135574177238893
+The total number of vOTU and ko combinations (for vOTUs with any AMG KO hits(s)) of the 1st quartile size species-level vOTUs: 10543
 The size range of 1st quartile size species-level vOTUs: 2-2
-1st quartile	0.353480693387141
-3rd quartile	0.646519306612859
-The total number of vOTU and ko combinations (for vOTUs with any AMG KO hits(s)) of the 2nd quartile size species-level vOTUs: 11030
+1st quartile	0.349426159537134
+3rd quartile	0.650573840462866
+The total number of vOTU and ko combinations (for vOTUs with any AMG KO hits(s)) of the 2nd quartile size species-level vOTUs: 10402
 The size range of 2nd quartile size species-level vOTUs: 2-3
-1st quartile	0.348232094288305
-2nd quartile	0.0102447869446963
-3rd quartile	0.641523118766999
-The total number of vOTU and ko combinations (for vOTUs with any AMG KO hits(s)) of the 3rd quartile size species-level vOTUs: 11235
+1st quartile	0.352239953855028
+2nd quartile	0.0110555662372621
+3rd quartile	0.63670447990771
+The total number of vOTU and ko combinations (for vOTUs with any AMG KO hits(s)) of the 3rd quartile size species-level vOTUs: 10722
 The size range of 3rd quartile size species-level vOTUs: 3-4
-1st quartile	0.238896306186026
-2nd quartile	0.200979083222074
-3rd quartile	0.519181130396084
-4th quartile	0.0409434801958166
-The total number of vOTU and ko combinations (for vOTUs with any AMG KO hits(s)) of the 4th quartile size species-level vOTUs: 11598
+1st quartile	0.236616302928558
+2nd quartile	0.201268420070882
+3rd quartile	0.517907106883044
+4th quartile	0.0442081701175154
+The total number of vOTU and ko combinations (for vOTUs with any AMG KO hits(s)) of the 4th quartile size species-level vOTUs: 11055
 The size range of 4th quartile size species-level vOTUs: 4-110
-1st quartile	0.236333850663908
-2nd quartile	0.110967408173823
-3rd quartile	0.171236420072426
-4th quartile	0.481462321089843
+1st quartile	0.235187697874265
+2nd quartile	0.111804613297151
+3rd quartile	0.171958389868838
+4th quartile	0.481049298959747
